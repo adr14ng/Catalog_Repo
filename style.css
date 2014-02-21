@@ -1,0 +1,1268 @@
+/**
+  Theme Name: Catalog Theme
+  Version: 1
+  Description: A theme created for CSUN Catalog
+*/
+
+
+/* Extra-Small Media Size ======================================================================================================*/
+
+/* 1 - Overall Rules */
+
+html,
+body {
+  font-family: museo-sans, helvetica, arial, sans-serif;
+  height: 100%;
+  background-image: url('img/noisy_grid.png');
+}
+
+a {
+  color: blue;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: museo-sans, helvetica, arial, sans-serif;
+  color: #990000;
+}
+h1{
+  font-size: 30px;
+}
+h3 {
+  font-size: 18px;
+}
+
+p {
+  color: #4c4c4c;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+a:hover{
+  color: #ffffff;
+  text-decoration: none;
+}
+.nav > li > a {
+  color: #ffffff;
+}
+
+#fixbar{
+  position: fixed;
+  width: 100%;
+  height: 68px;
+  background-color: #990000;
+  display: block;
+  z-index: 200;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -120px;
+  padding: 0px 0px 120px 0px;
+  background-color: #ffffff;
+  border: solid 1px #949494;
+  -webkit-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.32);
+  -moz-box-shadow:    0px 3px 19px 0px rgba(50, 50, 50, 0.32);
+  box-shadow:         0px 3px 19px 0px rgba(50, 50, 50, 0.32);
+}
+
+#logo{
+  margin-top: 10px;
+  width: 175px;
+}
+
+#neglogo {
+  width: 50%;
+  height: 38px;
+  margin-top: 14px;
+  display: inline-block;
+  float: left;
+}
+
+#neglogo > img{
+  position: relative;
+  max-height: 38px;
+  min-width: 115px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.iconblock{
+    position: relative;
+    height: 38px;
+    margin-top: 20px;
+    width: 25%;
+    min-width: 58px;
+    display: inline-block;
+    background-color: none;
+    float: left;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+#headerbar{
+  display: none;
+  position: relative;
+  height: 100%;
+  background-color: none;
+}
+
+/* 2 - Nav Rules */
+
+#mininav {
+  padding-left: 20px;
+  padding-right: 20px;
+  min-width: 280px;
+  display: block;
+
+}
+
+#menuicon, #searchicon {
+  cursor: pointer;
+
+}
+
+#csunnav {
+  width: 100%;
+  background-color: #181818;
+  z-index: 20;
+}
+
+
+/* 3 - Quicklinks Rules */
+
+#quicklinks-lg{
+  display: none;
+}
+
+#quicklinks{
+  margin-top: 10px;
+  width: 100%;
+}
+
+#quicklinks>ul>li {
+  display: inline-block;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #181818;
+
+}
+
+#quicklinks>ul>li:last-child{
+  padding-right: 0px;
+  border: 0;
+}
+
+#quicklinks>ul>li>a {
+
+  color: #990000;
+
+
+}
+#quicklinks>ul>li>a:hover {
+  background-color: transparent;
+}
+/* 4 - Search Bar Rules */
+
+  .navbar-form {
+    margin-top: 0px;
+  }
+
+  .navbar-form > label {
+    display: none;
+    line-height: 38px;
+    color: #1e1e1e;
+  }
+
+
+
+  #csunsearch {
+    background-color: #adadad;
+    padding: 2px;
+    width: 80%;
+    float: right;
+  }
+
+  #csunsearch .form-control {
+
+      border-radius: 0px !important;
+      border-color: #ffffff;
+  }
+
+  #csunsearch .input-group-btn .btn {
+      border-radius: 0px !important;
+      background-color: #990000;
+      color: #ffffff;
+      border-color: #444444;
+  }
+
+  #csunsearch .input-group-btn .btn:hover {
+      background-color: #710100;
+
+  }
+  #csunsearch .input-group-btn .btn > .arrow-left {
+    margin-bottom:-20px;
+    margin-left: -20px;
+    background-color: ;
+  }
+
+/* 5 - Banner Rules */
+
+.mainbanner {
+  display: block;
+  margin-top: 66px;
+}
+
+.mainbanner > img {
+  max-width: 100%;
+  padding: 0;
+}
+
+.content{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+/* 6 - Footer Rules */
+#footer {
+  padding: 0;
+/*  border: solid 1px #949494;*/
+  border-top: 0;
+  /*border-top: solid 5px #990000;*/
+ /* -webkit-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.32);
+  -moz-box-shadow:    0px 3px 19px 0px rgba(50, 50, 50, 0.32);
+  box-shadow:         0px 3px 19px 0px rgba(50, 50, 50, 0.32);*/
+}
+
+#outside-footer {
+  /*background-image: url('img/noisy_grid_dark.png');*/
+  border-top: solid 2px #990000;
+  background-color: #ffffff;
+}
+
+#footer .content {
+  background-color: #ffffff;
+  border-bottom: 1px solid #3b3b3b;
+
+}
+
+#footer > .row {
+  padding: 0 15px 0 15px;
+}
+
+.footbox {
+  display: block;
+  color: #1e1e1e;
+  line-height: 30px;
+  border-right: solid 1px #d0d0d0;
+  min-height: 100px;
+}
+
+
+.footpad {
+  padding: 20px 0 30px 0;
+}
+
+.noborder {
+  border: 0;
+}
+
+.linksrow{
+  background-image: url('img/noisy_grid_light.png');
+  border-top: solid 1px #949494;
+}
+
+.footerlinks {
+  padding: 30px 35px 30px 35px;
+  
+  
+  text-align: center;
+  vertical-align: middle;
+  line-height: 38px;
+}
+
+.footerlinks > a {
+   color: blue; 
+   padding: 0 10px 0 10px;
+   border-left: 1px solid blue;
+}
+
+.footerlinks > a:hover {
+   text-decoration: underline;
+}
+
+.footerlinks > a:first-child {
+   border-left: 0;
+}
+
+.footbox > a {
+  text-align: center;
+  display: block;
+}
+
+.footbox > p {
+  display: block;
+  min-height: 50px;
+  text-align: center;
+
+}
+
+.footbox > span {
+  text-align: center;
+  display: block;
+}
+
+.btnbox{
+  width: 100%;
+  margin: auto;
+}
+
+.redbtn{
+  width: 135px;
+  height: 40px;
+  display: block;
+  background-color: #990000;
+  margin: auto;
+  border: 1px solid #3b3b3b;
+  padding: 4px;
+}
+
+.redbtn:hover {
+  background-color: #710100;
+}
+
+.redbtn > a {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+#lastrow {
+  background-color: #1e1e1e;
+  height: 20px;
+}
+
+/* 7 - Inner Page*/
+
+.page-title{
+  color: #990000;
+  padding: 25px 0 5px 0;
+}
+
+.prog-title{
+  color: #990000;
+  padding: 0px 0 5px 0;
+  margin-top: 5px;
+}
+
+.dept-title-small {
+  display: block;
+  color: #2d2d2d;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 18px;
+  text-transform: uppercase;
+}
+
+.dept-title-small:hover {
+  color: #1e1e1e;
+}
+
+.subnav-arrow {
+  display: block;
+  position: relative;
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;  
+  border-top: 15px solid #990000;
+  margin:auto;
+}
+
+#catalog-subnav{
+  margin-bottom: 20px;
+  z-index: 50;
+}
+
+#catalog-subnav ul{
+  padding-left: 0;
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+
+#catalog-subnav ul li {
+  display: block;
+  float: left;
+  width: 25%;
+  padding-left: 5px;
+  padding-right: 5px;
+
+}
+
+#catalog-subnav ul li.active:hover .subnav-arrow{
+  border-top: 15px solid #710100;
+}
+
+#catalog-subnav ul li.active a {
+  color: #ffffff;
+  background-color: #990000;
+  border: solid 1px #990000;
+
+}
+
+#catalog-subnav ul li.active:hover {
+}
+
+#catalog-subnav ul li.active:hover a {
+  background-color: #710100;
+}
+
+
+#catalog-subnav ul li:hover a {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+#catalog-subnav ul li a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 16px; 
+  color: #000;
+  padding: 10px 0px 10px 0px;
+  background-color: #c7c7c7;
+  border: solid 1px #949494;
+}
+
+#catalog-subnav ul li ul {
+  position: absolute;
+  z-index: 150;
+  top: 149px;
+  display: none;
+  background-color: #1e1e1e;
+  width: 25%;
+  max-width: 50%;
+  padding-bottom: 5px;
+}
+
+#catalog-subnav ul li.active ul {
+  background-color: #710100;
+
+}
+
+#catalog-subnav ul li.active ul li:hover{
+  background-color: #1e1e1e;
+}
+
+#catalog-subnav ul li.active ul li a{
+  border: 0;
+}
+
+#catalog-subnav ul li.active ul li a:hover{
+  background-color: #1e1e1e;
+}
+
+#catalog-subnav ul li ul li {
+  display: block;
+  width: 100%;
+  margin: 0;   
+}
+
+#catalog-subnav ul li ul li a {
+  color: #ffffff;
+ display: block;
+ font-size: 12px;
+ border: 0;
+ border-bottom: solid 1px #1e1e1e; 
+}
+
+#catalog-subnav ul li ul li:last-child a{
+ border-bottom: 0; 
+}
+
+
+#catalog-subnav ul li ul li:hover a{
+  background-color: #990000;
+}
+
+#catalog-subnav ul li:hover ul {
+  display: block; 
+}
+
+.dept-container{
+  margin-bottom: 40px;
+}
+
+.dept-item {
+  height: 40px;
+  border: solid 1px #cacaca;
+  overflow: hidden;
+}
+
+.dept-item:hover {
+  background-color: #1e1e1e;
+  /*border: solid 1px #ffffff;*/
+  border: 0;
+}
+
+.dept-item:hover > a {
+  color: #ffffff;
+}
+
+.dept-item > a {
+  display: block;
+  padding: 2px 5px 2px 10px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  line-height: 38px;
+  font-size: 12px;
+  color: #727272;
+}
+
+.landing-box {
+  padding: 10px;
+  margin-bottom: 16px;
+  background-image: url('img/noisy_grid_light.png');
+  border: solid 1px #949494;
+  border-bottom: solid 1px #acacac;  
+}
+.landing-item {
+  padding: 0px 2px 0px 2px;
+}
+.land-bg{
+  max-width: 100%;
+}
+.land-head{
+  color: #1e1e1e;
+  font-family: museo, helvetica, arial, sans-serif;
+}
+
+.landing-over {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+.landing-over > img {
+  display: block;
+  max-width: 45%;
+  margin: auto;
+}
+
+.landing-over > h4 {
+  text-align: center;
+}
+
+.landing-over > span {
+  color: #727272;
+  display: block;
+  text-align: center;
+}
+
+.section-content {
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.section-title {
+  display: block;
+  width: 100%;
+  padding-bottom: 6px;
+  border-bottom: solid 4px #cecfd1;
+  margin-bottom: 10px;
+}
+
+.section-title h2 {
+  font-size: 18px;
+  display: inline;
+  color: #990000;
+}
+
+.section-title span {
+  display: inline;
+  padding-bottom: 8px;
+  min-width: 10%;
+  max-width: 90%;
+  height: 100%;
+  border-bottom: solid 4px #990000
+
+}
+
+.section-breadcrumb {
+ background-color: #1e1e1e;
+ min-height: 10px;
+}
+
+#breadcrumbs{
+  position: relative;
+  list-style:none;
+  margin: 8px 0 8px 0;
+  overflow:hidden;
+}
+ 
+#breadcrumbs li{
+  font-size: 14px;
+  float:left;
+  margin-right:15px;
+  color:#ffffff;
+}
+
+#breadcrumbs li a{
+    color: #ffffff;
+}
+
+#breadcrumbs li a:hover{
+    text-decoration: underline;
+}
+ 
+#breadcrumbs .separator{
+    font-weight:700;
+    font-size:14px;
+    color:#ffffff;
+}
+
+.page-title-section {
+  background-image: url('img/noisy_grid_light.png');;
+  margin: 0;
+  margin-bottom: 35px;
+  border-bottom: solid 1px #949494;
+  height: 150px;
+}
+
+.redbtn{
+  color: #ffffff;
+}
+
+
+@media (max-width: 767px) { /*Rules that apply only to xs size*/
+  #csunnav {
+  position: absolute;
+  top: 68px;
+  width: 100%;
+  background-color: #181818;
+  z-index: 20;
+}
+
+.nav > li > a:hover {
+  background-color: #2e2e2e;
+}
+
+#csunsearch {
+  position: absolute;
+  top: 68px;
+  width: 100%;
+  height: 50px;
+  background-color: #181818;
+  z-index: 20;    
+  }
+
+  #wrap{
+    border: 0;
+  }
+
+.hideme {
+  display: none;
+}
+
+.showme {
+  display: block;
+}
+
+/* 7 - Inner Page*/
+
+#catalog-subnav ul li {
+  padding: 0;
+}
+
+#catalog-subnav ul li a {
+  font-size: 12px;
+}
+
+.land-bg {
+  display: none;
+}
+
+.landing-item {
+  display: block;
+  width: 100%;
+  border-bottom: solid 1px #cacaca;
+}
+
+.landing-item:last-child {
+  border: 0;
+}
+
+.landing-over {
+  position: relative;
+  padding: 5px 15px 5px 15px;
+}
+
+.landing-over .land-bg {
+  max-width: 20%;
+  margin: 0;
+  display: block;
+  float: left;
+}
+
+.landing-over > h4 {
+  display: block;
+  width: 80%;
+  float: left;
+  font-size: 14px;
+  text-align: left;
+  height: 100%;
+  font-weight: 700;
+  padding-top: 10px;
+}
+
+
+.landing-over > span {
+  display: none;
+}
+
+#catalog-subnav ul li a{
+  border-left: 1px solid #848484;
+}
+
+.section-content {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#breadcrumbs {
+  display: none;
+}
+
+.dept-container{
+  padding: 0;
+}
+
+
+.footbox {
+  padding: 0 20px 0 20px;
+}
+
+}
+
+
+
+
+/*== END XS =======================*/
+
+/*SMALL MEDIA SIZE =================================================================================================================*/
+
+@media (min-width: 768px) { 
+
+/* 1 - Overall*/
+
+  #headerbar{
+    display: block;
+    height: 100px;
+  }
+
+
+  #fixbar{
+    background-color: #ffffff;
+    height: 130px;
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(50, 50, 50, 0.14);
+    -moz-box-shadow:    0px 6px 5px 0px rgba(50, 50, 50, 0.14);
+    box-shadow:         0px 6px 5px 0px rgba(50, 50, 50, 0.14);
+  }
+
+  .iconblock{
+    display: none;
+  }
+
+/* 2 - nav */
+
+  #mininav{
+    display: none;
+  }
+
+  #csunnav {
+    display: block;
+    height: 30px;
+    width: 100%;
+    background-color: #990000;
+    /*border: solid 1px #710100;*/
+    padding: 0;
+  }
+
+
+  #csunnav > .container{
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #990000;
+  }
+
+  .nav {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*margin: auto;*/
+    float: none;
+    text-align: center;
+    
+  }
+
+  .nav li { 
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+  }
+
+  .nav li:hover { 
+    background-color: #1e1e1e; 
+  }
+
+  .nav > li > a {
+    display: block;
+    height: 100%;
+    line-height: 30px;
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 0px 24px 0px 24px;
+    border-right: 1px solid #ffffff;
+    margin: 0;
+  }
+
+  .nav  li:last-child > a {
+    border: 0;
+ 
+  }
+
+  .nav > li > a:hover {
+    background-color: #1e1e1e;
+  }
+
+
+
+/* 3 - Quicklinks Rules  */
+
+#quicklinks {
+  font-size: 12px;
+}
+
+/* 4 - Search Bar Rules  */
+  #csunsearch {
+    padding: 2px;
+    width: 70%;
+    float: right;
+  }
+ 
+
+/*5 - Banner Rules*/
+
+  .mainbanner {
+    margin-top: 128px;
+    padding: 0px 15px 0px 15px;
+  }
+
+/*6 - Footer Rules*/
+
+  .footbox {
+    text-align: center;
+  }
+
+  .redbtn {
+    color: #ffffff;
+    margin: 0;
+    margin: auto;
+  }
+
+/*  .footbox > a {
+    text-align: left;
+  }
+
+  .footbox > span {
+    text-align: left;
+  }*/
+
+/* 7 - Inner Page Rules */
+
+.landing-over > img {
+  max-width: 65%;
+}
+
+.landing-over > h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.landing-over > span {
+  display: none;
+}
+
+#catalog-subnav{
+  margin-top: 13px;
+  z-index: 100;
+}
+
+} /*== END SM =======================*/
+
+/*medium media size ===================================================================================================================*/
+
+@media (min-width: 992px) {
+
+/* 1 - Overall Rules */ 
+
+  #headerbar{
+    display: block;
+    height: 100px;
+  }
+
+
+
+  #fixbar{
+    background-color: #ffffff;
+    height: 130px;
+  }
+
+
+  .iconblock{
+    display: none;
+  }
+
+  .mainbanner {
+    margin-top: 145px;
+  }
+
+/* 2 - Nav Rules*/
+
+  #mininav{
+    display: none;
+  }
+
+  #csunnav {
+    display: block;
+    height: 30px;
+  }
+
+  .nav {
+    width: 100%;
+    display: block;
+    float: none;
+    text-align: center;
+    
+  }
+
+  .nav > li > a {
+    font-size: 16px;
+    line-height: 28px;
+    padding: 0px 35px 0px 35px;
+  }
+
+   #logo{
+  margin-top: 20px;
+  }
+/* 3 - Quicklinks Rules  */
+
+#quicklinks {
+  font-size: 12px;
+}
+  
+/* 3 - Rules*/
+
+/* 4 - Search Bar Rules*/
+  #csunsearch {
+    padding: 2px;
+    width: 80%;
+    float: right;
+  }
+
+/* 5 - Banner Rules*/
+
+  .mainbanner {
+    margin-top: 128px;
+  }
+
+/* 6 - Footer Rules*/
+
+  .btnbox{
+    width: 100%;
+    margin: auto;
+  }
+
+/* 7 - Inner Page Rules*/
+
+.landing-over > img {
+  max-width: 45%;
+}
+
+.landing-over > h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.landing-over > span {
+  display: block;
+  font-size: 14px;
+}
+
+#catalog-subnav{
+  margin-top: 13px;
+  z-index: 100;
+}
+
+} /*== END MD =======================*/
+
+/* Large Media Size ==================================================================================================================*/
+
+@media (min-width: 1200px){
+
+/* 1 - Overall Rules */
+
+  #headerbar{
+    display: block;
+    height: 100px;
+  }
+
+  #fixbar{
+    background-color: #ffffff;
+    height: 140px;
+  }
+
+  .iconblock{
+    display: none;
+  }
+
+
+  #logo{
+  margin-top: 20px;
+  }
+
+/* 2 - Nav Rules */
+
+  #mininav{
+    display: none;
+  }
+
+  #csunnav {
+    height: 40px;
+  }
+
+  .nav > li {
+    margin:0px;
+    padding:0px;
+    line-height: 38px;
+    font-size: 16px;
+  }
+
+  .nav > li > a {
+    display: block;
+    line-height: 38px;
+    font-size: 16px;
+    padding: 0px 48px 0px 48px;
+  }
+
+  .nav {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+    float: none;
+    text-align: center;   
+  }
+
+
+/* 3 - Quicklinks Rules*/
+
+  #quicklinks{
+    margin-top: 20px;
+    display: none;
+  }
+
+  #quicklinks-lg{
+    display: inline-block;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  #quicklinks-lg>ul>li {
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #181818;
+    font-size: 12px;
+
+  }
+
+  #quicklinks-lg>ul>li:last-child{
+    padding-right: 0px;
+    border: 0;
+  }
+
+  #quicklinks-lg>ul>li>a {
+
+  color: #990000;
+
+
+  }
+
+  #quicklinks-lg>ul>li>a:hover {
+  background-color: transparent;
+  }
+
+/* 4 - Search Bar Rules*/
+  #csunsearch {
+    padding: 2px;
+    width: 80%;
+    float: right;
+  }
+
+/* 5 - Banner Rules*/
+
+  .mainbanner {
+    margin-top: 138px;
+  }
+
+/* 6 - Footer Rules*/
+
+/* 7 - Inner Page Rules*/
+
+.landing-over {
+  padding: 20px 25px 20px 25px;
+}
+
+.landing-over > img {
+  max-width: 45%;
+}
+
+.landing-over > h4 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.landing-over > span {
+  display: block;
+  font-size: 16px;
+}
+
+#catalog-subnav{
+  margin-top: 13px;
+  z-index: 100;
+}
+
+} /*== END LG =======================*/
+
+
+
+
+
+
+/*Miscellaneous Stuff ===================================================================================================================*/
+
+.sm-buffer{
+  display: block;
+  width:100%;
+  height: 40px;
+}
+
+.right{
+  float: right;
+}
+
+.left{
+  float: left;
+}
+
+.red{
+  color: #990000;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.redbtn{
+  color: #ffffff;
+}
+
+/*Triangles*/
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  
+  border-bottom: 5px solid black;
+}
+
+.arrow-down {
+  display: inline-block;
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;  
+  border-top: 8px solid #aaaaaa;
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.arrow-down:hover {
+  border-top: 8px solid #990000;
+  cursor: pointer;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  
+  border-left: 60px solid green;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;  
+  border-right:10px solid blue; 
+}
+
+.lightgray {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.rborder {
+  border-left: solid 1px #e8e8e8;
+}
+
+
+
+/* 
+  Boostrap 3 Media Query Ribbon by GMena
+  Media Query Breakpoints defined here http://http://getbootstrap.com/css/.
+
+*/
+
+@media (min-width: 0px) 
+  { var:after {content: 'x-small'; color:hotpink;}}
+@media (min-width: 768px) 
+  { var:after {content: 'small';color:green;}}
+@media (min-width: 992px) 
+  { var:after {content: 'medium';color:red;}}
+@media (min-width: 1200px) 
+  { var:after {content: 'large';color:blue;}}
+
