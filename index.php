@@ -1,19 +1,17 @@
 <?php get_header(); ?>
 
-
-<div class="container" id="wrap">
-
-<div class="row">
-	<div class="mainbanner">
-		<img src="<?php bloginfo('template_directory'); ?>/img/shatter_small.jpg">
+<div class="row" id="full-banner">
+	<div class="banner-overlay">
+		<div class="container">
+			<h1 class="banner-title"><span class="banner-title-big">CSUN</span></br>UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1>
+		</div>
+		
 	</div>
-
-	<!-- <div class=" container section-breadcrumb clearfix">
-	</div> -->
 </div>
 
-<div class="row">
-	<div class="landing-box container">
+<div id="landing-section">
+	<div class="container">
+	<div class="row">
 		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
 			<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
 			<div class="landing-over clearfix">
@@ -41,8 +39,15 @@
 	</div>
 </div>
 
+
+
+</div>
+
+<div id="main-section">
+<div class="container" id="wrap">
+
 	<div class="content">
-		<h2>Departments List</h2>
+		<span class="section-title"><span><h2>Departments List</h2></span></span>
 	</div>
 
 	<div class="dept-container content">
@@ -82,7 +87,7 @@
 		wp_reset_postdata(); ?>
 
 		
-
+</div>
 
 
 

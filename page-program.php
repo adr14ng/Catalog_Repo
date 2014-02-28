@@ -4,6 +4,8 @@
 
 get_header(); ?>
 
+<h1>Test</h1>
+
 <div class="container" id="wrap">
 
 	<?php if(have_posts()): while (have_posts()) : the_post(); ?>
@@ -15,11 +17,11 @@ get_header(); ?>
 			<img src="<?php bloginfo('template_directory'); ?>/img/shatter_small.jpg">
 		</div>
 
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<div class="section-content">
 				<?php the_breadcrumb(); ?>
 			</div>
-		</div>
+		</div> -->
 
 	</div>
 

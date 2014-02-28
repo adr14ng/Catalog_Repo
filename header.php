@@ -30,7 +30,7 @@
     </div> <!-- end menu iconblock -->
 
     <div id="neglogo">
-      <img src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png">
+      <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png"></a> 
     </div> <!-- end neglogo -->
 
     <div class="iconblock">
@@ -42,7 +42,7 @@
       <div class="row">
 
           <div class="col-sm-4 col-lg-4">
-            <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo">
+            <a href="<?php bloginfo('url'); ?>"> <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo"></a> 
           </div>
 
           <div class="col-sm-8 col-lg-8">
@@ -84,15 +84,32 @@
 
   <div id="csunnav" class="hideme">
       <div class="container clearfix">
-      <ul class="nav">
-          <li><a href="<?php bloginfo('url'); ?>">Home</a></li>
-          <li><a href="<?php bloginfo('url'); ?>">Majors</a></li>
-          <li><a href="<?php bloginfo('url'); ?>">Minors</a></li>
-          <li><a href="<?php bloginfo('url'); ?>">Policies</a></li>
-          <li><a href="<?php bloginfo('url'); ?>">General Education</a></li>
-          <li><a href="<?php bloginfo('url'); ?>">Graduate Program</a></li>
+      <?php
 
-      </ul>
+        $defaults = array(
+        'theme_location'  => '',
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => '',
+        'container_id'    => '',
+        'menu_class'      => 'menu',
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => ''
+        );
+
+        wp_nav_menu( $defaults );
+
+        ?>
+
+
       </div>
 
   </div> <!-- end csunnav -->

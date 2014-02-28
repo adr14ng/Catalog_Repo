@@ -11,6 +11,15 @@ $deptdesc = $deptterm->description;
 get_header(); ?>
 
 
+<div class="row" id="full-banner-inner">
+	<div class="banner-overlay">
+		<div class="container">
+		</div>
+		
+	</div>
+</div>
+
+
 
 <div class="container" id="wrap">
 
@@ -19,9 +28,6 @@ get_header(); ?>
 
 	<div class="row">
 
-		<div class="mainbanner">
-			<img src="<?php bloginfo('template_directory'); ?>/img/shatter_small.jpg">
-		</div>
 
 
 			<!-- <div class=" container section-breadcrumb clearfix">
@@ -124,8 +130,6 @@ get_header(); ?>
 		<?php endwhile; else: ?>
   		<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 		<?php endif; ?>
-
-
 </div>
 
 

@@ -14,10 +14,7 @@ body {
   font-family: museo-sans, helvetica, arial, sans-serif;
   height: 100%;
   background-image: url('img/noisy_grid.png');
-}
-
-a {
-  color: blue;
+  min-width: 300px;
 }
 
 h1, h2, h3, h4, h5{
@@ -27,6 +24,11 @@ h1, h2, h3, h4, h5{
 h1{
   font-size: 30px;
 }
+
+h2 {
+  font-size: 24px;
+}
+
 h3 {
   font-size: 18px;
 }
@@ -37,11 +39,12 @@ p {
   line-height: 28px;
 }
 
-a:hover{
-  color: #ffffff;
+a:hover {
   text-decoration: none;
 }
-.nav > li > a {
+
+
+#menu-catalog-menu > li > a {
   color: #ffffff;
 }
 
@@ -60,11 +63,17 @@ a:hover{
   height: 100%;
   margin-bottom: -120px;
   padding: 0px 0px 120px 0px;
-  background-color: #ffffff;
-  border: solid 1px #949494;
-  -webkit-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.32);
-  -moz-box-shadow:    0px 3px 19px 0px rgba(50, 50, 50, 0.32);
-  box-shadow:         0px 3px 19px 0px rgba(50, 50, 50, 0.32);
+}
+
+#main-section {
+ background-color: #ffffff;
+ border-top: solid 1px #959595;
+ padding-top: 30px;
+
+}
+
+#main-section .container {
+  min-height: 400px;
 }
 
 #logo{
@@ -80,7 +89,7 @@ a:hover{
   float: left;
 }
 
-#neglogo > img{
+#neglogo a > img{
   position: relative;
   max-height: 38px;
   min-width: 115px;
@@ -120,6 +129,7 @@ a:hover{
 }
 
 #menuicon, #searchicon {
+  color: #ffffff;
   cursor: pointer;
 
 }
@@ -211,9 +221,65 @@ a:hover{
 
 /* 5 - Banner Rules */
 
+#full-banner{
+  background-image: url('img/catalog-full-width.jpg');
+  min-height: 240px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-bottom: 5px solid #444;
+  padding: 40px 0 0 20px;
+}
+
+#full-banner-inner{
+  background-image: url('img/catalog-full-width.jpg');
+  min-height: 140px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-bottom: 5px solid #444;
+  padding: 20px 0 0 0;
+}
+
+.banner-overlay {
+  position: absolute;
+  width: 100%;
+}
+
+.banner-title {
+  display: block;
+  color: #1e1e1e;
+  font-weight: 100;
+  padding: 5px;
+
+}
+
+.banner-title-inner {
+  display: block;
+  color: #1e1e1e;
+  font-weight: 100;
+  padding: 5px;
+  font-size: 28px;
+
+}
+
+.banner-title-big{
+  color: #990000;
+  font-size: 48px;
+  font-weight: 500;
+  font-family: museo-sans, helvetica;
+
+}
+.banner-title-small{
+  color: #990000;
+  font-size: 21px;
+
+}
+
 .mainbanner {
   display: block;
-  margin-top: 66px;
 }
 
 .mainbanner > img {
@@ -351,6 +417,38 @@ a:hover{
 
 /* 7 - Inner Page*/
 
+.csun-subhead{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.inner-item {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.inner-title {
+  font-weight: 700;
+}
+
+.inner-title-wrap{
+  padding: 0;
+}
+
+.read-more {
+  display: block;
+  float: right;
+}
+
+.sidebar-list{
+  padding-left: 0;
+}
+
+.sidebar-list li{
+  display: block;
+  padding: 0 0 10px 0;
+}
+
 .page-title{
   color: #990000;
   padding: 25px 0 5px 0;
@@ -419,10 +517,12 @@ a:hover{
 }
 
 #catalog-subnav ul li.active:hover {
+
 }
 
 #catalog-subnav ul li.active:hover a {
   background-color: #710100;
+  border: solid 1px #710100;
 }
 
 
@@ -455,6 +555,7 @@ a:hover{
 
 #catalog-subnav ul li.active ul {
   background-color: #710100;
+  border: solid 1px #710100;
 
 }
 
@@ -529,19 +630,20 @@ a:hover{
   color: #727272;
 }
 
-.landing-box {
-  padding: 10px;
-  margin-bottom: 16px;
-  background-image: url('img/noisy_grid_light.png');
-  border: solid 1px #949494;
-  border-bottom: solid 1px #acacac;  
+#landing-section {
+  background-image: url('img/noisy_grid.png');
+  padding-bottom: 10px;
 }
+
 .landing-item {
   padding: 0px 2px 0px 2px;
+  margin-top: -40px;
 }
+
 .land-bg{
   max-width: 100%;
 }
+
 .land-head{
   color: #1e1e1e;
   font-family: museo, helvetica, arial, sans-serif;
@@ -571,8 +673,23 @@ a:hover{
   text-align: center;
 }
 
+#inset-content{
+  border: 1px solid #d0d0d0;
+  /*border-radius: 5px;*/
+  -webkit-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.16);
+  -moz-box-shadow:    0px 3px 19px 0px rgba(50, 50, 50, 0.16);
+  box-shadow:         0px 3px 19px 0px rgba(50, 50, 50, 0.16);
+  padding: 30px 20px 20px 20px;
+  margin-bottom: 10px;
+}
+
 .section-content {
+  margin-bottom: 20px;
   padding: 10px 20px 10px 20px;
+}
+
+.page-title-section {
+  padding: 10px 0px 10px 0px;
   margin-bottom: 20px;
   margin-right: 15px;
   margin-left: 15px;
@@ -582,7 +699,7 @@ a:hover{
   display: block;
   width: 100%;
   padding-bottom: 6px;
-  border-bottom: solid 4px #cecfd1;
+  border-bottom: solid 2px #cecfd1;
   margin-bottom: 10px;
 }
 
@@ -598,7 +715,7 @@ a:hover{
   min-width: 10%;
   max-width: 90%;
   height: 100%;
-  border-bottom: solid 4px #990000
+  border-bottom: solid 2px #990000
 
 }
 
@@ -612,17 +729,21 @@ a:hover{
   list-style:none;
   margin: 8px 0 8px 0;
   overflow:hidden;
+  padding-left: 0;
+  background-color: #efefef;
+  padding: 5px 5px 5px 20px;
+  border: 1px solid #d0d0d0;
 }
  
 #breadcrumbs li{
   font-size: 14px;
   float:left;
   margin-right:15px;
-  color:#ffffff;
+  color:#1e1e1e;
 }
 
 #breadcrumbs li a{
-    color: #ffffff;
+    color: #1e1e1e;
 }
 
 #breadcrumbs li a:hover{
@@ -632,14 +753,15 @@ a:hover{
 #breadcrumbs .separator{
     font-weight:700;
     font-size:14px;
-    color:#ffffff;
+    color:#1e1e1e;
+}
+
+#subnav-wrap {
+  background-image: url('img/noisy_grid_light.png');
 }
 
 .page-title-section {
-  background-image: url('img/noisy_grid_light.png');;
   margin: 0;
-  margin-bottom: 35px;
-  border-bottom: solid 1px #949494;
   height: 150px;
 }
 
@@ -657,7 +779,49 @@ a:hover{
   z-index: 20;
 }
 
+.mainbanner {
+  margin-top: 68px;
+}
+
+.banner-title{
+    font-size: 18px;
+    margin-top: 60px;
+}
+
+#full-banner {
+  min-height: 200px;
+}
+
+.banner-title-big{
+    font-size: 21px;
+}
+.banner-title-small{
+    font-size: 14px;
+}
+
+.banner-title-inner {
+    font-size: 18px;
+    margin-top: 50px;
+}
+
+.inner-title-wrap{
+  padding: 0 30px 0 30px;
+}
+
 .nav > li > a:hover {
+  background-color: #2e2e2e;
+}
+
+#menu-catalog-menu {
+  padding-left: 0;
+}
+
+#menu-catalog-menu li {
+  padding: 5px;
+  margin: 4px 0 4px 0;
+}
+
+#menu-catalog-menu li:hover{
   background-color: #2e2e2e;
 }
 
@@ -700,6 +864,7 @@ a:hover{
   display: block;
   width: 100%;
   border-bottom: solid 1px #cacaca;
+  margin-top: 0;
 }
 
 .landing-item:last-child {
@@ -712,15 +877,21 @@ a:hover{
 }
 
 .landing-over .land-bg {
-  max-width: 20%;
+  width: 68px;
+  min-width: 15%;
   margin: 0;
   display: block;
   float: left;
 }
 
+.prog-title{
+  font-size: 18px;
+}
+
 .landing-over > h4 {
   display: block;
-  width: 80%;
+  min-width: 50%;
+  max-width: 80%;
   float: left;
   font-size: 14px;
   text-align: left;
@@ -743,9 +914,9 @@ a:hover{
   padding-right: 10px;
 }
 
-#breadcrumbs {
+/*#breadcrumbs {
   display: none;
-}
+}*/
 
 .dept-container{
   padding: 0;
@@ -776,6 +947,7 @@ a:hover{
 
 
   #fixbar{
+    position: relative;
     background-color: #ffffff;
     height: 130px;
     -webkit-box-shadow: 0px 6px 5px 0px rgba(50, 50, 50, 0.14);
@@ -786,6 +958,8 @@ a:hover{
   .iconblock{
     display: none;
   }
+
+
 
 /* 2 - nav */
 
@@ -812,46 +986,42 @@ a:hover{
     background-color: #990000;
   }
 
-  .nav {
-    width: 100%;
-    height: 100%;
+  .menu-catalog-menu-container {
     display: block;
-    /*margin: auto;*/
-    float: none;
-    text-align: center;
-    
+    height: 100%;
   }
 
-  .nav li { 
+  #menu-catalog-menu {
+    display: block;
+    min-width: 10px;
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+  }
+
+  #menu-catalog-menu li { 
     display: inline-block;
     height: 100%;
-    margin: 0;
+    padding: 0 25px 0 25px;
+    border-right: solid 1px #ffffff;
   }
 
-  .nav li:hover { 
-    background-color: #1e1e1e; 
+  #menu-catalog-menu li:hover {
+    background-color: #1e1e1e;
+    color: #ffffff;
   }
 
-  .nav > li > a {
+  #menu-catalog-menu li a {
     display: block;
     height: 100%;
-    line-height: 30px;
     vertical-align: middle;
-    font-size: 14px;
-    padding: 0px 24px 0px 24px;
-    border-right: 1px solid #ffffff;
-    margin: 0;
+    padding-top: 5px;
   }
 
-  .nav  li:last-child > a {
+  #menu-catalog-menu li:last-child{
     border: 0;
- 
   }
-
-  .nav > li > a:hover {
-    background-color: #1e1e1e;
-  }
-
 
 
 /* 3 - Quicklinks Rules  */
@@ -871,7 +1041,6 @@ a:hover{
 /*5 - Banner Rules*/
 
   .mainbanner {
-    margin-top: 128px;
     padding: 0px 15px 0px 15px;
   }
 
@@ -931,6 +1100,7 @@ a:hover{
 
 
   #fixbar{
+    position: relative;
     background-color: #ffffff;
     height: 130px;
   }
@@ -941,7 +1111,6 @@ a:hover{
   }
 
   .mainbanner {
-    margin-top: 145px;
   }
 
 /* 2 - Nav Rules*/
@@ -955,19 +1124,10 @@ a:hover{
     height: 30px;
   }
 
-  .nav {
-    width: 100%;
-    display: block;
-    float: none;
-    text-align: center;
-    
+  #menu-catalog-menu li { 
+    padding: 0 40px 0 40px;
   }
 
-  .nav > li > a {
-    font-size: 16px;
-    line-height: 28px;
-    padding: 0px 35px 0px 35px;
-  }
 
    #logo{
   margin-top: 20px;
@@ -990,7 +1150,6 @@ a:hover{
 /* 5 - Banner Rules*/
 
   .mainbanner {
-    margin-top: 128px;
   }
 
 /* 6 - Footer Rules*/
@@ -1035,6 +1194,7 @@ a:hover{
   }
 
   #fixbar{
+    position: relative;
     background-color: #ffffff;
     height: 140px;
   }
@@ -1058,27 +1218,16 @@ a:hover{
     height: 40px;
   }
 
-  .nav > li {
-    margin:0px;
-    padding:0px;
-    line-height: 38px;
-    font-size: 16px;
+   #menu-catalog-menu li { 
+    padding: 5px 55px 0 55px;
   }
 
-  .nav > li > a {
-    display: block;
-    line-height: 38px;
-    font-size: 16px;
-    padding: 0px 48px 0px 48px;
+  #menu-catalog-menu li:hover {
+
   }
 
-  .nav {
-    width: 100%;
-    height: 100%;
-    display: block;
-    margin: auto;
-    float: none;
-    text-align: center;   
+  #menu-catalog-menu li a {
+    font-size: 14px;
   }
 
 
@@ -1131,7 +1280,6 @@ a:hover{
 /* 5 - Banner Rules*/
 
   .mainbanner {
-    margin-top: 138px;
   }
 
 /* 6 - Footer Rules*/
@@ -1249,6 +1397,17 @@ a:hover{
   border-left: solid 1px #e8e8e8;
 }
 
+.noborder {
+  border: 0;
+}
+
+.dark {
+  color: #1e1e1e;
+}
+
+.red {
+  color: #990000;
+}
 
 
 /* 

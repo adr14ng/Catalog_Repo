@@ -13,46 +13,64 @@ $deptdesc = $deptterm->description;
  
 get_header(); ?>
 
-<div class="container" id="wrap">
 
-	<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-	
-
-<div class="row">
-		<div class="mainbanner">
-			<img src="<?php bloginfo('template_directory'); ?>/img/shatter_small.jpg">
+<div class="row" id="full-banner-inner">
+	<div class="banner-overlay">
+		<div class="container">
+			<h1 class="banner-title-inner"><span class="red">CSUN</span> UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1>
 		</div>
-
-			<div class=" container section-breadcrumb clearfix">
-				<?php the_breadcrumb(); ?>
-			</div>
+		
+	</div>
 </div>
 
-
-<div class="row">
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="row" id="subnav-wrap">
+	<div class="container">
+		<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="section-content page-title-section">
-			<a class="dept-title-small" href="<?php the_permalink(); ?>"><?php echo $deptdesc; ?></a>
-			<a href="<?php the_permalink(); ?>"><h1 class="prog-title"><?php the_field('degree_type'); ?> in <?php the_title(); ?></h1></a>
+			<a class="dept-title-small" href="<?php the_permalink(); ?>">Programs</a>
+				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?><!-- : <span class="dark"><?php the_field('degree_type'); ?> in <?php the_title(); ?></span> --></h1></a>
 
 
 	<div id="catalog-subnav">
 
 		<ul class="clearfix">
-			<li ><a href="<?php the_permalink(); ?>">Overview</a></li>
-			<li class="active"><a href="#">Programs</a><span class="subnav-arrow"></span>
-				<ul class="clearfix">
-				</ul>
-
-			</li>
-			<li><a href="#">Faculty</a></li>
-			<li><a href="#">Courses</a></li>
+			<li><a href="<?php echo get_csun_archive('departments', $dept); ?>">Overview</a></li>
+			<li class="active"><a href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a><span class="subnav-arrow"></span></li>
+			<li><a href="<?php echo get_csun_archive('faculty', $dept); ?>">Faculty</a></li>
+			<li><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a></li>
 		</ul>
 		</div>
 	</div>
 	</div>
+	</div>
+	</div>
 
 </div>
+
+
+
+
+<div id="main-section">
+<div class="container" id="wrap">
+
+	<div class="row">
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
+
+		<a href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Program:</span> <?php the_field('degree_type'); ?> in <?php the_title(); ?></h2></a>
+		<span><?php echo the_breadcrumb(); ?></span>
+
+	</div>
+
+
+	<div id="inset-content">
+
+
+	<?php if(have_posts()): while (have_posts()) : the_post(); ?>
+	
+
+
 	<div class="row">
 
 	<div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
@@ -84,6 +102,7 @@ get_header(); ?>
 		</div>		
 
 	</div>
+	</div>
 </div>
 
 
@@ -93,7 +112,7 @@ get_header(); ?>
 
 
 
-</div>
+
 
 
 
@@ -104,8 +123,9 @@ get_header(); ?>
   		<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 		<?php endif; ?>
 
+	</div> <!-- end inset-content -->
 
-
-
+</div>
+</div>
 
 <?php get_footer(); ?>
