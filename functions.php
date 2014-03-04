@@ -41,15 +41,15 @@ function the_breadcrumb() {
 
 
 
-/* * * * * * * * * * * * * * * * * * *
- * Archive Retrival Link
+/** * * * * * * * * * * * * * * * * * *
  * Use this function to get the link to the department page,
  * and the lists of programs, courses, and faculty
  *
- *  @param string $post_type post type of page trying to access
- *  @param string $dept_name slug of department name
+ * @param string $post_type	Post type of page trying to access
+ * @param string $dept_name	Slug of department name
+ *
+ * @return string
  * * * * * * * * * * * * * * * * * * */
-
 function get_csun_archive($post_type, $dept_name){
     $base = get_bloginfo('url');
     //$base = "http://csuncatalog.com/kyle/";
@@ -65,6 +65,29 @@ function get_csun_archive($post_type, $dept_name){
     return $url;
 }
 
+/** * * * * * * * * * * * * * * * * * *
+ * Use this function to get the contact information stored
+ * in the department
+ *
+ * @param string $dept_name	Slug of department name
+ *
+ * @return string
+ * * * * * * * * * * * * * * * * * * */
+ function get_csun_contact($dept_name) {
+	//Contact is in the department info
+	$args=array(
+		'post_type' => 'departments',
+		'department_shortname' => $dept_name
+	);
+	$departments = get_posts( $args );
+	
+	$department = $departments[0];
+	
+	//acf get field
+	$contact = get_field('contact', $department->ID);
+	
+	return $contact;
+ }
 
 
 
