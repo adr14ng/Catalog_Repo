@@ -4,12 +4,15 @@
  * Template Name: Programs Single View
  */
 
+
+
 $dept = get_query_var( 'department_shortname' );
 
 
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 
 $deptdesc = $deptterm->description;
+
  
 get_header(); ?>
 
@@ -28,7 +31,7 @@ get_header(); ?>
 		<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="section-content page-title-section">
-			<a class="dept-title-small" href="<?php the_permalink(); ?>">Programs</a>
+			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a>
 				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?><!-- : <span class="dark"><?php the_field('degree_type'); ?> in <?php the_title(); ?></span> --></h1></a>
 
 
@@ -36,7 +39,7 @@ get_header(); ?>
 
 		<ul class="clearfix">
 			<li><a href="<?php echo get_csun_archive('departments', $dept); ?>">Overview</a></li>
-			<li class="active"><a href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a><span class="subnav-arrow"></span></li>
+			<li class="active"><a href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a><div class="arrow-wrap"><span class="subnav-arrow"></span></div></li>
 			<li><a href="<?php echo get_csun_archive('faculty', $dept); ?>">Faculty</a></li>
 			<li><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a></li>
 		</ul>
@@ -63,6 +66,7 @@ get_header(); ?>
 
 	</div>
 
+<div class="pad-box">
 
 	<div id="inset-content">
 
@@ -77,35 +81,54 @@ get_header(); ?>
 		<div class="section-content">
 			<span class="section-title"><span><h2>Program Requirements</h2></span></span> 
 			<p><?php the_field('program_requirements'); ?></p>
-		</div>		
+		</div>	
+
+		<div class="section-content">
+			<span class="section-title"><span><h2>Accreditation</h2></span></span> 
+			<p>Waiting on Content</p>
+		</div>
+
 	</div>
 
 	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="section-content col-sm-6 col-md-12 col-lg-12">
+			<span class="section-title"><span><h2>Contact</h2></span></span> 
+			<p><?php the_field('contact'); ?></p>
+		</div>
+
+
+		<?php $values = the_field('slo');
+		if ( is_array($values) ) { ?>
 		<div class="section-content col-sm-6 col-md-12 col-lg-12 ">
 			<span class="section-title"><span><h2>Student Learning Outcomes</h2></span></span> 
 			<p><?php the_field('slo'); ?></p>
 		</div>
+		<?php } /*else { echo 'no slo'; }*/ ?>
 
+
+		<?php $values = the_field('four_year');
+		if ( is_array($values) ) { ?>
 		<div class="section-content col-sm-6 col-md-12 col-lg-12">
 			<span class="section-title"><span><h2>4 Year Plans</h2></span></span> 
 			<p><?php the_field('four_year'); ?></p>
 		</div>	
+		<?php } /*else { echo 'no four year'; }*/ ?>
 
+		<?php $values = the_field('star_act');
+		if ( is_array($values) ) { ?>
 		<div class="section-content col-sm-6 col-md-12 col-lg-12">
 			<span class="section-title"><span><h2>STAR Act</h2></span></span> 
 			<p><?php the_field('star_act'); ?></p>
 		</div>
+		<?php } /*elseelse { echo 'no star act'; }*/ ?>
 
-		<div class="section-content col-sm-6 col-md-12 col-lg-12">
-			<span class="section-title"><span><h2>Contact</h2></span></span> 
-			<p><?php the_field('contact'); ?></p>
-		</div>		
+				
 
 	</div>
 	</div>
 </div>
 
-
+</div> <!-- end pad-box -->
 
 
 

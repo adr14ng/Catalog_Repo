@@ -26,7 +26,7 @@ get_header(); ?>
 		<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="section-content page-title-section">
-			<a class="dept-title-small" href="<?php the_permalink(); ?>">Courses</a>
+			<a class="dept-title-small" href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a>
 				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 
 
@@ -36,7 +36,7 @@ get_header(); ?>
 			<li><a href="<?php echo get_csun_archive('departments', $dept); ?>">Overview</a></li>
 			<li><a href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a></li>
 			<li><a href="<?php echo get_csun_archive('faculty', $dept); ?>">Faculty</a></li>
-			<li class="active"><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a><span class="subnav-arrow"></span></li>
+			<li class="active"><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a><div class="arrow-wrap"><span class="subnav-arrow"></span></div></li>
 		</ul>
 		</div>
 	</div>
@@ -58,6 +58,7 @@ get_header(); ?>
 
 	</div>
 
+<div class="pad-box">
 
 	<div id="inset-content">
 
@@ -90,8 +91,7 @@ get_header(); ?>
 </div>
 </div>
 
-
-
+</div>
 
 
 

@@ -26,7 +26,7 @@ get_header(); ?>
 		<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="section-content page-title-section">
-			<a class="dept-title-small" href="<?php the_permalink(); ?>">Programs</a>
+			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a>
 				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 
 
@@ -34,7 +34,7 @@ get_header(); ?>
 
 		<ul class="clearfix">
 			<li><a href="<?php echo get_csun_archive('departments', $dept); ?>">Overview</a></li>
-			<li class="active"><a href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a><span class="subnav-arrow"></span></li>
+			<li class="active"><a href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a><div class="arrow-wrap"><span class="subnav-arrow"></span></div></li>
 			<li><a href="<?php echo get_csun_archive('faculty', $dept); ?>">Faculty</a></li>
 			<li><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a></li>
 		</ul>
@@ -59,35 +59,10 @@ get_header(); ?>
 
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 left-sidebar ">
 
-			
-
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
-				<span class="section-title"><span><h2>Program List</h2></span></span>
-			<ul class="sidebar-list">
-
-			<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-
-				
-
-					<li><a href="<?php the_permalink(); ?>"><?php the_field('degree_type'); ?> in <?php the_title(); ?></a></li>
-					<!-- , <?php the_field('option_title'); ?> -->
-
-				
-
-
-
-			<?php endwhile; else: ?>
-  				<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-			<?php endif; ?>
-
-			</ul>
-
-			
-		</div>
-
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
 				<span class="section-title"><span><h2>Contact</h2></span></span>
 			<ul class="sidebar-list">
+				<!-- <?php get_csun_contact(); ?> -->
 			</ul>
 			</div>
 

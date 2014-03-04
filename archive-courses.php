@@ -27,7 +27,7 @@ get_header(); ?>
 		<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="section-content page-title-section">
-			<a class="dept-title-small" href="<?php the_permalink(); ?>">Courses</a>
+			<a class="dept-title-small" href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a>
 				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 
 
@@ -37,7 +37,7 @@ get_header(); ?>
 			<li><a href="<?php echo get_csun_archive('departments', $dept); ?>">Overview</a></li>
 			<li><a href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a></li>
 			<li><a href="<?php echo get_csun_archive('faculty', $dept); ?>">Faculty</a></li>
-			<li class="active"><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a><span class="subnav-arrow"></span></li>
+			<li class="active"><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a><div class="arrow-wrap"><span class="subnav-arrow"></span></div></li>
 		</ul>
 		</div>
 	</div>
@@ -58,32 +58,6 @@ get_header(); ?>
 		<div class="section-content">
 
 		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 left-sidebar ">
-
-			
-
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
-				<span class="section-title"><span><h2>Course List</h2></span></span>
-			<ul class="sidebar-list">
-
-			<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-
-				
-
-					<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-					<!-- , <?php the_field('option_title'); ?> -->
-
-				
-
-
-
-			<?php endwhile; else: ?>
-  				<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-			<?php endif; ?>
-
-			</ul>
-
-			
-		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
 				<span class="section-title"><span><h2>Contact</h2></span></span>
