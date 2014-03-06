@@ -30,8 +30,11 @@ get_header(); ?>
 			<a class="dept-title-small" href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a>
 				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 
+		</div>
+		</div>
 
-	<div id="catalog-subnav">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div id="catalog-subnav">
 
 		<ul class="clearfix">
 			<li><a href="<?php echo get_csun_archive('departments', $dept); ?>">Overview</a></li>
@@ -40,8 +43,8 @@ get_header(); ?>
 			<li class="active"><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a><div class="arrow-wrap"><span class="subnav-arrow"></span></div></li>
 		</ul>
 		</div>
-	</div>
-	</div>
+		</div>
+	
 	</div>
 	</div>
 </div>
@@ -57,18 +60,20 @@ get_header(); ?>
 <div class="row">
 		<div class="section-content">
 
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 left-sidebar ">
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 left-sidebar ">
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
 				<span class="section-title"><span><h2>Contact</h2></span></span>
 			<ul class="sidebar-list">
+				<?php get_csun_contact($dept); ?>
 			</ul>
+
 			</div>
 
 		</div>
 
 
-		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 
 
 		<?php if(have_posts()): while (have_posts()) : the_post(); ?>

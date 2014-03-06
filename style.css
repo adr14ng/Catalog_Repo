@@ -8,13 +8,20 @@
 /* Extra-Small Media Size ======================================================================================================*/
 
 /* 1 - Overall Rules */
+html { 
+   
+}
 
 html,
 body {
   font-family: museo-sans, helvetica, arial, sans-serif;
   height: 100%;
   background-image: url('img/noisy_grid.png');
-  min-width: 300px;
+  /*overflow-x: hidden;*/
+}
+
+#overflow-wrap {
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5{
@@ -46,7 +53,9 @@ a:hover {
 
 #menu-catalog-menu > li > a {
   color: #ffffff;
+
 }
+
 
 #fixbar{
   position: fixed;
@@ -55,6 +64,8 @@ a:hover {
   background-color: #990000;
   display: block;
   z-index: 200;
+  top:0;
+  left:0;
 }
 
 #wrap {
@@ -691,7 +702,7 @@ a:hover {
   -webkit-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.16);
   -moz-box-shadow:    0px 3px 19px 0px rgba(50, 50, 50, 0.16);
   box-shadow:         0px 3px 19px 0px rgba(50, 50, 50, 0.16);
-  padding: 30px 20px 20px 20px;
+  padding: 30px 15px 20px 15px;
   margin-bottom: 10px;
 }
 
@@ -728,12 +739,45 @@ a:hover {
   max-width: 90%;
   height: 100%;
   border-bottom: solid 2px #990000
-
 }
 
 .section-breadcrumb {
  background-color: #1e1e1e;
  min-height: 10px;
+}
+
+#share-icons {
+  min-height: 32px;
+  position: relative;
+  list-style:none;
+  margin: 8px 0 0 0;
+  overflow:hidden;
+  padding-left: 0;
+  /*background-color: #efefef;*/
+  padding: 5px 5px 5px 20px;
+ /* border: 1px solid #d0d0d0;*/
+}
+
+#share-icons li{
+  width: 25%;
+  float:left;
+  color:#1e1e1e;
+}
+
+#share-icons li a span{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.share-icon {
+  display: block;
+  font-size: 24px;
+  color: #990000;
+}
+
+.share-icon:hover {
+  color: #1e1e1e;
 }
 
 #breadcrumbs{
@@ -774,7 +818,7 @@ a:hover {
 
 .page-title-section {
   margin: 0;
-  height: 150px;
+  /*height: 150px;*/
 }
 
 .redbtn{
@@ -828,6 +872,10 @@ a:hover {
   background-color: #2e2e2e;
 }
 
+#breadcrumbs-wrap {
+  padding: 0;
+}
+
 #menu-catalog-menu {
   padding-left: 0;
 }
@@ -863,6 +911,22 @@ a:hover {
 }
 
 /* 7 - Inner Page*/
+
+.inner-title {
+  font-size: 21px;
+}
+
+#share-icons {
+  border-top: 1px solid #d0d0d0;
+  border-bottom: 1px solid #d0d0d0;
+  padding: 10px 0 10px 0;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#share-icons li a span {
+  font-size: 18px;
+}
 
 .pad-box {
   padding-left: 0px;
@@ -930,6 +994,10 @@ a:hover {
   border-left: 1px solid #848484;
 }
 
+.dept-title-small {
+  font-size: 12px;
+}
+
 .section-content {
   padding-left: 10px;
   padding-right: 10px;
@@ -939,6 +1007,15 @@ a:hover {
   display: none;
 }*/
 
+#breadcrumbs li{
+  font-size: 10px;
+  margin-right:10px;
+}
+
+#breadcrumbs .separator{
+    font-size:10px;
+}
+
 .dept-container{
   padding: 0;
 }
@@ -946,6 +1023,11 @@ a:hover {
 
 .footbox {
   padding: 0 20px 0 20px;
+}
+
+
+.footerlinks > a {
+   font-size: 12px;
 }
 
 }
@@ -1086,6 +1168,10 @@ a:hover {
   }*/
 
 /* 7 - Inner Page Rules */
+
+#share-icons li a span {
+  font-size: 21px;
+}
 
 .landing-over > img {
   max-width: 65%;
@@ -1429,6 +1515,7 @@ a:hover {
 .red {
   color: #990000;
 }
+
 
 
 /* 

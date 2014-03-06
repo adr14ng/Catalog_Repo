@@ -86,5 +86,6 @@
 
 
 		<?php wp_footer();?>
+</div> <!-- overflow-wrap end -->
 </body>
 </html>

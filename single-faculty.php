@@ -28,9 +28,11 @@ get_header(); ?>
 		<div class="section-content page-title-section">
 			<a class="dept-title-small" href="<?php echo get_csun_archive('faculty', $dept); ?>">Faculty</a>
 				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+		</div>
+		</div>
 
-
-	<div id="catalog-subnav">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div id="catalog-subnav">
 
 		<ul class="clearfix">
 			<li><a href="<?php echo get_csun_archive('departments', $dept); ?>">Overview</a></li>
@@ -39,8 +41,8 @@ get_header(); ?>
 			<li><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a></li>
 		</ul>
 		</div>
-	</div>
-	</div>
+		</div>
+
 	</div>
 	</div>
 </div>
@@ -54,7 +56,13 @@ get_header(); ?>
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
 
 		<a href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Faculty: </span><?php the_title(); ?></h2></a>
-		<span><?php echo the_breadcrumb(); ?></span>
+		
+		<div class="row">
+			<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span><?php echo the_breadcrumb(); ?></span>
+			</div>
+			
+		</div>
 
 	</div>
 

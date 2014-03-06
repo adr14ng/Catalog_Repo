@@ -33,9 +33,11 @@ get_header(); ?>
 		<div class="section-content page-title-section">
 			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a>
 				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?><!-- : <span class="dark"><?php the_field('degree_type'); ?> in <?php the_title(); ?></span> --></h1></a>
+		</div>
+		</div>
 
-
-	<div id="catalog-subnav">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div id="catalog-subnav">
 
 		<ul class="clearfix">
 			<li><a href="<?php echo get_csun_archive('departments', $dept); ?>">Overview</a></li>
@@ -44,8 +46,8 @@ get_header(); ?>
 			<li><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a></li>
 		</ul>
 		</div>
-	</div>
-	</div>
+		</div>
+	
 	</div>
 	</div>
 
@@ -60,9 +62,26 @@ get_header(); ?>
 	<div class="row">
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
+			<div class="row">
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+				<a href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Program:</span> <?php the_field('degree_type'); ?> in <?php the_title(); ?></h2></a>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<ul id="share-icons">
+						<li><a href=""><span class="glyphicon glyphicon-envelope share-icon"></span></a></li>
+						<li><a href=""><span class="glyphicon glyphicon-cloud-download share-icon"></span></a></li>
+						<li><a href=""><span class="glyphicon glyphicon-comment share-icon"></span></a></li>
+						<li><a href=""><span class="glyphicon glyphicon-phone share-icon"></span></a></li>
+					</ul>
+				</div>
+			</div>
 
-		<a href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Program:</span> <?php the_field('degree_type'); ?> in <?php the_title(); ?></h2></a>
-		<span><?php echo the_breadcrumb(); ?></span>
+			<div class="row">
+				<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<span><?php echo the_breadcrumb(); ?></span>
+				</div>
+			
+			</div>
 
 	</div>
 
@@ -93,7 +112,7 @@ get_header(); ?>
 	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 		<div class="section-content col-sm-6 col-md-12 col-lg-12">
 			<span class="section-title"><span><h2>Contact</h2></span></span> 
-			<p><?php the_field('contact'); ?></p>
+			<p><?php get_csun_contact($dept); ?></p>
 		</div>
 
 

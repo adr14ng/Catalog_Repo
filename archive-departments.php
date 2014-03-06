@@ -26,6 +26,10 @@ get_header(); ?>
 			<div class="section-content page-title-section">
 				<a class="dept-title-small" href="<?php the_permalink(); ?>">Department Overview</a>
 				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+			</div>
+			</div>
+			
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div id="catalog-subnav">
 					<ul class="clearfix">
 						<li class="active"><a href="<?php echo get_csun_archive('departments', $dept); ?>">Overview</a><div class="arrow-wrap"><span class="subnav-arrow"></span></div></li>
@@ -35,7 +39,7 @@ get_header(); ?>
 					</ul>
 				</div>
 			</div>
-		</div>
+		
 		</div>
 	</div>
 </div>

@@ -1,10 +1,11 @@
 <?php
 
 
-
+/* Registering Nav Menu */
 register_nav_menu( 'primary', __( 'Primary Menu', 'csuncatalognav' ) );
 
 
+/* Breadcrumbs */
 function the_breadcrumb() {
 
     $post_type = get_post_type();
@@ -38,6 +39,8 @@ function the_breadcrumb() {
     echo '</ul>';
 }
 
+
+/* Removes the brackets from the excerpt 'more' thing */
 function new_excerpt_more( $more ) {
     return ' ...';
 }
