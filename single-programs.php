@@ -68,7 +68,7 @@ get_header(); ?>
 				</div>
 				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 					<ul id="share-icons">
-						<li><a href=""><span class="glyphicon glyphicon-envelope share-icon"></span></a></li>
+						<li><a href=""><span title="email" alt="email" class="glyphicon glyphicon-envelope share-icon"></span></a></li>
 						<li><a href=""><span class="glyphicon glyphicon-cloud-download share-icon"></span></a></li>
 						<li><a href=""><span class="glyphicon glyphicon-comment share-icon"></span></a></li>
 						<li><a href=""><span class="glyphicon glyphicon-phone share-icon"></span></a></li>
@@ -116,25 +116,26 @@ get_header(); ?>
 		</div>
 
 
-		<?php $values = the_field('slo');
-		if ( is_array($values) ) { ?>
+		
+		<?php $values = get_field('slos');
+		if ( $values != false ) { ?>
 		<div class="section-content col-sm-6 col-md-12 col-lg-12 ">
 			<span class="section-title"><span><h2>Student Learning Outcomes</h2></span></span> 
-			<p><?php the_field('slo'); ?></p>
+			<p><?php the_field('slos'); ?></p>
 		</div>
-		<?php } /*else { echo 'no slo'; }*/ ?>
+		<?php } /*else { print_r($values); }*/ ?>
 
 
-		<?php $values = the_field('four_year');
-		if ( is_array($values) ) { ?>
+		<?php $values = get_field('four_year');
+		if ( $values != false) { ?>
 		<div class="section-content col-sm-6 col-md-12 col-lg-12">
 			<span class="section-title"><span><h2>4 Year Plans</h2></span></span> 
 			<p><?php the_field('four_year'); ?></p>
 		</div>	
 		<?php } /*else { echo 'no four year'; }*/ ?>
 
-		<?php $values = the_field('star_act');
-		if ( is_array($values) ) { ?>
+		<?php $values = get_field('star_act');
+		if ( $values != false ) { ?>
 		<div class="section-content col-sm-6 col-md-12 col-lg-12">
 			<span class="section-title"><span><h2>STAR Act</h2></span></span> 
 			<p><?php the_field('star_act'); ?></p>

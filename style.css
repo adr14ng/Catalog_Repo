@@ -1104,9 +1104,10 @@ a:hover {
   }
 
   #menu-catalog-menu li { 
+    float: left;
     display: inline-block;
     height: 100%;
-    padding: 0 25px 0 25px;
+    
     border-right: solid 1px #ffffff;
   }
 
@@ -1116,10 +1117,11 @@ a:hover {
   }
 
   #menu-catalog-menu li a {
+
     display: block;
     height: 100%;
     vertical-align: middle;
-    padding-top: 5px;
+    padding: 5px 25px 0 25px;
   }
 
   #menu-catalog-menu li:last-child{
@@ -1232,7 +1234,12 @@ a:hover {
   }
 
   #menu-catalog-menu li { 
-    padding: 0 40px 0 40px;
+    
+  }
+
+  #menu-catalog-menu li a {
+    font-size: 14px;
+    padding: 5px 40px 0 40px;
   }
 
 
@@ -1326,7 +1333,7 @@ a:hover {
   }
 
    #menu-catalog-menu li { 
-    padding: 5px 55px 0 55px;
+    
   }
 
   #menu-catalog-menu li:hover {
@@ -1335,6 +1342,7 @@ a:hover {
 
   #menu-catalog-menu li a {
     font-size: 14px;
+    padding: 10px 60px 0 60px;
   }
 
 
