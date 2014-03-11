@@ -200,13 +200,13 @@ get_header(); ?>
 
 
 
-					<!-- <p><?php the_excerpt(); ?></p> -->
+					<p><?php the_excerpt(); ?></p>
 
-					<p>Example content if needed.... Excerpt commented out.</p>
+					<!-- <p>Example content if needed.... Excerpt commented out.</p> -->
 
 
 
-					<a class="read-more" href="<?php the_permalink(); ?>">[ View Program ]</a>
+					<a class="read-more" href="<?php the_permalink(); ?>">[ View Policy ]</a>
 
 
 
