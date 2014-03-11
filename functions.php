@@ -59,7 +59,6 @@ add_filter('excerpt_more', 'new_excerpt_more');
  * * * * * * * * * * * * * * * * * * */
 function get_csun_archive($post_type, $dept_name){
     $base = get_bloginfo('url');
-    //$base = "http://csuncatalog.com/kyle/";
 
     //renamed departments to overview as standard link
     if($post_type == 'departments'){   
@@ -73,6 +72,68 @@ function get_csun_archive($post_type, $dept_name){
 }
 
 /** * * * * * * * * * * * * * * * * * *
+ * Used to get link because we need the dept to stay the same throughout
+ *
+ * @param int|WP_Post 	$id 		Optional. Post ID or post object, defaults to the current post.
+ * @param bool 			$leavename 	Optional. Whether to keep post name or page name, defaults to false.
+ 
+ * @return string|bool
+ * * * * * * * * * * * * * * * * * * */
+function get_csun_permalink($id = 0, $leavename = false){
+    $base = get_bloginfo('url');
+	
+	//Match get_permalink handling
+	if ( is_object($id) && isset($id->filter) && 'sample' == $id->filter ) {
+		$post = $id;
+		$sample = true;
+	} else {
+		$post = get_post($id);
+		$sample = false;
+	}
+
+	//We don't have a post
+	if ( empty($post->ID) )
+		return false;
+	
+	$post_type = $post->post_type;
+	
+	//if it isn't one of the links we want to modify
+	if($post_type == 'programs' && $post_type == 'programs' && $post_type == 'programs' ){
+		return get_permalink($id, $leavename);
+	}
+	
+	//Keep the department name consistent
+	$dept_name = get_query_var( 'department_shortname' );
+	$post_name = $post->post_name;
+	
+    //link format based on CSUN Types
+    $url = $base . '/academics/'.$dept_name.'/'.$post_type.'/'.$post_name;
+	
+	//Programs additionally have options
+	if($post_type == 'programs'){
+		$option = get_field( 'option_title', $post->ID);
+				
+		if(!$option)
+			$option = '';
+			
+		$option = sanitize_title($option);
+		
+		if($option)
+			$url = $url.'/'.$option;
+	}
+
+    return $url;
+}
+
+/**
+ * Display the department consistent link for the current post.
+ */
+function the_csun_permalink(){
+	echo esc_url( get_csun_permalink() );
+	
+}
+
+/** * * * * * * * * * * * * * * * * * *
  * Use this function to get the contact information stored
  * in the department
  *
@@ -81,6 +142,8 @@ function get_csun_archive($post_type, $dept_name){
  * @return string
  * * * * * * * * * * * * * * * * * * */
  function get_csun_contact($dept_name) {
+	$contact = '';
+ 
 	//Contact is in the department info
 	$args=array(
 		'post_type' => 'departments',
@@ -88,10 +151,12 @@ function get_csun_archive($post_type, $dept_name){
 	);
 	$departments = get_posts( $args );
 	
-	$department = $departments[0];
+	if(isset($departments[0])){
+		$department = $departments[0];
 	
-	//acf get field
-	$contact = get_field('contact', $department->ID);
+		//acf get field
+		$contact = get_field('contact', $department->ID);
+	}
 	
 	return $contact;
  }
