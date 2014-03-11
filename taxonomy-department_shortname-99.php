@@ -26,7 +26,7 @@ get_header(); ?>
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="section-content page-title-section">
 			<!-- <a class="dept-title-small" href="<?php the_permalink(); ?>">Programs</a> -->
-				<a href="<?php echo get_csun_archive('policies', $dept); ?>"><h1 class="prog-title"><span class="dark">GE</span></h1></a>
+				<a href="<?php echo get_csun_archive('policies', $dept); ?>"><h1 class="prog-title"><span class="dark">The Template Works!</span></h1></a>
 
 	</div>
 	</div>

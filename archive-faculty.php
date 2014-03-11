@@ -32,8 +32,10 @@ get_header(); ?>
 			<!-- <small></small> -->
 			<a class="dept-title-small" href="<?php the_permalink(); ?>">Faculty</a>
 				<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+		</div>
+		</div>
 
-
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div id="catalog-subnav">
 
 		<ul class="clearfix">
@@ -43,8 +45,10 @@ get_header(); ?>
 			<li><a href="<?php echo get_csun_archive('courses', $dept); ?>">Courses</a></li>
 		</ul>
 		</div>
-	</div>
-	</div>
+		</div>
+
+
+	
 	</div>
 	</div>
 </div>
@@ -61,7 +65,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
 				<span class="section-title"><span><h2>Contact</h2></span></span>
 				<ul class="sidebar-list">
-
+					<?php get_csun_contact($dept); ?>
 				</ul>
 			</div>
 
@@ -69,7 +73,7 @@ get_header(); ?>
 
 
 		<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-
+		
 
 		<span class="section-title"><span><h2>Current Faculty</h2></span></span>
 

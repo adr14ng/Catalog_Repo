@@ -13,7 +13,6 @@ $level = get_query_var( 'degree_level' );
 </div>
 
 
-
 <div class="row" id="subnav-wrap">
 	<div class="container">
 		<div class="row">
@@ -28,7 +27,6 @@ $level = get_query_var( 'degree_level' );
 	</div>
 
 </div>
-
 
 
 <div id="main-section">
