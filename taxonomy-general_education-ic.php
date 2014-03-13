@@ -1,11 +1,7 @@
 <?php /**
- * Template Name: General Courses Education Template
+ * Template Name: General Education Information Competence Template
  */ 
-// $dept = get_query_var( 'department_shortname' );
 
-// $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
-
-// $deptdesc = $deptterm->description;
 
 get_header(); ?>
 
@@ -30,7 +26,7 @@ get_header(); ?>
 
 		<div class="section-content page-title-section">
 
-			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Courses</a>
+			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Information Competence</a>
 
 				<a href="<?php echo the_permalink(); ?>"><h1 class="prog-title">General Education</h1></a>
 
@@ -76,8 +72,8 @@ get_header(); ?>
 				<li><a href="<?php bloginfo( 'url' ); ?>/general-education-test/">GE Overview</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/general-education-rules-test/">Rules</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/general-education-pattern-modification-test/">Pattern Modifications</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/general-education/information-competence/">Information Competence (IC)</a></li>
-				<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/general-education/courses/">Courses</a></li>
+				<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/general-education/information-competence/">Information Competence (IC)</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/general-education/courses/">Courses</a></li>
 
 			</ul>
 		</div>
@@ -92,7 +88,6 @@ get_header(); ?>
 
 
 
-
 		<?php 
 
 		$terms = get_terms('general_education');
@@ -101,36 +96,51 @@ get_header(); ?>
 
 			if($term->slug !== 'ic'):
 
+				$query_policies = new WP_Query(array(
+					'post_type' => 'courses', 
+					'orderby' => 'title', 
+					'order' => 'DESC',  
+					'general_education' => 'ic+'.$term->slug)
+				);
 
-				echo '<span class="section-title"><span><h2>' . $term->description .'</h2></span></span>';
+				if($query_policies->have_posts()) : ?>
 
-				$query_policies = new WP_Query(array('post_type' => 'courses', 'orderby' => 'title', 'order' => 'DESC',  'general_education' => $term->slug));
+					<h2><?php echo $term->description; ?></h2>
 
-				if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>
-				
-					<div class="small-marg-bottom"><a href="<?php the_permalink();?>"/><?php the_title(); ?></a></div>
+					<?php while($query_policies->have_posts()) : $query_policies->the_post(); ?>
+					
+					<h3><a href="<?php the_permalink();?>"/><?php the_title(); ?></a></h3>
 
 			
 		<?php endwhile; endif; endif; endforeach;?>
 
 
-		<?php wp_reset_query(); ?> 
+		
+
+
+
+
+<!-- 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix small-marg-top">
+			<span class="section-title"><span><h2>Basic Skills</h2></span></span>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
+				<h2 class="dark">Analytical Reading & Expository Writing</h2>
+					<a href="#">Example Course Link One </a></br>
+					<a href="#">Example Course Link Two </a></br>
+					<a href="#">Example Course Link Three </a></br>
+					<a href="#">Example Course Link Four </a></br>
+					<a href="#">Example Course Link Five</a></br>
+			</div>
+
+		</div> -->
+
 
 
 		</div>
 
 	</div>
 
-
-
-	
-
-
-
 </div>
 
 </div>
 
-
-
-<?php get_footer(); ?>
+	<?php get_footer(); ?>
