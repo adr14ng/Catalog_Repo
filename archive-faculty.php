@@ -83,7 +83,7 @@ get_header(); ?>
 			<?php if( strpos(get_the_term_list(  $post->ID, 'department_shortname', '', ', '), 'Emeriti') === FALSE): ?>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 
-					<a href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
+					<a href="<?php the_csun_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 					<!-- , <?php the_field('option_title'); ?> -->
 					<p><?php the_excerpt(); ?></p>
 					<a class="read-more" href="<?php the_permalink(); ?>">[ View Faculty Member ]</a>

@@ -47,7 +47,7 @@
 <div class="container" id="wrap">
 
 	<div class="content">
-		<span class="section-title"><span><h2>Departments List</h2></span></span>
+		<span class="section-title"><span><h2>Departments & Programs</h2></span></span>
 	</div>
 
 	<div class="dept-container content">
