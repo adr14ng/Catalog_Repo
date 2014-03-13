@@ -47,12 +47,12 @@ get_header(); ?>
 <div class="container" id="wrap">
 
 
-	<div class="row">
+	<!-- <div class="row">
 				<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<span><?php echo the_breadcrumb(); ?></span>
 				</div>
 			
-	</div>
+	</div> -->
 
 
 

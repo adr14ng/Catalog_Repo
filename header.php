@@ -31,7 +31,7 @@
     </div> <!-- end menu iconblock -->
 
     <div id="neglogo">
-      <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png"></a> 
+      <a href="http://www.csun.edu/"><img src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png"></a> 
     </div> <!-- end neglogo -->
 
     <div class="iconblock">
@@ -43,7 +43,7 @@
       <div class="row">
 
           <div class="col-sm-4 col-lg-4">
-            <a href="<?php bloginfo('url'); ?>"> <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo"></a> 
+            <a href="http://www.csun.edu/"> <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo"></a> 
           </div>
 
           <div class="col-sm-8 col-lg-8">

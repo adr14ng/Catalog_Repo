@@ -14,7 +14,9 @@
 
 // $deptdesc = $deptterm->description;
 
+$perm = get_permalink();
 
+$url = get_bloginfo( 'url' );
 
 get_header(); ?>
 
@@ -61,8 +63,13 @@ get_header(); ?>
 		<div class="section-content page-title-section">
 
 
+			<?php if ($perm = $url.'/policies/alphabetical/' ) { ?>
+				<a class="dept-title-small" href="<?php echo the_permalink(); ?>">Alphabetical</a>
+			 <?php } else if ( $perm = $url.'/policies/appendix/' ) { ?>
+				<a class="dept-title-small" href="<?php echo the_permalink(); ?>">Appendix</a>
+			<?php } ?>
 
-			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Alphabetical</a>
+			
 
 
 
@@ -134,104 +141,66 @@ get_header(); ?>
 
 
 
-				<a href="#">Alphabetical</a></br>
+				<a href="<?php bloginfo( 'url' ); ?>/policies/alphabetical/">Alphabetical</a></br>
 
-				<a href="#">Appendix</a>
-
-
-
-
-
-
+				<a href="<?php bloginfo( 'url' ); ?>/policies/appendix/">Appendix</a>
 
 		</div>
 
-
-
-
-
-
-
 		</div>
-
-
-
-
-
-
-
-
-
-
 
 		<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 
 
-
-
-
-
-
-
-
-
-
 		<?php 
 
+		$order = get_query_var( 'orderby' );
 
-
-		if(have_posts()): while (have_posts()) : the_post(); ?>
-
-
+		if(have_posts()): 
 
 
 
+		if($order == 'policy_categories'):
+			$terms = get_terms('policy_categories');
+
+		foreach($terms as $term) :
+
+			echo '<h2> ' . $term->name .'</h2>';
+
+			$query_policies = new WP_Query(array('post_type' => 'policies', 'orderby' => 'title', 'order' => 'DESC',  'policy_categories' => $term->slug));
+
+			if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>
+			
+				<h3><a href="<?php the_permalink();?>"/><?php the_title(); ?></a></h3>
+
+			<?php endwhile; endif; endforeach;?>
+
+
+		<?php wp_reset_query(); ?> 
+
+		<?php else:
+
+			while (have_posts()) : the_post(); ?>
 
 
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 
-
-
-
-
-
-
 					<a href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
-
-
 
 					<p><?php the_excerpt(); ?></p>
 
 					<!-- <p>Example content if needed.... Excerpt commented out.</p> -->
 
-
-
 					<a class="read-more" href="<?php the_permalink(); ?>">[ View Policy ]</a>
-
-
-
-					
-
-
 
 				</div>
 
 
+			<?php endwhile; ?>
 
+	<?php endif; ?>
 
-
-
-
-
-
-
-
-
-
-
-
-		<?php endwhile; else: ?>
-
+	<?php else: ?>
 
 
   			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

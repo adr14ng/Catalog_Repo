@@ -1,4 +1,11 @@
-<?php get_header(); 
+<?php
+
+/*Template Name: Degree Level Template
+ */ 
+
+
+
+ get_header(); 
 
 $level = get_query_var( 'degree_level' );
 ?>
@@ -18,7 +25,7 @@ $level = get_query_var( 'degree_level' );
 		<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="section-content page-title-section">
-			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Graduate Programs</a>
+			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a>
 
 			<a href="<?php echo the_permalink(); ?>"><h1 class="prog-title"><?php echo ucwords($level); ?></h1></a>
 
