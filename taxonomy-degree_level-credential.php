@@ -92,6 +92,7 @@ get_header(); ?>
 
 		<div class="row">
 
+		<?php /*
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix small-marg-bottom">
 			<div class="content">
 				<span class="section-title"><span><h2>Credential Programs</h2></span></span>
@@ -104,6 +105,7 @@ get_header(); ?>
 				<?php } ?>
 			</div>
 			</div>
+			*/?>
 
 
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
@@ -118,7 +120,19 @@ get_header(); ?>
 				<div class="dept-container content">
        	 			<?php if(have_posts()): while (have_posts()) : the_post(); ?>
             			<div class="dept-item ">
-                		<a href="<?php the_permalink(); ?>"><?php the_field('degree_type'); ?> in <?php the_title(); ?></a>
+                		<a href="<?php the_permalink(); ?>"><?php the_title(); 
+							$title = get_the_title();
+							
+							if (strpos($title, 'Credential') === FALSE)
+								echo ' Credential'; 
+								
+							$post_option=get_field('option_title');
+							
+							if(isset($post_option)&&$post_option!=='') {
+								echo ' : '.$post_option;
+							}
+								?>
+						</a>
             	</div>
 
         		<?php endwhile; else: ?>

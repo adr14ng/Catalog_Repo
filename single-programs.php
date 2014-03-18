@@ -64,7 +64,28 @@ get_header(); ?>
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
 			<div class="row">
 				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-				<a href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Program:</span> <?php the_field('degree_type'); ?> in <?php the_title(); ?></h2></a>
+				<a href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Program:</span> <?php 
+					
+						$degree = get_field('degree_type'); 
+						$title = get_the_title(); 
+						
+						if ($degree === 'credential' || $degree === 'Credential'){
+							if (strpos($title, 'Credential') === FALSE)
+								$title .= ' Credential';
+						}
+						else if ($degree === 'certificate' || $degree === 'Certificate') {
+							if (strpos($title, 'Certificate') === FALSE)
+								$title .= ' Certificate';
+						}
+						else if ($degree === 'minor' || $degree === 'Minor'){
+							$title = $degree.' in '.$title;
+						}
+						else{
+							$title = $degree.', '.$title;
+						}
+								
+						echo $title;
+					?></h2></a>
 				</div>
 				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 					<ul id="share-icons">

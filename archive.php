@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * Template Name: Courses Archive Template
+ * Template Name: Default Archive Template
  */ 
 
 $type = ucwords(get_post_type());

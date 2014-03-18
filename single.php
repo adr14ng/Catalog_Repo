@@ -1,9 +1,7 @@
 <?php 
 /**
- * Template Name: Courses Single View
+ * Template Name: Default Single View
  */ 
-
-$type = ucwords(get_post_type());
 
 get_header(); ?>
 
@@ -19,7 +17,7 @@ get_header(); ?>
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
-				<a href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red"><?php echo $type;?></span> <?php the_title(); ?></h2></a>
+				<a href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><?php the_title(); ?></h2></a>
 			</div>
 
 			<div class="pad-box">
@@ -29,7 +27,6 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="section-content">
-								<span class="section-title"><span><h2><?php echo $type;?> Info</h2></span></span> 
 								<p><?php the_content(); ?></p>
 							</div>		
 						</div>
