@@ -4,6 +4,8 @@
  * Template Name: Policies Single View
  */
 
+$id = get_the_ID();
+
  
 get_header(); ?>
 
@@ -66,6 +68,7 @@ get_header(); ?>
 		<div class="section-content">
 			<span class="section-title"><span><h2>Policy Info</h2></span></span> 
 			<p><?php the_content(); ?></p>
+			<p><?php the_terms( $id, 'policy_keywords', 'Keywords : ', ', ') ?></p>
 		</div>	
 
 				

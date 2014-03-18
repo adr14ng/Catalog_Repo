@@ -3,7 +3,7 @@
 <div class="row" id="full-banner">
 	<div class="banner-overlay">
 		<div class="container">
-			<h1 class="banner-title"><span class="banner-title-big">CSUN</span></br>UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1>
+			<h1 class="banner-title"><!-- <span class="banner-title-big">CSUN</span> --></br>UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1>
 		</div>
 		
 	</div>

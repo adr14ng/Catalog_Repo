@@ -24,7 +24,7 @@
 				<span class="footbox">
 					<p>Was this site helpful to you? Let us know here:</p>
 					<div class="btnbox">
-						<span class="redbtn"><a href="#">Feedback</a></span>
+						<span class="redbtn"><a href="<?php echo site_url('/feedback'); ?>">Feedback</a></span>
 					</div>
 				</span>
 			</div>

@@ -233,7 +233,7 @@ a:hover {
 /* 5 - Banner Rules */
 
 #full-banner{
-  background-image: url('img/catalog-full-width.jpg');
+  background-image: url('img/gradient-banner.jpg');
   min-height: 240px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -244,7 +244,7 @@ a:hover {
 }
 
 #full-banner-inner{
-  background-image: url('img/catalog-full-width.jpg');
+  background-image: url('img/gradient-banner.jpg');
   min-height: 140px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1482,6 +1482,7 @@ a:hover {
 @media (max-width: 767px) {
   .side-nav {
     margin-top: 20px;
+    margin-bottom: 30px;
   }
 
 
