@@ -18,6 +18,8 @@ $perm = get_permalink();
 
 $url = get_bloginfo( 'url' );
 
+$order = get_query_var( 'orderby' );
+
 get_header(); ?>
 
 
@@ -41,10 +43,10 @@ get_header(); ?>
 		<div class="section-content page-title-section">
 
 
-			<?php if ($perm === $url.'/policies/alphabetical/' ) { ?>
-				<a class="dept-title-small" href="<?php echo the_permalink(); ?>">Alphabetical</a>
-			 <?php } else if ( $perm === $url.'/policies/appendix/' ) { ?>
+			<?php if ($order === 'policy_categories' ) { ?>
 				<a class="dept-title-small" href="<?php echo the_permalink(); ?>">Appendix</a>
+			 <?php } else if ( $order === 'title' ) { ?>
+				<a class="dept-title-small" href="<?php echo the_permalink(); ?>">Alphabetical</a>
 			<?php } ?>
 
 			
@@ -132,7 +134,7 @@ get_header(); ?>
 
 		<?php 
 
-		$order = get_query_var( 'orderby' );
+		
 
 		if(have_posts()): 
 

@@ -115,7 +115,7 @@ get_header(); ?>
 
 			<ul class="sidebar-list">
 
-				<?php get_csun_contact($dept); ?>
+				<?php echo get_csun_contact($dept); ?>
 
 			</ul>
 

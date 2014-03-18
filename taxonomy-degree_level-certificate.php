@@ -86,13 +86,18 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix small-marg-bottom">
 			<div class="content">
 				<span class="section-title"><span><h2>Certificate Programs</h2></span></span>
-				<?php $values = get_the_content();
-				if ( $values != false ) { ?>
-						<p><?php the_content(); ?></p>
-					
-				<?php } else { ?>
-				<p>No Content, here's some Lorem ipsum!</p>
-				<?php } ?>
+				<p>University Certificate Programs are academic-credit Certificate Programs designed to provide an integrated and focused program of 
+				study in selected academic fields. Designed to allow those in different majors to add an area of professional expertise to their Credentials, 
+				University Certificates are added and updated to offer highly valued fields of study in the contemporary marketplace. They also allow 
+				those with advanced degrees to add fields of study to their academic record, thus allowing them to enrich or shift their career options or 
+				advance in their current professions.</p>
+
+				<p>Those who complete University Certificate Programs successfully have the award of the University Certificate noted on their transcripts 
+				and they are issued a formal University Certificate approved by the Office of Graduate Studies and signed by the University President. The 
+				Post- Baccalaureate University Certificates currently offered are listed below.</p>
+
+				<p>For detailed information on all of the following the Post-Baccalaureate Certificate Programs, visit 
+				<a href="www.csun.edu/graduatestudies">www.csun.edu/graduatestudies</a>.<p>
 			</div>
 			</div>
 

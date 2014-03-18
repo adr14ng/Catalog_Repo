@@ -57,7 +57,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
 				<span class="section-title"><span><h2>Contact</h2></span></span>
 				<ul class="sidebar-list">
-					<?php get_csun_contact($dept); ?>
+					<?php echo get_csun_contact($dept); ?>
 				</ul>
 			</div>
 

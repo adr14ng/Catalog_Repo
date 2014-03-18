@@ -124,7 +124,7 @@ get_header(); ?>
 	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 		<div class="section-content col-sm-6 col-md-12 col-lg-12">
 			<span class="section-title"><span><h2>Contact</h2></span></span> 
-			<p><?php get_csun_contact($dept); ?></p>
+			<p><?php echo get_csun_contact($dept); ?></p>
 		</div>
 
 
