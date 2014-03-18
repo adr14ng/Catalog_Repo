@@ -10,15 +10,6 @@
 get_header(); ?>
 
 
-<div class="row" id="full-banner-inner">
-	<div class="banner-overlay">
-		<div class="container">
-			<h1 class="banner-title-inner"><span class="red">CSUN</span> UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1>
-		</div>
-		
-	</div>
-</div>
-
 
 <div class="row" id="subnav-wrap">
 

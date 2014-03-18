@@ -11,14 +11,6 @@ $deptdesc = $deptterm->description;
 get_header(); ?>
 
 
-<div class="row" id="full-banner-inner">
-	<div class="banner-overlay">
-		<div class="container">
-		</div>
-		
-	</div>
-</div>
-
 
 
 <div class="container" id="wrap">

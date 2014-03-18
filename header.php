@@ -119,3 +119,33 @@
 
 
 </div> <!-- end fixbar -->
+
+
+
+<!-- Banner -->
+
+<?php
+if ( is_front_page() ) { ?>
+
+    <div class="row" id="full-banner">
+  <div class="banner-overlay">
+    <div class="container">
+      <h1 class="banner-title"><!-- <span class="banner-title-big">CSUN</span> --></br>UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1>
+    </div>
+    
+  </div>
+</div>
+
+<?php } else { ?>
+
+    <div class="row" id="full-banner-inner">
+  <div class="banner-overlay">
+    <div class="container">
+      <h1 class="banner-title-inner"><span class="red">CSUN</span> UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1>
+    </div>
+    
+  </div>
+</div>
+
+<?php }
+?>

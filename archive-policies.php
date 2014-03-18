@@ -22,28 +22,6 @@ get_header(); ?>
 
 
 
-
-
-<div class="row" id="full-banner-inner">
-
-	<div class="banner-overlay">
-
-		<div class="container">
-
-			<h1 class="banner-title-inner"><span class="red">CSUN</span> UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1>
-
-		</div>
-
-		
-
-	</div>
-
-</div>
-
-
-
-
-
 <div class="row" id="subnav-wrap">
 
 
@@ -63,9 +41,9 @@ get_header(); ?>
 		<div class="section-content page-title-section">
 
 
-			<?php if ($perm = $url.'/policies/alphabetical/' ) { ?>
+			<?php if ($perm === $url.'/policies/alphabetical/' ) { ?>
 				<a class="dept-title-small" href="<?php echo the_permalink(); ?>">Alphabetical</a>
-			 <?php } else if ( $perm = $url.'/policies/appendix/' ) { ?>
+			 <?php } else if ( $perm === $url.'/policies/appendix/' ) { ?>
 				<a class="dept-title-small" href="<?php echo the_permalink(); ?>">Appendix</a>
 			<?php } ?>
 
