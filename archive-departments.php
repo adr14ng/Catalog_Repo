@@ -62,12 +62,39 @@ get_header(); ?>
 
 <div class="row">
 	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-
+	
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="section-content">
+					<span class="section-title"><span><h2>Academic Advisement</h2></span></span> 
+					<p><?php the_field('academic_advisement'); ?></p>
+				</div>
+			</div>
+		</div>
+		
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content">
 					<span class="section-title"><span><h2>Careers</h2></span></span> 
 					<p><?php the_field('careers'); ?></p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="section-content">
+					<span class="section-title"><span><h2>Accreditation</h2></span></span> 
+					<p><?php the_field('accreditation'); ?></p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="section-content">
+					<span class="section-title"><span><h2>Honors</h2></span></span> 
+					<p><?php the_field('honors'); ?></p>
 				</div>
 			</div>
 		</div>
@@ -84,7 +111,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content">
-					<span class="section-title"><span><h2>Other Information</h2></span></span> 
+					<span class="section-title"><span><h2>More Information</h2></span></span> 
 					<p><?php the_content(); ?></p>
 				</div>
 			</div>

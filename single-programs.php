@@ -110,15 +110,13 @@ get_header(); ?>
 
 	<div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
 		<div class="section-content">
+			<span class="section-title"><span><h2>Overview</h2></span></span> 
+			<?php the_content(); ?>
+		</div>
+		<div class="section-content">
 			<span class="section-title"><span><h2>Program Requirements</h2></span></span> 
 			<p><?php the_field('program_requirements'); ?></p>
 		</div>	
-
-		<div class="section-content">
-			<span class="section-title"><span><h2>Accreditation</h2></span></span> 
-			<p>Waiting on Content</p>
-		</div>
-
 	</div>
 
 	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
