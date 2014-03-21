@@ -66,7 +66,8 @@ get_header(); ?>
 			<ul class="side-nav">
 
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Overview</a></li>
-				<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/credentials/">Credential Office</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/">Credential Office</a></li>
+				<li class="indent side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/credentials/">Credentials</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/certificates/">Post-Baccalaureate University Certificate Programs</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/masters/">Masters</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/doctorates/">Doctorate</a></li>
@@ -106,7 +107,6 @@ get_header(); ?>
 
 
 				<div class="content">
-					<span class="section-title"><span><h2>Credential Program List</h2></span></span>
 				
 
 				<div class="dept-container content">

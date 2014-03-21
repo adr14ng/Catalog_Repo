@@ -65,7 +65,8 @@ get_header(); ?>
 			<ul class="side-nav">
 
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Overview</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/credentials/">Credential Office</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/">Credential Office</a></li>
+				<li class="indent"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/credentials/">Credentials</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/certificates/">Post-Baccalaureate University Certificate Programs</a></li>
 				<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/masters/">Masters</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/doctorates/">Doctorate</a></li>
@@ -83,27 +84,9 @@ get_header(); ?>
 
 		<div class="row">
 
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix small-marg-bottom">
-			<div class="content">
-				<span class="section-title"><span><h2>Masters Program Programs</h2></span></span>
-				<?php $values = get_the_content();
-				if ( $values != false ) { ?>
-						<p><?php the_content(); ?></p>
-					
-				<?php } else { ?>
-				<p>No Content, here's some Lorem ipsum!</p>
-				<?php } ?>
-			</div>
-			</div>
-
-
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
 
-			
-
-
 				<div class="content">
-					<span class="section-title"><span><h2>Masters Program List</h2></span></span>
 				
 
 				<div class="dept-container content">

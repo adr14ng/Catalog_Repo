@@ -82,7 +82,9 @@
 
 	<div id="lastrow">
 </div>
-
+  <script>
+	$("h2.section-header").wrap('<span class="section-title"><span></span></span>');
+  </script>
 
 
 		<?php wp_footer();?>

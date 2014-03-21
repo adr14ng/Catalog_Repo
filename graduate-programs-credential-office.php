@@ -1,5 +1,5 @@
 <?php /**
- * Template Name: Graduate Programs Doctorate Template
+ * Template Name: Graduate Programs Credential Office Template
  */ 
 // $dept = get_query_var( 'department_shortname' );
 
@@ -21,7 +21,7 @@ get_header(); ?>
 
 		<div class="section-content page-title-section">
 
-			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Doctorate</a>
+			<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Credential Office</a>
 
 				<a href="<?php echo the_permalink(); ?>"><h1 class="prog-title">Graduate Programs</h1></a>
 
@@ -42,14 +42,6 @@ get_header(); ?>
 <div class="container" id="wrap">
 
 
-	<!-- <div class="row">
-				<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<span><?php echo the_breadcrumb(); ?></span>
-				</div>
-			
-	</div> -->
-
-
 
 	<div class="row small-marg-top">
 
@@ -65,11 +57,11 @@ get_header(); ?>
 			<ul class="side-nav">
 
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Overview</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/">Credential Office</a></li>
+				<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/">Credential Office</a></li>
 				<li class="indent"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/credentials/">Credentials</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/certificates/">Post-Baccalaureate University Certificate Programs</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/masters/">Masters</a></li>
-				<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/doctorates/">Doctorate</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/doctorates/">Doctorate</a></li>
 
 			</ul>
 		</div>
@@ -82,40 +74,49 @@ get_header(); ?>
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 
 
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix small-marg-bottom">
+		<?php 
 
-				<div class="content">				
+		if(have_posts()): while (have_posts()) : the_post(); ?>
 
-				<div class="dept-container content">
-       	 			<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-            			<div class="dept-item ">
-                		<a href="<?php the_permalink(); ?>"><?php the_field('degree_type'); ?>, <?php the_title(); 
-				
-					$post_option=get_field('option_title');
-							
-					if(isset($post_option)&&$post_option!=='') {
-						echo ': '.$post_option;
-					}
-				?></a>
-            	</div>
 
-        		<?php endwhile; else: ?>
-  					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-				<?php endif; ?>
+
+
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
+
+					<p><?php the_content()?></p>
+
+					
 
 				</div>
-				</div>
 
 
-			
+
+
+
+
+
+		<?php endwhile; else: ?>
+
+  			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+
+		<?php endif; ?>
+
 		</div>
+
 		</div>
 
 	</div>
-	</div>
+
+
+
+	
+
+
 
 </div>
+
 </div>
 
 

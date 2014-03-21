@@ -48,14 +48,14 @@ get_header(); ?>
 	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 		<div class="section-content">
 			<span class="section-title"><span><h2>Mission Statement</h2></span></span> 
-			<p><?php the_field('mission_statement'); ?></p>
+			<?php the_field('mission_statement'); ?>
 		</div>
 	</div>
 
 	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 		<div class="section-content">
 			<span class="section-title"><span><h2>Contact</h2></span></span> 
-			<p><?php the_field('contact'); ?></p>
+			<?php the_field('contact'); ?>
 		</div>
 	</div>
 </div>
@@ -67,7 +67,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content">
 					<span class="section-title"><span><h2>Academic Advisement</h2></span></span> 
-					<p><?php the_field('academic_advisement'); ?></p>
+					<?php the_field('academic_advisement'); ?>
 				</div>
 			</div>
 		</div>
@@ -76,7 +76,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content">
 					<span class="section-title"><span><h2>Careers</h2></span></span> 
-					<p><?php the_field('careers'); ?></p>
+					<?php the_field('careers'); ?>
 				</div>
 			</div>
 		</div>
@@ -85,7 +85,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content">
 					<span class="section-title"><span><h2>Accreditation</h2></span></span> 
-					<p><?php the_field('accreditation'); ?></p>
+					<?php the_field('accreditation'); ?>
 				</div>
 			</div>
 		</div>
@@ -94,7 +94,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content">
 					<span class="section-title"><span><h2>Honors</h2></span></span> 
-					<p><?php the_field('honors'); ?></p>
+					<?php the_field('honors'); ?>
 				</div>
 			</div>
 		</div>
@@ -103,7 +103,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content">
 					<span class="section-title"><span><h2>Clubs and Societies</h2></span></span> 
-					<p><?php the_field('student_orgs'); ?></p>
+					<?php the_field('student_orgs'); ?>
 				</div>
 			</div>
 		</div>
@@ -111,30 +111,15 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content">
-					<span class="section-title"><span><h2>More Information</h2></span></span> 
-					<p><?php the_content(); ?></p>
+					<?php the_content(); ?>
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 
 </div>
 
-
-	
-
-
-
-
-
-
-
-
-
-<!-- 		<h1><?php the_title(); ?></h1>
-		<p><?php the_content(); ?></p> -->
 
 		<?php endwhile; else: ?>
   		<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

@@ -65,7 +65,8 @@ get_header(); ?>
 			<ul class="side-nav">
 
 				<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Overview</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/credentials/">Credential Office</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/">Credential Office</a></li>
+				<li class="indent"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/credentials/">Credentials</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/certificates/">Post-Baccalaureate University Certificate Programs</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/masters/">Masters</a></li>
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/doctorates/">Doctorate</a></li>
@@ -80,21 +81,6 @@ get_header(); ?>
 
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix small-marg-bottom">
-			<div class="content">
-				<span class="section-title"><span><h2>Certificate Programs</h2></span></span>
-				<?php $values = get_the_content();
-				if ( $values != false ) { ?>
-						<p><?php the_content(); ?></p>
-					
-				<?php } else { ?>
-				<p>No Content, here's some Lorem ipsum!</p>
-				<?php } ?>
-			</div>
-			</div>
-
-
-
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix small-marg-bottom">
 		<?php 
@@ -106,8 +92,6 @@ get_header(); ?>
 
 
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
-
-					<span class="section-title"><span><h2>GE Overview</h2></span></span>
 
 					<p><?php the_content()?></p>
 

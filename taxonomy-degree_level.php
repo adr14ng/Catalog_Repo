@@ -31,9 +31,6 @@ $level = get_query_var( 'degree_level' );
 
 <div id="main-section">
 <div class="container" id="wrap">
-	<div class="content">
-		<h2><?php echo ucwords($level).'s';?></h2>
-	</div>
 
 	<div class="dept-container content">
         <?php if(have_posts()): while (have_posts()) : the_post(); ?>
