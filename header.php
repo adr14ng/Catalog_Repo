@@ -67,13 +67,12 @@
                 </ul>
             </div>
 
-            <form class="navbar-form clearfix" role="search">
-              <label for="srch-term">Search Catalog:</label>
+            <form class="navbar-form search-form clearfix" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+              <label for="s">Search Catalog:</label>
               <div id="csunsearch" class="input-group ">
-                <input type="text" class="form-control" placeholder="Search Catalog" name="srch-term" id="srch-term">
-                
+                <input type="text" class="form-control" placeholder="Search Catalog" name="s" id="s">
                 <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><!-- <div class="arrow-left"></div> --><span class="glyphicon glyphicon-search"></span></button>
+                  <button id="searchsubmit" class="btn btn-default" type="submit"><!-- <div class="arrow-left"></div> --><span class="glyphicon glyphicon-search"></span></button>
                 </div>
               </div>
             </form>

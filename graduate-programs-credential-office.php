@@ -57,11 +57,11 @@ get_header(); ?>
 			<ul class="side-nav">
 
 				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Overview</a></li>
-				<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/">Credential Office</a></li>
-				<li class="indent"><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/credential-office/credentials/">Credentials</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/certificates/">Post-Baccalaureate University Certificate Programs</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/masters/">Masters</a></li>
-				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-studies/doctorates/">Doctorate</a></li>
+				<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/credential-office/">Credential Office</a></li>
+				<li class="indent"><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/credential-office/credentials/">Credentials</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/certificates/">Post-Baccalaureate University Certificate Programs</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/masters/">Masters</a></li>
+				<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/doctorates/">Doctorate</a></li>
 
 			</ul>
 		</div>

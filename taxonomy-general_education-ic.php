@@ -37,24 +37,9 @@ get_header(); ?>
 
 <div class="container" id="wrap">
 
-
-	<!-- <div class="row">
-				<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<span><?php echo the_breadcrumb(); ?></span>
-				</div>
-			
-	</div> -->
-
-
-
 	<div class="row small-marg-top">
 
-
-
-
 		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 left-sidebar ">
-
-
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 side-nav-col clearfix noborder">
 
@@ -90,19 +75,17 @@ get_header(); ?>
 				$query_policies = new WP_Query(array(
 					'post_type' => 'courses', 
 					'orderby' => 'title', 
-					'order' => 'DESC',  
+					'order' => 'ASC',  
 					'general_education' => 'ic+'.$term->slug)
 				);
 
-				if($query_policies->have_posts()) : ?>
+				if($query_policies->have_posts()) : 
 
-					<h2><?php echo $term->description; ?></h2>
+				echo '<span class="section-title"><span><h2>' . $term->description .'</h2></span></span>';
 
-					<?php while($query_policies->have_posts()) : $query_policies->the_post(); ?>
-					
-					<h3><a href="<?php the_permalink();?>"/><?php the_title(); ?></a></h3>
+				 while($query_policies->have_posts()) : $query_policies->the_post(); ?>
+					<p class = "small-marg-bottom"><a href="<?php the_permalink();?>"/><?php the_title(); ?></a><p>
 
-			
 		<?php endwhile; endif; endif; endforeach;?>
 
 
