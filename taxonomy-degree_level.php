@@ -8,6 +8,10 @@
  get_header(); 
 
 $level = get_query_var( 'degree_level' );
+
+//Make ascending by title
+global $query_string;
+query_posts( $query_string . '&orderby=title&order=ASC' );
 ?>
 
 <div class="row" id="subnav-wrap">

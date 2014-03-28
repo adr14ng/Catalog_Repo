@@ -7,6 +7,7 @@
 
 // $deptdesc = $deptterm->description;
 
+
 get_header(); ?>
 
 
@@ -95,7 +96,7 @@ get_header(); ?>
 
 				echo '<span class="section-title"><span><h2>' . $term->description .'</h2></span></span>';
 
-				$query_policies = new WP_Query(array('post_type' => 'courses', 'orderby' => 'title', 'order' => 'DESC',  'general_education' => $term->slug));
+				$query_policies = new WP_Query(array('post_type' => 'courses', 'orderby' => 'title', 'order' => 'ASC',  'general_education' => $term->slug));
 
 				if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>
 				

@@ -7,6 +7,11 @@
 
 // $deptdesc = $deptterm->description;
 
+
+//Make ascending by title
+global $query_string;
+query_posts( $query_string . '&orderby=title&order=ASC' );
+
 get_header(); ?>
 
 <div class="row" id="subnav-wrap">

@@ -8,6 +8,9 @@ $keyword = get_query_var( 'policy_keywords' );
 $keyword_term = get_term_by( 'slug', $keyword, 'policy_keywords' );
 $keyword_title = ucwords($keyword_term->name);
 
+//Make ascending by title
+global $query_string;
+query_posts( $query_string . '&orderby=title&order=ASC' );
 
 get_header(); ?>
 

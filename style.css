@@ -746,6 +746,10 @@ a:hover {
  min-height: 10px;
 }
 
+.pagination-content{
+	text-align: center;
+}
+
 #share-icons {
   min-height: 32px;
   position: relative;

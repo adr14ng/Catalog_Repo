@@ -73,7 +73,7 @@ get_header(); ?>
 						foreach($terms as $term) :
 							echo '<span class="section-title"><span><h2>' . $term->name .'</h2></span></span>';
 							
-							$query_policies = new WP_Query(array('post_type' => 'policies', 'orderby' => 'title', 'order' => 'DESC',  'policy_categories' => $term->slug));
+							$query_policies = new WP_Query(array('post_type' => 'policies', 'orderby' => 'title', 'order' => 'ASC',  'policy_categories' => $term->slug));
 							
 							if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>
 							
