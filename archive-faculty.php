@@ -42,15 +42,7 @@ get_header(); ?>
 	<div class="container" id="wrap">
 
 		<div class="row">
-				<div class="section-content">
-					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 left-sidebar ">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
-							<span class="section-title"><span><h2>Contact</h2></span></span>
-							<ul class="sidebar-list">
-								<?php echo get_csun_contact($dept); ?>
-							</ul>
-						</div>
-					</div>
+			<div class="section-content">
 				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 					<span class="section-title"><span><h2>Current Faculty</h2></span></span>
 					
@@ -58,7 +50,7 @@ get_header(); ?>
 
 					<?php if( strpos(get_the_term_list(  $post->ID, 'department_shortname', '', ', '), 'Emeriti') === FALSE): ?>
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
-							<a href="<?php the_csun_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
+							<a class="csun-subhead" href="<?php the_csun_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 							<p><?php the_excerpt(); ?></p>
 							<a class="read-more" href="<?php the_permalink(); ?>">[ View Faculty Member ]</a>
 						</div>
@@ -78,7 +70,7 @@ get_header(); ?>
 
 					<?php if( strpos(get_the_term_list(  $post->ID, 'department_shortname', '', ', '), 'Emeriti') !== FALSE): ?>
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
-							<a href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
+							<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 							<p><?php the_excerpt(); ?></p>
 							<a class="read-more" href="<?php the_permalink(); ?>">[ View Faculty Member ]</a>
 						</div>
@@ -90,6 +82,14 @@ get_header(); ?>
 					
 				<?php endif; ?>
 
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 right-sidebar ">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
+						<span class="section-title"><span><h2>Contact</h2></span></span>
+						<ul class="sidebar-list">
+							<?php echo get_csun_contact($dept); ?>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

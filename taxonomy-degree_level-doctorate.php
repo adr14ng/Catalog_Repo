@@ -1,17 +1,14 @@
-<?php /**
+<?php 
+/**
  * Template Name: Graduate Programs Doctorate Template
  */ 
-// $dept = get_query_var( 'department_shortname' );
-
-// $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
-
-// $deptdesc = $deptterm->description;
 
 
 //Make ascending by title
 global $query_string;
 query_posts( $query_string . '&orderby=title&order=ASC' );
 
+$num = $wp_query->post_count;
 get_header(); ?>
 
 <div class="row" id="subnav-wrap">
@@ -19,8 +16,8 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Doctorate</a>
-					<a href="<?php echo the_permalink(); ?>"><h1 class="prog-title">Graduate Programs</h1></a>
+					<a class="dept-title-small" href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Graduate ProgramsDoctorate</a>
+					<h1 class="prog-title">Doctorate</h1>
 				</div>
 			</div>
 		</div>
@@ -57,11 +54,11 @@ get_header(); ?>
 				<?php endwhile; endif; ?>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
 						<div class="content">		
-							<span class="section-title"><span><h2>Doctoral Program List</h2></span></span>
+							<?php $query_prog = new WP_Query(array('post_type' => 'programs', 'orderby' => 'title', 'order' => 'ASC',  'degree_level' => 'doctorate')); 
+							$num = $query_prog->post_count; ?>
+							<span class="section-title"><span><h2>Doctoral Programs (<?php echo $num;?>)</h2></span></span>
 							<div class="dept-container content">
-							<?php $query_prog = new WP_Query(array('post_type' => 'programs', 'orderby' => 'title', 'order' => 'ASC',  'degree_level' => 'doctorate'));
-					
-							if($query_prog->have_posts()): while ($query_prog->have_posts()) : $query_prog->the_post(); ?>
+							<?php if($query_prog->have_posts()): while ($query_prog->have_posts()) : $query_prog->the_post(); ?>
 								<div class="dept-item ">
 									<a href="<?php the_permalink(); ?>"><?php the_field('degree_type'); ?>, <?php the_title(); 
 							

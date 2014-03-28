@@ -46,6 +46,10 @@ p {
   line-height: 28px;
 }
 
+.panel p {
+	line-height: 18px;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -436,6 +440,7 @@ a:hover {
 .csun-subhead{
   font-size: 18px;
   font-weight: 700;
+  color: #990000;
 }
 
 .inner-item {
@@ -653,6 +658,11 @@ a:hover {
   color: #727272;
 }
 
+#main-section a{
+	text-decoration: underline;
+}
+
+
 #landing-section {
   background-image: url('img/noisy_grid.png');
   padding-bottom: 10px;
@@ -782,6 +792,38 @@ a:hover {
 
 .share-icon:hover {
   color: #1e1e1e;
+}
+
+.panel-default a.collapsed .glyphicon-minus-sign{
+	display: none;
+}
+
+.panel-default a.collapsed .glyphicon-plus-sign{
+	display: inline-block;
+}
+
+.panel-default  .glyphicon-plus-sign{
+	display: none;
+}
+
+.collapsed .panel-heading{
+	background: #fafafa;
+}
+
+.panel-heading{
+	background: #990000;
+}
+
+.collapsed h4.panel-title{
+	color: #990000;
+}
+
+h4.panel-title{
+	color: #ffffff;
+}
+
+#accordion .panel a{
+	text-decoration: none;
 }
 
 #breadcrumbs{

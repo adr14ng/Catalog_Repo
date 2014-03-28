@@ -12,6 +12,8 @@ $level = get_query_var( 'degree_level' );
 //Make ascending by title
 global $query_string;
 query_posts( $query_string . '&orderby=title&order=ASC' );
+
+$num = $wp_query->post_count;
 ?>
 
 <div class="row" id="subnav-wrap">
@@ -20,7 +22,7 @@ query_posts( $query_string . '&orderby=title&order=ASC' );
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a>
-					<a href="<?php echo the_permalink(); ?>"><h1 class="prog-title"><?php echo ucwords($level); ?></h1></a>
+					<a href="<?php echo the_permalink(); ?>"><h1 class="prog-title"><?php echo ucwords($level).' ('.$num.')'; ?></h1></a>
 				</div>
 			</div>
 		</div>
