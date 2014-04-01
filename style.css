@@ -54,6 +54,9 @@ a:hover {
   text-decoration: none;
 }
 
+.main a.no-line {
+	text-decoration: none;
+}
 
 #menu-catalog-menu > li > a {
   color: #ffffff;
@@ -658,7 +661,7 @@ a:hover {
   color: #727272;
 }
 
-#main-section a{
+.main a{
 	text-decoration: underline;
 }
 
@@ -1504,16 +1507,17 @@ h4.panel-title{
   
 }
 
-.side-nav li.side-nav-active {
+.side-nav li.side-nav-active,
+.side-nav li.current-menu-item{
   display: block;
   border: solid 1px #990000;
   background-color: #990000;
 
 }
 
-.side-nav li.side-nav-active a {
+.side-nav li.side-nav-active a,
+.side-nav li.current-menu-item a {
   color: #ffffff;
-
 }
 
 .side-nav li:hover {

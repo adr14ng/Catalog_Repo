@@ -3,7 +3,7 @@
 
 /* Registering Nav Menu */
 register_nav_menu( 'primary', __( 'Primary Menu', 'csuncatalognav' ) );
-
+register_nav_menu( 'about-menu', 'About Menu' );
 
 /* Breadcrumbs */
 function the_breadcrumb() {

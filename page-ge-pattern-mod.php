@@ -19,7 +19,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="main-section">
+<div id="main-section" class = "main">
 	<div class="container" id="wrap">
 		<div class="row small-marg-top">
 			<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 left-sidebar ">

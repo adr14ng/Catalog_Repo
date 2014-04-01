@@ -37,7 +37,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="main-section">
+<div id="main-section" class = "main">
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="section-content">

@@ -7,7 +7,7 @@
 get_header(); ?>
 
 
-<div id="main-section">
+<div id="main-section" class = "main">
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="section-content">
@@ -41,7 +41,7 @@ get_header(); ?>
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<span class="section-title"><span><h2>About</h2></span></span>
 					<?php		
-						$about = get_page_by_title('The California State University');
+						$about = get_page_by_title('About');
 						?>
 						<a href="<?php echo get_permalink($about->ID);?>"/><?php echo $about->post_title; ?></a><br />
 						<?php
@@ -81,7 +81,15 @@ get_header(); ?>
 						foreach($gened_pages as $page): ?>
 							<a href="<?php echo get_permalink($page->ID);?>"/><?php echo $page->post_title; ?></a><br />
 						<?php endforeach;?>  
+						<a href="<?php echo site_url('/general-education/information-competence/');?>"/>Information Competence</a><br />
+						<a href="<?php echo site_url('/general-education/courses/');?>"/>Courses</a><br />
 						<br />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<span class="section-title"><span><h2>Faculty</h2></span></span>
+					<a href="<?php echo site_url('/faculty/');?>"/>Faculty and Adminstration</a><br />
+					<a href="<?php echo site_url('/faculty/emeriti/');?>"/>Emeriti</a><br />
+					<br />
 				</div>
 			</div>
 		</div>

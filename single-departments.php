@@ -33,7 +33,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="main-section">
+<div id="main-section" class = "main">
 <div class="container" id="wrap">
 
 	<?php if(have_posts()): while (have_posts()) : the_post(); ?>

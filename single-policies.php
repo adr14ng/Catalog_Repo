@@ -23,7 +23,7 @@ get_header(); ?>
 		</div>
 	</div>
 </div>
-<div id="main-section">
+<div id="main-section" class = "main">
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="pad-box">
@@ -33,7 +33,6 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="section-content">
-								<span class="section-title"><span><h2>Policy Info</h2></span></span> 
 								<p><?php the_content(); ?></p>
 								<p><?php the_terms( $id, 'policy_keywords', '<strong>Keywords : </strong>', ', ') ?></p>
 							</div>	
