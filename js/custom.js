@@ -5,6 +5,15 @@ $( document ).ready(function() {
      	$( "#menuicon" ).click(function() {
      		console.log( "You Clicked it");
   			$( "#csunnav" ).toggleClass( "hideme" );
+			if(!$( "#search-div" ).is(".hideme"))
+				$( "#search-div" ).toggleClass( "hideme" );
+		});
+		
+		$( "#searchicon" ).click(function() {
+     		console.log( "You Clicked it");
+  			$( "#search-div" ).toggleClass( "hideme" );
+			if(!$( "#csunnav" ).is(".hideme"))
+				$( "#csunnav" ).toggleClass( "hideme" );
 		});
 
 

@@ -127,10 +127,11 @@ a:hover {
     float: left;
     font-size: 20px;
     color: #ffffff;
+	z-index: 20;
 }
 
 #headerbar{
-  display: none;
+  display: block;
   position: relative;
   height: 100%;
   background-color: none;
@@ -634,15 +635,11 @@ a:hover {
 }
 
 .dept-item {
-  height: 40px;
   border: solid 1px #cacaca;
-  overflow: hidden;
 }
 
 .dept-item:hover {
   background-color: #1e1e1e;
-  /*border: solid 1px #ffffff;*/
-  border: 0;
 }
 
 .dept-item:hover > a {
@@ -650,13 +647,13 @@ a:hover {
 }
 
 .dept-item > a {
-  display: block;
+  display: table-cell;
   padding: 2px 5px 2px 10px;
   width: 100%;
-  height: 100%;
+  height: 50px;
   overflow: hidden;
   vertical-align: middle;
-  line-height: 38px;
+  line-height: 16px;
   font-size: 12px;
   color: #727272;
 }
@@ -943,20 +940,44 @@ h4.panel-title{
   top: 68px;
   width: 100%;
   height: 50px;
+  padding: 10px 15px;
   background-color: #181818;
   z-index: 20;    
+  }
+  
+  #search-div{
+	position: absolute;
+	top: 0px;
+	width: 100%;
   }
 
   #wrap{
     border: 0;
   }
 
-.hideme {
+  #quicklinks-lg, #quicklinks,
+  #headerbar .headerbar-logo{
+	display: none;
+  }
+  
+ #headerbar .row{
+	position: absolute;
+	top: 0px;
+	width: 100%;
+ }
+.hideme,
+#headerbar #search-div .hideme {
   display: none;
 }
 
-.showme {
+.showme,
+#headerbar #search-div .showme,
+.showme .navbar-form > label{
   display: block;
+}
+
+#headerbar .col-xs-12{
+	padding: 0;
 }
 
 /* 7 - Inner Page*/
@@ -1520,6 +1541,32 @@ h4.panel-title{
   color: #ffffff;
 }
 
+.side-nav li.current-menu-item li a {
+  color: #000;
+}
+
+.side-nav li:hover .sub-menu li a{
+	color: #000;
+}
+
+ul.side-nav ul {
+	margin-left: -40px;
+}
+
+.side-nav li:hover .sub-menu li:hover{
+	background-color: #900;
+}
+
+.side-nav li:hover .sub-menu li:hover a{
+	color: #fff;
+}
+
+.side-nav li li{
+	border-bottom: 0px;
+	border-top: solid 1px #949494;
+	padding-left: 12%;
+}
+
 .side-nav li:hover {
   background-color: #1e1e1e;
   border-bottom: solid 1px #1e1e1e;
@@ -1527,10 +1574,6 @@ h4.panel-title{
 
 .side-nav li:hover a {
   color: #ffffff;
-}
-
-.side-nav .indent {
-	padding-left: 12%;
 }
 
 @media (max-width: 767px) {
@@ -1542,6 +1585,67 @@ h4.panel-title{
 
 }
 
+/*4 Year Plans and Star Act Plans ===============================================================================================*/
+
+.plans table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.plans table > thead > tr > th,
+.plans table > tbody > tr > th,
+.plans table > tfoot > tr > th,
+.plans table > thead > tr > td,
+.plans table > tbody > tr > td,
+.plans table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.428571429;
+  vertical-align: top;
+  border: 0;
+}
+
+.plans table > thead > tr > th {
+  vertical-align: bottom;
+}
+
+.plans table{
+  border: 0;
+}
+
+.plans table > tbody > tr:last-child > td,
+.plans table > tbody > tr:first-child > th {
+  background-color: #f9f9f9;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+.plans table > tbody > tr:hover > td,
+.plans table > tbody > tr:hover > th {
+  background-color: #f5f5f5;
+}
+
+.plan-grid ul {
+	list-style: none;
+}
+
+.plan-grid ul li a {
+	width: 150px;
+	height: 50px;
+	color: #FFF;
+	font-size: 24px;
+	text-decoration: none;
+	background-color: #990000;
+	display: block;
+	margin-bottom: 8px;
+	text-align: center;
+	padding: 40px 0px 70px 0px;
+	float: left;
+	margin-left: 8px;
+}
+
+.plan-grid ul li a:hover {
+	background-color: #000;
+}
 
 /*Miscellaneous Stuff ===================================================================================================================*/
 

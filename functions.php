@@ -4,6 +4,7 @@
 /* Registering Nav Menu */
 register_nav_menu( 'primary', __( 'Primary Menu', 'csuncatalognav' ) );
 register_nav_menu( 'about-menu', 'About Menu' );
+register_nav_menu( 'rgs-menu', 'RGS Menu' );
 
 /* Breadcrumbs */
 function the_breadcrumb() {
@@ -162,7 +163,7 @@ function the_csun_permalink(){
  }
  
 function limit_posts_per_search_page() {
-	if ( is_search() )
+	if ( is_search() && !is_admin() )
 		$limit = 10;
 	else
 		$limit = get_option('posts_per_page');

@@ -43,12 +43,16 @@ get_header(); ?>
 				foreach($terms as $term) :
 					$num++;
 
-					if($term->slug !== 'ic'): ?>
+					if($term->slug !== 'ic'): 
+					
+						$query_policies = new WP_Query(array('post_type' => 'courses', 'orderby' => 'title', 'order' => 'ASC',  'general_education' => $term->slug));
+						$count = $query_policies->post_count;
+					?>
 						<div class="panel panel-default">
 							<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $num;?>" class="collapsed">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<?php echo $term->description; ?>
+										<?php echo ($term->description).' ('.$count.')'; ?>
 										<span class="glyphicon pull-right glyphicon-plus-sign"></span>
 										<span class="glyphicon pull-right glyphicon-minus-sign"></span>
 									</h4>
@@ -57,11 +61,7 @@ get_header(); ?>
 							<div id="collapse<?php echo $num;?>" class="panel-collapse collapse">
 								<div class="panel-body">
 
-								<?php
-								
-								$query_policies = new WP_Query(array('post_type' => 'courses', 'orderby' => 'title', 'order' => 'ASC',  'general_education' => $term->slug));
-
-								if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>
+								<?php if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>
 								
 									<p><a href="<?php the_permalink();?>"/><?php the_title(); ?></a></p>
 

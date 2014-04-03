@@ -48,13 +48,15 @@ get_header(); ?>
 							'order' => 'ASC',  
 							'general_education' => 'ic+'.$term->slug)
 						);
+						
+						$count = $query_policies->post_count;
 
 						if($query_policies->have_posts()) : ?>
 						<div class="panel panel-default">
 							<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $num;?>" class="collapsed">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<?php echo $term->description; ?>
+										<?php echo ($term->description).' ('.$count.')'; ?>
 										<span class="glyphicon pull-right glyphicon-plus-sign"></span>
 										<span class="glyphicon pull-right glyphicon-minus-sign"></span>
 									</h4>
