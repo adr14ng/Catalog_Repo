@@ -773,12 +773,13 @@ a:hover {
 }
 
 #share-icons li{
-  width: 25%;
+  width: 33%;
   float:left;
   color:#1e1e1e;
 }
 
-#share-icons li a span{
+#share-icons li a span,
+#share-icons li span{
   display: block;
   margin: auto;
   text-align: center;
@@ -792,6 +793,14 @@ a:hover {
 
 .share-icon:hover {
   color: #1e1e1e;
+}
+
+#share-icons  #csun-sharethis{
+	display: inline-block !important;
+}
+
+#share-icons .stButton{
+	display: none !important;
 }
 
 .panel-default a.collapsed .glyphicon-minus-sign{
@@ -994,7 +1003,7 @@ h4.panel-title{
   margin-bottom: 8px;
 }
 
-#share-icons li a span {
+#share-icons li a span, ##share-icons li span span {
   font-size: 18px;
 }
 
@@ -1241,7 +1250,7 @@ h4.panel-title{
 
 /* 7 - Inner Page Rules */
 
-#share-icons li a span {
+#share-icons li a span, ##share-icons li span span {
   font-size: 21px;
 }
 

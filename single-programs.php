@@ -71,10 +71,18 @@ get_header(); ?>
 					</div>
 					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 						<ul id="share-icons">
-							<li><a class="no-line" href=""><span title="email" alt="email" class="glyphicon glyphicon-envelope share-icon"></span></a></li>
-							<li><a class="no-line" href=""><span class="glyphicon glyphicon-cloud-download share-icon"></span></a></li>
-							<li><a class="no-line" href=""><span class="glyphicon glyphicon-comment share-icon"></span></a></li>
-							<li><a class="no-line" href=""><span class="glyphicon glyphicon-phone share-icon"></span></a></li>
+							<li><a class="no-line" href="javascript:window.print()" alt="print" title="Print this page.">
+								<span class="glyphicon glyphicon-print share-icon"></span>
+							</a></li>
+							<li><?php pdf_all_button(); ?></li>
+							<li>
+								<span class='st_sharethis' st_title='Share this page with others' st_url='<?php the_csun_permalink(); ?>'>
+									<span id="csun-sharethis" style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+										<span class="stLarge glyphicon glyphicon-share share-icon"></span>
+										<img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;">
+									</span>
+								</span>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -99,6 +107,12 @@ get_header(); ?>
 								<span class="section-title"><span><h2>Program Requirements</h2></span></span> 
 								<p><?php the_field('program_requirements'); ?></p>
 							</div>	
+							<div class="section-content">
+								<span class="section-title"><span><h2>More information</h2></span></span> 
+								<p>If you would like more information about this program please contact
+									<a href="mailto:<?php the_field('email_contact'); ?>" title="Email questions about the program"><?php the_field('email_contact'); ?></a>.
+								</p>
+							</div>	
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 							<div class="section-content col-sm-6 col-md-12 col-lg-12">
@@ -115,11 +129,11 @@ get_header(); ?>
 							<?php endif; ?>
 
 
-							<?php $values = get_field('four_year');
+							<?php $values = get_field('degree_plan');
 							if ( $values != false) : ?>
 								<div class="section-content col-sm-6 col-md-12 col-lg-12">
 									<span class="section-title"><span><h2>4 Year Plans</h2></span></span> 
-									<p><?php the_field('four_year'); ?></p>
+									<p><?php the_field('degree_plan'); ?></p>
 								</div>	
 							<?php endif; ?>
 

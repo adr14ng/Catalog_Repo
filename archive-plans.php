@@ -34,7 +34,7 @@ get_header(); ?>
 					<?php endwhile; endif; ?>
 					
 						<?php 
-						$years = get_terms( 'aca_year' );
+						$years = get_terms( 'aca_year', array('orderby' => 'name', 'order' => 'DESC',) );
 						$url = site_url('/planning/plans/');?>
 							
 						<div class="plan-grid"><ul>
@@ -42,8 +42,6 @@ get_header(); ?>
 						<?php foreach($years as $year) : 
 							$query_plans = new WP_Query(array(
 							'post_type' => 'plans', 
-							'orderby' => 'title', 
-							'order' => 'ASC',  
 							'aca_year' => $year->slug,));
 							
 							if($query_plans->have_posts()) :?>
