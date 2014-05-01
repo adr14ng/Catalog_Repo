@@ -19,10 +19,7 @@ $( document ).ready(function() {
 
 		$(".dept-container").columnize({ width: 300 });
 
-
-
-
-
+		$('[data-toggle="popover"]').popover();
 
 });
 

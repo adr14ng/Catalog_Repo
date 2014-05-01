@@ -16,7 +16,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Graduate ProgramsDoctorate</a>
+					<a class="dept-title-small" href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Graduate Programs</a>
 					<h1 class="prog-title">Doctorate</h1>
 				</div>
 			</div>
@@ -57,7 +57,7 @@ get_header(); ?>
 				<?php endwhile; endif; ?>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
 						<div class="content">		
-							<?php $query_prog = new WP_Query(array('post_type' => 'programs', 'orderby' => 'title', 'order' => 'ASC',  'degree_level' => 'doctorate')); 
+							<?php $query_prog = new WP_Query(array('post_type' => 'programs', 'orderby' => 'title', 'order' => 'ASC',  'degree_level' => 'doctorate', 'posts_per_page' => 1000,)); 
 							$num = $query_prog->post_count; ?>
 							<span class="section-title"><span><h2>Doctoral Programs (<?php echo $num;?>)</h2></span></span>
 							<div class="dept-container content">

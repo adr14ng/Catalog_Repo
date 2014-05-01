@@ -5,6 +5,7 @@
 register_nav_menu( 'primary', __( 'Primary Menu', 'csuncatalognav' ) );
 register_nav_menu( 'about-menu', 'About Menu' );
 register_nav_menu( 'rgs-menu', 'RGS Menu' );
+register_nav_menu( 'ge-menu', 'GE Menu' );
 
 /* Breadcrumbs */
 function the_breadcrumb() {
@@ -163,12 +164,14 @@ function the_csun_permalink(){
  }
  
 function limit_posts_per_search_page() {
-	if ( is_search() && !is_admin() )
-		$limit = 10;
-	else
-		$limit = get_option('posts_per_page');
+	if(!is_admin()){
+		if ( is_search())
+			$limit = 10;
+		else
+			$limit = 1000;
 
-	set_query_var('posts_per_archive_page', $limit);
+		set_query_var('posts_per_archive_page', $limit);
+	}
 }
 add_filter('pre_get_posts', 'limit_posts_per_search_page');
 

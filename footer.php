@@ -15,7 +15,7 @@
 				<span class="footbox">
 					<p>Download previous years' catalogs and find additional resources here: </p>
 					<div class="btnbox">
-						<span class="redbtn"><a href="#">Downloads</a></span>
+						<span class="redbtn"><a href="<?php echo site_url('/resources'); ?>">Downloads</a></span>
 					</div>
 				</span>
 			</div>

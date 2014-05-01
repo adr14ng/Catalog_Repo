@@ -7,12 +7,17 @@
 
 
 $dept = get_query_var( 'department_shortname' );
-
-
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
-
 $deptdesc = $deptterm->description;
 
+$funding = get_field('fund_source');
+
+
+
+if($funding === 'self')
+	$self = true;
+elseif($funding === 'both')
+	$both = true;
  
 get_header(); ?>
 
@@ -103,16 +108,34 @@ get_header(); ?>
 								<span class="section-title"><span><h2>Overview</h2></span></span> 
 								<?php the_content(); ?>
 							</div>
-							<div class="section-content">
-								<span class="section-title"><span><h2>Program Requirements</h2></span></span> 
-								<p><?php the_field('program_requirements'); ?></p>
-							</div>	
-							<div class="section-content">
-								<span class="section-title"><span><h2>More information</h2></span></span> 
-								<p>If you would like more information about this program please contact
-									<a href="mailto:<?php the_field('email_contact'); ?>" title="Email questions about the program"><?php the_field('email_contact'); ?></a>.
-								</p>
-							</div>	
+							<?php if($self): ?>
+								<div class="section-content well well-tseng">
+									This program is administered through the <a href="http://tsengcollege.csun.edu/" title="Tseng College Webpage">The Tseng College</a>.
+									It is entirely funded by student fees, offered in the cohort format and features evening and weekend course schedules.
+								</div>
+							<?php endif; ?>
+							<?php if($both): ?>
+								<div class="section-content well well-tseng">
+									This program can be entered through one of the CSUN academic colleges or through the <a href="http://tsengcollege.csun.edu/" title="Tseng College Webpage">The Tseng College</a>. 
+									The program offered through the Tseng College is entirely funded by student fees, offered in the cohort format and features evening and weekend course schedules.
+								</div>
+							<?php endif; ?>
+							<?php $values = get_field('program_requirements');
+							if ( $values != false ) : ?>
+								<div class="section-content">
+									<span class="section-title"><span><h2>Program Requirements</h2></span></span> 
+									<p><?php the_field('program_requirements'); ?></p>
+								</div>
+							<?php endif; ?>
+							<?php $values = get_field('email_contact');
+							if ( $values != false ) : ?>							
+								<div class="section-content">
+									<span class="section-title"><span><h2>More information</h2></span></span> 
+									<p>If you would like more information about this program please contact
+										<a href="mailto:<?php the_field('email_contact'); ?>" title="Email questions about the program"><?php the_field('email_contact'); ?></a>.
+									</p>
+								</div>	
+							<?php endif; ?>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 							<div class="section-content col-sm-6 col-md-12 col-lg-12">
@@ -140,7 +163,13 @@ get_header(); ?>
 							<?php $values = get_field('star_act');
 							if ( $values != false ) : ?>
 								<div class="section-content col-sm-6 col-md-12 col-lg-12">
-									<span class="section-title"><span><h2>STAR Act</h2></span></span> 
+									<span class="section-title">
+										<span><h2>STAR Act</h2></span>
+										<div class= "more-info pull-right" id="star-info" data-toggle="popover" data-placement="bottom" title="What is the STAR Act" 
+											data-content="Students who have graduated with a verified Associate Degree for Transfer and been admitted to a CSUN program that has been deemed similar, will be able to complete the Baccalaureate Degree within 60 semester units.">
+											<span class="glyphicon glyphicon glyphicon-info-sign"></span>
+										</div>
+									</span> 
 									<p><?php the_field('star_act'); ?></p>
 								</div>
 							<?php endif; ?>

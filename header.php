@@ -9,6 +9,8 @@
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.columnizer.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.js"></script>
+	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/respond.min.js"></script>
+	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/respond.matchmedia.addListener.min.js"></script>
 	  <script type="text/javascript" src="//use.typekit.net/gfb2mjm.js"></script>
 	  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	  

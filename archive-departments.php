@@ -42,24 +42,15 @@ get_header(); ?>
 		
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+			<?php $values = get_field('mission_statement');
+			if ( $values != false) : ?>
 				<div class="section-content">
 					<span class="section-title"><span><h2>Mission Statement</h2></span></span> 
 					<?php the_field('mission_statement'); ?>
 				</div>
-			</div>
-
-			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-				<div class="section-content">
-					<span class="section-title"><span><h2>Contact</h2></span></span> 
-					<?php the_field('contact'); ?>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-		
-			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-			
+			<?php endif; ?>
+			<?php $values = get_field('academic_advisement');
+			if ( $values != false) : ?>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="section-content">
@@ -68,7 +59,9 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
-				
+			<?php endif; ?>
+			<?php $values = get_field('careers');
+			if ( $values != false) : ?>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="section-content">
@@ -77,7 +70,9 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
-				
+			<?php endif; ?>
+			<?php $values = get_field('accreditation');
+			if ( $values != false) : ?>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="section-content">
@@ -86,7 +81,9 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
-				
+			<?php endif; ?>
+			<?php $values = get_field('honors');
+			if ( $values != false) : ?>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="section-content">
@@ -95,7 +92,9 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
-
+			<?php endif; ?>
+			<?php $values = get_field('student_orgs');
+			if ( $values != false) : ?>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="section-content">
@@ -104,6 +103,7 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
+			<?php endif; ?>
 
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -112,18 +112,22 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
-				
-			</div>
-			
-		</div>
+			</div><!--/end col -->
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<div class="section-content">
+					<span class="section-title"><span><h2>Contact</h2></span></span> 
+					<?php the_field('contact'); ?>
+				</div>
+			</div> <!--/end col -->
+		</div><!--/end row -->
 		
 	<?php endwhile; else: ?>
 	
 		<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 		
 	<?php endif; ?>
-	</div>
-</div>
+	</div><!--/end wrap -->
+</div><!--/end main-section -->
 
 
 <?php get_footer(); ?>

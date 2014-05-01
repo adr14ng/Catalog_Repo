@@ -26,13 +26,17 @@ get_header(); ?>
 		<div class="row small-marg-top small-marg-bottom">
 			<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 left-sidebar ">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 side-nav-col clearfix noborder">
-					<ul class="side-nav">
-						<li><a href="<?php bloginfo( 'url' ); ?>/general-education/">GE Overview</a></li>
-						<li><a href="<?php bloginfo( 'url' ); ?>/general-education/rules/">Rules</a></li>
-						<li><a href="<?php bloginfo( 'url' ); ?>/general-education/pattern-modifications/">Pattern Modifications</a></li>
-						<li><a href="<?php bloginfo( 'url' ); ?>/general-education/information-competence/">Information Competence (IC)</a></li>
-						<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/general-education/courses/">Courses</a></li>
-					</ul>
+					<?php 
+					$args = array(
+							'theme_location' => 'ge-menu',
+							'container' => false,
+							'menu_class' => 'side-nav',
+							'fallback_cb' => false,
+							
+						);
+					
+					wp_nav_menu( $args ); 
+					?>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
@@ -43,9 +47,9 @@ get_header(); ?>
 				foreach($terms as $term) :
 					$num++;
 
-					if($term->slug !== 'ic'): 
+					if($term->slug !== 'ic' && $term->slug !== 'ud'): 
 					
-						$query_policies = new WP_Query(array('post_type' => 'courses', 'orderby' => 'title', 'order' => 'ASC',  'general_education' => $term->slug));
+						$query_policies = new WP_Query(array('post_type' => 'courses', 'orderby' => 'title', 'order' => 'ASC',  'general_education' => $term->slug, 'posts_per_page' => 1000,));
 						$count = $query_policies->post_count;
 					?>
 						<div class="panel panel-default">

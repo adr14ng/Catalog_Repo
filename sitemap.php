@@ -56,7 +56,7 @@ get_header(); ?>
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<span class="section-title"><span><h2>Graduate Studies</h2></span></span>
 					<?php		
-						$rgs = get_page_by_title('Graduate Programs');
+						$rgs = get_page_by_title('Research and Graduate Studies');
 						?>
 						<a href="<?php echo get_permalink($rgs->ID);?>"/><?php echo $rgs->post_title; ?></a><br />
 						<?php
@@ -82,6 +82,7 @@ get_header(); ?>
 							<a href="<?php echo get_permalink($page->ID);?>"/><?php echo $page->post_title; ?></a><br />
 						<?php endforeach;?>  
 						<a href="<?php echo site_url('/general-education/information-competence/');?>"/>Information Competence</a><br />
+						<a href="<?php echo site_url('/general-education/upper-division/');?>"/>Upper Division</a><br />
 						<a href="<?php echo site_url('/general-education/courses/');?>"/>Courses</a><br />
 						<br />
 				</div>
@@ -90,6 +91,18 @@ get_header(); ?>
 					<a href="<?php echo site_url('/faculty/');?>"/>Faculty and Adminstration</a><br />
 					<a href="<?php echo site_url('/faculty/emeriti/');?>"/>Emeriti</a><br />
 					<br />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<span class="section-title"><span><h2>Planning Guides</h2></span></span>
+					<?php		
+						$plan = get_page_by_title('Planning');
+						
+						$plan_pages = get_pages(array('child_of' => ($plan->ID)));
+						
+						foreach($plan_pages as $page): ?>
+							<a href="<?php echo get_permalink($page->ID);?>"/><?php echo $page->post_title; ?></a><br />
+						<?php endforeach;?> 
+						<br />
 				</div>
 			</div>
 		</div>

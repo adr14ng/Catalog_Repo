@@ -13,7 +13,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<span class="dept-title-small">Planning</span>
+					<a class="dept-title-small" href="<?php echo site_url('/resources'); ?>">Resources</a>
 					<h1 class="prog-title">4 Year Plans</h1>
 				</div>
 			</div>
@@ -42,7 +42,8 @@ get_header(); ?>
 						<?php foreach($years as $year) : 
 							$query_plans = new WP_Query(array(
 							'post_type' => 'plans', 
-							'aca_year' => $year->slug,));
+							'aca_year' => $year->slug, 
+							'posts_per_page' => 1000,));
 							
 							if($query_plans->have_posts()) :?>
 							

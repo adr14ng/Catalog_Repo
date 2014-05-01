@@ -1,5 +1,5 @@
 <?php /**
- * Template Name: General Education Information Competence Template
+ * Template Name: General Education Upper Division Template
  */ 
 
 
@@ -13,7 +13,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php bloginfo( 'url' ); ?>/genera/-education/">General Education</a>
-					<h1 class="prog-title">Information Competence</h1>
+					<h1 class="prog-title">Upper Division</h1>
 				</div>
 			</div>
 		</div>
@@ -44,13 +44,13 @@ get_header(); ?>
 				$num = 0;
 				foreach($terms as $term) :
 					$num++;
-					if($term->slug !== 'ic' && $term->slug !== 'ud'):
+					if($term->slug !== 'ud' && $term->slug !== 'ic'):
 
 						$query_policies = new WP_Query(array(
 							'post_type' => 'courses', 
 							'orderby' => 'title', 
 							'order' => 'ASC',  
-							'general_education' => 'ic+'.$term->slug, 
+							'general_education' => 'ud+'.$term->slug, 
 							'posts_per_page' => 1000,)
 						);
 						

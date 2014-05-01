@@ -34,7 +34,25 @@ get_header(); ?>
 						<div class="col-xs-12">
 							<div class="section-content">
 								<p><?php the_content(); ?></p>
-								<p><?php the_terms( $id, 'policy_keywords', '<strong>Keywords : </strong>', ', ') ?></p>
+								
+								<section id="policy-tags">
+								<?php $terms = get_the_terms( $id, 'policy_categories' ); 
+								foreach($terms as $term):?>
+									<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
+										<button type="button" class="btn btn-primary btn-xs">
+											<?php echo $term->name; ?>
+										</button>
+									</a>
+								<?php endforeach; ?>
+								<?php $terms = get_the_terms( $id, 'policy_tags' ); 
+								foreach($terms as $term):?>
+									<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
+										<button type="button" class="btn btn-info btn-xs">
+											<?php echo $term->name; ?>
+										</button>
+									</a>
+								<?php endforeach; ?>
+								</section>
 							</div>	
 						</div>
 					</div>

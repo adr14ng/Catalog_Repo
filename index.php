@@ -45,6 +45,14 @@
 <div id="main-section" class = "main">
 <div class="container" id="wrap">
 
+
+		<?php 
+			// Query my custom post type
+		$the_query = new WP_Query(array('post_type' => 'departments', 'orderby' => 'title', 'order' => 'ASC', 'posts_per_page' => 1000,)); 
+		
+		$num = $the_query->post_count;
+		?>
+
 	<div class="content">
 		<span class="section-title"><span><h2>Departments & Programs</h2></span></span>
 	</div>
@@ -55,9 +63,6 @@
 
 
 
-		<?php 
-			// Query my custom post type
-		$the_query = new WP_Query(array('post_type' => 'departments', 'orderby' => 'title', 'order' => 'ASC')); ?>
 
 
 		<?php // The Loop

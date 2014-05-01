@@ -48,7 +48,8 @@ get_header(); ?>
 						'orderby' => 'title', 
 						'order' => 'ASC',  
 						'department_shortname' => $term->slug, 
-						'aca_year' => $year,));
+						'aca_year' => $year, 
+						'posts_per_page' => 1000,));
 						
 					if($query_plans->have_posts()) :
 						

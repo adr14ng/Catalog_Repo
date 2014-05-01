@@ -24,20 +24,38 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4, h5, h6{
   font-family: museo-sans, helvetica, arial, sans-serif;
-  color: #990000;
+  font-weight: bold;
 }
 h1{
   font-size: 30px;
+  color: #990000;
 }
 
 h2 {
   font-size: 24px;
+  color: #990000;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 20px;
+  color: #000000;
+}
+
+h4 {
+	font-size: 18px;
+	color: #990000;
+}
+
+h5 {
+	font-size: 16px;
+	color: #000000;
+}
+
+h6 {
+	font-size: 14px;
+	color: #990000;
 }
 
 p {
@@ -417,7 +435,7 @@ a:hover {
 }
 
 .redbtn:hover {
-  background-color: #710100;
+  background-color: #000;
 }
 
 .redbtn > a {
@@ -430,7 +448,7 @@ a:hover {
 }
 
 #lastrow {
-  background-color: #1e1e1e;
+  background-color: #000;
   height: 20px;
 }
 
@@ -559,7 +577,7 @@ a:hover {
 
 
 #catalog-subnav ul li:hover a {
-  background-color: #1e1e1e;
+  background-color: #000;
   color: #ffffff;
 }
 
@@ -579,7 +597,7 @@ a:hover {
   z-index: 150;
   top: 149px;
   display: none;
-  background-color: #1e1e1e;
+  background-color: #000;
   width: 25%;
   max-width: 50%;
   padding-bottom: 5px;
@@ -592,7 +610,7 @@ a:hover {
 }
 
 #catalog-subnav ul li.active ul li:hover{
-  background-color: #1e1e1e;
+  background-color: #000;
 }
 
 #catalog-subnav ul li.active ul li a{
@@ -600,7 +618,7 @@ a:hover {
 }
 
 #catalog-subnav ul li.active ul li a:hover{
-  background-color: #1e1e1e;
+  background-color: #000;
 }
 
 #catalog-subnav ul li ul li {
@@ -614,7 +632,7 @@ a:hover {
  display: block;
  font-size: 12px;
  border: 0;
- border-bottom: solid 1px #1e1e1e; 
+ border-bottom: solid 1px #000; 
 }
 
 #catalog-subnav ul li ul li:last-child a{
@@ -639,7 +657,7 @@ a:hover {
 }
 
 .dept-item:hover {
-  background-color: #1e1e1e;
+  background-color: #000;
 }
 
 .dept-item:hover > a {
@@ -718,7 +736,7 @@ a:hover {
 
 .section-content {
   margin-bottom: 20px;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
 }
 
 .page-title-section {
@@ -734,6 +752,11 @@ a:hover {
   padding-bottom: 6px;
   border-bottom: solid 2px #cecfd1;
   margin-bottom: 25px;
+  margin-top:25px; 
+}
+
+.section-content .section-title{
+	margin-top:0px; 
 }
 
 .section-title h2 {
@@ -751,8 +774,13 @@ a:hover {
   border-bottom: solid 2px #990000
 }
 
+.section-title div span {
+	border-bottom: none;
+	top: 3px;
+}
+
 .section-breadcrumb {
- background-color: #1e1e1e;
+ background-color: #000;
  min-height: 10px;
 }
 
@@ -801,6 +829,30 @@ a:hover {
 
 #share-icons .stButton{
 	display: none !important;
+}
+
+#policy-tags a {
+	text-decoration: none;
+}
+
+#policy-cats a {
+	text-decoration: none;
+}
+
+.policy-page-title {
+	margin-top: 0px;
+}
+
+.tax-name {
+	color: #000;
+}
+
+#policy-tags .btn{
+	margin-bottom: 5px;
+}
+
+#policy-cats .btn{
+	margin-bottom: 5px;
 }
 
 .panel-default a.collapsed .glyphicon-minus-sign{
@@ -880,6 +932,19 @@ h4.panel-title{
   color: #ffffff;
 }
 
+.well-tseng {
+  color: #fff;
+  background-color: #688a7e;
+  border-color: #42564f;
+  text-align: center;
+  /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);*/
+}
+
+.well-tseng a{
+	color: #fff;
+}
+
 
 @media (max-width: 767px) { /*Rules that apply only to xs size =================================================================================*/
   #csunnav {
@@ -924,7 +989,7 @@ h4.panel-title{
 }
 
 .nav > li > a:hover {
-  background-color: #2e2e2e;
+  background-color: #000;
 }
 
 #breadcrumbs-wrap {
@@ -941,7 +1006,7 @@ h4.panel-title{
 }
 
 #menu-catalog-menu li:hover{
-  background-color: #2e2e2e;
+  background-color: #000;
 }
 
 #csunsearch {
@@ -987,6 +1052,10 @@ h4.panel-title{
 
 #headerbar .col-xs-12{
 	padding: 0;
+}
+
+#breadcrumbs-wrap{
+	display: none;
 }
 
 /* 7 - Inner Page*/
@@ -1191,7 +1260,7 @@ h4.panel-title{
   }
 
   #menu-catalog-menu li:hover {
-    background-color: #1e1e1e;
+    background-color: #000;
     color: #ffffff;
   }
 
@@ -1563,7 +1632,7 @@ ul.side-nav ul {
 }
 
 .side-nav li:hover .sub-menu li:hover{
-	background-color: #900;
+	background-color: #600;
 }
 
 .side-nav li:hover .sub-menu li:hover a{
@@ -1577,8 +1646,8 @@ ul.side-nav ul {
 }
 
 .side-nav li:hover {
-  background-color: #1e1e1e;
-  border-bottom: solid 1px #1e1e1e;
+  background-color: #000;
+  border-bottom: solid 1px #000;
 }
 
 .side-nav li:hover a {
@@ -1650,6 +1719,7 @@ ul.side-nav ul {
 	padding: 40px 0px 70px 0px;
 	float: left;
 	margin-left: 8px;
+	border: 1px solid #000;
 }
 
 .plan-grid ul li a:hover {

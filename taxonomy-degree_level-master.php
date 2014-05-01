@@ -29,14 +29,16 @@ get_header(); ?>
 		<div class="row small-marg-top">
 			<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 left-sidebar ">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 side-nav-col clearfix noborder">
-					<ul class="side-nav">
-						<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Overview</a></li>
-						<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/credential-office/">Credential Office</a></li>
-						<li class="indent"><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/credential-office/credentials/">Credentials</a></li>
-						<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/certificates/">Post-Baccalaureate University Certificate Programs</a></li>
-						<li class="side-nav-active"><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/masters/">Masters</a></li>
-						<li><a href="<?php bloginfo( 'url' ); ?>/graduate-programs/doctorates/">Doctorate</a></li>
-					</ul>
+					<?php 
+					$args = array(
+							'theme_location' => 'rgs-menu',
+							'container' => false,
+							'menu_class' => 'side-nav',
+							'fallback_cb' => false,
+						);
+					
+					wp_nav_menu( $args ); 
+					?>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
@@ -54,7 +56,7 @@ get_header(); ?>
 				<?php endwhile; endif; ?>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
 						<div class="content">
-							<?php $query_prog = new WP_Query(array('post_type' => 'programs', 'orderby' => 'title', 'order' => 'ASC',  'degree_level' => 'master')); 
+							<?php $query_prog = new WP_Query(array('post_type' => 'programs', 'orderby' => 'title', 'order' => 'ASC',  'degree_level' => 'master', 'posts_per_page' => 1000,)); 
 							$num = $query_prog->post_count; ?>
 							<span class="section-title"><span><h2>Masters Programs (<?php echo $num;?>)</h2></span></span>
 							<div class="dept-container content">

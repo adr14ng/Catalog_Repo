@@ -19,7 +19,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo site_url(''); ?>">Plans</a>
+					<a class="dept-title-small" href="<?php echo site_url('/plan/plans/'); ?>">Plans</a>
 					<a href="<?php echo the_permalink(); ?>"><h1 class="prog-title"><?php echo $aca_year.' '; the_title(); ?></h1></a>
 				</div>
 			</div>
