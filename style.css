@@ -1726,6 +1726,88 @@ ul.side-nav ul {
 	background-color: #000;
 }
 
+/*Tables ===================================================================================================================*/
+
+
+#ge-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#ge-table > thead > tr > th,
+#ge-table > tbody > tr > th,
+#ge-table > tfoot > tr > th,
+#ge-table > thead > tr > td,
+#ge-table > tbody > tr > td,
+#ge-table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.428571429;
+  vertical-align: top;
+  border: 0;
+}
+
+#ge-table > thead > tr > th {
+  vertical-align: bottom;
+}
+
+#ge-table{
+  border: 0;
+}
+
+#ge-table > tbody > tr:last-child > td,
+#ge-table > tbody > tr:first-child > th {
+  background-color: #f9f9f9;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+#ge-table > tbody > tr:hover > td,
+#ge-table > tbody > tr:hover > th {
+  background-color: #f5f5f5;
+}
+
+.csun-table {
+  margin-bottom: 10px;
+}
+
+.csun-table > thead > tr > th,
+.csun-table > tbody > tr > th,
+.csun-table > tfoot > tr > th,
+.csun-table > thead > tr > td,
+.csun-table > tbody > tr > td,
+.csun-table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.428571429;
+  vertical-align: top;
+  border: 0;
+}
+
+.csun-table > thead > tr > th {
+  vertical-align: bottom;
+}
+
+.csun-table{
+  border: 0;
+}
+
+.csun-table > tbody > tr:first-child > th {
+  background-color: #f9f9f9;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+.csun-table .header-footer th,
+.csun-table .header-footer td{
+  background-color: #f9f9f9;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+.csun-table > tbody > tr:hover > td,
+.csun-table > tbody > tr:hover > th {
+  background-color: #f5f5f5;
+}
+
 /*Miscellaneous Stuff ===================================================================================================================*/
 
 .sm-buffer{

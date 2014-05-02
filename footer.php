@@ -64,15 +64,15 @@
 		<div class="container">
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footerlinks">
-				<a href="#">Accessibility</a>
-				<a href="#">Community Impact Reports</a>
-				<a href="#">College Portrait</a>
-				<a href="#">Emergency Information</a>
-				<a href="#">California State University</a>
-				<a href="#">Voter Registration</a>
-				<a href="#">Terms and Conditions for Use (pdf)</a>
-				<a href="#">University Policies &amp; Procedures</a>
-				<a href="#">Mission Statement</a>
+				<a href="http://www.csun.edu/accessibility/">Accessibility</a>
+				<a href="http://www.csun.edu/CommunityImpact/">Community Impact Reports</a>
+				<a href="http://www.collegeportraits.org/CA/CSUN">College Portrait</a>
+				<a href="http://www-admn.csun.edu/publicsafety/emergency/">Emergency Information</a>
+				<a href="http://www.calstate.edu/">California State University</a>
+				<a href="http://www-admn.csun.edu/vp/policies/">Voter Registration</a>
+				<a href="http://www-admn.csun.edu/vp/policies/500_itr/500-05.pdf">Terms and Conditions for Use (pdf)</a>
+				<a href="http://www-admn.csun.edu/vp/policies/">University Policies &amp; Procedures</a>
+				<a href="http://www.csun.edu/academic.affairs/csunmission.htm">Mission Statement</a>
 				<a href="#"><code><var>@media=</var> </code></a>
 			</div>
 

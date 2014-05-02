@@ -10,7 +10,7 @@
 			<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
 			<div class="landing-over clearfix">
 				<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/icon-xmarks.png">
-				<h4 class="land-head">Your Catalog Guide</h4>
+				<h4 class="land-head">Table of Contents</h4>
 				<span class="land-copy">A site map to help you find your way.</span>
 			</div>
 		</div>
@@ -31,7 +31,7 @@
 			<div class="landing-over clearfix">
 				<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/icon-sundial.png">
 				<h4 class="land-head">Catalog Resources</h4>
-				<span class="land-copy">Downloads, archives and other similar information accessed here.</span>
+				<span class="land-copy">Downloads, archives and more.</span>
 			</div>
 		</div>
 		</a>

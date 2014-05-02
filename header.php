@@ -57,13 +57,12 @@
 							
 							<div class="row" id="quicklinks-lg">
 								<ul class="right">
-									<li ><a href="#">Downloads</a></li>
-									<li ><a href="#">Skip Nav</a></li>
-									<li ><a href="#">Accessibility</a></li>
-									<li ><a href="#">Calendar</a></li>
-									<li ><a href="#">People Finder</a></li>
-									<li ><a href="#">A to Z</a></li>
-									<li ><a href="#">Webmail</a></li>
+									<li ><a href="#skipstuff">Skip Nav</a></li>
+									<li ><a href="http://www.csun.edu/universaldesigncenter">Accessibility</a></li>
+									<li ><a href="http://www.csun.edu/calendar/">Calendar</a></li>
+									<li ><a href="https://www.csun.edu/peoplefinder/">People Finder</a></li>
+									<li ><a href="http://www.csun.edu/atoz/">A to Z</a></li>
+									<li ><a href="https://www.csun.edu/webmail/">Webmail</a></li>
 								</ul>
 							</div>
 							
@@ -132,3 +131,5 @@
 				</div>
 
 			<?php endif; ?>
+			
+			<div id="skipstuff"></div>
