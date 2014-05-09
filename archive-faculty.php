@@ -57,7 +57,7 @@ get_header(); ?>
 
 					<?php endwhile; else: ?>
 					
-						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+						<p><?php _e('There are currently no faculty associated with '.$deptdesc.'.'); ?></p>
 						
 					<?php endif; ?>
 
@@ -77,7 +77,7 @@ get_header(); ?>
 
 					<?php endwhile; else: ?>
 					
-						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+						<p><?php _e('There are currently no emeritus faculty associated with '.$deptdesc.'.'); ?></p>
 						
 					<?php endif; ?>
 

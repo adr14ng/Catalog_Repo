@@ -7,30 +7,30 @@
 	<div class="row">
 		<a href="<?php echo site_url('/site-map/'); ?>">
 		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
-			<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
+			<img alt="" class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
 			<div class="landing-over clearfix">
-				<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/icon-xmarks.png">
-				<h4 class="land-head">Table of Contents</h4>
+				<img alt="" class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/icon-xmarks.png">
+				<h2 class="land-head">Table of Contents</h2>
 				<span class="land-copy">A site map to help you find your way.</span>
 			</div>
 		</div>
 		</a>
 		<a href="<?php echo site_url('/about/'); ?>">
 		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
-			<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
+			<img alt="" class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
 			<div class="landing-over clearfix">
-				<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/icon-book.png">
-				<h4 class="land-head">Explore CSUN</h4>
+				<img alt="" class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/icon-book.png">
+				<h2 class="land-head">Explore CSUN</h2>
 				<span class="land-copy">See whats going on at CSUN.</span>
 			</div>
 		</div>
 		</a>
 		<a href="<?php echo site_url('/resources/'); ?>">
 		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
-			<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
+			<img alt="" class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
 			<div class="landing-over clearfix">
-				<img class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/icon-sundial.png">
-				<h4 class="land-head">Catalog Resources</h4>
+				<img alt="" class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/icon-sundial.png">
+				<h2 class="land-head">Catalog Resources</h2>
 				<span class="land-copy">Downloads, archives and more.</span>
 			</div>
 		</div>

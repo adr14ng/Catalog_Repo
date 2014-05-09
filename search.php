@@ -40,7 +40,7 @@ $search = new WP_Query($search_query);
 				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
-						<a href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
+						<a href="<?php the_permalink(); ?>"><h2 class="csun-subhead"><?php the_title(); ?></h2></a>
 						<p><?php the_excerpt(); ?></p>
 						<a class="read-more" href="<?php the_permalink(); ?>">[ View Result ]</a>
 					</div>

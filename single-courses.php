@@ -63,7 +63,31 @@ get_header(); ?>
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
-				<a class="no-line" href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Course:</span> <?php the_title(); ?></h2></a>
+				<div class="row">
+					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+						<a class="no-line" href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Course:</span> <?php the_title(); ?></h2></a>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<?php 
+							$subject_line = "CSUN Catalog - ".get_the_title();
+							$subject_line = str_replace(' ', '%20', $subject_line);
+							$body = 'Permalink : '.get_csun_permalink();
+							$body = str_replace(' ', '%20', $body);
+						?>
+						<ul id="share-icons">
+							<li><?php pdf_all_button(); ?></li>
+							<li>
+								<a class="no-line" alt="email" title="Email this page" 
+									href='mailto:?subject=<?php echo $subject_line ?>&body=<?php echo $body; ?>' >
+									<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
+								</a>
+							</li>
+							<li><a class="no-line" href="javascript:window.print()" alt="print" title="Print this page.">
+									<span class="glyphicon glyphicon-print share-icon"></span>
+								</a></li>
+						</ul>
+					</div>
+				</div>
 				<div class="row">
 					<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<span><?php echo the_breadcrumb(); ?></span>
@@ -76,26 +100,25 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="section-content">
-								<div class="row">
-									<?php the_content();?>
-								</div>
-								<?php if($single): ?>
-								<div class="row">
-									<h6 id="course-header"></h6>
-									<table class="csun-table" id="class-info" summary="Class sections"><tbody>
-										<tr><th>Course Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
-									</tbody></table>
-								</div>
-									
-								<?php if($double) : ?>
-								<div class="row">
-									<h6 id="activity-header"></h6>
-									<table class="csun-table" id="activity-info" summary="Activity sections"><tbody>
-										<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
-									</tbody></table>
-								</div>
-								<?php endif; ?>
+								<?php the_content();?>
 							</div>
+							
+							<?php if($single): ?>
+							<div class="section-content">
+								<h3 class="sm-h3" id="course-header"></h3>
+								<table class="csun-table" id="class-info" summary="Class sections"><tbody>
+									<tr><th>Course Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
+								</tbody></table>
+							</div>
+								
+							<?php if($double) : ?>
+							<div class="section-content">
+								<h3 class="sm-h3" id="activity-header"></h3>
+								<table class="csun-table" id="activity-info" summary="Activity sections"><tbody>
+									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
+								</tbody></table>
+							</div>
+							<?php endif; ?>
 								
 								<script>
 									/**
@@ -115,7 +138,7 @@ get_header(); ?>
 											   success: function(data_back){
 													var html = "";
 													var title;
-													var data = data_back.data;
+													var data = data_back.classes;
 													var meeting;
 													
 													if(data.length<1){
@@ -161,7 +184,7 @@ get_header(); ?>
 											   success: function(data_back){
 													var html = "";
 													var title;
-													var data = data_back.data;
+													var data = data_back.classes;
 													var meeting;
 													
 													if(data.length<1){
@@ -205,11 +228,11 @@ get_header(); ?>
 						<?php endif; ?>
 					</div>
 				<?php endwhile; endif; ?>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+				</div> <!-- end inset-content -->
+			</div> <!-- end pad-box -->
+		</div> <!-- end row -->
+	</div> <!-- end wrap -->
+</div> <!-- end main-section -->
 
 
 <?php get_footer(); ?>

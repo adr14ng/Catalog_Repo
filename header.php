@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 	  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-		<title><?php if(is_home()) bloginfo('name'); else wp_title(''); ?></title>
+	  <title>
+		<?php if(is_front_page()) 
+				bloginfo('name'); 
+			else 
+				wp_title(''); ?>
+	  </title>
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.min.css">
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
+	  <link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/print.css">
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-1.10.2.min.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.columnizer.js"></script>
@@ -30,7 +36,9 @@
 					</div> <!-- end menu iconblock -->
 					
 					<div id="neglogo">
-						<a href="http://www.csun.edu/"><img src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png"></a> 
+						<a alt="CSUN Home Page" href="http://www.csun.edu/">
+							<img alt="California State Univerity, Northridge" src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png">
+						</a> 
 					</div> <!-- end neglogo -->
 					
 					<div class="iconblock">
@@ -43,14 +51,15 @@
 					<div class="row">
 					
 						<div class="col-sm-4 col-lg-4 headerbar-logo">
-							<a href="http://www.csun.edu/"> <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo"></a> 
+							<a alt="CSUN Home Page" href="http://www.csun.edu/"> 
+								<img alt="California State Univerity, Northridge" src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo">
+							</a> 
 						</div>
 						
 						<div class="col-xs-12 col-sm-8 col-lg-8">
 						
 							<div class="row" id="quicklinks">
 								<ul class="right">
-									<li><a href="#">Archives</a><div class="arrow-down"></div></li>
 									<li><a href="#">Quicklinks</a><div class="arrow-down"></div></li>
 								</ul>
 							</div>
@@ -72,7 +81,7 @@
 									<div id="csunsearch" class="input-group ">
 										<input type="text" class="form-control" placeholder="Search Catalog" name="s" id="s">
 										<div class="input-group-btn">
-											<button id="searchsubmit" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+											<button id="searchsubmit" class="btn btn-default" type="submit"><span alt="Search the catalog" class="glyphicon glyphicon-search"></span> Search</button>
 										</div>
 									</div>
 								</form>

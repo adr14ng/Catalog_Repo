@@ -16,8 +16,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo site_url('/policies/appendix/'); ?>">Policies</a>
-					<a href="<?php echo the_permalink(); ?>"><h1 class="prog-title"><?php the_title(); ?></h1></a>
+					<a href="<?php echo site_url('/policies/appendix/'); ?>"><h1 class="prog-title">Policies</h1></a>
 				</div>
 			</div>
 		</div>
@@ -26,6 +25,33 @@ get_header(); ?>
 <div id="main-section" class = "main">
 	<div class="container" id="wrap">
 		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
+				<div class="row">
+					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+						<a class="no-line" href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><?php the_title(); ?></h2></a>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<?php 
+							$subject_line = "CSUN Catalog - ".get_the_title();
+							$subject_line = str_replace(' ', '%20', $subject_line);
+							$body = 'Permalink : '.get_permalink($id);
+							$body = str_replace(' ', '%20', $body);
+						?>
+						<ul id="share-icons">
+							<li><?php pdf_all_button(); ?></li>
+							<li>
+								<a class="no-line" alt="email" title="Email this page" 
+									href='mailto:?subject=<?php echo $subject_line ?>&body=<?php echo $body; ?>' >
+									<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
+								</a>
+							</li>
+							<li><a class="no-line" href="javascript:window.print()" alt="print" title="Print this page.">
+									<span class="glyphicon glyphicon-print share-icon"></span>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
 			<div class="pad-box">
 				<div id="inset-content">
 				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
@@ -59,7 +85,7 @@ get_header(); ?>
 					
 				<?php endwhile; else: ?>
 				
-					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+					<p><?php _e('Sorry, no policies matched your criteria.'); ?></p>
 					
 				<?php endif; ?>
 				</div>

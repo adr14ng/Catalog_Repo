@@ -106,7 +106,7 @@ get_header(); ?>
 					<?php endwhile; endif; ?>
 					
 				<?php else: ?>
-						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+						<p><?php _e('Sorry, no policies matched your criteria.'); ?></p>
 				<?php endif; ?>
 
 				</div>

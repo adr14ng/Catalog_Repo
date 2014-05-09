@@ -42,6 +42,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="section-content">
 				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<span class="section-title"><span><h2>Programs</h2></span></span>
 
 				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -75,7 +76,7 @@ get_header(); ?>
 									$post_option=get_field('option_title');
 
 									if(isset($post_option)&&$post_option!=='') {
-										echo '<h5>'.$post_option.'</h5>';
+										echo '<h4 class="sm-h4">'.$post_option.'</h4>';
 									}
 								?>
 							</a>
@@ -85,7 +86,7 @@ get_header(); ?>
 
 				<?php endwhile; else: ?>
 				
-					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+					<p><?php _e('There are currently no programs associated with '.$deptdesc.'.'); ?></p>
 					
 				<?php endif; ?>
 

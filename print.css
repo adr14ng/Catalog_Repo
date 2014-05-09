@@ -1,0 +1,190 @@
+/* Alex Deal Here*/
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    @page {
+    margin: 30cm; 
+    }
+
+    html {
+    overflow:hidden;
+    }
+
+    ::-webkit-scrollbar{
+    	display: none;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+	ol {
+		list-style-position: inside;
+		font-size: 10px;
+	}
+
+	ol li {list-style-position: inside;}
+
+
+
+
+/* Alex deal Ends */
+
+	/*.printEl { 
+	width: 8.5in;
+	height: 11in;
+	}
+
+	@page {
+	margin: 1cm;
+	}*/
+
+	#fixbar, #full-banner-inner, #catalog-subnav, #share-icons, 
+	#landing-section, #breadcrumbs, #outside-footer, .linksrow, 
+	#lastrow, /*div a,*/ .well-tseng, .dept-title-small, #policy-tags{
+		display: none;
+	}
+
+	* {
+	padding: 0 0 0 0;
+	}
+
+	a[href]:after {
+	    content: none;
+	  }
+
+	body p{
+	color: #000000;
+	font-size: 10px;
+	line-height: 14px;
+	word-wrap:break-word;
+	}
+
+	.container {
+	width: 100%;
+	margin: 0;
+	float: none;
+	}
+
+	body h1, h2, h3, h4, h5, h6{
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 600;
+	padding: 0px 0px 0px 0px;
+	margin: 5px 0px 5px 0px;
+	}
+
+	span h2, p, #full-banner-inner, .prog-title, .section-content, .section-title, .pad-box, .inner-item{
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	border-bottom: none !important;
+	}
+	
+	
+
+	#full-banner {
+	border-bottom: none;
+	padding: 0px 0px 0px 0px;
+	min-height: 40px;
+	}
+
+	#main-section {
+	border-top: none;
+	}
+
+	#inset-content {
+	}
+
+	.section-title{
+		display:initial;
+		margin-top:500px;
+		padding-top: 500px;
+	}
+
+	.section-title span {
+	border-bottom: none;
+	}
+
+	#inset-content {
+	padding-top:5px; 
+	border: none;
+	}
+
+}

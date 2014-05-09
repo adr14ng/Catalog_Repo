@@ -115,6 +115,26 @@ get_header(); ?>
 			</div><!--/end col -->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 				<div class="section-content">
+					<?php 
+						$subject_line = "CSUN Catalog - ".$deptdesc;
+						$subject_line = str_replace(' ', '%20', $subject_line);
+						$body = 'Permalink : '.get_csun_archive('departments', $dept);
+						$body = str_replace(' ', '%20', $body);
+					?>
+					<ul id="share-icons">
+						<li><?php pdf_all_button(); ?></li>
+						<li>
+							<a class="no-line" alt="email" title="Email this page" 
+								href='mailto:?subject=<?php echo $subject_line ?>&body=<?php echo $body; ?>' >
+								<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
+							</a>
+						</li>
+						<li><a class="no-line" href="javascript:window.print()" alt="print" title="Print this page.">
+								<span class="glyphicon glyphicon-print share-icon"></span>
+						</a></li>
+					</ul>
+				</div>
+				<div class="section-content">
 					<span class="section-title"><span><h2>Contact</h2></span></span> 
 					<?php the_field('contact'); ?>
 				</div>
@@ -123,7 +143,7 @@ get_header(); ?>
 		
 	<?php endwhile; else: ?>
 	
-		<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+		<p><?php _e('Sorry, there is no department matching your search.'); ?></p>
 		
 	<?php endif; ?>
 	</div><!--/end wrap -->

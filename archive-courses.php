@@ -44,10 +44,10 @@ get_header(); ?>
 
 <div id="main-section" class = "main">
 	<div class="container" id="wrap">
-
 		<div class="row">
 			<div class="section-content">
 				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+				<span class="section-title"><span><h2>Courses</h2></span></span>
 				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 				
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
@@ -58,7 +58,7 @@ get_header(); ?>
 					
 				<?php endwhile; else: ?>
 				
-					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+					<p><?php _e('There are currently no courses associated with '.$deptdesc.'.'); ?></p>
 					
 				<?php endif; ?>
 				</div>

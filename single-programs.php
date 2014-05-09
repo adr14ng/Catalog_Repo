@@ -44,7 +44,6 @@ get_header(); ?>
 		</div>
 	</div>
 </div>
-
 <div id="main-section" class = "main">
 	<div class="container" id="wrap">
 		<div class="row">
@@ -72,22 +71,28 @@ get_header(); ?>
 							}
 									
 							echo $title;
+							
+							
 						?></h2></a>
 					</div>
 					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<?php 
+							$subject_line = "CSUN Catalog - ".$title;
+							$subject_line = str_replace(' ', '%20', $subject_line);
+							$body = 'Permalink : '.get_csun_permalink();
+							$body = str_replace(' ', '%20', $body);
+						?>
 						<ul id="share-icons">
+							<li><?php pdf_all_button(); ?></li>
+							<li>
+								<a class="no-line" alt="email" title="Email this page" 
+									href='mailto:?subject=<?php echo $subject_line ?>&body=<?php echo $body; ?>' >
+									<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
+								</a>
+							</li>
 							<li><a class="no-line" href="javascript:window.print()" alt="print" title="Print this page.">
 								<span class="glyphicon glyphicon-print share-icon"></span>
 							</a></li>
-							<li><?php pdf_all_button(); ?></li>
-							<li>
-								<span class='st_sharethis' st_title='Share this page with others' st_url='<?php the_csun_permalink(); ?>'>
-									<span id="csun-sharethis" style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
-										<span class="stLarge glyphicon glyphicon-share share-icon"></span>
-										<img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;">
-									</span>
-								</span>
-							</li>
 						</ul>
 					</div>
 				</div>

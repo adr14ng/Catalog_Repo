@@ -48,15 +48,18 @@ h4 {
 	color: #990000;
 }
 
-h5 {
+h5,
+.sm-h4 {
 	font-size: 16px;
 	color: #000000;
 }
 
-h6 {
+h6,
+.sm-h3 {
 	font-size: 14px;
 	color: #990000;
 }
+
 
 p {
   color: #4c4c4c;
@@ -66,6 +69,10 @@ p {
 
 .panel p {
 	line-height: 18px;
+}
+
+a {
+	color: #0057a9;
 }
 
 a:hover {
@@ -714,7 +721,7 @@ a:hover {
   margin: auto;
 }
 
-.landing-over > h4 {
+.landing-over h2 {
   text-align: center;
 }
 
@@ -759,11 +766,14 @@ a:hover {
 	margin-top:0px; 
 }
 
-.section-title h2 {
+.section-title h2,
+.section-title h3 {
   font-size: 18px;
   display: inline;
   color: #990000;
 }
+
+
 
 .section-title span {
   display: inline;
@@ -1121,7 +1131,7 @@ h4.panel-title{
   font-size: 18px;
 }
 
-.landing-over > h4 {
+.landing-over h2 {
   display: block;
   min-width: 50%;
   max-width: 80%;
@@ -1327,7 +1337,7 @@ h4.panel-title{
   max-width: 65%;
 }
 
-.landing-over > h4 {
+.landing-over h2 {
   font-size: 18px;
   font-weight: bold;
 }
@@ -1427,7 +1437,7 @@ h4.panel-title{
   max-width: 45%;
 }
 
-.landing-over > h4 {
+.landing-over h2 {
   font-size: 18px;
   font-weight: bold;
 }
@@ -1557,7 +1567,7 @@ h4.panel-title{
   max-width: 45%;
 }
 
-.landing-over > h4 {
+.landing-over h2 {
   font-size: 20px;
   font-weight: bold;
 }
