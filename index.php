@@ -5,7 +5,7 @@
 <div id="landing-section">
 	<div class="container">
 	<div class="row">
-		<a href="<?php echo site_url('/site-map/'); ?>">
+		<a href="<?php echo site_url('/toc/'); ?>">
 		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
 			<img alt="" class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
 			<div class="landing-over clearfix">

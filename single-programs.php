@@ -18,6 +18,11 @@ if($funding === 'self')
 	$self = true;
 elseif($funding === 'both')
 	$both = true;
+	
+$post_option=get_field('option_title');
+
+if(isset($post_option)&&$post_option!=='')
+	$option = true;
  
 get_header(); ?>
 
@@ -50,7 +55,9 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
 				<div class="row">
 					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-						<a class="no-line" href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Program:</span> <?php 
+						<a class="no-line" href="<?php the_permalink(); ?>">
+							<h2 class="inner-title dark <?php if($option) echo 'with-option'; ?>">
+							<span class="red">Program:</span> <?php 
 						
 							$degree = get_field('degree_type'); 
 							$title = get_the_title(); 
@@ -73,7 +80,15 @@ get_header(); ?>
 							echo $title;
 							
 							
-						?></h2></a>
+						?></h2>
+						<?php 
+							$post_option=get_field('option_title');
+
+							if(isset($post_option)&&$post_option!=='') {
+								echo '<h3 class="sm-h4 option-title">'.$post_option.'</h3>';
+							}
+						?>
+						</a>
 					</div>
 					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 						<?php 
@@ -189,5 +204,43 @@ get_header(); ?>
 		</div>
 	</div>
 </div>
+
+<script>
+
+$( document ).ready(function() {
+	var pattern = /([A-Z]{2,4}) ([0-9]{3})([^\s]{0,10}?) (.{1,100}?)( \(.+?\))/g;
+	
+	$('p').html(function() { 
+			var paragraph = this;
+			return $(paragraph).html().replace(pattern, function(match, $1, $2, $3) { return get_link(match, $1, $2, $3); });
+		}
+	);
+
+	function get_link(full, letter, number, suffix){
+		var value = letter+' '+number+suffix
+		//console.log(value);
+
+		var jUrl = "http://www.csun.edu/catalog/catalog/json/?subject="+value+"&type=course";
+		var id = letter+number+suffix;
+		id = id.replace(/[^A-Za-z0-9]/g, '-');
+
+		$.ajax({
+		   url: jUrl,
+		   type: 'GET',
+		   success: function(data_back){
+				 var new_content = '<a href="'+data_back+'">'+full+'</a>';
+				 
+				 //console.log(data_back);
+				 
+				 if(data_back != '')
+					$('#'+id).replaceWith(new_content);
+			}
+		});
+		
+		return '<span id="'+id+'">'+full+'</span>'; 
+	};
+
+});
+</script>
 
 <?php get_footer(); ?>

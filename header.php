@@ -3,10 +3,7 @@
 	<head>
 	  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 	  <title>
-		<?php if(is_front_page()) 
-				bloginfo('name'); 
-			else 
-				wp_title(''); ?>
+		<?php csun_title_text(); ?>
 	  </title>
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.min.css">
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
@@ -58,12 +55,6 @@
 						
 						<div class="col-xs-12 col-sm-8 col-lg-8">
 						
-							<div class="row" id="quicklinks">
-								<ul class="right">
-									<li><a href="#">Quicklinks</a><div class="arrow-down"></div></li>
-								</ul>
-							</div>
-							
 							<div class="row" id="quicklinks-lg">
 								<ul class="right">
 									<li ><a href="#skipstuff">Skip Nav</a></li>

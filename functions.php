@@ -176,5 +176,110 @@ function limit_posts_per_search_page() {
 add_filter('pre_get_posts', 'limit_posts_per_search_page');
 
 
+function csun_title_text() {
+
+	$dept = get_query_var( 'department_shortname' );
+	$deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
+	$deptdesc = $deptterm->description;
+
+	if(is_front_page()) :
+		bloginfo('name'); 
+	elseif(is_post_type_archive( 'courses')) :	
+		if($dept !== '')
+			echo 'Courses - '.$deptdesc;
+		else
+			echo 'All Courses';
+			
+	elseif(is_post_type_archive( 'departments')) :
+		if($dept !== '')
+			echo $deptdesc.' Overview';
+		else
+			echo 'All Departments';
+			
+	elseif(is_post_type_archive( 'programs')) :
+		if($dept !== '')
+			echo 'Programs - '.$deptdesc;
+		else
+			echo 'All Programs';
+			
+	elseif(is_post_type_archive( 'faculty')) :
+		if($dept !== '')
+			echo 'Faculty - '.$deptdesc;
+		else
+			echo 'Faculty';
+			
+	elseif(is_post_type_archive( 'plans')) :
+		echo '4-Year Plans';
+		
+	elseif(is_singular('programs')) :
+		$degree = get_field('degree_type'); 
+		$title = get_the_title(); 
+				
+		if ($degree === 'credential' || $degree === 'Credential'){
+			if (strpos($title, 'Credential') === FALSE)
+				$title .= ' Credential';
+		}
+		elseif ($degree === 'certificate' || $degree === 'Certificate') {
+			if (strpos($title, 'Certificate') === FALSE)
+				$title .= ' Certificate';
+		}
+		elseif ($degree === 'minor' || $degree === 'Minor'){
+			$title = $degree.' in '.$title;
+		}
+		else{
+			$title = $degree.', '.$title;
+		}
+				
+		echo $title;
+
+		$post_option=get_field('option_title');
+
+		if( isset($post_option) && $post_option !== '') {
+			echo ' - ' . $post_option;
+		}
+		else			//otherwise tries to match with next elseif
+			echo '';
+	
+	elseif(is_tax('degree_level')) :
+		$level = get_query_var( 'degree_level' );
+		echo ucwords($level);
+		
+	elseif(is_tax('policy_categories')) :
+		$policy = get_query_var( 'policy_categories' );
+		echo ucwords($policy).' - Policies';
+		
+	elseif(is_tax('policy_tags')) :
+		$policy = get_query_var( 'policy_tags' );
+		echo ucwords($policy).' - Policies';
+		
+	elseif(is_tax('general_education', 'ud')) :
+		echo 'Upper Division GE Courses';
+		
+	elseif(is_tax('general_education', 'ic')) :
+		echo 'Iinformation Competence Courses';
+		
+	elseif(is_tax('department_shortname', 'ge')) :
+		echo 'General Education Courses';
+		
+	elseif(is_tax('aca_year')) :
+		$year = get_query_var( 'aca_year' );
+		if(!isset($type) || $type == ''){
+			$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+			
+			if ( false !== strpos($url, 'staract') )
+				$type = 'Staract';
+			else
+				$type = 'Plans';
+		}
+		
+		echo $year.' - '.$type;
+		
+	else:
+		wp_title('');
+	endif;
+		
+}
+
+
 
 ?>

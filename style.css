@@ -485,6 +485,14 @@ a:hover {
   padding: 0 30px 0 30px;
 }
 
+.with-option {
+  margin-bottom: 3px;
+}
+
+.option-title {
+  margin-top: 2px;
+}
+
 .read-more {
   display: block;
   float: right;
@@ -1289,14 +1297,41 @@ h4.panel-title{
 
 /* 3 - Quicklinks Rules  */
 
-#quicklinks {
-  font-size: 12px;
-}
+  #quicklinks-lg{
+    display: inline-block;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  #quicklinks-lg>ul>li {
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-right: 1px solid #181818;
+    font-size: 12px;
+
+  }
+
+  #quicklinks-lg>ul>li:last-child{
+    padding-right: 0px;
+    border: 0;
+  }
+
+  #quicklinks-lg>ul>li>a {
+
+  color: #990000;
+
+  }
+
+  #quicklinks-lg>ul>li>a:hover {
+  background-color: transparent;
+  }
 
 /* 4 - Search Bar Rules  */
   #csunsearch {
     padding: 2px;
-    width: 70%;
+    width: 100%;
     float: right;
   }
  
@@ -1406,9 +1441,10 @@ h4.panel-title{
   }
 /* 3 - Quicklinks Rules  */
 
-#quicklinks {
-  font-size: 12px;
-}
+#quicklinks-lg>ul>li {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
   
 /* 3 - Rules*/
 
@@ -1506,42 +1542,11 @@ h4.panel-title{
 
 /* 3 - Quicklinks Rules*/
 
-  #quicklinks{
-    margin-top: 20px;
-    display: none;
-  }
-
-  #quicklinks-lg{
-    display: inline-block;
-    margin-top: 15px;
-    width: 100%;
-  }
-
   #quicklinks-lg>ul>li {
-    display: inline-block;
-    text-decoration: none;
     padding-left: 10px;
     padding-right: 10px;
-    border-right: 1px solid #181818;
-    font-size: 12px;
-
   }
 
-  #quicklinks-lg>ul>li:last-child{
-    padding-right: 0px;
-    border: 0;
-  }
-
-  #quicklinks-lg>ul>li>a {
-
-  color: #990000;
-
-
-  }
-
-  #quicklinks-lg>ul>li>a:hover {
-  background-color: transparent;
-  }
 
 /* 4 - Search Bar Rules*/
   #csunsearch {
