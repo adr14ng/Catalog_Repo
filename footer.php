@@ -64,7 +64,7 @@
 		<div class="container">
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footerlinks">
-				<a href="http://www.csun.edu/accessibility/">Accessibility</a>
+				<a href="http://www.csun.edu/universaldesigncenter/">Accessibility</a>
 				<a href="http://www.csun.edu/CommunityImpact/">Community Impact Reports</a>
 				<a href="http://www.collegeportraits.org/CA/CSUN">College Portrait</a>
 				<a href="http://www-admn.csun.edu/publicsafety/emergency/">Emergency Information</a>
@@ -73,7 +73,7 @@
 				<a href="http://www-admn.csun.edu/vp/policies/500_itr/500-05.pdf">Terms and Conditions for Use (pdf)</a>
 				<a href="http://www-admn.csun.edu/vp/policies/">University Policies &amp; Procedures</a>
 				<a href="http://www.csun.edu/academic.affairs/csunmission.htm">Mission Statement</a>
-				<a href="#"><code><var>@media=</var> </code></a>
+				<a href="http://www.csun.edu/it/document-viewers" title="Download a pdf reader here">Document Reader</a>
 			</div>
 
 			</div>

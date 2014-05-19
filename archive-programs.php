@@ -77,11 +77,13 @@ get_header(); ?>
 
 									if(isset($post_option)&&$post_option!=='') {
 										echo '<h4 class="sm-h4">'.$post_option.'</h4>';
+										
+										$title = $title.', '.$post_option;
 									}
 								?>
 							</a>
 							<p><?php the_excerpt(); ?></p>
-							<a class="read-more" href="<?php the_permalink(); ?>">[ View Program ]</a>
+							<a title="<?php echo $title; ?>" aria-label="<?php echo $title; ?>" class="read-more" href="<?php the_permalink(); ?>">[ View Program ]</a>
 						</div>
 
 				<?php endwhile; else: ?>

@@ -262,6 +262,15 @@ a:hover {
     margin-left: -20px;
     background-color: ;
   }
+  
+  ul.search_results li a:hover
+  {
+	color: #fff;	
+ }
+ 
+ ul.search_results li{
+	border : 1px solid #949494;
+ }
 
 /* 5 - Banner Rules */
 

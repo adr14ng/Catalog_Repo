@@ -51,7 +51,7 @@ get_header(); ?>
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 								<a class="csun-subhead" href="<?php the_csun_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 								<p><?php the_excerpt(); ?></p>
-								<a class="read-more" href="<?php the_permalink(); ?>">[ View Faculty Member ]</a>
+								<a title="<?php the_title(); ?>" aria-label="<?php the_title(); ?>" class="read-more" href="<?php the_permalink(); ?>">[ View Faculty Member ]</a>
 							</div>
 						<?php endif; ?>
 

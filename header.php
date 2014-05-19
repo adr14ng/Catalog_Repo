@@ -33,7 +33,7 @@
 					</div> <!-- end menu iconblock -->
 					
 					<div id="neglogo">
-						<a alt="CSUN Home Page" href="http://www.csun.edu/">
+						<a href="http://www.csun.edu/">
 							<img alt="California State Univerity, Northridge" src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png">
 						</a> 
 					</div> <!-- end neglogo -->
@@ -48,7 +48,7 @@
 					<div class="row">
 					
 						<div class="col-sm-4 col-lg-4 headerbar-logo">
-							<a alt="CSUN Home Page" href="http://www.csun.edu/"> 
+							<a href="http://www.csun.edu/"> 
 								<img alt="California State Univerity, Northridge" src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo">
 							</a> 
 						</div>
@@ -72,7 +72,7 @@
 									<div id="csunsearch" class="input-group ">
 										<input type="text" class="form-control" placeholder="Search Catalog" name="s" id="s">
 										<div class="input-group-btn">
-											<button id="searchsubmit" class="btn btn-default" type="submit"><span alt="Search the catalog" class="glyphicon glyphicon-search"></span> Search</button>
+											<button id="searchsubmit" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
 										</div>
 									</div>
 								</form>
@@ -115,7 +115,7 @@
 				<div class="row" id="full-banner">
 					<div class="banner-overlay">
 						<div class="container">
-						  <a href="<?php echo site_url(); ?>"><h1 class="banner-title"></br>UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1></a>
+						  <a href="<?php echo site_url(); ?>"><h1 class="banner-title"><br/>UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1></a>
 						</div>
 					</div>
 				</div>

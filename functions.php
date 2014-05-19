@@ -16,7 +16,7 @@ function the_breadcrumb() {
 
         echo '<ul id="breadcrumbs">';
     if (!is_home()) {
-        echo '<li><a href="'.get_option('home').'">';
+        echo '<li><a href="'.get_option('home').'/">';
         echo 'Home';
         echo '</a></li><li class="separator"> / </li>';
         echo '<li>';

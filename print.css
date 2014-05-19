@@ -1,9 +1,32 @@
-/* Alex Deal Here*/
+/*==============================================================
+
+[Print Stylesheet]
+
+Project:    CSUN CATALOG
+Version:    1.3
+Last change:    05/09/14
+Primary use:    WEB CATALOG
+
+[Table of contents]
+
+1. PRINT @MEDIA / PAGE PRINT SETUP
+
+2. HYPERLINKS / ELIMINATES URL
+
+3. HTML BOILERPLATE 
+
+4. DISPLAY NONE / HIDES ALL UNNECESSARY CONTENT
+
+5. SECTIONS STYLIZED / FORMATS FONT SIZE, ADJUSTS SPACING, ELIMINATES BORDERS 
+
+===============================================================*/
+
+
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+    1. PRINT @MEDIA / PAGE PRINT SETUP
    ========================================================================== */
+
+
 
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
@@ -15,11 +38,6 @@
        (min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request: h5bp.com/r
-   ========================================================================== */
 
 @media print {
     * {
@@ -41,27 +59,25 @@
     	display: none;
     }
 
+/* ==========================================================================
+    2. HYPERLINKS / ELIMINATES URL
+   ========================================================================== */
+
     a,
     a:visited {
         text-decoration: underline;
     }
 
     a[href]:after {
-        content: " (" attr(href) ")";
-    }
+        content: none;
+      }
+
+/* ===========================================================================
+    3. HTML BOILERPLATE 
+   =========================================================================== */
 
     abbr[title]:after {
         content: " (" attr(title) ")";
-    }
-
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
     }
 
     pre,
@@ -94,7 +110,7 @@
     h3 {
         page-break-after: avoid;
     }
-
+	
 	ol {
 		list-style-position: inside;
 		font-size: 10px;
@@ -102,33 +118,24 @@
 
 	ol li {list-style-position: inside;}
 
+/* ===========================================================================
+    4. DISPLAY NONE / HIDES ALL UNNECESSARY CONTENT
+   =========================================================================== */
 
 
-
-/* Alex deal Ends */
-
-	/*.printEl { 
-	width: 8.5in;
-	height: 11in;
+	#fixbar, #full-banner-inner, #catalog-subnav, #share-icons, #landing-section, 
+	#breadcrumbs, #outside-footer, .linksrow, #lastrow, /*div a,*/ .well-tseng, 
+	.dept-title-small, #policy-tags{
+	display: none;
 	}
 
-	@page {
-	margin: 1cm;
-	}*/
-
-	#fixbar, #full-banner-inner, #catalog-subnav, #share-icons, 
-	#landing-section, #breadcrumbs, #outside-footer, .linksrow, 
-	#lastrow, /*div a,*/ .well-tseng, .dept-title-small, #policy-tags{
-		display: none;
-	}
+/* ===============================================================================
+    5. SECTIONS STYLIZED / FORMATS FONT SIZE, ADJUSTS SPACING, ELIMINATES BORDERS 
+   =============================================================================== */
 
 	* {
 	padding: 0 0 0 0;
 	}
-
-	a[href]:after {
-	    content: none;
-	  }
 
 	body p{
 	color: #000000;
@@ -156,8 +163,6 @@
 	margin: 0px 0px 0px 0px;
 	border-bottom: none !important;
 	}
-	
-	
 
 	#full-banner {
 	border-bottom: none;
