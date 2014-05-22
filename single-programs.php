@@ -151,7 +151,7 @@ get_header(); ?>
 							if ( $values != false ) : ?>							
 								<div class="section-content">
 									<span class="section-title"><span><h2>More information</h2></span></span> 
-									<p>If you would like more information about this program please contact
+									<p>If you would like more information about this program, please contact
 										<a href="mailto:<?php the_field('email_contact'); ?>" title="Email questions about the program"><?php the_field('email_contact'); ?></a>.
 									</p>
 								</div>	
@@ -175,7 +175,7 @@ get_header(); ?>
 							<?php $values = get_field('degree_plan');
 							if ( $values != false) : ?>
 								<div class="section-content col-sm-6 col-md-12 col-lg-12">
-									<span class="section-title"><span><h2>4 Year Plans</h2></span></span> 
+									<span class="section-title"><span><h2>4-Year Plans</h2></span></span> 
 									<p><?php the_field('degree_plan'); ?></p>
 								</div>	
 							<?php endif; ?>

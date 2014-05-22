@@ -16,7 +16,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a href="<?php echo site_url('/policies/appendix/'); ?>"><h1 class="prog-title">Policies</h1></a>
+					<a href="<?php echo site_url('/policies/alphabetical/'); ?>"><h1 class="prog-title">Policies</h1></a>
 				</div>
 			</div>
 		</div>
@@ -73,7 +73,7 @@ get_header(); ?>
 								<?php $terms = get_the_terms( $id, 'policy_tags' ); 
 								foreach($terms as $term):?>
 									<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
-										<button type="button" class="btn btn-info btn-xs">
+										<button type="button" class="btn btn-success btn-xs">
 											<?php echo $term->name; ?>
 										</button>
 									</a>

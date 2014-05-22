@@ -8,6 +8,13 @@ $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 
 $deptdesc = $deptterm->description;
 
+if($dept === 'bus'){
+	$title = "College Overview";
+	$bus = true;
+}
+else
+	$title = "Department Overview";
+
 get_header(); ?>
 
 
@@ -17,7 +24,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php the_permalink(); ?>">Department Overview</a>
+					<a class="dept-title-small" href="<?php the_permalink(); ?>"><?php echo $title; ?></a>
 					<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 				</div>
 			</div>
@@ -42,6 +49,27 @@ get_header(); ?>
 		
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+			<?php if ($bus) : ?>
+				<div class="section-content">
+					<span class="section-title"><span><h2>Departments and Programs</h2></span></span> 
+					<?php 
+						$posts = get_posts( array( 'orderby' => 'title',
+												   'order' => 'ASC',
+												   'posts_per_page' => 20,
+												   'department_shortname' => 'cobae',
+												   'post_type' => 'departments',
+												   'exclude' => get_the_ID(),
+										 ));
+								
+						foreach ( $posts as $post ) : setup_postdata( $post ); ?>
+							<p>
+								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							</p>
+						<?php endforeach; 
+						wp_reset_postdata();
+						?>
+				</div>
+			<?php endif; ?>
 			<?php $values = get_field('mission_statement');
 			if ( $values != false) : ?>
 				<div class="section-content">

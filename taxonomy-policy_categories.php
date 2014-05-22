@@ -56,7 +56,7 @@ get_header(); ?>
 							<section id="policy-tags">
 							<?php foreach ($terms as $term) : ?>
 								<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
-									<button type="button" class="btn btn-info btn-sm">
+									<button type="button" class="btn btn-success btn-sm">
 										<?php echo $term->name; ?>
 									</button>
 								</a>

@@ -3,11 +3,16 @@
 /*Template Name: Degree Level Template
  */ 
 
-
-
- get_header(); 
+get_header(); 
 
 $level = get_query_var( 'degree_level' );
+
+if($level === 'minor')
+	$level = 'Minors';
+elseif($level === 'major')
+	$level = 'Majors and Options';
+else
+	$level = ucwords($level);
 
 //Make ascending by title
 global $query_string;
@@ -22,7 +27,7 @@ $num = $wp_query->post_count;
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<span class="dept-title-small" >Programs</span>
-					<h1 class="prog-title"><?php echo ucwords($level).' ('.$num.')'; ?></h1>
+					<h1 class="prog-title"><?php echo $level.' ('.$num.')'; ?></h1>
 				</div>
 			</div>
 		</div>
