@@ -206,7 +206,7 @@ get_header(); ?>
 </div>
 
 <script>
-
+/*
 $( document ).ready(function() {
 	var pattern = /([A-Z]{2,4}) ([0-9]{3})([^\s]{0,10}?) (.{1,100}?)( \(.+?\))/g;
 	
@@ -240,7 +240,7 @@ $( document ).ready(function() {
 		return '<span id="'+id+'">'+full+'</span>'; 
 	};
 
-});
+});*/
 </script>
 
 <?php get_footer(); ?>

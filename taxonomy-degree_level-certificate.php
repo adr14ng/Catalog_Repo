@@ -77,7 +77,6 @@ get_header(); ?>
 							<?php endif; 
 							wp_reset_query();?>
 							</div>
-							<h3>Consult the Department for more information about the following:</h3>
 							<?php the_field('program_list'); ?>
 						</div>
 					</div>

@@ -111,12 +111,13 @@ Primary use:    WEB CATALOG
         page-break-after: avoid;
     }
 	
-	ol {
+	ul, ol {
+		padding: 2px 1px 1px 10px;
 		list-style-position: inside;
 		font-size: 10px;
 	}
 
-	ol li {list-style-position: inside;}
+	ul li, ol li {list-style-position: inside;}
 
 /* ===========================================================================
     4. DISPLAY NONE / HIDES ALL UNNECESSARY CONTENT
@@ -152,15 +153,19 @@ Primary use:    WEB CATALOG
 
 	body h1, h2, h3, h4, h5, h6{
 	font-size: 14px;
-	line-height: 16px;
+	line-height: 30px;
 	font-weight: 600;
 	padding: 0px 0px 0px 0px;
 	margin: 5px 0px 5px 0px;
 	}
 
-	span h2, p, #full-banner-inner, .prog-title, .section-content, .section-title, .pad-box, .inner-item{
+	p, #full-banner-inner, .prog-title, .section-content, .section-title, .pad-box, .inner-item{
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
+	border-bottom: none !important;
+	}
+	
+	span h2 {
 	border-bottom: none !important;
 	}
 
@@ -190,6 +195,15 @@ Primary use:    WEB CATALOG
 	#inset-content {
 	padding-top:5px; 
 	border: none;
+	}
+	
+	.row {
+		margin-right: -5px;
+		margin-left: -5px;
+	}
+	
+	#main-section {
+	padding-top: 0px;
 	}
 
 }

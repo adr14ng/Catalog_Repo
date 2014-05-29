@@ -20,8 +20,8 @@
 			<img alt="" class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/landing-bg.png">
 			<div class="landing-over clearfix">
 				<img alt="" class="land-bg" src="<?php bloginfo('template_directory'); ?>/img/icon-book.png">
-				<h2 class="land-head">Explore CSUN</h2>
-				<span class="land-copy">See whats going on at CSUN.</span>
+				<h2 class="land-head">Introduction</h2>
+				<span class="land-copy">Learn about our campus.</span>
 			</div>
 		</div>
 		</a>

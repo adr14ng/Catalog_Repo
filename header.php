@@ -7,7 +7,11 @@
 	  </title>
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.min.css">
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
-	  <link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/print.css">
+	  <?php if(is_singular('plans') || is_singular('staract')) : ?>
+		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/plans-print.css">
+	  <?php else: ?>
+		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/print.css">
+	  <?php endif; ?>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-1.10.2.min.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.columnizer.js"></script>
@@ -16,6 +20,16 @@
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/respond.matchmedia.addListener.min.js"></script>
 	  <script type="text/javascript" src="//use.typekit.net/gfb2mjm.js"></script>
 	  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	  <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-33750383-3', 'csun.edu');
+		ga('send', 'pageview');
+
+	  </script>
 	  
 		<?php wp_head();?>
 		
@@ -60,7 +74,7 @@
 									<li ><a href="#skipstuff">Skip Nav</a></li>
 									<li ><a href="http://www.csun.edu/universaldesigncenter">Accessibility</a></li>
 									<li ><a href="http://www.csun.edu/calendar/">Calendar</a></li>
-									<li ><a href="https://www.csun.edu/peoplefinder/">People Finder</a></li>
+									<li ><a href="https://www.csun.edu/peoplefinder/">Directory</a></li>
 									<li ><a href="http://www.csun.edu/atoz/">A to Z</a></li>
 									<li ><a href="https://www.csun.edu/webmail/">Webmail</a></li>
 								</ul>

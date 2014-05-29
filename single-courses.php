@@ -107,7 +107,7 @@ get_header(); ?>
 							<div class="section-content">
 								<h3 class="sm-h3" id="course-header"></h3>
 								<table class="csun-table" id="class-info" summary="Class sections"><tbody>
-									<tr><th>Course Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
+									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
 								</tbody></table>
 							</div>
 								

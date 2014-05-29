@@ -1,0 +1,182 @@
+/* CSS Document for Degree Planning Guides*/
+
+@media print {
+#fixbar, #full-banner-inner, #catalog-subnav, #share-icons, #landing-section, 
+	#breadcrumbs, #outside-footer, .linksrow, #lastrow, /*div a,*/ .well-tseng, 
+	/*.dept-title-small,*/ #policy-tags{
+	display: none;
+	}
+	
+	@page {
+    margin: 30cm; 
+    }
+
+body {
+	float:none;
+	width:8.5in;
+	margin:0 !important; 
+	padding:0 !important;
+ line-height:1em !important;
+	font: 10pt Arial, Helvetica, sans-serif !important;
+}
+
+* {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+	
+	html {
+    overflow:hidden;
+    }
+
+    ::-webkit-scrollbar{
+    	display: none;
+    }
+
+h1, h2, h3 {
+	margin: 0px !important;
+	padding: 0px !important;
+ line-height:1em !important;
+	
+}
+
+div{
+	border: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+p, li {
+	margin: 0px;
+	line-height: 12pt;
+	padding: 0pt;
+}
+
+table {	margin:0px !important; padding:0px !important; height:100%;}
+
+table {
+	margin: 10px 0px 0px 0px !important;
+	padding: 0px;
+	border-collapse: collapse;
+	width: 6.75in !important;
+	border: 2px solid #666666 !important;
+ 	line-height:1em !important;
+}
+
+table, tr,img {
+        page-break-inside: avoid;
+    }
+
+table th {
+	margin: 0px !important;
+	padding: 0px 0px 0px 10px !important;
+	vertical-align: top;
+	text-align: left;
+	font-weight: normal;
+	border-left: 2px solid #333333;
+	font-weight:bold;
+	background: #666666;
+	color: #E8E8E8;
+	font-size: 10pt;
+	border-bottom: 1px solid #333333;
+    line-height:1em !important;
+}
+table tr { margin:0px !important; padding:0px !important;}
+table td {
+	border-bottom: 1px solid #666666;
+	vertical-align: top;
+	border-left: 2px solid #666666;
+	border-collapse: collapse;
+	padding: 2px 0px 1px 6px !important;
+	font-size: 10pt;
+	margin: 0px !important;
+ 	line-height:1em !important;
+}
+
+.printpagebreak {
+page-break-before:always !important;
+}
+
+#wrapper {
+border:none;
+}
+
+.left_col {
+width:6.75in !important;
+margin:0;
+padding:0;
+font-size: 9pt !important;
+}
+
+.left_col ul{
+display:none;
+}
+
+.left_col h2{
+display:none;
+}
+
+.main_col {
+float:none;
+border:none;
+width:6.75in !important;
+margin: 0.05in 0 0 .025in;
+padding:0;
+}
+
+* html .main_col {
+margin: .05in 0 0 .25in;
+}
+
+h1 {
+	margin:2px 0  2px 0px;
+	padding:0;
+	font-size: 10pt !important;
+	text-transform:uppercase;
+}
+
+h2 {
+	border:none;
+	margin:2px 0 2px 1px;
+	padding:0px;
+	font-size: 10pt !important;
+}
+
+h3 {
+	font-size:9pt !important;
+
+}
+
+
+
+
+ul {
+margin:0;
+padding:0;
+}
+
+
+
+/*body.single-plans:after {
+	display: block;
+	content: "California State University, Northridge: printed from http://catalog.csun.edu/plans/";
+	padding: 5px 0px 0px 20px;
+}
+
+body.single-staract:after {
+	display: block;
+	content: "California State University, Northridge: printed from http://catalog.csun.edu/plans/star-act/";
+	padding: 5px 0px 0px 20px;
+}*/
+
+
+.key, .excess, .post-edit-link {display:none;}
+
+
+a[href]:after {
+        content: none;
+      }
+
+}

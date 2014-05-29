@@ -144,7 +144,7 @@ get_header(); ?>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="section-content page-title-section">
 						<span class="dept-title-small">Faculty</span>
-						<h1 class="prog-title">Faculty and Adminstration</h1>
+						<h1 class="prog-title">Faculty and Administration</h1>
 					</div>
 				</div>
 			</div>

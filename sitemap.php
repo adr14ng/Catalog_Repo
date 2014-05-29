@@ -11,30 +11,27 @@ get_header(); ?>
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="section-content">
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<span class="section-title"><span><h2>Courses of Study</h2></span></span>
-					<p>
-					<?php				
-					$query_departments = new WP_Query(array('post_type' => 'departments', 'orderby' => 'title', 'order' => 'ASC','posts_per_page' => 1000,));
-							
-					if($query_departments->have_posts()) : while($query_departments->have_posts()) : $query_departments->the_post(); 
-					
-						$post_id = get_the_ID();
-						$terms = wp_get_post_terms( $post_id, 'department_shortname');
-						$url = get_csun_archive('departments', $terms[0]->slug);
-					?>
-						<a href="<?php echo $url;?>"/><?php the_title(); ?></a> <br />
-					<?php endwhile; endif; 
-						
-						wp_reset_query(); ?>
-					</p>
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<ul class="side-nav">
+						<li><a href="#csun">CSUN</a></li>
+						<li><a href="#undergrad">Undergraduate Programs</a></li>
+						<li><a href="#student">Student Services</a></li>
+						<li><a href="#special">Special Programs</a></li>
+						<li><a href="#ge">General Education</a></li>
+						<li><a href="#grs">Graduate Studies</a></li>
+						<li><a href="#courses">Courses of Study</a></li>
+						<li><a href="#policies">Policies</a></li>
+						<li><a href="#faculty">Faculty</a></li>
+						<li><a href="#planning">Planning Guides</a></li>
+					</ul>
+					<br />
 				</div>
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
+						<?php the_content(); ?>
+					<?php endwhile; endif; ?>
 				
-				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-					<?php the_content(); ?>
-				<?php endwhile; endif; ?>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<span class="section-title"><span><h2>General Education</h2></span></span>
+					<span id="ge" class="section-title"><span><h2>General Education</h2></span></span>
 					<p>
 					<?php		
 						$gened = get_page_by_title('General Education');
@@ -51,9 +48,8 @@ get_header(); ?>
 						<a href="<?php echo site_url('/general-education/upper-division/');?>"/>Upper Division</a><br />
 						<a href="<?php echo site_url('/general-education/courses/');?>"/>Courses</a><br />
 						</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<span class="section-title"><span><h2>Graduate Studies</h2></span></span>
+				
+					<span id="grs" class="section-title"><span><h2>Graduate Studies</h2></span></span>
 					<p>
 					<?php		
 						$rgs = get_page_by_title('Research and Graduate Studies');
@@ -67,9 +63,25 @@ get_header(); ?>
 							<a href="<?php echo get_permalink($page->ID);?>"/><?php echo $page->post_title; ?></a><br />
 						<?php endforeach;?>
 						</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<span class="section-title"><span><h2>Policies</h2></span></span>
+				
+					<span id="courses" class="section-title"><span><h2>Courses of Study</h2></span></span>
+					<p>
+					<?php				
+					$query_departments = new WP_Query(array('post_type' => 'departments', 'orderby' => 'title', 'order' => 'ASC','posts_per_page' => 1000,));
+							
+					if($query_departments->have_posts()) : while($query_departments->have_posts()) : $query_departments->the_post(); 
+					
+						$post_id = get_the_ID();
+						$terms = wp_get_post_terms( $post_id, 'department_shortname');
+						$url = get_csun_archive('departments', $terms[0]->slug);
+					?>
+						<a href="<?php echo $url;?>"/><?php the_title(); ?></a> <br />
+					<?php endwhile; endif; 
+						
+						wp_reset_query(); ?>
+					</p>
+				
+					<span id="policies" class="section-title"><span><h2>Policies</h2></span></span>
 					<p>
 					<?php				
 					$terms = get_terms('policy_categories');
@@ -78,16 +90,14 @@ get_header(); ?>
 						<a href="<?php echo get_term_link($term, 'policy_categories');?>"/><?php echo $term->name; ?></a><br />
 					<?php endforeach; ?> 
 					</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<span class="section-title"><span><h2>Faculty</h2></span></span>
+				
+					<span id="faculty" class="section-title"><span><h2>Faculty</h2></span></span>
 					<p>
 					<a href="<?php echo site_url('/faculty/');?>"/>Faculty and Adminstration</a><br />
 					<a href="<?php echo site_url('/faculty/emeriti/');?>"/>Emeriti</a><br />
 					</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<span class="section-title"><span><h2>Planning Guides</h2></span></span>
+				
+					<span id="planning" class="section-title"><span><h2>Planning Guides</h2></span></span>
 					<p>
 					<?php		
 						$plan = get_page_by_title('Planning');
