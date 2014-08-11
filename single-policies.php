@@ -38,15 +38,17 @@ get_header(); ?>
 							$body = str_replace(' ', '%20', $body);
 						?>
 						<ul id="share-icons">
-							<li><?php pdf_all_button(); ?></li>
+							<!-- <li><?php pdf_all_button(); ?></li> -->
 							<li>
-								<a class="no-line" alt="email" title="Email this page" 
-									href='mailto:?subject=<?php echo $subject_line ?>&body=<?php echo $body; ?>' >
+								<a class="no-line" title="Email this page" 
+									href='mailto:?subject=<?php echo $subject_line ?>&amp;body=<?php echo $body; ?>' >
 									<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
+									<span class="screen-reader-text">email</span>
 								</a>
 							</li>
-							<li><a class="no-line" href="javascript:window.print()" alt="print" title="Print this page.">
+							<li><a class="no-line" href="javascript:window.print()" title="Print this page.">
 									<span class="glyphicon glyphicon-print share-icon"></span>
+									<span class="screen-reader-text">print</span>
 							</a></li>
 						</ul>
 					</div>
@@ -59,26 +61,26 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="section-content">
-								<p><?php the_content(); ?></p>
+								<?php the_content(); ?>
 								
-								<section id="policy-tags">
+								<div id="policy-tags">
 								<?php $terms = get_the_terms( $id, 'policy_categories' ); 
 								foreach($terms as $term):?>
 									<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
-										<button type="button" class="btn btn-primary btn-xs">
+										<span class="btn btn-primary btn-xs">
 											<?php echo $term->name; ?>
-										</button>
+										</span>
 									</a>
 								<?php endforeach; ?>
 								<?php $terms = get_the_terms( $id, 'policy_tags' ); 
 								foreach($terms as $term):?>
 									<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
-										<button type="button" class="btn btn-success btn-xs">
+										<span class="btn btn-success btn-xs">
 											<?php echo $term->name; ?>
-										</button>
+										</span>
 									</a>
 								<?php endforeach; ?>
-								</section>
+								</div>
 							</div>	
 						</div>
 					</div>

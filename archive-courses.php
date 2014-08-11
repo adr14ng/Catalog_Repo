@@ -52,7 +52,7 @@ get_header(); ?>
 				
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 						<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
-						<p><?php the_excerpt(); ?></p>
+						<?php the_excerpt(); ?>
 						<a title="<?php the_title(); ?>" aria-label="<?php the_title(); ?>" class="read-more" href="<?php the_permalink(); ?>">[ View Course ]</a>
 					</div>
 					
@@ -65,9 +65,7 @@ get_header(); ?>
 				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 left-sidebar ">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
 					<span class="section-title"><span><h2>Contact</h2></span></span>
-						<ul class="sidebar-list">
-							<?php echo get_csun_contact($dept); ?>
-						</ul>
+						<?php echo get_csun_contact($dept); ?>
 					</div>
 				</div>
 			</div>

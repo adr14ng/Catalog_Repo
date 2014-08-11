@@ -150,15 +150,17 @@ get_header(); ?>
 						$body = str_replace(' ', '%20', $body);
 					?>
 					<ul id="share-icons">
-						<li><?php pdf_all_button(); ?></li>
+						<!-- <li><?php pdf_all_button(); ?></li> -->
 						<li>
-							<a class="no-line" alt="email" title="Email this page" 
-								href='mailto:?subject=<?php echo $subject_line ?>&body=<?php echo $body; ?>' >
+							<a class="no-line" title="Email this page" 
+								href='mailto:?subject=<?php echo $subject_line ?>&amp;body=<?php echo $body; ?>' >
 								<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
+								<span class="screen-reader-text">email</span>
 							</a>
 						</li>
-						<li><a class="no-line" href="javascript:window.print()" alt="print" title="Print this page.">
+						<li><a class="no-line" href="javascript:window.print()" title="Print this page.">
 								<span class="glyphicon glyphicon-print share-icon"></span>
+								<span class="screen-reader-text">print</span>
 						</a></li>
 					</ul>
 				</div>

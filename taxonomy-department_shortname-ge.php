@@ -67,7 +67,7 @@ get_header(); ?>
 
 								<?php if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>
 								
-									<p><a href="<?php the_permalink();?>"/><?php the_title(); ?></a></p>
+									<p><a href="<?php the_permalink();?>"><?php the_title(); ?></a></p>
 
 								<?php endwhile; endif; ?>
 								</div>

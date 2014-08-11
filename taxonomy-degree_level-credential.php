@@ -63,8 +63,7 @@ get_header(); ?>
 							<span class="section-title"><span><h2>Credential Programs (<?php echo $num;?>)</h2></span></span>
 							<div class="dept-container content">
 							<?php if($query_prog->have_posts()): while ($query_prog->have_posts()) : $query_prog->the_post(); ?>
-								<div class="dept-item ">
-									<a href="<?php the_permalink(); ?>"><?php the_title(); 
+									<a class="dept-item " href="<?php the_permalink(); ?>"><?php the_title(); 
 										$title = get_the_title();
 										
 										if (strpos($title, 'Credential') === FALSE)
@@ -77,7 +76,6 @@ get_header(); ?>
 										}
 											?>
 									</a>
-								</div>
 							<?php endwhile; else: ?>
 								<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 							<?php endif; 

@@ -98,22 +98,24 @@ get_header(); ?>
 							$body = str_replace(' ', '%20', $body);
 						?>
 						<ul id="share-icons">
-							<li><?php pdf_all_button(); ?></li>
+							<!-- <li><?php pdf_all_button(); ?></li> -->
 							<li>
-								<a class="no-line" alt="email" title="Email this page" 
-									href='mailto:?subject=<?php echo $subject_line ?>&body=<?php echo $body; ?>' >
+								<a class="no-line" title="Email this page" 
+									href='mailto:?subject=<?php echo $subject_line ?>&amp;body=<?php echo $body; ?>' >
 									<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
+									<span class="screen-reader-text">email</span>
 								</a>
 							</li>
-							<li><a class="no-line" href="javascript:window.print()" alt="print" title="Print this page.">
+							<li><a class="no-line" href="javascript:window.print()" title="Print this page.">
 								<span class="glyphicon glyphicon-print share-icon"></span>
+								<span class="screen-reader-text">print</span>
 							</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
 					<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<span><?php echo the_breadcrumb(); ?></span>
+						<?php echo the_breadcrumb(); ?>
 					</div>
 				</div>
 			</div>
@@ -144,7 +146,7 @@ get_header(); ?>
 							if ( $values != false ) : ?>
 								<div class="section-content">
 									<span class="section-title"><span><h2>Program Requirements</h2></span></span> 
-									<p><?php the_field('program_requirements'); ?></p>
+									<?php the_field('program_requirements'); ?>
 								</div>
 							<?php endif; ?>
 							<?php $values = get_field('email_contact');
@@ -160,14 +162,14 @@ get_header(); ?>
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 							<div class="section-content col-sm-6 col-md-12 col-lg-12">
 								<span class="section-title"><span><h2>Contact</h2></span></span> 
-								<p><?php echo get_csun_contact($dept); ?></p>
+								<?php echo get_csun_contact($dept); ?>
 							</div>
 
 							<?php $values = get_field('slos');
 							if ( $values != false ) : ?>
 								<div class="section-content col-sm-6 col-md-12 col-lg-12 ">
 									<span class="section-title"><span><h2>Student Learning Outcomes</h2></span></span> 
-									<p><?php the_field('slos'); ?></p>
+									<?php the_field('slos'); ?>
 								</div>
 							<?php endif; ?>
 
@@ -176,7 +178,7 @@ get_header(); ?>
 							if ( $values != false) : ?>
 								<div class="section-content col-sm-6 col-md-12 col-lg-12">
 									<span class="section-title"><span><h2>4-Year Plans</h2></span></span> 
-									<p><?php the_field('degree_plan'); ?></p>
+									<?php the_field('degree_plan'); ?>
 								</div>	
 							<?php endif; ?>
 
@@ -190,7 +192,7 @@ get_header(); ?>
 											<span class="glyphicon glyphicon glyphicon-info-sign"></span>
 										</div>
 									</span> 
-									<p><?php the_field('star_act'); ?></p>
+									<?php the_field('star_act'); ?>
 								</div>
 							<?php endif; ?>
 
@@ -204,43 +206,4 @@ get_header(); ?>
 		</div>
 	</div>
 </div>
-
-<script>
-/*
-$( document ).ready(function() {
-	var pattern = /([A-Z]{2,4}) ([0-9]{3})([^\s]{0,10}?) (.{1,100}?)( \(.+?\))/g;
-	
-	$('p').html(function() { 
-			var paragraph = this;
-			return $(paragraph).html().replace(pattern, function(match, $1, $2, $3) { return get_link(match, $1, $2, $3); });
-		}
-	);
-
-	function get_link(full, letter, number, suffix){
-		var value = letter+' '+number+suffix
-		//console.log(value);
-
-		var jUrl = "http://www.csun.edu/catalog/catalog/json/?subject="+value+"&type=course";
-		var id = letter+number+suffix;
-		id = id.replace(/[^A-Za-z0-9]/g, '-');
-
-		$.ajax({
-		   url: jUrl,
-		   type: 'GET',
-		   success: function(data_back){
-				 var new_content = '<a href="'+data_back+'">'+full+'</a>';
-				 
-				 //console.log(data_back);
-				 
-				 if(data_back != '')
-					$('#'+id).replaceWith(new_content);
-			}
-		});
-		
-		return '<span id="'+id+'">'+full+'</span>'; 
-	};
-
-});*/
-</script>
-
 <?php get_footer(); ?>

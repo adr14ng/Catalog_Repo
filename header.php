@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 	  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+	  <meta charset="utf-8"/>
 	  <title>
 		<?php csun_title_text(); ?>
 	  </title>
@@ -127,21 +128,22 @@
 			<?php if ( is_front_page() ) : ?>
 
 				<div class="row" id="full-banner">
-					<div class="banner-overlay">
-						<div class="container">
-						  <a href="<?php echo site_url(); ?>"><h1 class="banner-title"><br/>UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1></a>
-						</div>
+					<div class="container hidden-xs">
+						<img src="<?php echo bloginfo('template_directory');?>/img/catalog_banner.jpg" class="img-responsive " alt="UNIVERSITY CATALOG: 2014-2015">
+						
 					</div>
+					<img src="<?php echo bloginfo('template_directory');?>/img/mobile_main.jpg" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2014-2015">
 				</div>
 
 			<?php else : ?>
 
 				<div class="row" id="full-banner-inner">
-					<div class="banner-overlay">
-						<div class="container">
-							<a href="<?php echo site_url(); ?>"><h1 class="banner-title-inner">UNIVERSITY CATALOG <span class="banner-title-small">2014-2015</span></h1></a>
-						</div>
+					<div class="container hidden-xs">
+						<img src="<?php echo bloginfo('template_directory');?>/img/catalog_banner_inside.jpg" class="img-responsive" alt="UNIVERSITY CATALOG: 2014-2015">				
 					</div>
+
+					<img src="<?php echo bloginfo('template_directory');?>/img/mobile_main.jpg" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2014-2015">
+
 				</div>
 
 			<?php endif; ?>

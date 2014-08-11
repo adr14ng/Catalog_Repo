@@ -42,7 +42,7 @@ get_header(); ?>
 				<a class="no-line" href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Faculty: </span><?php the_title(); ?></h2></a>
 				<div class="row">
 					<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<span><?php echo the_breadcrumb(); ?></span>
+						<?php echo the_breadcrumb(); ?>
 					</div>
 				</div>
 			</div>
@@ -54,7 +54,7 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="section-content">
-								<p><?php the_content(); ?></p>
+								<?php the_content(); ?>
 							</div>		
 						</div>
 					</div>

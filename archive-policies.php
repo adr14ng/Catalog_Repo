@@ -49,15 +49,15 @@ get_header(); ?>
 						<?php
 						$terms = get_terms('policy_categories');
 						if ( !empty( $terms ) && !is_wp_error( $terms ) ) : ?>
-							<section id="policy-cats">
+							<div id="policy-cats">
 							<?php foreach ($terms as $term) : ?>
 								<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
-									<button type="button" class="btn btn-primary btn-sm">
+									<span class="btn btn-primary btn-sm">
 										<?php echo $term->name; ?>
-									</button>
+									</span>
 								</a>
 							<?php endforeach;?>
-							</section>
+							</div>
 						<?php endif; ?>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
@@ -65,15 +65,15 @@ get_header(); ?>
 						<?php
 						$terms = get_terms('policy_tags');
 						if ( !empty( $terms ) && !is_wp_error( $terms ) ) : ?>
-							<section id="policy-tags">
+							<div id="policy-tags">
 							<?php foreach ($terms as $term) : ?>
 								<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
-									<button type="button" class="btn btn-success btn-sm">
+									<span class="btn btn-success btn-sm">
 										<?php echo $term->name; ?>
-									</button>
+									</span>
 								</a>
 							<?php endforeach;?>
-							</section>
+							</div>
 						<?php endif; ?>
 					</div>
 				</div>

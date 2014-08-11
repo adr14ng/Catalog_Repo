@@ -37,8 +37,7 @@ $num = $wp_query->post_count;
 	<div class="container" id="wrap">
 		<div class="dept-container content">
 		<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-			<div class="dept-item ">
-				<a href="<?php the_permalink(); ?>"><?php 
+				<a class="dept-item " href="<?php the_permalink(); ?>"><?php 
 					$degree = get_field('degree_type'); 
 					$title = get_the_title(); 
 						
@@ -53,8 +52,8 @@ $num = $wp_query->post_count;
 							
 					if(isset($post_option)&&$post_option!=='')
 						echo ': '.$post_option;
-				?></a>
-			</div>
+				?>
+			</a>
 		<?php endwhile; else: ?>
 			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 		<?php endif; ?>

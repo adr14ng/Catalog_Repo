@@ -58,19 +58,21 @@ get_header(); ?>
 						<div class="content">
 							<?php $query_prog = new WP_Query(array('post_type' => 'programs', 'orderby' => 'title', 'order' => 'ASC',  'degree_level' => 'master', 'posts_per_page' => 1000,)); 
 							$num = $query_prog->post_count; ?>
-							<span class="section-title"><span><h2>Masters Programs (<?php echo $num;?>)</h2></span></span>
+							<span class="section-title"><span><h2>Masters Programs by Options (<?php echo $num;?>)</h2></span></span>
+							
+							
 							<div class="dept-container content">
 							<?php if($query_prog->have_posts()): while ($query_prog->have_posts()) : $query_prog->the_post(); ?>
-								<div class="dept-item ">
-									<a href="<?php the_permalink(); ?>"><?php the_field('degree_type'); ?>, <?php the_title(); 
+								<a class="dept-item " href="<?php the_permalink(); ?>"><?php the_field('degree_type');?>, <?php the_title();
 								
 									$post_option=get_field('option_title');
 											
 									if(isset($post_option)&&$post_option!=='') {
 										echo ': '.$post_option;
 									}
-									?></a>
-								</div>
+									?>
+								</a>
+						
 							<?php endwhile; else: ?>
 								<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 							<?php endif; 

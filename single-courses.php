@@ -1,9 +1,7 @@
 <?php 
 
 /**
-
  * Template Name: Courses Single View
-
  */ 
 
 
@@ -75,22 +73,24 @@ get_header(); ?>
 							$body = str_replace(' ', '%20', $body);
 						?>
 						<ul id="share-icons">
-							<li><?php pdf_all_button(); ?></li>
+							<!-- <li><?php pdf_all_button(); ?></li> -->
 							<li>
-								<a class="no-line" alt="email" title="Email this page" 
-									href='mailto:?subject=<?php echo $subject_line ?>&body=<?php echo $body; ?>' >
+								<a class="no-line" title="Email this page" 
+									href='mailto:?subject=<?php echo $subject_line ?>&amp;body=<?php echo $body; ?>' >
 									<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
+									<span class="screen-reader-text">email</span>
 								</a>
 							</li>
-							<li><a class="no-line" href="javascript:window.print()" alt="print" title="Print this page.">
+							<li><a class="no-line" href="javascript:window.print()" title="Print this page.">
 									<span class="glyphicon glyphicon-print share-icon"></span>
+									<span class="screen-reader-text">print</span>
 								</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
 					<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<span><?php echo the_breadcrumb(); ?></span>
+						<?php echo the_breadcrumb(); ?>
 					</div>
 				</div>
 			</div>
@@ -107,19 +107,13 @@ get_header(); ?>
 							<div class="section-content">
 								<h3 class="sm-h3" id="course-header"></h3>
 								<table class="csun-table" id="class-info" summary="Class sections"><tbody>
-									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
+									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><th>Instructor</th><tr>
 								</tbody></table>
 							</div>
 								
-							<?php if($double) : ?>
-							<div class="section-content">
-								<h3 class="sm-h3" id="activity-header"></h3>
-								<table class="csun-table" id="activity-info" summary="Activity sections"><tbody>
-									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
-								</tbody></table>
-							</div>
-							<?php endif; ?>
+			
 								
+								<?php //echo $course_title; ?>
 								<script>
 									/**
 									 * Course Information Request
@@ -131,7 +125,7 @@ get_header(); ?>
 									(function($) { 
 									   $(document).ready(function(){
 										  $.ajax({
-											   url: "http://curriculum.ptg.csun.edu/classes/<?php echo $course_title; ?>",
+											   url: "http://curriculum.ptg.csun.edu/terms/fall-2014/classes/<?php echo $course_title; ?>",
 											   type: 'get',
 											   cache: 'false',
 											   dataType: 'json',
@@ -140,6 +134,7 @@ get_header(); ?>
 													var title;
 													var data = data_back.classes;
 													var meeting;
+													var instructors;
 													
 													if(data.length<1){
 														html = '<tr><td colspan="4">No sections offered this semester</td></tr>'
@@ -149,24 +144,26 @@ get_header(); ?>
 														
 														// run through the data and add it to the final markup
 														 $(data).each(function(){
-															meeting = this.class_meeting;
-															var day = meeting.days;
-															var start = meeting.start_time;
-															var end = meeting.end_time;
+														 	instructors = this.instructors;
+															meeting = this.meetings;
+															console.log(instructors);
+															var day = meeting[0].days;
+															var start = meeting[0].start_time;
+															var end = meeting[0].end_time;
 															
-															day = day.replace("ARR", "ONLINE");
-															day = day.replace("M", "Mo");
-															day = day.replace("T", "Tu");
-															day = day.replace("W", "We");
-															day = day.replace("R", "Th");
-															day = day.replace("F", "Fr");
-															day = day.replace("S", "Sa");
+															// day = day.replace("ARR", "ONLINE");
+															// day = day.replace("M", "Mo");
+															// day = day.replace("T", "Tu");
+															// day = day.replace("W", "We");
+															// day = day.replace("R", "Th");
+															// day = day.replace("F", "Fr");
+															// day = day.replace("S", "Sa");
 															
-															start = start.slice(0,2)+':'+start.slice(2,4);
-															end = end.slice(0,2)+':'+end.slice(2,4);
+															// start = start.slice(0,2)+':'+start.slice(2,4);
+															// end = end.slice(0,2)+':'+end.slice(2,4);
 															
 															// this is not processing
-															html += '<tr><td>'+this.class_number+'</td><td>'+meeting.location+'</td><td>'+day+'</td><td>'+start+'-'+end+'</td><tr>';
+															html += '<tr><td>'+this.class_number+'</td><td>'+meeting[0].location+'</td><td>'+day+'</td><td>'+start+'-'+end+'</td><td>'+instructors[0].instructor+'</td><tr>';
 														 });
 													}
 													
@@ -175,55 +172,12 @@ get_header(); ?>
 												}
 											});
 											
-											<?php if($double) : ?>
-											$.ajax({
-											   url: "http://curriculum.ptg.csun.edu/classes/<?php echo $activity_title; ?>",
-											   type: 'get',
-											   cache: 'false',
-											   dataType: 'json',
-											   success: function(data_back){
-													var html = "";
-													var title;
-													var data = data_back.classes;
-													var meeting;
-													
-													if(data.length<1){
-														html = '<tr><td colspan="4">No sections offered this semester</td></tr>'
-													}
-													else{
-														title = data[0].subject+' '+data[0].catalog_number+' - '+data[0].title+' -- '+data[0].term;
-													
-														// run through the data and add it to the final markup
-														 $(data).each(function(){
-															meeting = this.class_meeting;
-															var day = meeting.days;
-															var start = meeting.start_time;
-															var end = meeting.end_time;
-															
-															day = day.replace("ARR", "ONLINE");
-															day = day.replace("M", "Mo");
-															day = day.replace("T", "Tu");
-															day = day.replace("W", "We");
-															day = day.replace("R", "Th");
-															day = day.replace("F", "Fr");
-															day = day.replace("S", "Sa");
-															
-															start = start.slice(0,2)+':'+start.slice(2,4);
-															end = end.slice(0,2)+':'+end.slice(2,4);
-															
-															// this is not processing
-															html += '<tr><td>'+this.class_number+'</td><td>'+meeting.location+'</td><td>'+day+'</td><td>'+start+'-'+end+'</td><tr>';
-														 });
-													}
-													
-													 $("#activity-info").append(html);
-													 $("#activity-header").append(title);
-												}
-											});
-											<?php endif; ?>
+						
 									   });
 									})(jQuery);
-								</script>							
+								</script>	
+
+
 						</div>
 						<?php endif; ?>
 					</div>

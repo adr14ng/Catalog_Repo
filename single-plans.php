@@ -36,7 +36,7 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="section-content">
-								<p><?php the_content(); ?></p>
+								<?php the_content(); ?>
 							</div>	
 						</div>
 					</div>

@@ -70,7 +70,7 @@ get_header(); ?>
 							<div id="collapse<?php echo $num;?>" class="panel-collapse collapse">
 								<div class="panel-body">
 								 <?php while($query_policies->have_posts()) : $query_policies->the_post(); ?>
-									<p><a href="<?php the_permalink();?>"/><?php the_title(); ?></a></p>
+									<p><a href="<?php the_permalink();?>"><?php the_title(); ?></a></p>
 								<?php endwhile;  ?>
 								</div>
 							</div>
