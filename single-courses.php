@@ -63,7 +63,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
 				<div class="row">
 					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-						<a class="no-line" href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Course:</span> <?php the_title(); ?></h2></a>
+						<h2 class="inner-title dark"><span class="red">Course:</span> <?php the_title(); ?></h2>
 					</div>
 					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 						<?php 
@@ -107,7 +107,7 @@ get_header(); ?>
 							<div class="section-content">
 								<h3 class="sm-h3" id="course-header"></h3>
 								<table class="csun-table" id="class-info" summary="Class sections"><tbody>
-									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><th>Instructor</th><tr>
+									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
 								</tbody></table>
 							</div>
 								
@@ -144,26 +144,28 @@ get_header(); ?>
 														
 														// run through the data and add it to the final markup
 														 $(data).each(function(){
-														 	instructors = this.instructors;
-															meeting = this.meetings;
-															console.log(instructors);
-															var day = meeting[0].days;
-															var start = meeting[0].start_time;
-															var end = meeting[0].end_time;
-															
-															// day = day.replace("ARR", "ONLINE");
-															// day = day.replace("M", "Mo");
-															// day = day.replace("T", "Tu");
-															// day = day.replace("W", "We");
-															// day = day.replace("R", "Th");
-															// day = day.replace("F", "Fr");
-															// day = day.replace("S", "Sa");
-															
-															// start = start.slice(0,2)+':'+start.slice(2,4);
-															// end = end.slice(0,2)+':'+end.slice(2,4);
-															
-															// this is not processing
-															html += '<tr><td>'+this.class_number+'</td><td>'+meeting[0].location+'</td><td>'+day+'</td><td>'+start+'-'+end+'</td><td>'+instructors[0].instructor+'</td><tr>';
+															if( this.section_number != "null") {
+																instructors = this.instructors;
+																meeting = this.meetings;
+																console.log(instructors);
+																var day = meeting[0].days;
+																var start = meeting[0].start_time;
+																var end = meeting[0].end_time;
+																
+																// day = day.replace("ARR", "ONLINE");
+																// day = day.replace("M", "Mo");
+																// day = day.replace("T", "Tu");
+																// day = day.replace("W", "We");
+																// day = day.replace("R", "Th");
+																// day = day.replace("F", "Fr");
+																// day = day.replace("S", "Sa");
+																
+																// start = start.slice(0,2)+':'+start.slice(2,4);
+																// end = end.slice(0,2)+':'+end.slice(2,4);
+																
+																// this is not processing
+																html += '<tr><td>'+this.class_number+'</td><td>'+meeting[0].location+'</td><td>'+day+'</td><td>'+start+'-'+end+'</td><tr>';
+															}
 														 });
 													}
 													

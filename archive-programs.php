@@ -6,9 +6,7 @@ $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
 
-//Make ascending by title
-global $query_string;
-query_posts( $query_string . '&orderby=title&order=ASC' );
+$levels = array('major', 'minor', 'master', 'doctorate', 'credential', 'certificate');
 
 get_header(); ?>
 
@@ -19,7 +17,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a>
+					<span class="dept-title-small">Programs</span>
 					<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 				</div>
 			</div>
@@ -44,53 +42,62 @@ get_header(); ?>
 				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 					<span class="section-title"><span><h2>Programs</h2></span></span>
 
-				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
-							<a class="csun-subhead" href="<?php the_permalink(); ?>">
-								<h3 class="csun-subhead">
-									<?php 
-									
-										$degree = get_field('degree_type'); 
-										$title = get_the_title(); 
-										
-										if ($degree === 'credential' || $degree === 'Credential'){
-											if (strpos($title, 'Credential') === FALSE)
-												$title .= ' Credential';
-										}
-										else if ($degree === 'certificate' || $degree === 'Certificate') {
-											if (strpos($title, 'Certificate') === FALSE)
-												$title .= ' Certificate';
-										}
-										else if ($degree === 'minor' || $degree === 'Minor'){
-											$title = $degree.' in '.$title;
-										}
-										else{
-											$title = $degree.', '.$title;
-										}
-										
-										echo $title;
-									?>
-								</h3>
-								<?php 
-									$post_option=get_field('option_title');
-
-									if(isset($post_option)&&$post_option!=='') {
-										echo '<h4 class="sm-h4">'.$post_option.'</h4>';
-										
-										$title = $title.', '.$post_option;
-									}
-								?>
-							</a>
-							<?php the_excerpt(); ?>
-							<a title="<?php echo $title; ?>" aria-label="<?php echo $title; ?>" class="read-more" href="<?php the_permalink(); ?>">[ View Program ]</a>
-						</div>
-
-				<?php endwhile; else: ?>
-				
-					<p><?php _e('There are currently no programs associated with '.$deptdesc.'.'); ?></p>
+					<?php if(have_posts()) : ?>
+						<?php foreach($levels as $level) :
+							$query_programs = new WP_Query(array(
+								'orderby' => 'title', 
+								'order' => 'ASC',  
+								'degree_level' => $level,
+								'department_shortname' => $dept,
+								'posts_per_page' => 1000,)); ?>
+							<?php if($query_programs->have_posts()) : while($query_programs->have_posts()) : $query_programs->the_post(); ?>
 					
-				<?php endif; ?>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
+									<a class="csun-subhead" href="<?php the_permalink(); ?>">
+										<h3 class="csun-subhead">
+											<?php 
+												$degree = get_field('degree_type');
+												$title = get_the_title(); 
+												
+												if ($degree === 'credential' || $degree === 'Credential'){
+													if (strpos($title, 'Credential') === FALSE)
+														$title .= ' Credential';
+												}
+												else if ($degree === 'certificate' || $degree === 'Certificate') {
+													if (strpos($title, 'Certificate') === FALSE)
+														$title .= ' Certificate';
+												}
+												else if ($degree === 'minor' || $degree === 'Minor'){
+													$title = $degree.' in '.$title;
+												}
+												else{
+													$title = $degree.', '.$title;
+												}
+												
+												echo $title;
+											?>
+										</h3>
+										<?php 
+											$post_option=get_field('option_title');
+
+											if(isset($post_option)&&$post_option!=='') {
+												echo '<h4 class="sm-h4">'.$post_option.'</h4>';
+												
+												$title = $title.', '.$post_option;
+											}
+										?>
+									</a>
+									<?php the_excerpt(); ?>
+									<a title="<?php echo $title; ?>" aria-label="<?php echo $title; ?>" class="read-more" href="<?php the_permalink(); ?>">[ View Program ]</a>
+								</div>
+							<?php endwhile; endif; ?>
+						<?php endforeach; ?>
+						<?php wp_reset_query(); ?>
+					<?php else: ?>
+					
+						<p><?php _e('There are currently no programs associated with '.$deptdesc.'.'); ?></p>
+						
+					<?php endif; ?>
 
 				</div>
 				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 right-sidebar ">

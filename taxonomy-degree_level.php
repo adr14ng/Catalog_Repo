@@ -41,17 +41,17 @@ $num = $wp_query->post_count;
 					$degree = get_field('degree_type'); 
 					$title = get_the_title(); 
 						
-					if ($degree === 'minor' || $degree === 'Minor')
-						$title = $degree.' in '.$title;
-					else
-						$title = $degree.', '.$title;
-						
-					echo $title;
-					
 					$post_option=get_field('option_title');
 							
 					if(isset($post_option)&&$post_option!=='')
-						echo ': '.$post_option;
+						$title = $title . ': '.$post_option;
+						
+					if ($degree === 'minor' || $degree === 'Minor')
+						$title = $degree.' in '.$title;
+					else
+						$title = $title.', '.$degree;
+						
+					echo $title;
 				?>
 			</a>
 		<?php endwhile; else: ?>

@@ -39,7 +39,7 @@ get_header(); ?>
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
-				<a class="no-line" href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><span class="red">Faculty: </span><?php the_title(); ?></h2></a>
+				<h2 class="inner-title dark"><span class="red">Faculty: </span><?php the_title(); ?></h2>
 				<div class="row">
 					<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<?php echo the_breadcrumb(); ?>

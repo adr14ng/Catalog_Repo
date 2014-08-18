@@ -11,9 +11,13 @@ if(!isset($type) || $type == ''){
 	
 	if ( false !== strpos($url, 'staract') ) {
 		$type = 'staract';
+		$url = 'star-act/';
+		$title = 'STAR Act';
 	} 
 	else {
 		$type = 'plans';
+		$url = '';
+		$title = 'Degree Planning Guides';
 	}
 
 }
@@ -27,7 +31,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo site_url('/plan/'.$type); ?>"><?php echo ucwords($type); ?></a>
+					<a class="dept-title-small" href="<?php echo site_url('/plan/'.$url); ?>"><?php echo ucwords($title); ?></a>
 					<h1 class="prog-title"><?php echo $year; ?></h1>
 				</div>
 			</div>

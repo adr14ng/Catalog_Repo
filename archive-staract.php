@@ -14,7 +14,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php echo site_url('/resources'); ?>">Resources</a>
-					<h1 class="prog-title">Staract</h1>
+					<h1 class="prog-title">STAR Act</h1>
 				</div>
 			</div>
 		</div>

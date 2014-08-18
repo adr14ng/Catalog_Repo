@@ -10,7 +10,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php the_permalink(); ?>">College Overview</a>
+					<span class="dept-title-small">College Overview</span>
 					<h1 class="prog-title"><?php the_title() ?></h1>
 				</div>
 			</div>
@@ -41,9 +41,13 @@ get_header(); ?>
 														   'post_type' => 'departments'
 												 ));
 								
-								foreach ( $posts as $post ) : setup_postdata( $post ); ?>
+								foreach ( $posts as $post ) : setup_postdata( $post ); 
+									$post_id = get_the_ID();
+									$terms = wp_get_post_terms( $post_id, 'department_shortname');
+									$url = get_csun_archive('departments', $terms[0]->slug);
+								?>
 									<p>
-										<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+										<a href="<?php echo $url; ?>"><?php the_title(); ?></a>
 									</p>
 								<?php endforeach; 
 								wp_reset_postdata();

@@ -60,7 +60,7 @@ get_header(); ?>
 						<div class="content">
 							<?php $query_prog = new WP_Query(array('post_type' => 'programs', 'orderby' => 'title', 'order' => 'ASC',  'degree_level' => 'credential', 'posts_per_page' => 1000,)); 
 							$num = $query_prog->post_count; ?>
-							<span class="section-title"><span><h2>Credential Programs (<?php echo $num;?>)</h2></span></span>
+							<span class="section-title"><span><h2>Credential Programs by Options (<?php echo $num;?>)</h2></span></span>
 							<div class="dept-container content">
 							<?php if($query_prog->have_posts()): while ($query_prog->have_posts()) : $query_prog->the_post(); ?>
 									<a class="dept-item " href="<?php the_permalink(); ?>"><?php the_title(); 

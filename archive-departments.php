@@ -24,8 +24,8 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php the_permalink(); ?>"><?php echo $title; ?></a>
-					<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+					<span class="dept-title-small"><?php echo $title; ?></span>
+					<h1 class="prog-title"><?php echo $deptdesc; ?></h1>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

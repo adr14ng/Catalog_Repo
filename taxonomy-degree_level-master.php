@@ -63,14 +63,14 @@ get_header(); ?>
 							
 							<div class="dept-container content">
 							<?php if($query_prog->have_posts()): while ($query_prog->have_posts()) : $query_prog->the_post(); ?>
-								<a class="dept-item " href="<?php the_permalink(); ?>"><?php the_field('degree_type');?>, <?php the_title();
+								<a class="dept-item " href="<?php the_permalink(); ?>"><?php the_title();
 								
 									$post_option=get_field('option_title');
 											
 									if(isset($post_option)&&$post_option!=='') {
 										echo ': '.$post_option;
 									}
-									?>
+									?>, <?php the_field('degree_type');?>
 								</a>
 						
 							<?php endwhile; else: ?>

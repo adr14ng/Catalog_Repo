@@ -20,7 +20,7 @@ get_header(); ?>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="section-content page-title-section">
-						<a class="dept-title-small" href="<?php the_permalink(); ?>">Faculty</a>
+						<span class="dept-title-small">Faculty</span>
 						<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 					</div>
 				</div>

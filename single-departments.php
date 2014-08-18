@@ -8,6 +8,13 @@ $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 
 $deptdesc = $deptterm->description;
 
+if($dept === 'bus'){
+	$title = "College Overview";
+	$bus = true;
+}
+else
+	$title = "Department Overview";
+
 get_header(); ?>
 
 
@@ -17,8 +24,8 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php the_permalink(); ?>">Department Overview</a>
-					<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+					<span class="dept-title-small"><?php echo $title; ?></span>
+					<h1 class="prog-title"><?php echo $deptdesc; ?></h1>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -42,6 +49,27 @@ get_header(); ?>
 		
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+			<?php if ($bus) : ?>
+				<div class="section-content">
+					<span class="section-title"><span><h2>Departments and Programs</h2></span></span> 
+					<?php 
+						$posts = get_posts( array( 'orderby' => 'title',
+												   'order' => 'ASC',
+												   'posts_per_page' => 20,
+												   'department_shortname' => 'cobae',
+												   'post_type' => 'departments',
+												   'exclude' => get_the_ID(),
+										 ));
+								
+						foreach ( $posts as $post ) : setup_postdata( $post ); ?>
+							<p>
+								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							</p>
+						<?php endforeach; 
+						wp_reset_postdata();
+						?>
+				</div>
+			<?php endif; ?>
 			<?php $values = get_field('mission_statement');
 			if ( $values != false) : ?>
 				<div class="section-content">
@@ -126,11 +154,13 @@ get_header(); ?>
 						<li>
 							<a class="no-line" title="Email this page" 
 								href='mailto:?subject=<?php echo $subject_line ?>&amp;body=<?php echo $body; ?>' >
-								<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon">email</span>
+								<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
+								<span class="screen-reader-text">email</span>
 							</a>
 						</li>
 						<li><a class="no-line" href="javascript:window.print()" title="Print this page.">
-								<span class="glyphicon glyphicon-print share-icon">print</span>
+								<span class="glyphicon glyphicon-print share-icon"></span>
+								<span class="screen-reader-text">print</span>
 						</a></li>
 					</ul>
 				</div>

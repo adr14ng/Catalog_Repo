@@ -99,14 +99,8 @@ get_header(); ?>
 				
 					<span id="planning" class="section-title"><span><h2>Planning Guides</h2></span></span>
 					<p>
-					<?php		
-						$plan = get_page_by_title('Planning');
-						
-						$plan_pages = get_pages(array('child_of' => ($plan->ID)));
-						
-						foreach($plan_pages as $page): ?>
-							<a href="<?php echo get_permalink($page->ID);?>"/><?php echo $page->post_title; ?></a><br />
-						<?php endforeach;?> 
+					<a href="<?php echo site_url('/plan/');?>"/>Degree Planning Guides</a><br />
+					<a href="<?php echo site_url('/plan/star-act/');?>"/>STAR Act</a><br />
 					</p>
 				</div>
 			</div>

@@ -28,7 +28,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
 				<div class="row">
 					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-						<a class="no-line" href="<?php the_permalink(); ?>"><h2 class="inner-title dark"><?php the_title(); ?></h2></a>
+						<h2 class="inner-title dark"><?php the_title(); ?></h2>
 					</div>
 					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 						<?php 
