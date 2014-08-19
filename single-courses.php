@@ -12,7 +12,7 @@ $deptdesc = $deptterm->description;
 
 $single=$double=false;
 
-preg_match("/([A-Z]{2,4}) ([0-9]{3})(.{0,8})\. (.)* \(([0-9]|[0-9]\/[0-9]|[0-9]-[0-9])\)/", get_the_title() , $course_info);
+preg_match("/([A-Z]{2,4}) ([0-9]{3})(.{0,8})\. (.)* \(([0-9]|[0-9]\/[0-9]|[0-9](-[0-9])*)\)/", get_the_title() , $course_info);
 
 if($course_info[3]== ""){		//Basic Class
 	$course_title = strtolower($course_info[1]).'-'.$course_info[2];
@@ -144,27 +144,53 @@ get_header(); ?>
 														
 														// run through the data and add it to the final markup
 														 $(data).each(function(){
-															if( this.section_number != "null") {
-																instructors = this.instructors;
+															if( this.section_number != null) {
 																meeting = this.meetings;
-																console.log(instructors);
-																var day = meeting[0].days;
-																var start = meeting[0].start_time;
-																var end = meeting[0].end_time;
+																if(meeting[0] != null) {
+																	var start_hour;
+																	var end_hour;
+																	var start_let = 'am';
+																	var end_let = 'am';
 																
-																// day = day.replace("ARR", "ONLINE");
-																// day = day.replace("M", "Mo");
-																// day = day.replace("T", "Tu");
-																// day = day.replace("W", "We");
-																// day = day.replace("R", "Th");
-																// day = day.replace("F", "Fr");
-																// day = day.replace("S", "Sa");
+																	var day = meeting[0].days;
+																	var start = meeting[0].start_time;
+																	var end = meeting[0].end_time;
+																	var location = meeting[0].location;
+																	
+																	day = day.replace("A", "-");
+																	day = day.replace("M", "Mo");
+																	day = day.replace("T", "Tu");
+																	day = day.replace("W", "We");
+																	day = day.replace("R", "Th");
+																	day = day.replace("F", "Fr");
+																	day = day.replace("S", "Sa");
+																	
+																	start_hour = parseInt(start.slice(0,2));
+																	end_hour = parseInt(end.slice(0,2));
+																	
+																	if(start_hour > 11)
+																		start_let = 'pm';
+																	
+																	if(end_hour > 11)
+																		end_let = 'pm'
+																		
+																	if(start_hour > 12)
+																		start_hour = start_hour - 12;
+																		
+																	if(end_hour > 12)
+																		end_hour = end_hour - 12;
+																	
+																	if(start_hour !== 0) {
+																		start = start_hour+':'+start.slice(2,4)+start_let;
+																		end = end_hour+':'+end.slice(2,4)+end_let;
+																	}
+																	else
+																		start = end = '';
 																
-																// start = start.slice(0,2)+':'+start.slice(2,4);
-																// end = end.slice(0,2)+':'+end.slice(2,4);
 																
-																// this is not processing
-																html += '<tr><td>'+this.class_number+'</td><td>'+meeting[0].location+'</td><td>'+day+'</td><td>'+start+'-'+end+'</td><tr>';
+																	// this is not processing
+																	html += '<tr><td>'+this.class_number+'</td><td>'+location+'</td><td>'+day+'</td><td>'+start+'-'+end+'</td><tr>';
+																}
 															}
 														 });
 													}
@@ -178,10 +204,108 @@ get_header(); ?>
 									   });
 									})(jQuery);
 								</script>	
-
-
-						</div>
 						<?php endif; ?>
+						<?php if($double): ?>
+							<div class="section-content">
+								<h3 class="sm-h3" id="activ-header"></h3>
+								<table class="csun-table" id="activ-info" summary="Class Activity sections"><tbody>
+									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
+								</tbody></table>
+							</div>
+								
+								<script>
+									/**
+									 * Course Information Request
+									 *
+									 * Requests information in JSON format from OMAR via AJAX 
+									 *
+									 * Formats and displays the information in a table
+									 */
+									(function($) { 
+									   $(document).ready(function(){
+										  $.ajax({
+											   url: "http://curriculum.ptg.csun.edu/terms/fall-2014/classes/<?php echo $activity_title; ?>",
+											   type: 'get',
+											   cache: 'false',
+											   dataType: 'json',
+											   success: function(data_back){
+													var html = "";
+													var title;
+													var data = data_back.classes;
+													var meeting;
+													var instructors;
+													
+													if(data.length<1){
+														html = '<tr><td colspan="4">No sections offered this semester</td></tr>'
+													}
+													else{
+														title = data[0].subject+' '+data[0].catalog_number+' - '+data[0].title+' -- '+data[0].term;
+														
+														// run through the data and add it to the final markup
+														 $(data).each(function(){
+															if( this.section_number != null) {
+																meeting = this.meetings;
+																if(meeting[0] != null) {
+																	var start_hour;
+																	var end_hour;
+																	var start_let = 'am';
+																	var end_let = 'am';
+																	
+																	var day = meeting[0].days;
+																	var start = meeting[0].start_time;
+																	var end = meeting[0].end_time;
+																	var location = meeting[0].location;
+																	
+																	day = day.replace("A", "-");
+																	day = day.replace("M", "Mo");
+																	day = day.replace("T", "Tu");
+																	day = day.replace("W", "We");
+																	day = day.replace("R", "Th");
+																	day = day.replace("F", "Fr");
+																	day = day.replace("S", "Sa");
+																	
+																	start_hour = parseInt(start.slice(0,2));
+																	end_hour = parseInt(end.slice(0,2));
+																	
+																	if(start_hour > 11)
+																		start_let = 'pm';
+																	
+																	if(end_hour > 11)
+																		end_let = 'pm'
+																		
+																	if(start_hour > 12)
+																		start_hour = start_hour - 12;
+																		
+																	if(end_hour > 12)
+																		end_hour = end_hour - 12;
+																	
+																	if(start_hour !== 0) {
+																		start = start_hour+':'+start.slice(2,4)+start_let;
+																		end = end_hour+':'+end.slice(2,4)+end_let;
+																	}
+																	else
+																		start = end = '';
+																
+																
+																	// this is not processing
+																	html += '<tr><td>'+this.class_number+'</td><td>'+location+'</td><td>'+day+'</td><td>'+start+'-'+end+'</td><tr>';
+																}
+															}
+														 });
+													}
+													
+													 $("#activ-info").append(html);
+													 $("#activ-header").html(title);
+												}
+											});
+											
+						
+									   });
+									})(jQuery);
+								</script>	
+
+						<?php endif; ?>
+						</div>
 					</div>
 				<?php endwhile; endif; ?>
 				</div> <!-- end inset-content -->
