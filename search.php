@@ -48,6 +48,7 @@ $search = new WP_Query($search_query);
 				<?php endwhile; else: ?>
 
 					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+					
 
 				<?php endif; ?>
 				</div>

@@ -45,7 +45,8 @@ get_header(); ?>
 
 				<?php 
 				$terms = get_terms('department_shortname');
-				foreach($terms as $term) : if($term->parent != 0) :
+				$terms = sort_terms_by_description($terms);
+				foreach($terms as $term) : if($term->parent != 0 && $term->parent != 511) :
 					
 					$query_plans = new WP_Query(array(
 						'post_type' => $type, 

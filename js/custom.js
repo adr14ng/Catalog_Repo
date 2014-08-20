@@ -52,7 +52,15 @@ $( document ).ready(function() {
 		
 		return '<span id="'+id+'">'+full+'</span>'; 
 	};*/
+	
+	$('#abc_nav').children('a').each( function () {
+		var letter = $(this).attr('href');
+		
+		if($(letter).length == 0) {
+			$(this).children('span').addClass('disabled');
+			console.log(letter);
+		}
+	});
 
 });
-
 

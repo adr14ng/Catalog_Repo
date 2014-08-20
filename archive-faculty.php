@@ -43,8 +43,6 @@ get_header(); ?>
 			<div class="row">
 				<div class="section-content">
 					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-						<span class="section-title"><span><h2>Current Faculty</h2></span></span>
-						
 					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 
 						<?php if( strpos(get_the_term_list(  $post->ID, 'department_shortname', '', ', '), 'Emeriti') === FALSE): ?>
@@ -112,9 +110,25 @@ get_header(); ?>
 		<div class="container" id="wrap">
 			<div class="row">
 				<div class="section-content">
+					<div id="abc_nav" data-spy="affix" data-offset-top="440" data-offset-bottom="10" class = "hidden-xs col-sm-3 col-md-3 col-lg-3">
+						<?php foreach (range('A', 'Z') as $char) : ?>
+							<a href="#<?php echo $char; ?>">
+								<span class="btn btn-primary btn-sm"><?php echo $char; ?></span>
+							</a>
+						<?php endforeach; ?>
+					</div>
+					<div class = "col-sm-3 col-md-3 col-lg-3"></div>
 					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-
-					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
+					<?php $curr_letter = '';
+					 if(have_posts()): while (have_posts()) : the_post(); 
+						$this_letter = strtoupper(substr($post->post_title,0,1));
+						
+						if($this_letter != $curr_letter) {
+							echo '<span class="section-title abc_title"><span><h2 id="'.$this_letter.'">'.$this_letter.'</h2></span></span>';
+							$curr_letter = $this_letter;
+						}
+					 
+					 ?>
 
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 							<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
@@ -153,11 +167,27 @@ get_header(); ?>
 		<div class="container" id="wrap">
 			<div class="row">
 				<div class="section-content">
+					<div id="abc_nav" data-spy="affix" data-offset-top="440" data-offset-bottom="10" class = "hidden-xs col-sm-3 col-md-3 col-lg-3">
+						<?php foreach (range('A', 'Z') as $char) : ?>
+							<a href="#<?php echo $char; ?>">
+								<span class="btn btn-primary btn-sm"><?php echo $char; ?></span>
+							</a>
+						<?php endforeach; ?>
+					</div>
+					<div class = "col-sm-3 col-md-3 col-lg-3"></div>
 					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 
-					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
+					<?php $curr_letter = '';
+					if(have_posts()): while (have_posts()) : the_post(); ?>
 					
-						<?php if( strpos(get_the_term_list(  $post->ID, 'department_shortname', '', ', '), 'Emeriti') === FALSE): ?>
+						<?php if( strpos(get_the_term_list(  $post->ID, 'department_shortname', '', ', '), 'Emeriti') === FALSE): 
+							$this_letter = strtoupper(substr($post->post_title,0,1));
+							
+							if($this_letter != $curr_letter) {
+								echo '<span class="section-title abc_title"><span><h2 id="'.$this_letter.'">'.$this_letter.'</h2></span></span>';
+								$curr_letter = $this_letter;
+							}
+						?>
 
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 								<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>

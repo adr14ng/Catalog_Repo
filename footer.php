@@ -51,6 +51,7 @@
 </div>
   <script>
 	$("h2.section-header").wrap('<span class="section-title"><span></span></span>');
+	$('.abc_title').prev('div').addClass('no-bottom-border');
   </script>
 
 

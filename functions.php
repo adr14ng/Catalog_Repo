@@ -168,7 +168,7 @@ function limit_posts_per_search_page() {
 		if ( is_search())
 			$limit = 10;
 		else
-			$limit = 1000;
+			$limit = 3000;
 
 		set_query_var('posts_per_archive_page', $limit);
 	}
@@ -280,6 +280,31 @@ function csun_title_text() {
 		
 }
 
+/** * * * * * * * * * * * * * * * * * *
+ * Sort an array of terms by their description
+ * May work imperfectly for descriptions beginning
+ * with the same 4 characters.
+ *
+ * @param array $terms	Array of terms to be sorted
+ *
+ * @return array
+ * * * * * * * * * * * * * * * * * * */
+function sort_terms_by_description($terms){
+	$sort_terms = array();
+	
+	foreach($terms as $term){
+		$string = substr(($term->description), 0, 4);
+		
+			while(array_key_exists($string, $sort_terms))
+				$string .= 'a';
+			
+			$sort_terms[$string] = $term;
+	}
+	
+	ksort($sort_terms);
+	
+	return $sort_terms;
+}
 
 
 ?>
