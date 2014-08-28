@@ -7,6 +7,12 @@ $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
 
+if($dept === "faculty" || $dept === "admin")
+	$noDpt = true;
+	
+//count emeritius faculty
+$count = 0;
+
 //Make ascending by title
 global $query_string;
 query_posts( $query_string . '&orderby=title&order=ASC' );
@@ -20,10 +26,16 @@ get_header(); ?>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="section-content page-title-section">
-						<span class="dept-title-small">Faculty</span>
+						<?php if($noDpt) : ?>
+						<a class="dept-title-small" href="<?php echo site_url('/faculty/');?>">Faculty and Administrators</a>
+						<h1 class="prog-title"><?php echo $deptdesc; ?></h1>
+						<?php else: ?>
+						<span class="dept-title-small">Faculty and Administrators</span>
 						<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+						<?php endif; ?>
 					</div>
 				</div>
+				<?php if(!$noDpt) : ?>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div id="catalog-subnav">
 						<ul class="clearfix">
@@ -34,6 +46,7 @@ get_header(); ?>
 						</ul>
 					</div>
 				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
@@ -49,7 +62,6 @@ get_header(); ?>
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 								<a class="csun-subhead" href="<?php the_csun_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 								<?php the_excerpt(); ?>
-								<a title="<?php the_title(); ?>" aria-label="<?php the_title(); ?>" class="read-more" href="<?php the_permalink(); ?>">[ View Faculty Member ]</a>
 							</div>
 						<?php endif; ?>
 
@@ -60,32 +72,35 @@ get_header(); ?>
 					<?php endif; ?>
 
 						<br /><br /><br />
-
-						<span class="section-title"><span><h2>Emeritus Faculty</h2></span></span>
+						<span class="section-title"><span><h2>Emeriti</h2></span></span>
 
 					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 
-						<?php if( strpos(get_the_term_list(  $post->ID, 'department_shortname', '', ', '), 'Emeriti') !== FALSE): ?>
+						<?php if( strpos(get_the_term_list(  $post->ID, 'department_shortname', '', ', '), 'Emeriti') !== FALSE): 
+							$count++;
+						?>
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 								<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 								<?php the_excerpt(); ?>
-								<a class="read-more" href="<?php the_permalink(); ?>">[ View Faculty Member ]</a>
 							</div>
 						<?php endif; ?>
 
-					<?php endwhile; else: ?>
+					<?php endwhile; endif; ?>
+					<?php if($count === 0) : ?>
 					
 						<p><?php _e('There are currently no emeritus faculty associated with '.$deptdesc.'.'); ?></p>
 						
-					<?php endif; ?>
+					<?php endif;?>
 
 					</div>
+					<?php if(!$noDpt) : ?>
 					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 right-sidebar ">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
 							<span class="section-title"><span><h2>Contact</h2></span></span>
 								<?php echo get_csun_contact($dept); ?>
 						</div>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -98,7 +113,7 @@ get_header(); ?>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="section-content page-title-section">
-						<span class="dept-title-small">Faculty</span>
+						<span class="dept-title-small">Faculty and Administrators</span>
 						<h1 class="prog-title">Emeritus Faculty</h1>
 					</div>
 				</div>
@@ -133,7 +148,6 @@ get_header(); ?>
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 							<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 							<?php the_excerpt(); ?>
-							<a class="read-more" href="<?php the_permalink(); ?>">[ View Faculty Member ]</a>
 						</div>
 
 					<?php endwhile; else: ?>
@@ -155,7 +169,7 @@ get_header(); ?>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="section-content page-title-section">
-						<span class="dept-title-small">Faculty</span>
+						<span class="dept-title-small">Faculty and Administrators</span>
 						<h1 class="prog-title">Faculty and Administration</h1>
 					</div>
 				</div>
@@ -192,7 +206,6 @@ get_header(); ?>
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 								<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 								<?php the_excerpt(); ?>
-								<a class="read-more" href="<?php the_permalink(); ?>">[ View Faculty Member ]</a>
 							</div>
 						
 						<?php endif; ?>

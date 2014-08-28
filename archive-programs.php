@@ -88,7 +88,6 @@ get_header(); ?>
 										?>
 									</a>
 									<?php the_excerpt(); ?>
-									<a title="<?php echo $title; ?>" aria-label="<?php echo $title; ?>" class="read-more" href="<?php the_permalink(); ?>">[ View Program ]</a>
 								</div>
 							<?php endwhile; endif; ?>
 						<?php endforeach; ?>

@@ -3,17 +3,20 @@
  * Template Name: Department Archive View
  */ 
 $dept = get_query_var( 'department_shortname' );
-
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
-
 $deptdesc = $deptterm->description;
 
-if($dept === 'bus'){
-	$title = "College Overview";
-	$bus = true;
-}
-else
-	$title = "Department Overview";
+$colleges = array('amc', 'cecs', 'coh', 'csbs', 'csm', 'educ', 'hhd', 'tseng');
+
+if(in_array($dept, $colleges)){
+	$url = site_url().'/colleges/'.$dept;
+	wp_redirect( $url, 301 ); 
+	exit;
+} 
+
+$post_categories = wp_get_post_categories(get_the_ID(), array('fields' => 'names'));
+$title = $post_categories[0].' Overview';
+	
 
 get_header(); ?>
 
@@ -49,7 +52,7 @@ get_header(); ?>
 		
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-			<?php if ($bus) : ?>
+			<?php if ($dept === 'bus') : ?>
 				<div class="section-content">
 					<span class="section-title"><span><h2>Departments and Programs</h2></span></span> 
 					<?php 

@@ -8,7 +8,24 @@ $dept = get_query_var( 'department_shortname' );
 
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 
+if($dept === "faculty" || $dept === "admin")
+	$noDpt = true;
+
 $deptdesc = $deptterm->description;
+
+$position = "Faculty: ";
+$terms = get_the_term_list(  $post->ID, 'department_shortname', '', ', ');
+
+if( strpos( $terms, 'Emeriti') !== FALSE)
+	$position = "Emeritus ".$position;
+	
+if( strpos( $terms, 'Administration') !== FALSE) {
+	$admin = true;
+	$position = "Administrator: ";
+}
+	
+if( strpos( $terms, 'Faculty') !== FALSE && $admin)
+	$position = "Administrator and Faculty: ";
 
 get_header(); ?>
 
@@ -18,10 +35,16 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo get_csun_archive('faculty', $dept); ?>">Faculty</a>
+				<?php if($noDpt) : ?>
+					<a class="dept-title-small" href="<?php echo site_url('/faculty/');?>">Faculty and Administrators</a>
+					<a href="<?php echo get_csun_archive('faculty', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+				<?php else: ?>
+					<a class="dept-title-small" href="<?php echo get_csun_archive('faculty', $dept); ?>">Faculty and Administrators</a>
 					<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+				<?php endif; ?>
 				</div>
 			</div>
+			<?php if(!$noDpt) : ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div id="catalog-subnav">
 					<ul class="clearfix">
@@ -32,6 +55,7 @@ get_header(); ?>
 					</ul>
 				</div>
 			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>
@@ -39,12 +63,16 @@ get_header(); ?>
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
-				<h2 class="inner-title dark"><span class="red">Faculty: </span><?php the_title(); ?></h2>
+				<h2 class="inner-title dark"><span class="red">
+					<?php echo $position; ?> 
+				</span><?php the_title(); ?></h2>
+				<?php if(!$noDpt) : ?>
 				<div class="row">
 					<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<?php echo the_breadcrumb(); ?>
 					</div>
 				</div>
+				<?php endif; ?>
 			</div>
 			<div class="pad-box">
 				<div id="inset-content">
