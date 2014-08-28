@@ -1,12 +1,17 @@
 <?php 
 /**
  * Template Name: Faculty Archive Template
+ *
+ * There are three different pages within this template
+ * The Department style page, the all emeriti page, 
+ * and the all current page
  */ 
 
 $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
 
+//Don't display department tabs on faculty/administrator pages
 if($dept === "faculty" || $dept === "admin")
 	$noDpt = true;
 	
@@ -14,8 +19,17 @@ if($dept === "faculty" || $dept === "admin")
 $count = 0;
 
 //Make ascending by title
-global $query_string;
-query_posts( $query_string . '&orderby=title&order=ASC' );
+global $wp_query;
+$options = array('orderby'=> 'title', 'order'=>'ASC' );
+
+//Show business faculty on BUS page
+if($dept === 'bus'){
+	$options['department_shortname'] = 'cobae';
+	$options['term'] = 'cobae';
+}
+
+$args = array_merge($wp_query->query_vars, $options);
+query_posts( $args );
 
 get_header(); ?>
 

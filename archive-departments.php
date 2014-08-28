@@ -14,6 +14,12 @@ if(in_array($dept, $colleges)){
 	exit;
 } 
 
+if($dept === 'cobae') {
+	$url = get_csun_archive('departments', 'bus');
+	wp_redirect( $url, 301 ); 
+	exit;
+}
+
 $post_categories = wp_get_post_categories(get_the_ID(), array('fields' => 'names'));
 $title = $post_categories[0].' Overview';
 	

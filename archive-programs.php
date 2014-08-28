@@ -6,7 +6,7 @@ $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
 
-$levels = array('major', 'minor', 'master', 'doctorate', 'credential', 'certificate');
+$levels = array('major', 'minor', 'master', 'doctorate', 'credential', 'certificate', 'honor');
 
 get_header(); ?>
 
@@ -70,7 +70,11 @@ get_header(); ?>
 												else if ($degree === 'minor' || $degree === 'Minor'){
 													$title = $degree.' in '.$title;
 												}
-												else{
+												else if ($degree === 'honors' || $degree === 'Honors' ){
+													$title = $title;
+												}
+												else
+												{
 													$title = $degree.', '.$title;
 												}
 												

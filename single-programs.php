@@ -72,6 +72,9 @@ get_header(); ?>
 						else if ($degree === 'minor' || $degree === 'Minor'){
 							$title = $degree.' in '.$title;
 						}
+						else if ($degree === 'honors' || $degree === 'Honors' ){
+							$title = $title;
+						}
 						else{
 							$title = $degree.', '.$title;
 						}
