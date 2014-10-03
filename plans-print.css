@@ -2,44 +2,66 @@
 
 @media print {
 #fixbar, #full-banner-inner, #catalog-subnav, #share-icons, #landing-section, 
-	#breadcrumbs, #outside-footer, .linksrow, #lastrow, /*div a,*/ .well-tseng, 
-	/*.dept-title-small,*/ #policy-tags{
+#breadcrumbs, #outside-footer, .linksrow, #lastrow, /*div a,*/ .well-tseng, 
+/*.dept-title-small,*/ #policy-tags, .key, .excess, .post-edit-link {
 	display: none;
-	}
+}
 	
-	@page {
-    margin: 30cm; 
-    }
+@page {
+	margin: 30cm; 
+}
 
 body {
 	float:none;
 	width:8.5in;
 	margin:0 !important; 
 	padding:0 !important;
- line-height:1em !important;
-	font: 10pt Arial, Helvetica, sans-serif !important;
+	line-height:1em;
+	font: 10pt Arial, Helvetica, sans-serif;
 }
 
 * {
-        background: transparent !important;
-        color: #000 !important; /* Black prints faster: h5bp.com/s */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
+	background: transparent;
+	color: #000;
+	box-shadow: none;
+	text-shadow: none;
+}
 	
-	html {
-    overflow:hidden;
-    }
+html {
+	overflow:hidden !important;
+}
 
-    ::-webkit-scrollbar{
-    	display: none;
-    }
+::-webkit-scrollbar{
+    display: none !important;
+}
 
-h1, h2, h3 {
-	margin: 0px !important;
-	padding: 0px !important;
- line-height:1em !important;
-	
+a[href]:after {
+    content: none;
+}
+
+h1 {
+	margin: 2px 0  2px 0px;
+	padding:0;
+	font-size: 10pt;
+	line-height:1em;
+	text-transform:uppercase;
+}
+
+h2 {
+	border:none;
+	margin:2px 0 2px 1px;
+	padding:0px;
+	line-height:1em;
+	font-size: 10pt;
+}
+
+h3 {
+	font-size:9pt;
+	page-break-after: avoid;
+	break-after: avoid;
+	-webkit-region-break-after: avoid;
+	margin-top: 10px;
+	line-height:1em;
 }
 
 div{
@@ -48,135 +70,62 @@ div{
 	margin: 0 !important;
 }
 
-p, li {
+p, li, ul {
 	margin: 0px;
 	line-height: 12pt;
 	padding: 0pt;
+	max-width: 7.75in;
 }
 
-table {	margin:0px !important; padding:0px !important; height:100%;}
+table, tr,img, .no-break {
+    page-break-inside: avoid;
+}
 
 table {
-	margin: 10px 0px 0px 0px !important;
+	margin: 10px 0px 0px 0px;
 	padding: 0px;
 	border-collapse: collapse;
 	width: 6.75in !important;
 	border: 2px solid #666666 !important;
- 	line-height:1em !important;
+ 	line-height:1em;
+	height:100%;
+	page-break-after: auto !important;
 }
-
-table, tr,img {
-        page-break-inside: avoid;
-    }
 
 table th {
-	margin: 0px !important;
+	margin: 0px;
 	padding: 0px 0px 0px 10px !important;
-	vertical-align: top;
+	vertical-align: top !important;
 	text-align: left;
-	font-weight: normal;
+	font-weight: normal !important;
 	border-left: 2px solid #333333;
-	font-weight:bold;
-	background: #666666;
-	color: #E8E8E8;
 	font-size: 10pt;
-	border-bottom: 1px solid #333333;
-    line-height:1em !important;
+	border-bottom: 1px solid #333333 !important;
+    line-height: 1em !important;
 }
-table tr { margin:0px !important; padding:0px !important;}
+
+table tr { 
+	margin:0px; 
+	padding:0px;
+}
+
 table td {
 	border-bottom: 1px solid #666666;
-	vertical-align: top;
+	vertical-align: top !important;
 	border-left: 2px solid #666666;
 	border-collapse: collapse;
 	padding: 2px 0px 1px 6px !important;
 	font-size: 10pt;
-	margin: 0px !important;
+	margin: 0px;
  	line-height:1em !important;
 }
 
 .printpagebreak {
-page-break-before:always !important;
+	page-break-before:always !important;
 }
 
 #wrapper {
-border:none;
-}
-
-.left_col {
-width:6.75in !important;
-margin:0;
-padding:0;
-font-size: 9pt !important;
-}
-
-.left_col ul{
-display:none;
-}
-
-.left_col h2{
-display:none;
-}
-
-.main_col {
-float:none;
-border:none;
-width:6.75in !important;
-margin: 0.05in 0 0 .025in;
-padding:0;
-}
-
-* html .main_col {
-margin: .05in 0 0 .25in;
-}
-
-h1 {
-	margin:2px 0  2px 0px;
-	padding:0;
-	font-size: 10pt !important;
-	text-transform:uppercase;
-}
-
-h2 {
 	border:none;
-	margin:2px 0 2px 1px;
-	padding:0px;
-	font-size: 10pt !important;
 }
-
-h3 {
-	font-size:9pt !important;
-
-}
-
-
-
-
-ul {
-margin:0;
-padding:0;
-}
-
-
-
-/*body.single-plans:after {
-	display: block;
-	content: "California State University, Northridge: printed from http://catalog.csun.edu/plans/";
-	padding: 5px 0px 0px 20px;
-}
-
-body.single-staract:after {
-	display: block;
-	content: "California State University, Northridge: printed from http://catalog.csun.edu/plans/star-act/";
-	padding: 5px 0px 0px 20px;
-}*/
-
-
-.key, .excess, .post-edit-link {display:none;}
-
-
-a[href]:after {
-        content: none;
-      }
 
 }

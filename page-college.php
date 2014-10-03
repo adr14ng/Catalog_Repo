@@ -75,7 +75,7 @@ get_header(); ?>
 						$body = str_replace(' ', '%20', $body);
 					?>
 					<ul id="share-icons">
-						<li><?php pdf_all_button(); ?></li>
+						<!-- <li><?php pdf_all_button(); ?></li> -->
 						<li>
 							<a class="no-line" alt="email" title="Email this page" 
 								href='mailto:?subject=<?php echo $subject_line ?>&body=<?php echo $body; ?>' >

@@ -11,7 +11,7 @@ $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
 
 $funding = get_field('fund_source');
-
+$custom_contact = get_field('custom_contact');
 
 
 if($funding === 'self')
@@ -64,6 +64,10 @@ get_header(); ?>
 						if ($degree === 'credential' || $degree === 'Credential'){
 							if (strpos($title, 'Credential') === FALSE)
 								$title .= ' Credential';
+						}
+						else if ($degree === 'authorization' || $degree === 'Authorization'){
+							if (strpos($title, 'Authorization') === FALSE)
+								$title .= ' Authorization';
 						}
 						else if ($degree === 'certificate' || $degree === 'Certificate') {
 							if (strpos($title, 'Certificate') === FALSE)
@@ -162,7 +166,11 @@ get_header(); ?>
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 							<div class="section-content col-sm-6 col-md-12 col-lg-12">
 								<span class="section-title"><span><h2>Contact</h2></span></span> 
-								<?php echo get_csun_contact($dept); ?>
+								<?php if($custom_contact): 
+									the_field('program_contact'); 
+								else: 
+									echo get_csun_contact($dept);
+								endif; ?>
 							</div>
 
 							<?php $values = get_field('slos');

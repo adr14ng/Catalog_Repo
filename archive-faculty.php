@@ -141,7 +141,7 @@ get_header(); ?>
 				<div class="section-content">
 					<div id="abc_nav" data-spy="affix" data-offset-top="440" data-offset-bottom="10" class = "hidden-xs col-sm-3 col-md-3 col-lg-3">
 						<?php foreach (range('A', 'Z') as $char) : ?>
-							<a href="#<?php echo $char; ?>">
+							<a href="#<?php echo 'index-'.$char; ?>">
 								<span class="btn btn-primary btn-sm"><?php echo $char; ?></span>
 							</a>
 						<?php endforeach; ?>
@@ -153,7 +153,7 @@ get_header(); ?>
 						$this_letter = strtoupper(substr($post->post_title,0,1));
 						
 						if($this_letter != $curr_letter) {
-							echo '<span class="section-title abc_title"><span><h2 id="'.$this_letter.'">'.$this_letter.'</h2></span></span>';
+							echo '<span class="section-title abc_title"><span><h2 id="index-'.$this_letter.'">'.$this_letter.'</h2></span></span>';
 							$curr_letter = $this_letter;
 						}
 					 
@@ -197,7 +197,7 @@ get_header(); ?>
 				<div class="section-content">
 					<div id="abc_nav" data-spy="affix" data-offset-top="440" data-offset-bottom="10" class = "hidden-xs col-sm-3 col-md-3 col-lg-3">
 						<?php foreach (range('A', 'Z') as $char) : ?>
-							<a href="#<?php echo $char; ?>">
+							<a href="#<?php echo 'index-'.$char; ?>">
 								<span class="btn btn-primary btn-sm"><?php echo $char; ?></span>
 							</a>
 						<?php endforeach; ?>
@@ -212,7 +212,7 @@ get_header(); ?>
 							$this_letter = strtoupper(substr($post->post_title,0,1));
 							
 							if($this_letter != $curr_letter) {
-								echo '<span class="section-title abc_title"><span><h2 id="'.$this_letter.'">'.$this_letter.'</h2></span></span>';
+								echo '<span class="section-title abc_title"><span><h2 id="index-'.$this_letter.'">'.$this_letter.'</h2></span></span>';
 								$curr_letter = $this_letter;
 							}
 						?>

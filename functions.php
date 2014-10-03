@@ -175,6 +175,11 @@ function limit_posts_per_search_page() {
 }
 add_filter('pre_get_posts', 'limit_posts_per_search_page');
 
+function the_canonical_url() {
+	$dept = get_query_var( 'department_shortname' );
+	echo get_csun_archive('departments', $dept);
+}
+
 
 function csun_title_text() {
 
@@ -206,10 +211,10 @@ function csun_title_text() {
 		if($dept !== '')
 			echo 'Faculty - '.$deptdesc;
 		else
-			echo 'Faculty';
+			echo 'Faculty and Administration';
 			
 	elseif(is_post_type_archive( 'plans')) :
-		echo '4-Year Plans';
+		echo 'Degree Planning Guides';
 		
 	elseif(is_singular('programs')) :
 		$degree = get_field('degree_type'); 
@@ -239,7 +244,27 @@ function csun_title_text() {
 		}
 		else			//otherwise tries to match with next elseif
 			echo '';
-	
+			
+	elseif(is_singular('staract')) :
+		$title = get_the_title();
+		$id = get_the_ID();
+		$years = get_the_terms( $id, 'aca_year');
+
+		foreach($years as $year)
+			$aca_year = $year->name;
+			
+		echo $title.' ('.$aca_year.') - STAR Act';
+		
+	elseif(is_singular('plans')) :
+		$title = get_the_title();
+		$id = get_the_ID();
+		$years = get_the_terms( $id, 'aca_year');
+
+		foreach($years as $year)
+			$aca_year = $year->name;
+			
+		echo $title.' ('.$aca_year.') - Planning Guides';
+		
 	elseif(is_tax('degree_level')) :
 		$level = get_query_var( 'degree_level' );
 		echo ucwords($level);
@@ -267,7 +292,7 @@ function csun_title_text() {
 			$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 			
 			if ( false !== strpos($url, 'staract') )
-				$type = 'Staract';
+				$type = 'STAR Act';
 			else
 				$type = 'Plans';
 		}

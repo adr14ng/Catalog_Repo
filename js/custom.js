@@ -58,6 +58,7 @@ $( document ).ready(function() {
 		
 		if($(letter).length == 0) {
 			$(this).children('span').addClass('disabled');
+			$(this).children('span').unwrap();
 			console.log(letter);
 		}
 	});

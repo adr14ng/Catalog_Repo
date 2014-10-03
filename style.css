@@ -1753,6 +1753,10 @@ ul.side-nav ul {
   background-color: #f5f5f5;
 }
 
+.plans tr th+th{
+  width: 20%;
+ }
+
 .plan-grid ul {
 	list-style: none;
 }

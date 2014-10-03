@@ -6,7 +6,8 @@ $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
 
-$levels = array('major', 'minor', 'master', 'doctorate', 'credential', 'certificate', 'honor');
+$levels = array('major', 'minor', 'master', 'doctorate', 'credential', 'credential', 'certificate', 'honor');
+$authorizations = false;
 
 get_header(); ?>
 
@@ -51,17 +52,24 @@ get_header(); ?>
 								'department_shortname' => $dept,
 								'posts_per_page' => 1000,)); ?>
 							<?php if($query_programs->have_posts()) : while($query_programs->have_posts()) : $query_programs->the_post(); ?>
+								<?php 
+								$degree = get_field('degree_type');
+								$title = get_the_title();
+
+								if(($level !== "credential" || ((!$authorizations) && ($degree === 'credential' || $degree === 'Credential'))) ||
+									($level === "credential" && ($degree === 'authorization' || $degree === 'Authorization') && $authorizations) ) : ?>
 					
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 									<a class="csun-subhead" href="<?php the_permalink(); ?>">
 										<h3 class="csun-subhead">
 											<?php 
-												$degree = get_field('degree_type');
-												$title = get_the_title(); 
-												
 												if ($degree === 'credential' || $degree === 'Credential'){
 													if (strpos($title, 'Credential') === FALSE)
 														$title .= ' Credential';
+												}
+												else if ($degree === 'authorization' || $degree === 'Authorization'){
+													if (strpos($title, 'Authorization') === FALSE)
+														$title .= ' Authorization';
 												}
 												else if ($degree === 'certificate' || $degree === 'Certificate') {
 													if (strpos($title, 'Certificate') === FALSE)
@@ -93,7 +101,13 @@ get_header(); ?>
 									</a>
 									<?php the_excerpt(); ?>
 								</div>
-							<?php endwhile; endif; ?>
+								<?php endif; endwhile; endif; ?>
+							<?php
+							if(!$authorizations && ($degree === 'credential' || $degree === 'Credential'))
+							{
+								$authorizations = true;
+							}
+							?>
 						<?php endforeach; ?>
 						<?php wp_reset_query(); ?>
 					<?php else: ?>

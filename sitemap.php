@@ -17,10 +17,10 @@ get_header(); ?>
 						<li><a href="#undergrad">Undergraduate Programs</a></li>
 						<li><a href="#student">Student Services</a></li>
 						<li><a href="#special">Special Programs</a></li>
-						<li><a href="#ge">General Education</a></li>
-						<li><a href="#grs">Graduate Studies</a></li>
+						<li><a href="#ge">General Education (GE)</a></li>
+						<li><a href="#grs">Graduate Studies (RGS)</a></li>
 						<li><a href="#courses">Courses of Study</a></li>
-						<li><a href="#policies">Policies</a></li>
+						<li><a href="#policies">Univeristy Policies</a></li>
 						<li><a href="#faculty">Faculty</a></li>
 						<li><a href="#planning">Planning Guides</a></li>
 					</ul>

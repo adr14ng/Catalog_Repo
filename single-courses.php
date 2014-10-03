@@ -12,24 +12,26 @@ $deptdesc = $deptterm->description;
 
 $single=$double=false;
 
-preg_match("/([A-Z]{2,4}) ([0-9]{3})(.{0,8})\. (.)* \(([0-9]|[0-9]\/[0-9]|[0-9](-[0-9])*)\)/", get_the_title() , $course_info);
+$match = preg_match("/([A-Z]{2,4}) ([0-9]{3})(.{0,8})\. (.)* \(([0-9]|[0-9]\/[0-9]|[0-9](-[0-9])*)\)/", get_the_title() , $course_info);
 
-if($course_info[3]== ""){		//Basic Class
-	$course_title = strtolower($course_info[1]).'-'.$course_info[2];
-	$single = true;
-}
-elseif(strpos($course_info[3], '/') !== false){		//Class with activity
-	$double=$single= true;
-	
-	//In case of classes like PHYS220A and PHYS220AL
-	$suffix = explode('/', $course_info[3]);
-	
-	$course_title = strtolower($course_info[1]).'-'.$course_info[2].$suffix[0];
-	$activity_title = $course_title.$suffix[1];
-}
-elseif(strpos($course_info[3], '-') === false){	//All other classes that AREN'T A-F types
-	$single = true;
-	$course_title = strtolower($course_info[1]).'-'.$course_info[2].$course_info[3];
+if($match === 1) {		//We found a match
+	if($course_info[3]== ""){		//Basic Class
+		$course_title = strtolower($course_info[1]).'-'.$course_info[2];
+		$single = true;
+	}
+	elseif(strpos($course_info[3], '/') !== false){		//Class with activity
+		$double=$single= true;
+		
+		//In case of classes like PHYS220A and PHYS220AL
+		$suffix = explode('/', $course_info[3]);
+		
+		$course_title = strtolower($course_info[1]).'-'.$course_info[2].$suffix[0];
+		$activity_title = $course_title.$suffix[1];
+	}
+	elseif(strpos($course_info[3], '-') === false){	//All other classes that AREN'T A-F types
+		$single = true;
+		$course_title = strtolower($course_info[1]).'-'.$course_info[2].$course_info[3];
+	}
 }
 	
 

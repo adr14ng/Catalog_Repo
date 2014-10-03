@@ -17,7 +17,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php bloginfo( 'url' ); ?>/graduate-programs/">Graduate Programs</a>
+					<a class="dept-title-small" href="<?php bloginfo( 'url' ); ?>/research-and-graduate-studies/">Graduate Programs</a>
 					<h1 class="prog-title">Credentials</h1>
 				</div>
 			</div>
@@ -66,8 +66,16 @@ get_header(); ?>
 									<a class="dept-item " href="<?php the_permalink(); ?>"><?php the_title(); 
 										$title = get_the_title();
 										
-										if (strpos($title, 'Credential') === FALSE)
-											echo ' Credential'; 
+										$degree = get_field('degree_type');
+										
+										if ($degree === 'credential' || $degree === 'Credential'){
+											if (strpos($title, 'Credential') === FALSE)
+												echo ' Credential';
+										}
+										else if ($degree === 'authorization' || $degree === 'Authorization'){
+											if (strpos($title, 'Authorization') === FALSE)
+												echo ' Authorization';
+										}
 											
 										$post_option=get_field('option_title');
 										

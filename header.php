@@ -3,6 +3,7 @@
 	<head>
 	  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 	  <meta charset="utf-8"/>
+	  <meta name="msvalidate.01" content="F5D407E70DCB74B1DEE5C3274C2EBCF7" />
 	  <title>
 		<?php csun_title_text(); ?>
 	  </title>
@@ -12,6 +13,9 @@
 		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/plans-print.css">
 	  <?php else: ?>
 		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/print.css">
+	  <?php endif; ?>
+	  <?php if(is_singular('departments')): ?>
+		<link rel="canonical" href="<?php the_canonical_url(); ?>">
 	  <?php endif; ?>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-1.10.2.min.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
@@ -28,6 +32,7 @@
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 		ga('create', 'UA-33750383-3', 'csun.edu');
+		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
 
 	  </script>
@@ -49,7 +54,7 @@
 					
 					<div id="neglogo">
 						<a href="http://www.csun.edu/">
-							<img alt="California State Univerity, Northridge" src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png">
+							<img alt="California State University, Northridge" src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png">
 						</a> 
 					</div> <!-- end neglogo -->
 					
@@ -64,7 +69,7 @@
 					
 						<div class="col-sm-4 col-lg-4 headerbar-logo">
 							<a href="http://www.csun.edu/"> 
-								<img alt="California State Univerity, Northridge" src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo">
+								<img alt="California State University, Northridge" src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo">
 							</a> 
 						</div>
 						
