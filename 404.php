@@ -21,6 +21,12 @@ get_header(); ?>
 						<li>Use your <strong><a href="javascript:history.go(-1)">Back</a></strong> button on the browser and return to the previous page. Another link in the same section may get you to the information.</li>
 						<li><a href="<?php echo site_url('/feedback/'); ?>"><strong>Contact Us</strong></a></li>
 					</ol>
+					<?php if(strpos( $_SERVER["REQUEST_URI"],"comp") !== FALSE) : ?>
+						<p>If you are computer science, here is the link to all the programs: 
+							<a href="http://www.csun.edu/catalog/academics/comp/programs/" style="font: x-large bold;">Computer Science Programs</a>
+						</p>
+						<p>Or you can remove the extra "catalog" in the url to go to the exact page you were looking for.</p>
+					<?php endif; ?>
 				</div><!-- end inset-content -->
 			</div> 
 		</div>
