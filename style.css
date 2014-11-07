@@ -986,6 +986,12 @@ h4.panel-title{
 }
 
 
+span.option-title {
+	display: block;
+	color: #000;
+	font-size: 88%;
+}
+
 @media (max-width: 767px) { /*Rules that apply only to xs size =================================================================================*/
   #csunnav {
   position: absolute;

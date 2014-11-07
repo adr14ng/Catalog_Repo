@@ -13,7 +13,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php bloginfo( 'url' ); ?>/general-education/">General Education</a>
-					<h1 class="prog-title">Upper Division</h1>
+					<h1 class="prog-title"><?php the_title(); ?></h1>
 				</div>
 			</div>
 		</div>
@@ -38,6 +38,9 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
+					<?php the_content(); ?>
+				<?php endwhile; endif; ?>
 				<div class="panel-group" id="accordion">
 				<?php 
 				$terms = get_terms('general_education');

@@ -162,7 +162,8 @@ function the_csun_permalink(){
 	
 	return $contact;
  }
- 
+
+
 function limit_posts_per_search_page() {
 	if(!is_admin()){
 		if ( is_search())
@@ -174,6 +175,91 @@ function limit_posts_per_search_page() {
 	}
 }
 add_filter('pre_get_posts', 'limit_posts_per_search_page');
+
+
+function csun_search_titles($title, $id=false) {
+	if((!is_admin()) && is_search()) :
+		$title = csun_search_title($title, $id);
+	endif;
+	
+	return $title;
+}
+add_filter('the_title', 'csun_search_titles', 10, 2);
+
+function csun_search_title($title, $id=false) {
+	if($id) :
+		$post = get_post($id);
+		if($post->post_type === 'programs') :
+			$title = get_program_name($id, $title);
+			
+			$option=get_field('option_title', $id);
+			if(isset($option) && $option!=='') : 
+				$title = $title.'<span class="option-title">'.$option.' Option</span>';
+			endif;
+		elseif($post->post_type === 'faculty') :
+			$position = "Faculty: ";
+			$terms = get_the_term_list(  $id, 'department_shortname', '', ', ');
+				if( strpos( $terms, 'Emeriti') !== FALSE) :
+				$position = "Emeritus ".$position;
+			endif;
+				
+			if( strpos( $terms, 'Administration') !== FALSE) :
+				$admin = true;
+				$position = "Administrator: ";
+			endif;
+				
+			if( strpos( $terms, 'Faculty') !== FALSE && $admin) :
+				$position = "Administrator and Faculty: ";
+			endif;
+				
+			$title = '<span class="type-title">'.$position.'</span>'.$title;
+			
+		elseif($post->post_type === 'departments') :
+			$post_categories = wp_get_post_categories($id, array('fields' => 'names'));
+			
+			if($post_categories[0] !== "College") :
+				$title = '<span class="type-title">'.$post_categories[0].': '.'</span>'.$title;
+			endif;
+		endif;
+	endif;
+	
+	return $title;
+}
+add_filter('dwls_post_title', 'csun_search_title', 10, 2);
+
+function get_program_name($id=false, $program_title=false) {
+	if(!$id)
+		$id=get_the_ID();
+	
+	$degree = get_field('degree_type', $id);
+	
+	if(!$program_title)
+		$program_title = get_the_title($id);
+
+	if ($degree === 'credential' || $degree === 'Credential'){
+		if (strpos($program_title, 'Credential') === FALSE)
+			$program_title .= ' Credential';
+	}
+	else if ($degree === 'authorization' || $degree === 'Authorization'){
+		if (strpos($program_title, 'Authorization') === FALSE)
+			$program_title .= ' Authorization';
+	}
+	else if ($degree === 'certificate' || $degree === 'Certificate') {
+		if (strpos($program_title, 'Certificate') === FALSE)
+			$program_title .= ' Certificate';
+	}
+	else if ($degree === 'minor' || $degree === 'Minor'){
+		$program_title = $degree.' in '.$program_title;
+	}
+	else if ($degree === 'honors' || $degree === 'Honors' ){
+		$program_title = $program_title;
+	}
+	else {
+		$program_title = $program_title.', '.$degree;
+	}
+	
+	return $program_title;
+}
 
 function the_canonical_url() {
 	$dept = get_query_var( 'department_shortname' );

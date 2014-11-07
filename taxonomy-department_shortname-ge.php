@@ -15,7 +15,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php bloginfo( 'url' ); ?>/general-education/">General Education</a>
-					<h1 class="prog-title">Courses</h1>
+					<h1 class="prog-title"><?php the_title(); ?></h1>
 				</div>
 			</div>
 		</div>
@@ -40,12 +40,14 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
+					<?php the_content(); ?>
+				<?php endwhile; endif; ?>
 				<div class="panel-group" id="accordion">
 				<?php 
 				$terms = get_terms('general_education');
-				$num = 0;
+
 				foreach($terms as $term) :
-					$num++;
 
 					if($term->slug !== 'ic' && $term->slug !== 'ud'): 
 					
@@ -53,8 +55,8 @@ get_header(); ?>
 						$count = $query_policies->post_count;
 					?>
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $num;?>" class="collapsed">
-								<div class="panel-heading">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse-<?php echo $term->slug;?>" class="collapsed"  aria-expanded="false" aria-controls="collapse-<?php echo $term->slug; ?>">
+								<div class="panel-heading" role="tab" id="heading-<?php echo $term->slug;?>">
 									<h4 class="panel-title">
 										<?php echo ($term->description).' ('.$count.')'; ?>
 										<span class="glyphicon pull-right glyphicon-plus-sign"></span>
@@ -62,7 +64,7 @@ get_header(); ?>
 									</h4>
 								</div>
 							</a>
-							<div id="collapse<?php echo $num;?>" class="panel-collapse collapse">
+							<div id="collapse-<?php echo $term->slug; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-<?php echo $term->slug;?>">
 								<div class="panel-body">
 
 								<?php if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>

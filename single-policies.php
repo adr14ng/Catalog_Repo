@@ -63,6 +63,14 @@ get_header(); ?>
 							<div class="section-content">
 								<?php the_content(); ?>
 								
+								<?php $related = get_field('related_topics');
+								if($related != false) : ?>
+								<div id="related-topics">
+									<h3 class="sm-h4">Related Topics</h3>
+									<?php the_field('related_topics'); ?>
+								</div>
+								<?php endif; ?>
+								
 								<div id="policy-tags">
 								<?php $terms = get_the_terms( $id, 'policy_categories' ); 
 								foreach($terms as $term):?>

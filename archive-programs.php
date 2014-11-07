@@ -6,7 +6,7 @@ $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
 
-$levels = array('major', 'minor', 'master', 'doctorate', 'credential', 'credential', 'certificate', 'honor');
+$levels = array('major', 'minor', 'master', 'doctorate', 'credential', 'credential', 'certificate', 'honor', 'other');
 $authorizations = false;
 
 get_header(); ?>
