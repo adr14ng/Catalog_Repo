@@ -20,7 +20,7 @@ get_header(); ?>
 						<li><a href="#ge">General Education (GE)</a></li>
 						<li><a href="#grs">Graduate Studies (RGS)</a></li>
 						<li><a href="#courses">Courses of Study</a></li>
-						<li><a href="#policies">Univeristy Policies</a></li>
+						<li><a href="#policies">University Policies</a></li>
 						<li><a href="#faculty">Faculty</a></li>
 						<li><a href="#planning">Planning Guides</a></li>
 					</ul>
@@ -93,8 +93,8 @@ get_header(); ?>
 				
 					<span id="faculty" class="section-title"><span><h2>Faculty</h2></span></span>
 					<p>
-					<a href="<?php echo site_url('/faculty/');?>"/>Faculty and Adminstration</a><br />
-					<a href="<?php echo site_url('/faculty/emeriti/');?>"/>Emeriti</a><br />
+					<a href="<?php echo site_url('/faculty/a');?>"/>Faculty and Administration</a><br />
+					<a href="<?php echo site_url('/emeriti/a');?>"/>Emeriti</a><br />
 					</p>
 				
 					<span id="planning" class="section-title"><span><h2>Planning Guides</h2></span></span>

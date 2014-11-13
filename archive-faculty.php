@@ -15,21 +15,8 @@ $deptdesc = $deptterm->description;
 if($dept === "faculty" || $dept === "admin")
 	$noDpt = true;
 	
-//count emeritius faculty
+//count emeritus faculty
 $count = 0;
-
-//Make ascending by title
-global $wp_query;
-$options = array('orderby'=> 'title', 'order'=>'ASC' );
-
-//Show business faculty on BUS page
-if($dept === 'bus'){
-	$options['department_shortname'] = 'cobae';
-	$options['term'] = 'cobae';
-}
-
-$args = array_merge($wp_query->query_vars, $options);
-query_posts( $args );
 
 get_header(); ?>
 
@@ -166,7 +153,7 @@ get_header(); ?>
 
 					<?php endwhile; else: ?>
 					
-						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+						<p><?php _e('Sorry, no emeriti faculty found.'); ?></p>
 						
 					<?php endif; ?>
 
@@ -226,7 +213,7 @@ get_header(); ?>
 
 					<?php endwhile; else: ?>
 					
-						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+						<p><?php _e('Sorry, no faculty found.'); ?></p>
 						
 					<?php endif; ?>
 

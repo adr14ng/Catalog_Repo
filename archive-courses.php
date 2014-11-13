@@ -1,20 +1,12 @@
 <?php 
 
 /**
-
  * Template Name: Courses Archive Template
-
  */ 
-
-
 
 $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
-
-//Make ascending by title
-global $query_string;
-query_posts( $query_string . '&orderby=title&order=ASC' );
 
 get_header(); ?>
 

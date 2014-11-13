@@ -895,6 +895,16 @@ a.csun-subhead{
 	top: 60px;
 }
 
+.space_char{
+	margin-right: 1%;
+	margin-left: 1%;
+	font-size: 120%;
+}
+
+.center {
+	text-align: center;
+}
+
 .panel-default a.collapsed .glyphicon-minus-sign{
 	display: none;
 }
@@ -1215,6 +1225,16 @@ span.option-title {
 
 .footerlinks > a {
    font-size: 12px;
+}
+
+.space_char {
+	font-size : 150%;
+	margin: 0 3% 0 2%;
+	line-height: 210%;
+}
+
+.abc_title h2{
+	font-size: 24px;
 }
 
 }

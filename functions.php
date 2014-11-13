@@ -417,5 +417,65 @@ function sort_terms_by_description($terms){
 	return $sort_terms;
 }
 
+function fix_cobae_query( $query ) {
+
+	if(is_post_type_archive( 'faculty') ) :
+		$query_vars = $query->query_vars;
+		if(isset($query_vars['department_shortname'])) :
+			$dept = $query_vars['department_shortname'];
+			
+			//Show business faculty on BUS page
+			if($dept === 'bus') :
+				$query->set('department_shortname', 'cobae');
+				$query->set('term', 'cobae');
+			endif;
+		endif;
+	endif;
+	
+	return $query;
+}
+add_action( 'pre_get_posts', 'fix_cobae_query' );
+
+function alphabetize_everything($query) {
+	if($query->is_main_query() && !is_search()) {
+		$query->set('orderby', 'title');
+		$query->set('order', 'ASC');
+	}
+}
+add_action( 'pre_get_posts', 'alphabetize_everything',  3);
+
+function directory_template( $template ){
+	global $wp_query;
+	
+	if(isset($wp_query->query_vars['directory'])) {
+		$directory_template = locate_template('taxonomy-directory.php');
+		if(!empty($directory_template))
+		{
+			$template = $directory_template;
+		}
+	}
+	
+	return $template;
+}
+add_filter('template_include', 'directory_template');
+
+function minus_emeriti( $query ) {
+	//check that this is directory and not emeriti
+	if(isset($query->query_vars['directory']) && !isset($query->query_vars['department_shortname'])) :
+		//create the query for no emeriti
+		$tax_query = array( array('taxonomy' => 'department_shortname',
+			  'terms' => array ( 'emeriti' ) ,
+			  'include_children' => 1 ,
+			  'field' => 'slug' ,
+			  'operator' => 'NOT IN',
+		));
+	
+		//add it
+		$query->set('tax_query', $tax_query);
+	endif;
+	
+	return $query;
+}
+add_action( 'pre_get_posts', 'minus_emeriti');
 
 ?>
