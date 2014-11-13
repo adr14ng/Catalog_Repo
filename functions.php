@@ -367,7 +367,7 @@ function csun_title_text() {
 		echo 'Upper Division GE Courses';
 		
 	elseif(is_tax('general_education', 'ic')) :
-		echo 'Iinformation Competence Courses';
+		echo 'Information Competence Courses';
 		
 	elseif(is_tax('department_shortname', 'ge')) :
 		echo 'General Education Courses';
@@ -477,5 +477,75 @@ function minus_emeriti( $query ) {
 	return $query;
 }
 add_action( 'pre_get_posts', 'minus_emeriti');
+
+
+function add_ge_links( $content ) 
+{
+	if(is_singular('plans') || is_singular('staract')) :
+		$content = preg_replace_callback( 
+			'/(?:GE ((?:Upper Division)|(?:UD))?(?:Basic Skills:)?([^\d\(\)]*))|(Title (?: Five|5|V))/i', 
+			function ($matches) {
+				$url = site_url('index.php?general_education=');
+				
+				if(!empty($matches[2])) {	//typical ge section
+					if(stripos($matches[2], 'writ') !== false)
+					{
+						$url .= 'a1';
+					}
+					elseif(stripos($matches[2], 'critical') !== false)
+					{
+						$url .= 'a2';
+					}
+					elseif(stripos($matches[2], 'math') !== false)
+					{
+						$url .= 'a3';
+					}
+					elseif(stripos($matches[2], 'oral') !== false)
+					{
+						$url .= 'a4';
+					}
+					elseif(stripos($matches[2], 'natural') !== false)
+					{
+						$url .= 's1';
+					}
+					elseif(stripos($matches[2], 'art') !== false)
+					{
+						$url .= 's2';
+					}
+					elseif(stripos($matches[2], 'social') !== false)
+					{
+						$url .= 's3';
+					}
+					elseif(stripos($matches[2], 'life') !== false)
+					{
+						$url .= 's4';
+					}
+					elseif(stripos($matches[2], 'comp') !== false)
+					{
+						$url .= 's5';
+					}
+				}
+				elseif(!empty($matches[3])) {	//title 5 section
+					$url .= 't1,t2,t3,t4';
+				}
+				
+				if(!empty($matches[1])) {		//upper division
+					$url .= '+ud';
+				}
+				
+				$link = '<a href="'.$url.'" title="GE courses meeting this requirement." onclick="window.open(\''.$url.'\', \'newwindow\', \'width=400, height=450\'); return false;">';
+				
+				return $link.$matches[0].'</a>';
+			}, 
+			$content
+		);
+	endif;
+	
+	return $content;
+}
+add_filter( 'the_content', 'add_ge_links');
+
+
+
 
 ?>

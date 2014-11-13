@@ -905,6 +905,10 @@ a.csun-subhead{
 	text-align: center;
 }
 
+.popup {
+	background: #ffffff;
+}
+
 .panel-default a.collapsed .glyphicon-minus-sign{
 	display: none;
 }
