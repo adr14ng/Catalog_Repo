@@ -17,15 +17,7 @@
 	  <?php if(is_singular('departments')): ?>
 		<link rel="canonical" href="<?php the_canonical_url(); ?>">
 	  <?php endif; ?>
-	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-1.10.2.min.js"></script>
-	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
-	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.columnizer.js"></script>
-	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.js"></script>
-	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/respond.min.js"></script>
-	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/respond.matchmedia.addListener.min.js"></script>
-	  <script type="text/javascript" src="//use.typekit.net/gfb2mjm.js"></script>
-	  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	  <script>
+	  <!-- Don't track this one yet<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -35,7 +27,7 @@
 		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
 
-	  </script>
+	  </script> -->
 	  
 		<?php wp_head();?>
 		

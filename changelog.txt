@@ -1,0 +1,20 @@
+11-2014
+Added degree level other to allow programs only in department list
+Upgraded search titles
+Added related topics to policies
+Added content place to GE course pages
+Move query modifications to functions
+Added faculty pages by letter
+Added links from Plans to GE courses popup
+Moved JS includes to footer
+Moved inline js to custom.js
+
+
+10-2014
+Added sorting for Authorizations from Credentials
+Added option for programs to have custom contact
+Fixed broken links
+Added support for canoical urls
+Updated Title texts
+Cleaned up plans print styles
+Added explicit link to Computer Science on select 404 pages

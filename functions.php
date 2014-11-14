@@ -491,49 +491,60 @@ function add_ge_links( $content )
 					if(stripos($matches[2], 'writ') !== false)
 					{
 						$url .= 'a1';
+						$name = 'a1';
 					}
 					elseif(stripos($matches[2], 'critical') !== false)
 					{
 						$url .= 'a2';
+						$name = 'a2';
 					}
 					elseif(stripos($matches[2], 'math') !== false)
 					{
 						$url .= 'a3';
+						$name = 'a3';
 					}
 					elseif(stripos($matches[2], 'oral') !== false)
 					{
 						$url .= 'a4';
+						$name = 'a4';
 					}
 					elseif(stripos($matches[2], 'natural') !== false)
 					{
 						$url .= 's1';
+						$name = 's1';
 					}
 					elseif(stripos($matches[2], 'art') !== false)
 					{
 						$url .= 's2';
+						$name = 's2';
 					}
 					elseif(stripos($matches[2], 'social') !== false)
 					{
 						$url .= 's3';
+						$name = 's3';
 					}
 					elseif(stripos($matches[2], 'life') !== false)
 					{
 						$url .= 's4';
+						$name = 's4';
 					}
 					elseif(stripos($matches[2], 'comp') !== false)
 					{
 						$url .= 's5';
+						$name = 's5';
 					}
 				}
 				elseif(!empty($matches[3])) {	//title 5 section
 					$url .= 't1,t2,t3,t4';
+					$name = 't5';
 				}
 				
 				if(!empty($matches[1])) {		//upper division
 					$url .= '+ud';
+					$name .= '-ud';
 				}
 				
-				$link = '<a href="'.$url.'" title="GE courses meeting this requirement." onclick="window.open(\''.$url.'\', \'newwindow\', \'width=400, height=450\'); return false;">';
+				$link = '<a href="'.$url.'" name="'.$name.'" target="_blank" title="A new window containing GE courses meeting this requirement." class="pop-up">';
 				
 				return $link.$matches[0].'</a>';
 			}, 

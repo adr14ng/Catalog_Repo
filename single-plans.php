@@ -52,10 +52,4 @@ get_header(); ?>
 	</div>
 </div>
 
-<script>
-$('h3+table').each(function(){
-	$(this).prev('h3').andSelf().wrapAll('<div class ="no-break" />');
-});
-</script>
-
 <?php get_footer(); ?>
