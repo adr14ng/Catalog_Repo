@@ -437,7 +437,7 @@ function fix_cobae_query( $query ) {
 add_action( 'pre_get_posts', 'fix_cobae_query' );
 
 function alphabetize_everything($query) {
-	if($query->is_main_query() && !is_search()) {
+	if($query->is_main_query() && !is_search() && !isset($query->query[orderby])) {
 		$query->set('orderby', 'title');
 		$query->set('order', 'ASC');
 	}
@@ -483,7 +483,7 @@ function add_ge_links( $content )
 {
 	if(is_singular('plans') || is_singular('staract')) :
 		$content = preg_replace_callback( 
-			'/(?:GE ((?:Upper Division)|(?:UD))?(?:Basic Skills:)?([^\d\(\)]*))|(Title (?: Five|5|V))/i', 
+			'/(?<![A-Za-z])(?:GE ((?:Upper Division)|(?:UD))?(?:Basic (?:Skills|Subjects):)?([A-Za-z ]*))|(Title (?: Five|5|V)(?: requirement)?)/i', 
 			function ($matches) {
 				$url = site_url('index.php?general_education=');
 				

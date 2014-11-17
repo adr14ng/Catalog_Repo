@@ -1,12 +1,7 @@
-<?php /**
-
+<?php 
+/**
  * Template Name: Policies Archive View
-
  */ 
-
-// $dept = get_query_var( 'department_shortname' );
-// $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
-// $deptdesc = $deptterm->description;
 
 $perm = get_permalink();
 $url = get_bloginfo( 'url' );
@@ -87,11 +82,18 @@ get_header(); ?>
 						foreach($terms as $term) :
 							echo '<span class="section-title"><span><h2>' . $term->name .'</h2></span></span>';
 							
-							$query_policies = new WP_Query(array('post_type' => 'policies', 'orderby' => 'title', 'order' => 'ASC',  'policy_categories' => $term->slug, 'posts_per_page' => 1000,));
+							$query_policies = new WP_Query(array(
+								'post_type' => 'policies',
+								'meta_key' => 'pol_rank',
+								'orderby' => 'meta_value_num title', 
+								'order' => 'ASC',  
+								'policy_categories' => $term->slug, 
+								'posts_per_page' => 1000,)
+							);
 							
 							if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>
 							
-								<h3><a href="<?php the_permalink();?>"/><?php the_title(); ?></a></h3>
+								<p><a href="<?php the_permalink();?>"/><?php the_title(); ?></a></p>
 
 							<?php endwhile; endif; 
 						endforeach;
