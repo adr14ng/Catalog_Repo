@@ -556,7 +556,29 @@ function add_ge_links( $content )
 }
 add_filter( 'the_content', 'add_ge_links');
 
-
+function class_search($params)
+{
+	$search_term = $params['q'];
+	
+	//if searching for a class add quotes
+	$search_term = preg_replace_callback( 
+		'/([A-Z]{2,4} )(\d{2,3})/i', 
+		function($matches) {
+			if($matches[2] > 80 && $matches[2] < 100)
+			{
+				$matches[0] = $matches[1].'0'.$matches[2];
+			}
+			
+			return '"'.$matches[0].'"';
+		}, 
+		$search_term
+	);
+	
+	$params['q'] = $search_term;
+	
+	return $params;
+}
+add_filter('relevanssi_search_filters', 'class_search');
 
 
 ?>
