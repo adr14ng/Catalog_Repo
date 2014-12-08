@@ -40,7 +40,7 @@ else
 			<div class="pad-box">
 				<div id="inset-content" class="popup">
 				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-					<p><a href="<?php the_permalink();?>"><?php the_title(); ?></a></p>
+					<p><a href="<?php the_permalink();?>" target="_blank"><?php the_title(); ?></a></p>
 				<?php endwhile; else: ?>
 					<p><?php _e('Sorry, no GE courses in this section.'); ?></p>
 				<?php endif; ?>

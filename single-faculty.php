@@ -93,6 +93,10 @@ get_header(); ?>
 					
 				<?php endif; ?>
 				
+					<div class="section-content">
+						<p> Faculty contact information can be found using the campus <a href="https://www.csun.edu/peoplefinder/">directory</a>. </p>
+					</div>
+				
 				</div> <!-- end inset-content -->
 			</div> 
 		</div>

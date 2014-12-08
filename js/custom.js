@@ -18,7 +18,7 @@ $( document ).ready(function() {
 
 	$(".dept-container").columnize({ width: 300 });
 
-	$('[data-toggle="popover"]').popover();
+	//$('[data-toggle="popover"]').popover();
 		
 	
 	$('#abc_nav').children('a').each( function () {

@@ -6,7 +6,7 @@ $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
 
-$levels = array('major', 'minor', 'master', 'doctorate', 'credential', 'credential', 'certificate', 'honor', 'other');
+$levels = array('major', 'minor', 'master', 'doctorate', 'credential', 'authorization', 'certificate', 'honor', 'other');
 $authorizations = false;
 
 get_header(); ?>
@@ -55,9 +55,7 @@ get_header(); ?>
 								<?php 
 								$degree = get_field('degree_type');
 								$title = get_the_title();
-
-								if(($level !== "credential") || (((!$authorizations) && ($degree === 'credential' || $degree === 'Credential')) ||
-									(($degree === 'authorization' || $degree === 'Authorization') && $authorizations)) ) : ?>
+								?>
 					
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 									<a class="csun-subhead" href="<?php the_permalink(); ?>">
@@ -101,13 +99,7 @@ get_header(); ?>
 									</a>
 									<?php the_excerpt(); ?>
 								</div>
-								<?php endif; endwhile; endif; ?>
-							<?php
-							if(!$authorizations && $level === "credential")
-							{
-								$authorizations = true;
-							}
-							?>
+							<?php endwhile; endif; ?>
 						<?php endforeach; ?>
 						<?php wp_reset_query(); ?>
 					<?php else: ?>

@@ -689,6 +689,11 @@ a.csun-subhead{
   color: #ffffff;
 }
 
+.dept-item.credential {
+	overflow: hidden;
+	margin-top: -6px;
+}
+
 
 #landing-section {
   background-image: url('img/noisy_grid.png');

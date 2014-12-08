@@ -190,7 +190,7 @@ function csun_search_title($title, $id=false) {
 	if($id) :
 		$post = get_post($id);
 		if($post->post_type === 'programs') :
-			$title = get_program_name($id, $title);
+			$title = program_name($id, $title);
 			
 			$option=get_field('option_title', $id);
 			if(isset($option) && $option!=='') : 
@@ -227,7 +227,7 @@ function csun_search_title($title, $id=false) {
 }
 add_filter('dwls_post_title', 'csun_search_title', 10, 2);
 
-function get_program_name($id=false, $program_title=false) {
+function program_name($id=false, $program_title=false) {
 	if(!$id)
 		$id=get_the_ID();
 	
