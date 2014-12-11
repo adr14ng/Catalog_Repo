@@ -163,7 +163,10 @@ function the_csun_permalink(){
 	return $contact;
  }
 
-
+/**
+ *	Sets post archive limits.
+ *	Hooks onto pre_get_posts filter.
+ */
 function limit_posts_per_search_page() {
 	if(!is_admin()){
 		if ( is_search())
@@ -176,7 +179,13 @@ function limit_posts_per_search_page() {
 }
 add_filter('pre_get_posts', 'limit_posts_per_search_page');
 
-
+/**
+ *	Applies an appropriate title for the search page.
+ *	Hooks onto the_title filter.
+ *
+ *	@param	string $title	The post title
+ *	@param	int $id			ID of the post in question.
+ */
 function csun_search_titles($title, $id=false) {
 	if((!is_admin()) && is_search()) :
 		$title = csun_search_title($title, $id);
@@ -186,6 +195,13 @@ function csun_search_titles($title, $id=false) {
 }
 add_filter('the_title', 'csun_search_titles', 10, 2);
 
+/**
+ *	Creates the appropriate title for a search result.
+ *	Hooks onto dwls_post_title filter and the_title filter.
+ *
+ *	@param	string $title	The post title
+ *	@param	int $id			ID of the post in question.
+ */
 function csun_search_title($title, $id=false) {
 	if($id) :
 		$post = get_post($id);
@@ -227,6 +243,12 @@ function csun_search_title($title, $id=false) {
 }
 add_filter('dwls_post_title', 'csun_search_title', 10, 2);
 
+/**
+ *	Get the program name with correct degree signifier.
+ *
+ *	@param	int	$id					The programs id
+ *	@param	string $program_title	The generic program title
+ */
 function program_name($id=false, $program_title=false) {
 	if(!$id)
 		$id=get_the_ID();
@@ -261,12 +283,17 @@ function program_name($id=false, $program_title=false) {
 	return $program_title;
 }
 
+/**
+ *	Sets up a canonical url for department archive vs overview pages
+ */
 function the_canonical_url() {
 	$dept = get_query_var( 'department_shortname' );
 	echo get_csun_archive('departments', $dept);
 }
 
-
+/**
+ *	Creates the title text based on page type
+ */
 function csun_title_text() {
 
 	$dept = get_query_var( 'department_shortname' );
@@ -417,6 +444,12 @@ function sort_terms_by_description($terms){
 	return $sort_terms;
 }
 
+/**
+ *	Pulls in the COBAE faculty on the BUS pages
+ *	Hooks onto pre_get_posts action.
+ *
+ *	@param	WP_Query $query		The original query object
+ */
 function fix_cobae_query( $query ) {
 
 	if(is_post_type_archive( 'faculty') ) :
@@ -436,6 +469,12 @@ function fix_cobae_query( $query ) {
 }
 add_action( 'pre_get_posts', 'fix_cobae_query' );
 
+/**
+ *	If no order is specified, alphabetize by title.
+ *	Hooks onto pre_get_posts
+ *
+ *	@param	WP_Query $query		The original query object
+ */
 function alphabetize_everything($query) {
 	if($query->is_main_query() && !is_search() && !isset($query->query[orderby])) {
 		$query->set('orderby', 'title');
@@ -444,9 +483,17 @@ function alphabetize_everything($query) {
 }
 add_action( 'pre_get_posts', 'alphabetize_everything',  3);
 
-function directory_template( $template ){
+/**
+ *	Forces template to be the one we choose when multiple are possible.
+ *	Hooks onto template_include filter.
+ *
+ *	@param	string $template	The WordPress selected template
+ *	@return	string				The template we want
+ */
+function csun_select_template( $template ){
 	global $wp_query;
 	
+	//Faculty directory
 	if(isset($wp_query->query_vars['directory'])) {
 		$directory_template = locate_template('taxonomy-directory.php');
 		if(!empty($directory_template))
@@ -455,12 +502,28 @@ function directory_template( $template ){
 		}
 	}
 	
+	if(isset($wp_query->query_vars['department_shortname']) && isset($wp_query->query_vars['post_type'])
+		&& ($wp_query->query_vars['post_type'] === 'plans' || $wp_query->query_vars['post_type'] === 'staract'))
+	{
+		$new_template = locate_template('archive-plans-department_shortname.php');
+		if(!empty($new_template))
+		{
+			$template = $new_template;
+		}
+	}
+	
 	return $template;
 }
-add_filter('template_include', 'directory_template');
+add_filter('template_include', 'csun_select_template');
 
+/**
+ *	Filters out faculty with Emeriti from faculty directory queries
+ *	Hooks onto pre_get_posts action.
+ *
+ *	@param	WP_Query $query		The original query object
+ */
 function minus_emeriti( $query ) {
-	//check that this is directory and not emeriti
+	//check that this is directory and not emeriti (only department shortname possible)
 	if(isset($query->query_vars['directory']) && !isset($query->query_vars['department_shortname'])) :
 		//create the query for no emeriti
 		$tax_query = array( array('taxonomy' => 'department_shortname',
@@ -478,12 +541,28 @@ function minus_emeriti( $query ) {
 }
 add_action( 'pre_get_posts', 'minus_emeriti');
 
-
+/**
+ *	Searches through content and adds links to GE pages on Star Act
+ *		and Degree Planning Guide pages.
+ *	Hooks onto the_content filter
+ *
+ *	@param	string $content		The post's content
+ *	@return	string				The filtered content
+ */
 function add_ge_links( $content ) 
 {
+	$regex = '/(?<![A-Za-z])'.					//not in the middle of a word
+	'(?:GE '.									//Typical GE course start
+		'((?:Upper Division)|(?:UD))?'.			//Upper division variations
+		'(?:Basic (?:Skills|Subjects):)?'.		//Basic skills variations
+		'([A-Za-z ]*)'.							//The GE category
+	')|'.										//or
+	'(Title (?: Five|5|V)(?: requirement)?)'.	//Title 5 type
+	'/i';										//Don't worry about case
+	
 	if(is_singular('plans') || is_singular('staract')) :
 		$content = preg_replace_callback( 
-			'/(?<![A-Za-z])(?:GE ((?:Upper Division)|(?:UD))?(?:Basic (?:Skills|Subjects):)?([A-Za-z ]*))|(Title (?: Five|5|V)(?: requirement)?)/i', 
+			$regex, 
 			function ($matches) {
 				$url = site_url('index.php?general_education=');
 				
@@ -556,6 +635,11 @@ function add_ge_links( $content )
 }
 add_filter( 'the_content', 'add_ge_links');
 
+/**
+ *	Adds quotes when searching for classes because for some reason search
+ *		won't find it without it.
+ *	Hooks onto relevanssi_search_filters filter
+ */
 function class_search($params)
 {
 	$search_term = $params['q'];
@@ -564,6 +648,7 @@ function class_search($params)
 	$search_term = preg_replace_callback( 
 		'/([A-Z]{2,4} )(\d{2,3})/i', 
 		function($matches) {
+			//allows searching for XXX 40 to find all 40X level classes
 			if($matches[2] > 80 && $matches[2] < 100)
 			{
 				$matches[0] = $matches[1].'0'.$matches[2];

@@ -1,6 +1,6 @@
 <?php /**
 
- * Template Name: Plans Archive View
+ * Template Name: Staract Years List
 
  */ 
 
@@ -14,7 +14,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php echo site_url('/resources'); ?>">Resources</a>
-					<h1 class="prog-title">Degree Planning Guides</h1>
+					<h1 class="prog-title">STAR Act</h1>
 				</div>
 			</div>
 		</div>
@@ -34,14 +34,14 @@ get_header(); ?>
 					<?php endwhile; endif; ?>
 					
 						<?php 
-						$years = get_terms( 'aca_year', array('orderby' => 'name', 'order' => 'DESC',) );
-						$url = site_url('/planning/plans/');?>
+						$depts = sort_terms_by_description(get_terms( 'department_shortname'));
+						$url = site_url('/planning/staract/');?>
 							
 						<div class="plan-grid"><ul>
 							
 						<?php foreach($years as $year) : 
 							$query_plans = new WP_Query(array(
-							'post_type' => 'plans', 
+							'post_type' => 'staract', 
 							'aca_year' => $year->slug, 
 							'posts_per_page' => 1000,));
 							
