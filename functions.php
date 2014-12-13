@@ -493,6 +493,8 @@ add_action( 'pre_get_posts', 'alphabetize_everything',  3);
 function csun_select_template( $template ){
 	global $wp_query;
 	
+	//print_r($wp_query->query);
+	
 	//Faculty directory
 	if(isset($wp_query->query_vars['directory'])) {
 		$directory_template = locate_template('taxonomy-directory.php');
@@ -502,10 +504,21 @@ function csun_select_template( $template ){
 		}
 	}
 	
+	//Plans by department
 	if(isset($wp_query->query_vars['department_shortname']) && isset($wp_query->query_vars['post_type'])
 		&& ($wp_query->query_vars['post_type'] === 'plans' || $wp_query->query_vars['post_type'] === 'staract'))
 	{
 		$new_template = locate_template('archive-plans-department_shortname.php');
+		if(!empty($new_template))
+		{
+			$template = $new_template;
+		}
+	}
+	
+	//Plans by Year
+	if(isset($wp_query->query_vars['aca_year']) && !isset($wp_query->query_vars['name']))
+	{
+		$new_template = locate_template('taxonomy-aca_year.php');
 		if(!empty($new_template))
 		{
 			$template = $new_template;

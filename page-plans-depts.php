@@ -1,6 +1,6 @@
 <?php /**
 
- * Template Name: Plans Year List
+ * Template Name: Plans Departments List
 
  */ 
 
@@ -37,21 +37,20 @@ get_header(); ?>
 						$depts = sort_terms_by_description(get_terms( 'department_shortname'));
 						$url = site_url('/planning/plans/');?>
 							
-						<div class="plan-grid"><ul>
+						<div class="dept-container content">
 							
 						<?php foreach($depts as $dept) : 
 							$query_plans = new WP_Query(array(
 							'post_type' => 'plans', 
-							'aca_dept' => $dept->slug, 
+							'department_shortname' => $dept->slug, 
 							'posts_per_page' => 1000,));
 							
 							if($query_plans->have_posts()) :?>
 							
-								<li><a href="<?php echo $url.$dept->slug; ?>"><?php echo $dept->description; ?></a></li>
+								<a class="dept-item " href="<?php echo $url.$dept->slug; ?>"><?php echo $dept->description; ?></a>
 								
-							<?php endif;?>
-						<?php endforeach; ?>
-						</ul></div>
+						<?php endif; endforeach; ?>
+						</div>
 					</div>
 				</div>
 			</div>

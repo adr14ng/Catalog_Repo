@@ -73,16 +73,18 @@ get_header(); ?>
 								
 								<div id="policy-tags">
 								<?php $terms = get_the_terms( $id, 'policy_categories' ); 
+								$base = site_url('/policies/categories/');
 								if($terms) : foreach($terms as $term):?>
-									<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
+									<a href="<?php echo $base.$term->slug; ?>" title="View all policies filed under <?php echo $term->name; ?>">
 										<span class="btn btn-primary btn-xs">
 											<?php echo $term->name; ?>
 										</span>
 									</a>
 								<?php endforeach; endif; ?>
-								<?php $terms = get_the_terms( $id, 'policy_tags' ); 
+								<?php $terms = get_the_terms( $id, 'policy_tags' );
+								$base = site_url('/policies/tags/');								
 								if($terms) : foreach($terms as $term):?>
-									<a href="<?php echo get_term_link( $term ); ?>" title="View all policies filed under <?php echo $term->name; ?>">
+									<a href="<?php echo $base.$term->slug; ?>" title="View all policies filed under <?php echo $term->name; ?>">
 										<span class="btn btn-success btn-xs">
 											<?php echo $term->name; ?>
 										</span>

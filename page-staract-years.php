@@ -37,7 +37,7 @@ get_header(); ?>
 						$years = get_terms( 'aca_year', array('orderby' => 'name', 'order' => 'DESC',) );
 						$url = site_url('/planning/staract/');?>
 							
-						<div class="plan-grid"><ul>
+						<div class="plan-grid clearfix"><ul>
 							
 						<?php foreach($years as $year) : 
 							$query_plans = new WP_Query(array(
@@ -52,6 +52,28 @@ get_header(); ?>
 							<?php endif;?>
 						<?php endforeach; ?>
 						</ul></div>
+						<div>
+							<p><strong>Or by Department, Program or College: </strong></p>
+							<?php 
+							$depts = sort_terms_by_description(get_terms( 'department_shortname'));
+							$url = site_url('/planning/staract/');?>
+								
+							<div class="dept-container content">
+								
+							<?php foreach($depts as $dept) : 
+								$query_plans = new WP_Query(array(
+								'post_type' => 'staract', 
+								'department_shortname' => $dept->slug, 
+								'posts_per_page' => 1000,));
+								
+								if($query_plans->have_posts()) :?>
+								
+									<a class="dept-item " href="<?php echo $url.$dept->slug; ?>"><?php echo $dept->description; ?></a>
+									
+								<?php endif;?>
+							<?php endforeach; ?>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

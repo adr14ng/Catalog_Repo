@@ -5,21 +5,35 @@
 
 $type = get_query_var( 'post_type' );
 $dept = get_query_var( 'department_shortname' );
+$term = get_term_by('slug', $dept, 'department_shortname');
+if($term)
+{
+	$description = $term->description;
+}
+else
+{
+	$description = $dept;
+}
 
 if(!isset($type) || $type == ''){
 	$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 	
 	if ( false !== strpos($url, 'staract') ) {
 		$type = 'staract';
-		$url = 'star-act/';
-		$title = 'STAR Act';
 	} 
 	else {
 		$type = 'plans';
-		$url = '';
-		$title = 'Degree Planning Guides';
 	}
 
+}
+
+if ( $type === 'staract' ) {
+	$url = 'star-act/';
+	$title = 'STAR Act';
+} 
+else {
+	$url = '';
+	$title = 'Degree Planning Guides';
 }
 
 get_header(); ?>
@@ -32,7 +46,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php echo site_url('/plan/'.$url); ?>"><?php echo ucwords($title); ?></a>
-					<h1 class="prog-title"><?php echo $dept; ?></h1>
+					<h1 class="prog-title"><?php echo $description; ?></h1>
 				</div>
 			</div>
 		</div>
@@ -64,7 +78,7 @@ get_header(); ?>
 						<p><a href="<?php the_permalink();?>"><?php the_title(); ?></a></p>
 
 					<?php endwhile; ?>
-				<?php endif; endif; endforeach;?>
+				<?php endif; endforeach;?>
 				<?php wp_reset_query(); ?>
 			</div>
 		</div>
