@@ -34,7 +34,9 @@ if($match === 1) {		//We found a match
 	}
 }
 	
-
+$option = get_option( 'main_dp_settings' );	//get our options
+$semester = $option['course_semester'];
+	
 get_header(); ?>
 
 <div class="row" id="subnav-wrap">
@@ -127,7 +129,7 @@ get_header(); ?>
 									(function($) { 
 									   $(document).ready(function(){
 										  $.ajax({
-											   url: "http://curriculum.ptg.csun.edu/terms/fall-2014/classes/<?php echo $course_title; ?>",
+											   url: "http://curriculum.ptg.csun.edu/terms/<?php echo $semester; ?>/classes/<?php echo $course_title; ?>",
 											   type: 'get',
 											   cache: 'false',
 											   dataType: 'json',
@@ -226,7 +228,7 @@ get_header(); ?>
 									(function($) { 
 									   $(document).ready(function(){
 										  $.ajax({
-											   url: "http://curriculum.ptg.csun.edu/terms/fall-2014/classes/<?php echo $activity_title; ?>",
+											   url: "http://curriculum.ptg.csun.edu/terms/<?php echo $semester; ?>/classes/<?php echo $activity_title; ?>",
 											   type: 'get',
 											   cache: 'false',
 											   dataType: 'json',

@@ -23,6 +23,9 @@ $post_option=get_field('option_title');
 
 if(isset($post_option)&&$post_option!=='')
 	$option = true;
+	
+$option = get_option( 'main_dp_settings' );	//get our options
+$planning_year = $option['planning_year'];
  
 get_header(); ?>
 
@@ -182,16 +185,37 @@ get_header(); ?>
 							<?php endif; ?>
 
 
-							<?php $values = get_field('degree_plan');
-							if ( $values != false) : ?>
+							<?php $args = array(
+								'posts_per_page'	=> 40,
+								'post_type' 		=> 'plans',
+								'meta_query' 		=> array(
+									array(
+										'key' 		=> 'degree_planning_guides',
+										'value' 	=> '"'. get_the_ID() . '"',
+										'compare' 	=> 'LIKE'
+									)
+								),
+								'aca_year' 			=> $planning_year,
+								'order'				=> 'ASC',
+								'orderby'			=> 'title',
+							);
+							
+							$plans = get_posts($args);
+							
+							if ( $plans ) : ?>
 								<div class="section-content col-sm-6 col-md-12 col-lg-12">
 									<span class="section-title"><span><h2>4-Year Plans</h2></span></span> 
-									<?php the_field('degree_plan'); ?>
+									<?php foreach($plans as $plan): ?>
+									<p><a href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title; ?></a></p>
+									<?php endforeach; ?>
 								</div>	
 							<?php endif; ?>
-
-							<?php $values = get_field('star_act');
-							if ( $values != false ) : ?>
+							
+							<?php $args['post_type'] = 'staract';
+							
+							$plans = get_posts($args);
+							
+							if ( $plans ) : ?>
 								<div class="section-content col-sm-6 col-md-12 col-lg-12">
 									<span class="section-title">
 										<span><h2>STAR Act</h2></span>
@@ -200,8 +224,10 @@ get_header(); ?>
 											<span class="glyphicon glyphicon glyphicon-info-sign"></span>
 										</div>
 									</span> 
-									<?php the_field('star_act'); ?>
-								</div>
+									<?php foreach($plans as $plan): ?>
+									<p><a href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title; ?></a></p>
+									<?php endforeach; ?>
+								</div>	
 							<?php endif; ?>
 
 						</div>
