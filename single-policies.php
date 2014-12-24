@@ -71,6 +71,18 @@ get_header(); ?>
 								</div>
 								<?php endif; ?>
 								
+								<?php $related = get_field('related_pols');
+								if($related != false) : ?>
+								<div id="related-pols">
+									<h3 class="sm-h4">Related Topics</h3>
+									<?php foreach($related as $post) : ?>
+										<?php setup_postdata($post); ?>
+										<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+									<?php endforeach; ?>
+									<?php wp_reset_postdata(); ?>
+								</div>
+								<?php endif; ?>
+								
 								<div id="policy-tags">
 								<?php $terms = get_the_terms( $id, 'policy_categories' ); 
 								$base = site_url('/policies/categories/');

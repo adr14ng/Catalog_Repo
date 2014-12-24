@@ -75,7 +75,7 @@ get_header(); ?>
 						
 						while($query_plans->have_posts()) : $query_plans->the_post(); ?>
 								
-						<p><a href="<?php the_permalink();?>"><?php the_title(); ?></a></p>
+						<p><a title="<?php echo $title.' for '.get_the_title().' - '.$term->slug; ?>" href="<?php the_permalink();?>"><?php the_title(); ?></a></p>
 
 					<?php endwhile; ?>
 				<?php endif; endforeach;?>

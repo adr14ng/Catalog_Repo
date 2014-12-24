@@ -206,7 +206,7 @@ get_header(); ?>
 								<div class="section-content col-sm-6 col-md-12 col-lg-12">
 									<span class="section-title"><span><h2>4-Year Plans</h2></span></span> 
 									<?php foreach($plans as $plan): ?>
-									<p><a href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title; ?></a></p>
+									<p><a title="Degree Planning Guide for <?php echo $plan->post_title; ?>" href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title; ?></a></p>
 									<?php endforeach; ?>
 								</div>	
 							<?php endif; ?>
@@ -225,7 +225,7 @@ get_header(); ?>
 										</div>
 									</span> 
 									<?php foreach($plans as $plan): ?>
-									<p><a href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title; ?></a></p>
+									<p><a title="STAR Act for <?php echo $plan->post_title; ?>" href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title; ?></a></p>
 									<?php endforeach; ?>
 								</div>	
 							<?php endif; ?>

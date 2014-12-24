@@ -38,6 +38,17 @@ get_header(); ?>
 
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
 					<?php the_content()?>
+					<?php $related = get_field('related_pols');
+						if($related != false) : ?>
+						<div id="related-pols">
+							<h2 class="section-header">Related Topics</h2>
+							<?php foreach($related as $post) : ?>
+								<?php setup_postdata($post); ?>
+								<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+							<?php endforeach; ?>
+							<?php wp_reset_postdata(); ?>
+						</div>
+						<?php endif; ?>
 				</div>
 
 			<?php endwhile; else: ?>

@@ -678,5 +678,26 @@ function class_search($params)
 }
 add_filter('relevanssi_search_filters', 'class_search');
 
+/**
+ *	FOR TEST SITE USE ONLY
+ *  May want to use this in the opposite direction when doing live site (just in case)
+ *  Filters links to change from main catalog to test catalog
+ *  Hooks onto the_content filter.
+ *
+ *  @return	$string		Corrected links
+ */
+function links_test_site($content)
+{
+	$content = str_ireplace('http://www.csun.edu/catalog', 'http://wwwtest.csun.edu/catalog', $content);
+	return $content;
+}
+add_filter('the_content', 'links_test_site');
+add_filter('acf/load_value/name=college_courses',  'links_test_site');
+add_filter('acf/load_value/name=mission_statement',  'links_test_site');
+add_filter('acf/load_value/name=academic_advisement',  'links_test_site');
+add_filter('acf/load_value/name=program_list',  'links_test_site');
+add_filter('acf/load_value/name=related_topics',  'links_test_site');
+add_filter('acf/load_value/name=program_requirements',  'links_test_site');
+add_filter('acf/load_value/name=custom_contact',  'links_test_site');
 
 ?>
