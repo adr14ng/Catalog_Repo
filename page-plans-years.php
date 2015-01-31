@@ -53,7 +53,7 @@ get_header(); ?>
 						<?php endforeach; ?>
 						</ul></div>
 						<div>
-							<p><strong>Or select your Department, Program or College: </strong></p>
+							<h3 class="pseudo-h5">Or select your Department, Program or College: </h3>
 							<?php 
 							$depts = sort_terms_by_description(get_terms( 'department_shortname'));
 							$url = site_url('/planning/plans/');?>

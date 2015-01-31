@@ -1,4 +1,9 @@
-
+		<a href="#skipstuff" class="top-link hidden-xs" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+			<div id="to_top">
+				<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>Top
+			</div>
+		</a>
+		<div id="footer">
 			<div id="outside-footer" class="row">
 				<div class="container" id="footer">
 					<div class="row">
@@ -42,8 +47,8 @@
 			</div>
 			<div id="lastrow">
 			</div>
+		</div>
 		</div> <!-- overflow-wrap end -->
-	    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/respond.min.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/respond.matchmedia.addListener.min.js"></script>

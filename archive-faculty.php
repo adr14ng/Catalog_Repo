@@ -57,6 +57,7 @@ get_header(); ?>
 			<div class="row">
 				<div class="section-content">
 					<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<span class="section-title"><span><h2>Current Faculty</h2></span></span>
 					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 
 						<?php if( strpos(get_the_term_list(  $post->ID, 'department_shortname', '', ', '), 'Emeriti') === FALSE): ?>

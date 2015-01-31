@@ -55,16 +55,16 @@ get_header(); ?>
 						$count = $query_policies->post_count;
 					?>
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse-<?php echo $term->slug;?>" class="collapsed"  aria-expanded="false" aria-controls="collapse-<?php echo $term->slug; ?>">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse-<?php echo $term->slug;?>" class="ge-collapse"  aria-expanded="false" aria-controls="collapse-<?php echo $term->slug; ?>">
 								<div class="panel-heading" role="tab" id="heading-<?php echo $term->slug;?>">
-									<h4 class="panel-title">
+									<h2 class="pseudo-h4 panel-title">
 										<?php echo ($term->description).' ('.$count.')'; ?>
 										<span class="glyphicon pull-right glyphicon-plus-sign"></span>
 										<span class="glyphicon pull-right glyphicon-minus-sign"></span>
-									</h4>
+									</h2>
 								</div>
 							</a>
-							<div id="collapse-<?php echo $term->slug; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-<?php echo $term->slug;?>">
+							<div id="collapse-<?php echo $term->slug; ?>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-<?php echo $term->slug;?>">
 								<div class="panel-body">
 
 								<?php if($query_policies->have_posts()) : while($query_policies->have_posts()) : $query_policies->the_post(); ?>

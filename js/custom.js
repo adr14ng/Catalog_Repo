@@ -18,21 +18,9 @@ $( document ).ready(function() {
 
 	$(".dept-container").columnize({ width: 300 });
 
-	//$('[data-toggle="popover"]').popover();
-		
-	
-	$('#abc_nav').children('a').each( function () {
-		var letter = $(this).attr('href');
-		
-		if($(letter).length == 0) {
-			$(this).children('span').addClass('disabled');
-			$(this).children('span').unwrap();
-			console.log(letter);
-		}
-	});
+	$('[data-toggle="popover"]').popover();
 	
 	$("h2.section-header").wrap('<span class="section-title"><span></span></span>');
-	$('.abc_title').prev('div').addClass('no-bottom-border');
 	
 	$('h3+table').each(function(){
 		$(this).prev('h3').andSelf().wrapAll('<div class ="no-break" />');
@@ -40,9 +28,76 @@ $( document ).ready(function() {
 	
 	$('a.pop-up').click(function(e) {
 		e.preventDefault();
-		var theWindow = window.open($(this).attr('href'), $(this).attr('name'), 'location=1, toolbar=1, scrollbars=1, resizable=1, width=400, height=450');
+		var width = $("#wrap").width() / 2;
+		if(width < 350)
+			width = 350;
+		var height = $(window).height() * 2 / 3;
+		var theWindow = window.open($(this).attr('href'), 
+			$(this).attr('name'), 
+			'location=1, toolbar=1, scrollbars=1, resizable=1, width='+width+', height='+height);
 		theWindow.focus();
 	});
+	
+	$('a.single-ge-handle').click(function(e) {
+		if (!(e.which > 1 || e.shiftKey || e.altKey || e.metaKey || e.ctrlKey)) {
+			e.preventDefault();
+			var item = $(this).attr('id');
+			item = "#content-"+item.substring(5);
+			$(item).collapse('toggle');
+		}
+	});
+	
+	$('#to_top').affix({
+	  offset: {
+		top: function() {
+			var height = 0;
+			height += $("#fixbar").outerHeight(true);
+			height += $("#full-banner-inner").outerHeight(true);
+			height += $("#subnav-wrap").outerHeight(true);
+			
+			return (this.top = height);
+		},
+	  }
+	});
+	
+	$('.ge-collapse').each(function() {
+		var item = $(this).attr('href');
+		$(item).collapse('hide');
+	});
+	
+	$('#to_top').css('right', function() {
+		var width = $(document).width() - $("#wrap").width();
+		if(width > 100)
+			width = width / 3;
+		else
+			width = 10;
+		return width;
+	});
+	
+	$('#to_top').css('bottom', function() {
+		var height = $("#footer").outerHeight(true);
+		height += 20;
+		return height;
+	});
+	
+});
+
+$(window).resize( function() {
+	$('#to_top').css('right', function() {
+		var width = $(document).width() - $("#wrap").width();
+		if(width > 100)
+			width = width / 3;
+		else
+			width = 10;
+		return width;
+	});
+	
+	$('#to_top').css('bottom', function() {
+		var height = $("#footer").outerHeight(true);
+		height += 20;
+		return height;
+	});
+
 });
 
 

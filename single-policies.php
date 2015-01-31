@@ -66,7 +66,7 @@ get_header(); ?>
 								<?php $related = get_field('related_topics');
 								if($related != false) : ?>
 								<div id="related-topics">
-									<h3 class="sm-h4">Related Topics</h3>
+									<h3 class="pseudo-h5">Related Topics</h3>
 									<?php the_field('related_topics'); ?>
 								</div>
 								<?php endif; ?>
@@ -74,7 +74,7 @@ get_header(); ?>
 								<?php $related = get_field('related_pols');
 								if($related != false) : ?>
 								<div id="related-pols">
-									<h3 class="sm-h4">Related Topics</h3>
+									<h3 class="pseudo-h5">Related Topics</h3>
 									<?php foreach($related as $post) : ?>
 										<?php setup_postdata($post); ?>
 										<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>

@@ -59,7 +59,7 @@ get_header(); ?>
 								'degree_level' => 'certificate', 
 								'posts_per_page' => 1000,
 								'meta_key' => 'fund_source',
-								'meta_value' => 'self',)
+								'meta_value' => array('self', 'both'),)
 							);
 							$query_prog_state = new WP_Query(array(
 								'post_type' => 'programs', 
@@ -68,12 +68,21 @@ get_header(); ?>
 								'degree_level' => 'certificate', 
 								'posts_per_page' => 1000,
 								'meta_key' => 'fund_source',
-								'meta_value' => 'state')
+								'meta_value' => array('state', 'both'),)
 							);
-							$num = $query_prog_self->post_count + $query_prog_state->post_count; ?>
+							$query_prog_both = new WP_Query(array(
+								'post_type' => 'programs', 
+								'orderby' => 'title', 
+								'order' => 'ASC',  
+								'degree_level' => 'certificate', 
+								'posts_per_page' => 1000,
+								'meta_key' => 'fund_source',
+								'meta_value' => 'both',)
+							);
+							$num = $query_prog_self->post_count + $query_prog_state->post_count - $query_prog_both->post_count; ?>
 							<span class="section-title"><span><h2>Certificates (<?php echo $num;?>)</h2></span></span>
 							<div class="content">
-								<h3> State Supported Certificates </h3>
+								<h3> State-Support Certificates </h3>
 								<div class="dept-container content">
 								<?php if($query_prog_state->have_posts()): while ($query_prog_state->have_posts()) : $query_prog_state->the_post(); ?>
 										<a class="dept-item " href="<?php the_permalink(); ?>"><?php the_title(); 
@@ -89,7 +98,7 @@ get_header(); ?>
 									<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 								<?php endif; ?>
 								</div>
-								<h3> Self Supported Certificates </h3>
+								<h3> Self-Support Certificates </h3>
 								<div class="dept-container content">
 								<?php if($query_prog_self->have_posts()): while ($query_prog_self->have_posts()) : $query_prog_self->the_post(); ?>
 										<a class="dept-item " href="<?php the_permalink(); ?>"><?php the_title(); 

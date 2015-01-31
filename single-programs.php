@@ -26,6 +26,8 @@ if(isset($post_option)&&$post_option!=='')
 	
 $option = get_option( 'main_dp_settings' );	//get our options
 $planning_year = $option['planning_year'];
+$tseng_only = $option['tseng_description'];
+$tseng_both = $option['tseng_both'];
  
 get_header(); ?>
 
@@ -36,7 +38,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php echo get_csun_archive('programs', $dept); ?>">Programs</a>
-					<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?><!-- : <span class="dark"><?php the_field('degree_type'); ?> in <?php the_title(); ?></span> --></h1></a>
+					<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -93,7 +95,7 @@ get_header(); ?>
 							$post_option=get_field('option_title');
 
 							if(isset($post_option)&&$post_option!=='') {
-								echo '<h3 class="sm-h4 option-title">'.$post_option.'</h3>';
+								echo '<h3 class="pseudo-h5 option-title">'.$post_option.'</h3>';
 							}
 						?>
 					</div>
@@ -139,14 +141,12 @@ get_header(); ?>
 							</div>
 							<?php if($self): ?>
 								<div class="section-content well well-tseng">
-									This program is administered through the <a href="http://tsengcollege.csun.edu/" title="Tseng College Webpage">The Tseng College</a>.
-									It is entirely funded by student fees, offered in the cohort format and features evening and weekend course schedules.
+									<?php echo $tseng_only; ?>
 								</div>
 							<?php endif; ?>
 							<?php if($both): ?>
 								<div class="section-content well well-tseng">
-									This program can be entered through one of the CSUN academic colleges or through the <a href="http://tsengcollege.csun.edu/" title="Tseng College Webpage">The Tseng College</a>. 
-									The program offered through the Tseng College is entirely funded by student fees, offered in the cohort format and features evening and weekend course schedules.
+									<?php echo $tseng_both; ?>
 								</div>
 							<?php endif; ?>
 							<?php $values = get_field('program_requirements');

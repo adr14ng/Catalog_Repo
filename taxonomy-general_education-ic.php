@@ -61,16 +61,16 @@ get_header(); ?>
 
 						if($query_policies->have_posts()) : ?>
 						<div class="panel panel-default">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $num;?>" class="collapsed">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $num;?>" class="ge-collapse">
 								<div class="panel-heading">
-									<h4 class="panel-title">
+									<h2 class="pseudo-h4 panel-title">
 										<?php echo ($term->description).' ('.$count.')'; ?>
 										<span class="glyphicon pull-right glyphicon-plus-sign"></span>
 										<span class="glyphicon pull-right glyphicon-minus-sign"></span>
-									</h4>
+									</h2>
 								</div>
 							</a>
-							<div id="collapse<?php echo $num;?>" class="panel-collapse collapse">
+							<div id="collapse<?php echo $num;?>" class="panel-collapse collapse in">
 								<div class="panel-body">
 								 <?php while($query_policies->have_posts()) : $query_policies->the_post(); ?>
 									<p><a href="<?php the_permalink();?>"><?php the_title(); ?></a></p>

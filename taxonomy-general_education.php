@@ -29,6 +29,10 @@ else
 	  <meta charset="utf-8"/>
 	  <meta name="msvalidate.01" content="F5D407E70DCB74B1DEE5C3274C2EBCF7" />
 	  <title><?php echo $title; ?></title>
+	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-1.11.1.min.js"></script>
+	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.columnizer.js"></script>
+	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.js"></script>
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.min.css">
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
 	  <?php wp_head();?>
@@ -40,7 +44,10 @@ else
 			<div class="pad-box">
 				<div id="inset-content" class="popup">
 				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-					<p><a href="<?php the_permalink();?>" target="_blank"><?php the_title(); ?></a></p>
+					<h2><a id="link-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" class="single-ge-handle"><?php the_title(); ?></a></h2>
+					<div id="content-<?php the_ID(); ?>" class="collapse content single-ge-collapse">
+						<?php the_content(); ?>
+					</div>
 				<?php endwhile; else: ?>
 					<p><?php _e('Sorry, no GE courses in this section.'); ?></p>
 				<?php endif; ?>

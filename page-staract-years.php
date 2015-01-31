@@ -53,7 +53,7 @@ get_header(); ?>
 						<?php endforeach; ?>
 						</ul></div>
 						<div>
-							<p><strong>Or by Department, Program or College: </strong></p>
+							<h4 class="pseudo-h5">Or by Department, Program or College: </h4>
 							<?php 
 							$depts = sort_terms_by_description(get_terms( 'department_shortname'));
 							$url = site_url('/planning/staract/');?>

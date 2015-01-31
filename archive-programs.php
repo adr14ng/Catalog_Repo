@@ -46,7 +46,8 @@ get_header(); ?>
 					<?php if(have_posts()) : ?>
 						<?php foreach($levels as $level) :
 							$query_programs = new WP_Query(array(
-								'orderby' => 'title', 
+								'meta_key' => 'degree_type',
+								'orderby' => 'meta_value title', 
 								'order' => 'ASC',  
 								'degree_level' => $level,
 								'department_shortname' => $dept,
@@ -91,7 +92,7 @@ get_header(); ?>
 											$post_option=get_field('option_title');
 
 											if(isset($post_option)&&$post_option!=='') {
-												echo '<h4 class="sm-h4">'.$post_option.'</h4>';
+												echo '<h4 class="pseudo-h5">'.$post_option.'</h4>';
 												
 												$title = $title.', '.$post_option;
 											}

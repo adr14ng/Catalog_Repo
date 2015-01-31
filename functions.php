@@ -6,6 +6,7 @@ register_nav_menu( 'primary', __( 'Primary Menu', 'csuncatalognav' ) );
 register_nav_menu( 'about-menu', 'About Menu' );
 register_nav_menu( 'rgs-menu', 'RGS Menu' );
 register_nav_menu( 'ge-menu', 'GE Menu' );
+add_editor_style();
 
 /* Breadcrumbs */
 function the_breadcrumb() {
@@ -577,23 +578,26 @@ function add_ge_links( $content )
 		$content = preg_replace_callback( 
 			$regex, 
 			function ($matches) {
-				$url = site_url('index.php?general_education=');
+				$url = site_url('/general_education/');
 				
 				if(!empty($matches[2])) {	//typical ge section
 					if(stripos($matches[2], 'writ') !== false)
 					{
 						$url .= 'a1';
 						$name = 'a1';
+						$popup = true;
 					}
 					elseif(stripos($matches[2], 'critical') !== false)
 					{
 						$url .= 'a2';
 						$name = 'a2';
+						$popup = true;
 					}
 					elseif(stripos($matches[2], 'math') !== false)
 					{
 						$url .= 'a3';
 						$name = 'a3';
+						$popup = true;
 					}
 					elseif(stripos($matches[2], 'oral') !== false)
 					{
@@ -620,7 +624,7 @@ function add_ge_links( $content )
 						$url .= 's4';
 						$name = 's4';
 					}
-					elseif(stripos($matches[2], 'comp') !== false)
+					elseif(stripos($matches[2], 'compara') !== false)
 					{
 						$url .= 's5';
 						$name = 's5';
@@ -637,8 +641,21 @@ function add_ge_links( $content )
 				}
 				
 				$link = '<a href="'.$url.'" name="'.$name.'" target="_blank" title="A new window containing GE courses meeting this requirement." class="pop-up">';
+				$link_nopopup =  '<a href="'.$url.'" name="'.$name.'" target="_blank" title="A new window containing GE courses meeting this requirement.">';
 				
-				return $link.$matches[0].'</a>';
+				
+				if(!empty($name) && $popup)
+				{
+					return $link.$matches[0].'</a>';
+				}
+				elseif(!empty($name))
+				{
+					return $link_nopopup.$matches[0].'</a>';
+				}
+				else
+				{
+					return $matches[0];
+				}
 			}, 
 			$content
 		);
@@ -700,4 +717,92 @@ add_filter('acf/load_value/name=related_topics',  'links_test_site');
 add_filter('acf/load_value/name=program_requirements',  'links_test_site');
 add_filter('acf/load_value/name=custom_contact',  'links_test_site');
 
-?>
+/**
+ * Add custom style formats
+ * Hooks onto tiny_mce_before_init filter.
+ *
+ * @param array $init_array	The default wordpress toolbar
+ *
+ * @return array			The updated wordpress toolbar
+ */
+function csunFormatTinyMCE( $init_array ) {
+	$style_formats = array(  
+		// Each array child is a format with it's own settings
+		array(  
+			'title' => 'Section Title',  
+			'block' => 'h2',  
+			'classes' => 'section-header',
+		),
+			array(  
+			'title' => 'Link Grid',  
+			'block' => 'div',  
+			'classes' => 'plan-grid',
+			//'wrapper' => true,
+		),
+			array(  
+			'title' => 'Basic Table',  
+			'selector' => 'table',  
+			'classes' => 'csun-table',
+			//'wrapper' => true,
+		),
+		array(  
+			'title' => 'Table Header/Footer',  
+			'selector' => 'tr',  
+			'classes' => 'header-footer',
+			//'wrapper' => true,
+		),
+		array(  
+			'title' => 'TOC Collumn',  
+			'block' => 'div',  
+			'classes' => 'col-xs-12 col-sm-6 col-md-6 col-lg-6',
+			'wrapper' => true,
+		),
+		array(  
+			'title' => 'Header 1 Style',  
+			'selector' => 'p,h1,h2,h3,h4,h5,h6',  
+			'classes' => 'pseudo-h1',
+		),
+		array(  
+			'title' => 'Header 2 Style',  
+			'selector' => 'p,h1,h2,h3,h4,h5,h6',  
+			'classes' => 'pseudo-h2',
+		),
+		array(  
+			'title' => 'Header 3 Style',  
+			'selector' => 'p,h1,h2,h3,h4,h5,h6',  
+			'classes' => 'pseudo-h3',
+		),
+		array(  
+			'title' => 'Header 4 Style',  
+			'selector' => 'p,h1,h2,h3,h4,h5,h6',  
+			'classes' => 'pseudo-h4',
+		),
+		array(  
+			'title' => 'Header 5 Style',  
+			'selector' => 'p,h1,h2,h3,h4,h5,h6',  
+			'classes' => 'pseudo-h5',
+		),
+		array(  
+			'title' => 'Header 6 Style',  
+			'selector' => 'p,h1,h2,h3,h4,h5,h6',  
+			'classes' => 'pseudo-h6',
+		),
+		array(  
+			'title' => 'Header 7 Style',  
+			'selector' => 'p,h1,h2,h3,h4,h5,h6',  
+			'classes' => 'pseudo-h7',
+		),
+		array(  
+			'title' => 'Header 8 Style',  
+			'selector' => 'p,h1,h2,h3,h4,h5,h6',  
+			'classes' => 'pseudo-h8',
+		),
+	);
+	
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['style_formats'] = json_encode( $style_formats );  
+	
+	return $init_array;
+}
+add_filter('tiny_mce_before_init', 'csunFormatTinyMCE' );
+

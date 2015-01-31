@@ -22,42 +22,53 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6,
+.pseudo-h1, .pseudo-h2, .pseudo-h3, 
+.pseudo-h4, .pseudo-h5, .pseudo-h6,
+.pseudo-h7, .pseudo-h8{
   font-family: museo-sans, helvetica, arial, sans-serif;
   font-weight: bold;
 }
-h1{
+
+h1, .pseudo-h1{
   font-size: 30px;
   color: #990000;
 }
 
-h2 {
+h2, .pseudo-h2 {
   font-size: 24px;
   color: #990000;
 }
 
-h3 {
+h3, .pseudo-h3 {
   font-size: 20px;
   color: #000000;
 }
 
-h4 {
+h4, .pseudo-h4 {
 	font-size: 18px;
 	color: #990000;
 }
 
-h5,
-.sm-h4 {
+h5, .pseudo-h5, .sm-h4 {
 	font-size: 16px;
 	color: #000000;
 }
 
-h6,
-.sm-h3 {
+h6, .pseudo-h6, .sm-h3 {
 	font-size: 14px;
 	color: #990000;
 }
 
+.pseudo-h7 {
+	font-size: 13px;
+	color: #000000;
+}
+
+.pseudo-h8 {
+	font-size: 13px;
+	color: #000000;
+}
 
 p {
   color: #4c4c4c;
@@ -739,7 +750,8 @@ a.csun-subhead{
   display: block;
 }
 
-.landing-over h2 {
+.landing-over h2,
+.landing-over .pseudo-h2 {
   text-align: center;
 }
 
@@ -752,6 +764,10 @@ a.csun-subhead{
 .landing-link:focus  .land-bg,
 .landing-link:active .land-bg{
   border: 1px solid #428bca;
+}
+
+.contact p {
+	margin: 0 0 2px;
 }
 
 #inset-content{
@@ -789,14 +805,13 @@ a.csun-subhead{
 	margin-top:0px; 
 }
 
-.section-title h2,
-.section-title h3 {
+.section-title h2, .section-title h3, 
+.section-title .pseudo-h2, .section-title .pseudo-h3 
+{
   font-size: 18px;
   display: inline;
   color: #990000;
 }
-
-
 
 .section-title span {
   display: inline;
@@ -886,18 +901,21 @@ a.csun-subhead{
 	margin-bottom: 5px;
 }
 
-#abc_nav .btn{
-	margin-bottom: 5px;
-	width: 35px;
+#to_top.affix {
+	visibility: visible;
 }
 
-.no-bottom-border {
-	border-bottom : 0px;
+#to_top {
+	width: 52px;
+	padding: 5px 10px;
+	background: rgba(230, 230, 230, .25);
+	text-align: center;
+	visibility: hidden;
 }
 
-#abc_nav.affix {
-	width: 15%;
-	top: 60px;
+a.top-link {
+	color: rgb( 30, 30, 30);
+	font-size: large;
 }
 
 .space_char{
@@ -912,6 +930,21 @@ a.csun-subhead{
 
 .popup {
 	background: #ffffff;
+}
+
+.popup .content{
+	background: #eee;
+	margin: 0;
+	padding: 5px 10px;
+}
+
+.popup h2 a, .popup .pseudo-h2 a{
+	font-size: medium;
+	margin: 0;
+}
+	
+.popup h2, .popup .pseudo-h2  {
+	margin: 0;
 }
 
 .panel-default a.collapsed .glyphicon-minus-sign{
@@ -934,12 +967,15 @@ a.csun-subhead{
 	background: #990000;
 }
 
-.collapsed h4.panel-title{
+.collapsed h4.panel-title, .collapsed .pseudo-h4.panel-title{
 	color: #990000;
 }
 
-h4.panel-title{
+h4.panel-title, .pseudo-h4.panel-title{
 	color: #ffffff;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 16px;
 }
 
 #accordion .panel a{
@@ -1184,13 +1220,13 @@ span.option-title {
   font-size: 18px;
 }
 
-.landing-over h2 {
+.landing-over h2,
+.landing-over .pseudo-h2  {
   display: block;
   text-align: center;
   padding-top: 10px;
   font-size: 15px;
 }
-
 
 .landing-over > span {
   display: none;
@@ -1242,7 +1278,7 @@ span.option-title {
 	line-height: 210%;
 }
 
-.abc_title h2{
+.abc_title h2, .abc_title .pseudo-h2{
 	font-size: 24px;
 }
 
@@ -1265,6 +1301,7 @@ span.option-title {
 #full-banner-inner {
   padding: 0px 0 0 0px;
   margin:0px;
+  height: 158px;
 }
 
 
@@ -1438,7 +1475,7 @@ span.option-title {
   max-width: 65%;
 }
 
-.landing-over h2 {
+.landing-over h2, .landing-over .pseudo-h2 {
   font-size: 18px;
   font-weight: bold;
 }
@@ -1544,7 +1581,7 @@ span.option-title {
   max-width: 45%;
 }
 
-.landing-over h2 {
+.landing-over h2, .landing-over .pseudo-h2 {
   font-size: 18px;
   font-weight: bold;
 }
@@ -1643,7 +1680,7 @@ span.option-title {
   max-width: 45%;
 }
 
-.landing-over h2 {
+.landing-over h2, .landing-over .pseudo-h2 {
   font-size: 20px;
   font-weight: bold;
 }
