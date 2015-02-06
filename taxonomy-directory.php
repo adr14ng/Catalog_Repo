@@ -1,6 +1,6 @@
 <?php 
 /**
- * Template Name: Faculty Archive Template
+ * Template Name: Faculty Directory Archive Template
  *
  * There are three different pages within this template
  * The Department style page, the all emeriti page, 
@@ -21,7 +21,18 @@ else {
 global $wp_query;
 //print_r($wp_query);
 
-$letter = strtoupper(get_query_var( 'directory' ));
+$letter = strtoupper(get_query_var( 'directory', 'none' ));
+
+if($letter === "NONE")
+{
+	$letter = "A";
+	$args = array(
+		'post_type' => 'faculty',
+		'directory' => 'a'
+	);
+	
+	query_posts($args);
+}
 
 get_header(); ?>
 

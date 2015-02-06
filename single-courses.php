@@ -14,7 +14,7 @@ $single=$double=false;
 
 $match = preg_match("/([A-Z]{2,4}) ([0-9]{3})(.{0,8})\. (.)* \(([0-9]|[0-9]\/[0-9]|[0-9](-[0-9])*)\)/", get_the_title() , $course_info);
 
-if($match === 1) {		//We found a match
+if($match === 1 && (strpos($course_info[3], '-') === false)) {		//We found a match that isn't A-F
 	if($course_info[3]== ""){		//Basic Class
 		$course_title = strtolower($course_info[1]).'-'.$course_info[2];
 		$course_title_pretty = $course_info[1].' '.$course_info[2];
@@ -31,7 +31,7 @@ if($match === 1) {		//We found a match
 		$activ_title = $course_title.$suffix[1];
 		$activ_title_pretty = $course_title_pretty.$suffix[1];
 	}
-	elseif(strpos($course_info[3], '-') === false){	//All other classes that AREN'T A-F types
+	else{	//All other classes that AREN'T A-F types
 		$single = true;
 		$course_title = strtolower($course_info[1]).'-'.$course_info[2].$course_info[3];
 		$course_title_pretty = $course_info[1].' '.$course_info[2].$course_info[3];

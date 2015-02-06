@@ -603,11 +603,13 @@ function add_ge_links( $content )
 					{
 						$url .= 'a4';
 						$name = 'a4';
+						$popup = true;
 					}
 					elseif(stripos($matches[2], 'natural') !== false)
 					{
 						$url .= 's1';
 						$name = 's1';
+						$popup = true;
 					}
 					elseif(stripos($matches[2], 'art') !== false)
 					{
@@ -806,3 +808,15 @@ function csunFormatTinyMCE( $init_array ) {
 }
 add_filter('tiny_mce_before_init', 'csunFormatTinyMCE' );
 
+
+function custom_field_excerpt($excerpt) {
+	global $post;
+	print_r($post);
+	if($post->post_type === 'departments')
+	{
+		$excerpt = get_field('mission_statement', $post->ID);
+	}
+
+	return $excerpt;
+}
+add_filter('get_the_excerpt', 'custom_field_excerpt', 0);

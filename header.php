@@ -100,7 +100,7 @@
 					<div class="container clearfix">
 					<?php
 						$defaults = array(
-							'theme_location'  => 'primary',
+							'theme_location'  => '',
 							'menu'            => '',
 							'container'       => 'div',
 							'container_class' => '',

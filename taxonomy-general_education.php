@@ -41,17 +41,19 @@ else
 		<div class="section-content page-title-section">
 			<h1 class="prog-title"><?php echo $title; ?></h1>
 		</div>
-			<div class="pad-box">
-				<div id="inset-content" class="popup">
-				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-					<h2><a id="link-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" class="single-ge-handle"><?php the_title(); ?></a></h2>
-					<div id="content-<?php the_ID(); ?>" class="collapse content single-ge-collapse">
-						<?php the_content(); ?>
-					</div>
-				<?php endwhile; else: ?>
-					<p><?php _e('Sorry, no GE courses in this section.'); ?></p>
-				<?php endif; ?>
+		<div class="pad-box">
+			<div id="inset-content" class="popup">
+			<?php if(have_posts()): while (have_posts()) : the_post(); ?>
+				<h2><a id="link-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" class="single-ge-handle"><?php the_title(); ?></a></h2>
+				<div id="content-<?php the_ID(); ?>" class="collapse content single-ge-collapse">
+					<?php the_content(); ?>
 				</div>
+			<?php endwhile; else: ?>
+				<p><?php _e('Sorry, no GE courses in this section.'); ?></p>
+			<?php endif; ?>
 			</div>
+		</div>
+		<script type="text/javascript" src="//use.typekit.net/gfb2mjm.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	</body>
 </html>

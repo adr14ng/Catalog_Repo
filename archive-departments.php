@@ -20,7 +20,6 @@ if($dept === 'cobae') {
 	exit;
 }
 
-
 $post_categories = wp_get_post_categories(get_the_ID(), array('fields' => 'names'));
 $title = $post_categories[0].' Overview';
 	

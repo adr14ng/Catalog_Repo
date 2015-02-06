@@ -34,7 +34,7 @@
 			<div class="landing-over clearfix">
 				<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icon-sundial.png">
 				<h2 class="land-head">Catalog Resources</h2>
-				<span class="land-copy">Downloads, archives and more.</span>
+				<span class="land-copy">Archives, Degree Planning Guides and more.</span>
 			</div>
 			</div>
 		</div>

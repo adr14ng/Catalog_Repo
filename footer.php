@@ -9,9 +9,9 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 footpad clearfix">
 							<div class="footbox">
-								<p>Download previous years' catalogs and find additional resources here: </p>
+								<p>View previous years' catalogs and Degree Planning Guides here: </p>
 								<div class="btnbox">
-									<span class="redbtn"><a href="<?php echo site_url('/resources'); ?>">Downloads</a></span>
+									<span class="redbtn"><a href="<?php echo site_url('/resources'); ?>">Resources</a></span>
 								</div>
 							</div>
 						</div>
