@@ -57,9 +57,6 @@ get_header(); ?>
 								$degree = get_field('degree_type');
 								$title = get_the_title();
 								?>
-
-								<?php if(($level !== "credential" || ((!$authorizations) && ($degree === 'credential' || $degree === 'Credential'))) ||
-									($level === "credential" && ($degree === 'authorization' || $degree === 'Authorization') && $authorizations) ) : ?>
 					
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 									<a class="csun-subhead" href="<?php the_permalink(); ?>">
@@ -103,17 +100,7 @@ get_header(); ?>
 									</a>
 									<?php the_excerpt(); ?>
 								</div>
-<<<<<<< HEAD
 							<?php endwhile; endif; ?>
-=======
-								<?php endif; endwhile; endif; ?>
-							<?php
-							if(!$authorizations && ($degree === 'credential' || $degree === 'Credential'))
-							{
-								$authorizations = true;
-							}
-							?>
->>>>>>> parent of f7d44cf... CompSci 404, Fix Double Credentials
 						<?php endforeach; ?>
 						<?php wp_reset_query(); ?>
 					<?php else: ?>
