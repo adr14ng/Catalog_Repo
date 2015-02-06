@@ -56,13 +56,10 @@ get_header(); ?>
 								<?php 
 								$degree = get_field('degree_type');
 								$title = get_the_title();
-<<<<<<< HEAD
 								?>
-=======
 
-								if(($level !== "credential" || ((!$authorizations) && ($degree === 'credential' || $degree === 'Credential'))) ||
+								<?php if(($level !== "credential" || ((!$authorizations) && ($degree === 'credential' || $degree === 'Credential'))) ||
 									($level === "credential" && ($degree === 'authorization' || $degree === 'Authorization') && $authorizations) ) : ?>
->>>>>>> parent of f7d44cf... CompSci 404, Fix Double Credentials
 					
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
 									<a class="csun-subhead" href="<?php the_permalink(); ?>">
