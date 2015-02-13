@@ -36,6 +36,26 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="section-content">
+								<?php
+								$programs = get_field('degree_planning_guides');
+								if($programs) :
+								
+									$programs = $programs[0];
+									//get plans
+									
+									$name = program_name($programs->ID);
+								?>
+								<a class="planning-degree-title" href="<?php echo get_permalink($programs->ID); ?>">
+									<h2><?php echo $name; ?>
+									
+										<?php $post_option=get_field('option_title', $programs->ID);
+										if(isset($post_option)&&$post_option!=='') : ?>
+											<span class="option-title"><?php echo $post_option; ?> Option</span>
+										<?php endif; ?>
+									</h2>
+								</a>
+								<?php endif; ?>
+							
 								<?php the_content(); ?>
 							</div>	
 						</div>

@@ -6,19 +6,13 @@ $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 $deptdesc = $deptterm->description;
 
-$colleges = array('amc', 'cecs', 'coh', 'csbs', 'csm', 'educ', 'hhd', 'tseng');
+$colleges = array('amc', 'cecs', 'coh', 'csbs', 'csm', 'cobae', 'educ', 'hhd', 'tseng');
 
 if(in_array($dept, $colleges)){
 	$url = site_url().'/colleges/'.$dept;
 	wp_redirect( $url, 301 ); 
 	exit;
 } 
-
-if($dept === 'cobae') {
-	$url = get_csun_archive('departments', 'bus');
-	wp_redirect( $url, 301 ); 
-	exit;
-}
 
 
 $post_categories = wp_get_post_categories(get_the_ID(), array('fields' => 'names'));
@@ -59,27 +53,6 @@ get_header(); ?>
 		
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-			<?php if ($dept === 'bus') : ?>
-				<div class="section-content">
-					<span class="section-title"><span><h2>Departments and Programs</h2></span></span> 
-					<?php 
-						$posts = get_posts( array( 'orderby' => 'title',
-												   'order' => 'ASC',
-												   'posts_per_page' => 20,
-												   'department_shortname' => 'cobae',
-												   'post_type' => 'departments',
-												   'exclude' => get_the_ID(),
-										 ));
-								
-						foreach ( $posts as $post ) : setup_postdata( $post ); ?>
-							<p>
-								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-							</p>
-						<?php endforeach; 
-						wp_reset_postdata();
-						?>
-				</div>
-			<?php endif; ?>
 			<?php $values = get_field('mission_statement');
 			if ( $values != false) : ?>
 				<div class="section-content">

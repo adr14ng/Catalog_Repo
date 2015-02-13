@@ -445,30 +445,6 @@ function sort_terms_by_description($terms){
 	return $sort_terms;
 }
 
-/**
- *	Pulls in the COBAE faculty on the BUS pages
- *	Hooks onto pre_get_posts action.
- *
- *	@param	WP_Query $query		The original query object
- */
-function fix_cobae_query( $query ) {
-
-	if(is_post_type_archive( 'faculty') ) :
-		$query_vars = $query->query_vars;
-		if(isset($query_vars['department_shortname'])) :
-			$dept = $query_vars['department_shortname'];
-			
-			//Show business faculty on BUS page
-			if($dept === 'bus') :
-				$query->set('department_shortname', 'cobae');
-				$query->set('term', 'cobae');
-			endif;
-		endif;
-	endif;
-	
-	return $query;
-}
-add_action( 'pre_get_posts', 'fix_cobae_query' );
 
 /**
  *	If no order is specified, alphabetize by title.
@@ -811,12 +787,57 @@ add_filter('tiny_mce_before_init', 'csunFormatTinyMCE' );
 
 function custom_field_excerpt($excerpt) {
 	global $post;
-	print_r($post);
+
 	if($post->post_type === 'departments')
 	{
+		$raw_excerpt = $excerpt;
+		
 		$excerpt = get_field('mission_statement', $post->ID);
+
+		$excerpt = strip_shortcodes( $excerpt );
+
+		/** This filter is documented in wp-includes/post-template.php */
+		$excerpt = apply_filters( 'the_content', $excerpt);
+		$excerpt = str_replace(']]>', ']]&gt;', $excerpt);
+
+		/**
+		 * Filter the number of words in an excerpt.
+		 *
+		 * @since 2.7.0
+		 *
+		 * @param int $number The number of words. Default 55.
+		 */
+		$excerpt_length = apply_filters( 'excerpt_length', 55 );
+
+		/**
+		 * Filter the string in the "more" link displayed after a trimmed excerpt.
+		 *
+		 * @since 2.9.0
+		 *
+		 * @param string $more_string The string shown within the more link.
+		 */
+		$excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
+		$excerpt = wp_trim_words( $excerpt, $excerpt_length, $excerpt_more );
+
+		/**
+		 * Filter the trimmed excerpt string.
+		 *
+		 * @since 2.8.0
+		 *
+		 * @param string $text        The trimmed text.
+		 * @param string $raw_excerpt The text prior to trimming.
+		 */
+		return apply_filters( 'wp_trim_excerpt', $excerpt, $raw_excerpt );
 	}
 
 	return $excerpt;
 }
 add_filter('get_the_excerpt', 'custom_field_excerpt', 0);
+
+
+function custom_fields_to_excerpts($content, $post, $query) {
+    $custom_field = get_field('mission_statement', $post->ID);
+    $content .= " " . $custom_field;
+    return $content;
+}
+add_filter('relevanssi_excerpt_content', 'custom_fields_to_excerpts', 10, 3);

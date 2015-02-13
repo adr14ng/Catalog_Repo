@@ -486,6 +486,11 @@ a.csun-subhead{
 	text-decoration: underline;
 }
 
+a.planning-degree-title{
+	text-decoration:underline; 
+	color:#990000;
+}
+
 .inner-item {
   padding-bottom: 10px;
   border-bottom: 1px solid #d0d0d0;
