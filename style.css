@@ -1,48 +1,71 @@
 /**
-  Theme Name: Catalog Theme
-  Version: 1
-  Description: A theme created for CSUN Catalog
+	Theme Name: Catalog Theme
+	Version: 1
+	Description: A theme created for CSUN Catalog
+	
+	General
+	Extra Small
+	Small
+	Medium
+	Large
+	
+	1 - Overall Rules
+	2 - Header Rules
+	3 - Footer Rules
+	4 - Page Rules
+	5 - Search Page Rules
+	6 - Academic Page Rules
+	7 - Index Page Rules
+	8 - Policy Page Rules
+	9 - Planning Page Rules
+	10 - General Education Rules
+	11 - Faculty Rules
+	12 - Collumnizer Rules 
+	
 */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *									General Rules
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-/* Extra-Small Media Size ======================================================================================================*/
-
-/* 1 - Overall Rules */
-html {  }
+/* --------------------------- 1 - Overall Rules --------------------------- */
 
 html,
 body {
-  font-family: museo-sans, helvetica, arial, sans-serif;
-  height: 100%;
-  background-image: url('img/noisy_grid.png');
-  /*overflow-x: hidden;*/
+	font-family: museo-sans, helvetica, arial, sans-serif;
+	height: 100%;
+	background-image: url('img/noisy_grid.png');
 }
 
 #overflow-wrap {
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
+
+/* * * * * * * * Headers * * * * * * * */
 
 h1, h2, h3, h4, h5, h6,
 .pseudo-h1, .pseudo-h2, .pseudo-h3, 
 .pseudo-h4, .pseudo-h5, .pseudo-h6,
 .pseudo-h7, .pseudo-h8{
-  font-family: museo-sans, helvetica, arial, sans-serif;
-  font-weight: bold;
+	font-family: museo-sans, helvetica, arial, sans-serif;
+	font-weight: bold;
 }
 
 h1, .pseudo-h1{
-  font-size: 30px;
-  color: #990000;
+	font-size: 30px;
+	color: #990000;
 }
 
 h2, .pseudo-h2 {
-  font-size: 24px;
-  color: #990000;
+	font-size: 24px;
+	color: #990000;
 }
 
 h3, .pseudo-h3 {
-  font-size: 20px;
-  color: #000000;
+	font-size: 20px;
+	color: #000000;
 }
 
 h4, .pseudo-h4 {
@@ -70,14 +93,12 @@ h6, .pseudo-h6, .sm-h3 {
 	color: #000000;
 }
 
-p {
-  color: #4c4c4c;
-  font-size: 14px;
-  line-height: 28px;
-}
+/* * * * * * * * Text/Links * * * * * * * */
 
-.panel p {
-	line-height: 18px;
+p {
+	color: #4c4c4c;
+	font-size: 14px;
+	line-height: 28px;
 }
 
 a {
@@ -85,725 +106,419 @@ a {
 }
 
 a:hover {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .main a.no-line {
 	text-decoration: none;
 }
 
-#menu-catalog-menu > li > a {
-  color: #ffffff;
-
-}
-
+/* --------------------------- 2 - Header Rules ---------------------------- */
 
 #fixbar{
-  position: fixed;
-  width: 100%;
-  height: 68px;
-  background-color: #990000;
-  display: block;
-  z-index: 200;
-  top:0;
-  left:0;
+	position: fixed;
+	width: 100%;
+	height: 68px;
+	background-color: #990000;
+	display: block;
+	z-index: 200;
+	top:0;
+	left:0;
 }
 
-#wrap {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin-bottom: -120px;
-  padding: 0px 0px 120px 0px;
-}
+/* * * * * * * * * Regular Header Bar * * * * * * * * */
 
-#main-section {
- background-color: #ffffff;
- border-top: solid 1px #959595;
- padding-top: 30px;
- padding-left: 10px;
-  padding-right: 10px;
-
-}
-
-#main-section .container {
-  min-height: 400px;
+#headerbar{
+	display: block;
+	position: relative;
+	height: 100%;
+	background-color: none;
 }
 
 #logo{
-  margin-top: 10px;
-  width: 175px;
+	margin-top: 10px;
+	width: 175px;
 }
-
-#neglogo {
-  width: 50%;
-  height: 38px;
-  margin-top: 14px;
-  display: inline-block;
-  float: left;
-}
-
-#neglogo a > img{
-  position: relative;
-  max-height: 38px;
-  min-width: 115px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.iconblock{
-    position: relative;
-    height: 38px;
-    margin-top: 20px;
-    width: 25%;
-    min-width: 58px;
-    display: inline-block;
-    background-color: none;
-    float: left;
-    font-size: 20px;
-    color: #ffffff;
-	z-index: 20;
-}
-
-#headerbar{
-  display: block;
-  position: relative;
-  height: 100%;
-  background-color: none;
-}
-
-/* 2 - Nav Rules */
-
-#mininav {
-  padding-left: 20px;
-  padding-right: 20px;
-  min-width: 280px;
-  display: block;
-
-}
-
-#menuicon, #searchicon {
-  color: #ffffff;
-  cursor: pointer;
-
-}
-
-#csunnav {
-  width: 100%;
-  background-color: #181818;
-  z-index: 20;
-}
-
-
-/* 3 - Quicklinks Rules */
 
 #quicklinks-lg{
-  display: none;
+	display: none;
+	margin-top: 15px;
+	width: 100%;
+}
+
+#quicklinks-lg>ul>li {
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-right: 1px solid #181818;
+	font-size: 12px;
+}
+
+#quicklinks-lg>ul>li:last-child{
+	padding-right: 0px;
+	border: 0;
+}
+
+#quicklinks-lg>ul>li>a {
+	color: #990000;
+}
+
+#quicklinks-lg>ul>li>a:hover {
+	background-color: transparent;
 }
 
 #quicklinks{
-  margin-top: 10px;
-  width: 100%;
+	margin-top: 10px;
+	width: 100%;
 }
 
 #quicklinks>ul>li {
-  display: inline-block;
-  text-decoration: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-right: 1px solid #181818;
-
+	display: inline-block;
+	text-decoration: none;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-right: 1px solid #181818;
 }
 
 #quicklinks>ul>li:last-child{
-  padding-right: 0px;
-  border: 0;
+	padding-right: 0px;
+	border: 0;
 }
 
 #quicklinks>ul>li>a {
-
-  color: #990000;
-
-
+	color: #990000;
 }
+
 #quicklinks>ul>li>a:hover {
-  background-color: transparent;
+	background-color: transparent;
 }
-/* 4 - Search Bar Rules */
 
-  .navbar-form {
-    margin-top: 0px;
-  }
+/* * * * * * * * * XS Header Bar * * * * * * * * */
 
-  .navbar-form > label {
-    display: none;
-    line-height: 38px;
-    color: #1e1e1e;
-  }
+#mininav {
+	padding-left: 20px;
+	padding-right: 20px;
+	min-width: 280px;
+	display: block;
 
-
-
-  #csunsearch {
-    background-color: #adadad;
-    padding: 2px;
-    width: 80%;
-    float: right;
-  }
-
-  #csunsearch .form-control {
-
-      border-radius: 0px !important;
-      border-color: #ffffff;
-  }
-
-  #csunsearch .input-group-btn .btn {
-      border-radius: 0px !important;
-      background-color: #990000;
-      color: #ffffff;
-      border-color: #444444;
-  }
-
-  #csunsearch .input-group-btn .btn:hover {
-      background-color: #000;
-
-  }
-  #csunsearch .input-group-btn .btn > .arrow-left {
-    margin-bottom:-20px;
-    margin-left: -20px;
-    background-color: ;
-  }
-  
-ul.search_results li a:hover {
-  color: #fff;	
 }
- 
- ul.search_results li{
-	border : 1px solid #949494;
- }
 
-/* 5 - Banner Rules */
+#neglogo {
+	width: 50%;
+	height: 38px;
+	margin-top: 14px;
+	display: inline-block;
+	float: left;
+}
+
+#neglogo a > img{
+	position: relative;
+	max-height: 38px;
+	min-width: 115px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.iconblock{
+	position: relative;
+	height: 38px;
+	margin-top: 20px;
+	width: 25%;
+	min-width: 58px;
+	display: inline-block;
+	background-color: none;
+	float: left;
+	font-size: 20px;
+	color: #ffffff;
+	z-index: 20;
+}
+
+#menuicon, #searchicon {
+	color: #ffffff;
+	cursor: pointer;
+
+}
+
+/* * * * * * * * * Search Bar * * * * * * * * */
+
+.navbar-form {
+	margin-top: 0px;
+}
+
+.navbar-form > label {
+	display: none;
+	line-height: 38px;
+	color: #1e1e1e;
+}
+
+#csunsearch {
+	background-color: #adadad;
+	padding: 2px;
+	width: 80%;
+	float: right;
+}
+
+#csunsearch .form-control {
+	border-radius: 0px !important;
+	border-color: #ffffff;
+}
+
+#csunsearch .input-group-btn .btn {
+	border-radius: 0px !important;
+	background-color: #990000;
+	color: #ffffff;
+	border-color: #444444;
+}
+
+#csunsearch .input-group-btn .btn:hover {
+	background-color: #000;
+}
+
+#csunsearch .input-group-btn .btn > .arrow-left {
+	margin-bottom:-20px;
+	margin-left: -20px;
+	background-color: ;
+}
+
+/* * * * * * * * * Main Navigation * * * * * * * * */
+
+#csunnav {
+	width: 100%;
+	background-color: #181818;
+	z-index: 20;
+}
+
+#menu-catalog-menu > li > a {
+	color: #ffffff;
+}
+
+/* * * * * * * * * Banner * * * * * * * * */
 
 #full-banner{
-  border-bottom: 5px solid #444;
-  background-color: #FFFFFF;
-  margin: 68px 0 0 0px;
-
+	border-bottom: 5px solid #444;
+	background-color: #FFFFFF;
+	margin: 68px 0 0 0px;
 }
 
 #full-banner-inner{
-  border-bottom: 5px solid #444;
-  background-color: #fff;
-  margin-top: 68px;
+	border-bottom: 5px solid #444;
+	background-color: #fff;
+	margin-top: 68px;
 }
 
-.banner-overlay {
-  position: absolute;
-  width: 100%;
-}
+/* --------------------------- 3 - Footer Rules ---------------------------- */
 
-.banner-title {
-  display: block;
-  color: #1e1e1e;
-  font-weight: 100;
-  padding: 5px;
+/* * * * * * * * * Containers * * * * * * * * */
 
-}
-
-.banner-title-inner {
-  display: block;
-  color: #1e1e1e;
-  font-weight: 100;
-  padding: 5px;
-  font-size: 28px;
-
-}
-
-.banner-title-big{
-  color: #990000;
-  font-size: 48px;
-  font-weight: 500;
-  font-family: museo-sans, helvetica;
-
-}
-.banner-title-small{
-  color: #990000;
-  font-size: 21px;
-
-}
-
-.mainbanner {
-  display: block;
-}
-
-.mainbanner > img {
-  max-width: 100%;
-  padding: 0;
-}
-
-.content{
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-
-/* 6 - Footer Rules */
 #footer {
-  padding: 0;
-/*  border: solid 1px #949494;*/
-  border-top: 0;
-  /*border-top: solid 5px #990000;*/
- /* -webkit-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.32);
-  -moz-box-shadow:    0px 3px 19px 0px rgba(50, 50, 50, 0.32);
-  box-shadow:         0px 3px 19px 0px rgba(50, 50, 50, 0.32);*/
+	padding: 0;
+	border-top: 0;
 }
 
 #outside-footer {
-  /*background-image: url('img/noisy_grid_dark.png');*/
-  border-top: solid 2px #990000;
-  background-color: #ffffff;
-}
-
-#footer .content {
-  background-color: #ffffff;
-  border-bottom: 1px solid #3b3b3b;
-
+	border-top: solid 2px #990000;
+	background-color: #ffffff;
 }
 
 #footer > .row {
-  padding: 0 15px 0 15px;
+	padding: 0 15px 0 15px;
+}
+
+/* * * * * * * * * Top Content * * * * * * * * */
+
+.footpad {
+	padding: 20px 0 30px 0;
 }
 
 .footbox {
-  display: block;
-  color: #1e1e1e;
-  line-height: 30px;
-  border-right: solid 1px #d0d0d0;
-  min-height: 100px;
-}
-
-
-.footpad {
-  padding: 20px 0 30px 0;
-}
-
-.noborder {
-  border: 0;
-}
-
-.linksrow{
-  background-image: url('img/noisy_grid_light.png');
-  border-top: solid 1px #949494;
-}
-
-.footerlinks {
-  padding: 30px 35px 30px 35px;
-  
-  
-  text-align: center;
-  vertical-align: middle;
-  line-height: 38px;
-}
-
-.footerlinks > a {
-   color: #990000; 
-   padding: 0 10px 0 10px;
-   border-left: 1px solid #990000;
-}
-
-.footerlinks > a:hover {
-   text-decoration: underline;
-}
-
-.footerlinks > a:first-child {
-   border-left: 0;
-}
-
-.footbox > a {
-  text-align: center;
-  display: block;
-}
-
-.footbox > p {
-  display: block;
-  min-height: 50px;
-  text-align: center;
-
-}
-
-.footbox > span {
-  text-align: center;
-  display: block;
+	display: block;
+	color: #1e1e1e;
+	line-height: 30px;
+	border-right: solid 1px #d0d0d0;
+	min-height: 100px;
 }
 
 .btnbox{
-  width: 100%;
-  margin: auto;
+	width: 100%;
+	margin: auto;
+}
+
+.noborder {
+	border: 0;
+}
+
+.footbox > a {
+	text-align: center;
+	display: block;
+}
+
+.footbox > p {
+	display: block;
+	min-height: 50px;
+	text-align: center;
+}
+
+.footbox > span {
+	text-align: center;
+	display: block;
 }
 
 .redbtn{
-  width: 135px;
-  height: 40px;
-  display: block;
-  background-color: #990000;
-  margin: auto;
-  border: 1px solid #3b3b3b;
-  padding: 4px;
+	width: 135px;
+	height: 40px;
+	display: block;
+	background-color: #990000;
+	margin: auto;
+	border: 1px solid #3b3b3b;
+	padding: 4px;
+	color: #ffffff;
 }
 
 .redbtn:hover {
-  background-color: #000;
+	background-color: #000;
 }
 
 .redbtn > a {
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  display: inline-block;
-  width: 100%;
-  text-align: center;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
 }
 
-#lastrow {
-  background-color: #000;
-  height: 20px;
+/* * * * * * * * * Lower Content * * * * * * * * */
+
+.linksrow{
+	background-image: url('img/noisy_grid_light.png');
+	border-top: solid 1px #949494;
 }
 
-/* 7 - Inner Page*/
+.footerlinks {
+	padding: 30px 35px 30px 35px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 38px;
+}
+
+.footerlinks > a {
+	 color: #990000; 
+	 padding: 0 10px 0 10px;
+	 border-left: 1px solid #990000;
+}
+
+.footerlinks > a:hover {
+	 text-decoration: underline;
+}
+
+.footerlinks > a:first-child {
+	 border-left: 0;
+}
+
+#lastrow {	/* just for padding */
+	background-color: #000;
+	height: 20px;
+}
+
+/* ----------------------------- 4 - Page Rules ---------------------------- */
+
+/* * * * * * * * Containers * * * * * * * */
+
+#main-section {
+	background-color: #ffffff;
+	border-top: solid 1px #959595;
+	padding-top: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin-bottom: -120px;
+	padding: 0px 0px 120px 0px;
+}
+
+#main-section .container {
+	min-height: 400px;
+}
+
+.content{
+	padding-left: 10px;
+	padding-right: 10px;
+}
 
 .pad-box {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.csun-subhead{
-  font-size: 18px;
-  font-weight: 700;
-  color: #990000;
-}
-
-a.csun-subhead{
-	text-decoration: underline;
-}
-
-a.planning-degree-title{
-	text-decoration:underline; 
-	color:#990000;
-}
-
-.inner-item {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #d0d0d0;
-}
-
-.inner-title {
-  font-weight: 700;
-}
-
-.inner-title-wrap{
-  padding: 0 30px 0 30px;
-}
-
-.with-option {
-  margin-bottom: 3px;
-}
-
-.option-title {
-  margin-top: 2px;
-}
-
-.read-more {
-  display: block;
-  float: right;
-}
-
-.sidebar-list{
-  padding-left: 0;
-}
-
-.sidebar-list li{
-  display: block;
-  padding: 0 0 10px 0;
-}
-
-.page-title{
-  color: #990000;
-  padding: 25px 0 5px 0;
-}
-
-.prog-title{
-  color: #990000;
-  padding: 0px 0 5px 0;
-  margin-top: 5px;
-}
-
-.dept-title-small {
-  display: block;
-  color: #2d2d2d;
-  font-size: 16px;
-  font-weight: 700;
-  margin-top: 18px;
-  text-transform: uppercase;
-}
-
-.dept-title-small:hover {
-  color: #1e1e1e;
-}
-
-.arrow-wrap {
-  width: 30px;
-  height: 30px;
-  margin: auto;
-  margin-bottom: -60px;
-}
-
-.subnav-arrow {
-  display: block;
-  position: relative;
-  width: 0; 
-  height: 0; 
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;  
-  border-top: 15px solid #990000;
-  margin:auto;
-}
-
-#catalog-subnav{
-  margin-bottom: 0px;
-  z-index: 50;
-}
-
-#catalog-subnav ul{
-  padding-left: 0;
-  display: block;
-  width: 100%;
-  margin: auto;
-}
-
-#catalog-subnav ul li {
-  display: block;
-  float: left;
-  width: 25%;
-  padding-left: 5px;
-  padding-right: 5px;
-
-}
-
-#catalog-subnav ul li.active:hover .subnav-arrow{
-  border-top: 15px solid #710100;
-}
-
-#catalog-subnav ul li.active a {
-  color: #ffffff;
-  background-color: #990000;
-  border: solid 1px #990000;
-
-}
-
-#catalog-subnav ul li.active:hover {
-
-}
-
-#catalog-subnav ul li.active:hover a {
-  background-color: #710100;
-  border: solid 1px #710100;
-}
-
-
-#catalog-subnav ul li:hover a {
-  background-color: #000;
-  color: #ffffff;
-}
-
-#catalog-subnav ul li a {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-size: 16px; 
-  color: #000;
-  padding: 10px 0px 10px 0px;
-  background-color: #c7c7c7;
-  border: solid 1px #949494;
-}
-
-#catalog-subnav ul li ul {
-  position: absolute;
-  z-index: 150;
-  top: 149px;
-  display: none;
-  background-color: #000;
-  width: 25%;
-  max-width: 50%;
-  padding-bottom: 5px;
-}
-
-#catalog-subnav ul li.active ul {
-  background-color: #710100;
-  border: solid 1px #710100;
-
-}
-
-#catalog-subnav ul li.active ul li:hover{
-  background-color: #000;
-}
-
-#catalog-subnav ul li.active ul li a{
-  border: 0;
-}
-
-#catalog-subnav ul li.active ul li a:hover{
-  background-color: #000;
-}
-
-#catalog-subnav ul li ul li {
-  display: block;
-  width: 100%;
-  margin: 0;   
-}
-
-#catalog-subnav ul li ul li a {
-  color: #ffffff;
- display: block;
- font-size: 12px;
- border: 0;
- border-bottom: solid 1px #000; 
-}
-
-#catalog-subnav ul li ul li:last-child a{
- border-bottom: 0; 
-}
-
-
-#catalog-subnav ul li ul li:hover a{
-  background-color: #990000;
-}
-
-#catalog-subnav ul li:hover ul {
-  display: block; 
-}
-
-.dept-container{
-  margin-bottom: 40px;
-}
-
-.dept-item {
-  border: solid 1px #cacaca;
-  color: #000;
-  height: 70px;
-  display: inline-block;
-  width: 100%;
-  padding:10px 10px;
-
-}
-
-.dept-item:hover {
-  background-color: #000;
-  color: #ffffff;
-}
-
-.dept-item:hover{
-  color: #ffffff;
-}
-
-.dept-item.credential {
-	overflow: hidden;
-	margin-top: -6px;
-}
-
-
-#landing-section {
-  background-image: url('img/noisy_grid.png');
-  padding-bottom: 10px;
-}
-
-.landing-item {
-  padding: 0px 4px 0px 4px;
-  margin-top: 8px;
-  height: 160px;
-    text-align: center;
-}
-
-.land-bg {
-  width: auto !important;
-  background-position: auto auto;
-  background-repeat: no-repeat;
-  background-color: #fff;
-  height:100%;
-  position: relative;
-  background-image: url('img/landing-bg.jpg');
-  background-size: 100% 100%;
-  
-}
-
-.land-icon{
-  max-width: 170px;
-  margin:0px auto !important;
-
-}
-
-.land-head{
-  color: #1e1e1e;
-  font-family: museo, helvetica, arial, sans-serif;
-
-}
-
-.landing-over {
-  top: 0;
-  left: 0;
-}
-.landing-over > img {
-  display: block;
-}
-
-.landing-over h2,
-.landing-over .pseudo-h2 {
-  text-align: center;
-}
-
-.landing-over > span {
-  color: #727272;
-  display: block;
-  text-align: center;
-}
-
-.landing-link:focus  .land-bg,
-.landing-link:active .land-bg{
-  border: 1px solid #428bca;
-}
-
-.contact p {
-	margin: 0 0 2px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 #inset-content{
-  border: 1px solid #d0d0d0;
-  /*border-radius: 5px;*/
-  -webkit-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.16);
-  -moz-box-shadow:    0px 3px 19px 0px rgba(50, 50, 50, 0.16);
-  box-shadow:         0px 3px 19px 0px rgba(50, 50, 50, 0.16);
-  padding: 30px 15px 20px 15px;
-  margin-bottom: 10px;
+	border: 1px solid #d0d0d0;
+	/*border-radius: 5px;*/
+	-webkit-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.16);
+	-moz-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.16);
+	box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.16);
+	padding: 30px 15px 20px 15px;
+	margin-bottom: 10px;
 }
 
 .section-content {
-  margin-bottom: 20px;
-  padding: 10px 20px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
 }
 
+.inner-item {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #d0d0d0;
+}
+
+/* * * * * * * * Titles * * * * * * * */
+
 .page-title-section {
-  padding: 10px 0px 10px 0px;
-  margin-bottom: 20px;
-  margin-right: 15px;
-  margin-left: 15px;
+	padding: 10px 0px 10px 0px;
+	margin: 0;
+	margin-bottom: 20px;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+.dept-title-small {
+	display: block;
+	color: #2d2d2d;
+	font-size: 16px;
+	font-weight: 700;
+	margin-top: 18px;
+	text-transform: uppercase;
+}
+
+.dept-title-small:hover {
+	color: #1e1e1e;
+}
+
+.prog-title{
+	color: #990000;
+	padding: 0px 0 5px 0;
+	margin-top: 5px;
+}
+
+.inner-title-wrap{
+	padding: 0 30px 0 30px;
+}
+
+.inner-title {
+	font-weight: 700;
 }
 
 .section-title {
-  display: block;
-  width: 100%;
-  padding-bottom: 6px;
-  border-bottom: solid 2px #cecfd1;
-  margin-bottom: 25px;
-  margin-top:25px; 
+	display: block;
+	width: 100%;
+	padding-bottom: 6px;
+	border-bottom: solid 2px #cecfd1;
+	margin-bottom: 25px;
+	margin-top:25px; 
 }
 
 .section-content .section-title{
@@ -811,20 +526,19 @@ a.planning-degree-title{
 }
 
 .section-title h2, .section-title h3, 
-.section-title .pseudo-h2, .section-title .pseudo-h3 
-{
-  font-size: 18px;
-  display: inline;
-  color: #990000;
+.section-title .pseudo-h2, .section-title .pseudo-h3 {
+	font-size: 18px;
+	display: inline;
+	color: #990000;
 }
 
 .section-title span {
-  display: inline;
-  padding-bottom: 8px;
-  min-width: 10%;
-  max-width: 90%;
-  height: 100%;
-  border-bottom: solid 2px #990000
+	display: inline;
+	padding-bottom: 8px;
+	min-width: 10%;
+	max-width: 90%;
+	height: 100%;
+	border-bottom: solid 2px #990000
 }
 
 .section-title div span {
@@ -832,79 +546,17 @@ a.planning-degree-title{
 	top: 3px;
 }
 
-.section-breadcrumb {
- background-color: #000;
- min-height: 10px;
+.csun-subhead{
+	font-size: 18px;
+	font-weight: 700;
+	color: #990000;
 }
 
-.pagination-content{
-	text-align: center;
+a.csun-subhead{
+	text-decoration: underline;
 }
 
-#share-icons {
-  min-height: 32px;
-  position: relative;
-  list-style:none;
-  margin: 8px 0 0 0;
-  overflow:hidden;
-  padding-left: 0;
-  /*background-color: #efefef;*/
-  padding: 5px 5px 5px 20px;
- /* border: 1px solid #d0d0d0;*/
-}
-
-#share-icons li{
-  width: 33%;
-  float:left;
-  color:#1e1e1e;
-}
-
-#share-icons li a span,
-#share-icons li span{
-  display: block;
-  margin: auto;
-  text-align: center;
-}
-
-.share-icon {
-  display: block;
-  font-size: 24px;
-  color: #990000;
-}
-
-.share-icon:hover {
-  color: #1e1e1e;
-}
-
-.screen-reader-text { /* hides text */
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-
-#policy-tags a {
-	text-decoration: none;
-}
-
-#policy-cats a {
-	text-decoration: none;
-}
-
-.policy-page-title {
-	margin-top: 0px;
-}
-
-.tax-name {
-	color: #000;
-}
-
-#policy-tags .btn{
-	margin-bottom: 5px;
-}
-
-#policy-cats .btn{
-	margin-bottom: 5px;
-}
+/* * * * * * * * To Top Link * * * * * * * */
 
 #to_top.affix {
 	visibility: visible;
@@ -923,831 +575,49 @@ a.top-link {
 	font-size: large;
 }
 
-.space_char{
-	margin-right: 1%;
-	margin-left: 1%;
-	font-size: 120%;
+.right{
+	float:right;
 }
 
-.center {
-	text-align: center;
-}
-
-.popup {
-	background: #ffffff;
-}
-
-.popup .content{
-	background: #eee;
-	margin: 0;
-	padding: 5px 10px;
-}
-
-.popup h2 a, .popup .pseudo-h2 a{
-	font-size: medium;
-	margin: 0;
-}
-	
-.popup h2, .popup .pseudo-h2  {
-	margin: 0;
-}
-
-.panel-default a.collapsed .glyphicon-minus-sign{
-	display: none;
-}
-
-.panel-default a.collapsed .glyphicon-plus-sign{
-	display: inline-block;
-}
-
-.panel-default  .glyphicon-plus-sign{
-	display: none;
-}
-
-.collapsed .panel-heading{
-	background: #fafafa;
-}
-
-.panel-heading{
-	background: #990000;
-}
-
-.collapsed h4.panel-title, .collapsed .pseudo-h4.panel-title{
-	color: #990000;
-}
-
-h4.panel-title, .pseudo-h4.panel-title{
-	color: #ffffff;
-	margin-top: 0;
-	margin-bottom: 0;
-	font-size: 16px;
-}
-
-#accordion .panel a{
-	text-decoration: none;
-}
-
-#breadcrumbs{
-  position: relative;
-  list-style:none;
-  margin: 8px 0 8px 0;
-  overflow:hidden;
-  padding-left: 0;
-  background-color: #efefef;
-  padding: 5px 5px 5px 20px;
-  border: 1px solid #d0d0d0;
-}
- 
-#breadcrumbs li{
-  font-size: 14px;
-  float:left;
-  margin-right:15px;
-  color:#1e1e1e;
-}
-
-#breadcrumbs li a{
-    color: #1e1e1e;
-}
-
-#breadcrumbs li a:hover{
-    text-decoration: underline;
-}
- 
-#breadcrumbs .separator{
-    font-weight:700;
-    font-size:14px;
-    color:#1e1e1e;
-}
-
-#subnav-wrap {
-  background-image: url('img/noisy_grid_light.png');
-}
-
-.page-title-section {
-  margin: 0;
-  /*height: 150px;*/
-}
-
-.redbtn{
-  color: #ffffff;
-}
-
-.well-tseng {
-  color: #fff;
-  background-color: #688a7e;
-  border-color: #42564f;
-  text-align: center;
-  /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);*/
-}
-
-.well-tseng a{
-	color: #fff;
-}
-
-
-span.option-title {
-	display: block;
-	color: #000;
-	font-size: 88%;
-}
-
-@media (max-width: 767px) { /*Rules that apply only to xs size =================================================================================*/
-  #csunnav {
-  position: absolute;
-  top: 68px;
-  width: 100%;
-  background-color: #181818;
-  z-index: 20;
-}
-
-.menu-item {
-  display: block;
-}
-
-.mainbanner {
-  margin-top: 68px;
-}
-
-.banner-title{
-    font-size: 18px;
-    margin-top: 60px;
-}
-
-.banner-title-big{
-    font-size: 21px;
-}
-.banner-title-small{
-    font-size: 14px;
-}
-
-.banner-title-inner {
-    font-size: 18px;
-    margin-top: 50px;
-}
-
-.inner-title-wrap{
-  padding: 0 30px 0 30px;
-}
-
-.nav > li > a:hover {
-  background-color: #000;
-}
-
-#breadcrumbs-wrap {
-  padding: 0;
-}
-
-#menu-catalog-menu {
-  padding-left: 0;
-}
-
-#menu-catalog-menu li {
-  padding: 5px;
-  margin: 4px 0 4px 0;
-}
-
-#menu-catalog-menu li:hover{
-  background-color: #000;
-}
-
-#csunsearch {
-  position: absolute;
-  top: 68px;
-  width: 100%;
-  height: 50px;
-  padding: 10px 15px;
-  background-color: #181818;
-  z-index: 20;    
-  }
-  
-  #search-div{
-	position: absolute;
-	top: 0px;
-	width: 100%;
-  }
-
-  #wrap{
-    border: 0;
-  }
-
-  #quicklinks-lg, #quicklinks,
-  #headerbar .headerbar-logo{
-	display: none;
-  }
-  
- #headerbar .row{
-	position: absolute;
-	top: 0px;
-	width: 100%;
- }
-.hideme,
-#headerbar #search-div .hideme {
-  display: none;
-}
-
-.showme,
-#headerbar #search-div .showme,
-.showme .navbar-form > label{
-  display: block;
-}
-
-#headerbar .col-xs-12{
-	padding: 0;
-}
-
-#breadcrumbs-wrap{
-	display: none;
-}
-
-/* 7 - Inner Page*/
-
-.inner-title {
-  font-size: 21px;
-}
-
-#share-icons {
-  border-top: 1px solid #d0d0d0;
-  border-bottom: 1px solid #d0d0d0;
-  padding: 10px 0 10px 0;
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
-#share-icons li a span, ##share-icons li span span {
-  font-size: 18px;
-}
-
-.pad-box {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-#catalog-subnav ul li {
-  padding: 0;
-}
-
-#catalog-subnav ul li a {
-  font-size: 12px;
-}
-
-.land-bg {
-  /*display: none;*/
-}
-
-.landing-item {
-  width: 100%;
-  border-bottom: solid 1px #cacaca;
-  margin-top: 10;
-
-}
-
-.landing-item:last-child {
-  border: 0;
-}
-
-.landing-over {
-  position: relative;
-  padding: 5px 15px 5px 15px;
-  text-align: center;
-  height: 180px;
-}
-
-.landing-over .land-bg {
-  width: 68px;
-  min-width: 15%;
-  margin: 0;
-  display: block;
-  float: left;
-}
-
-.prog-title{
-  font-size: 18px;
-}
-
-.landing-over h2,
-.landing-over .pseudo-h2  {
-  display: block;
-  text-align: center;
-  padding-top: 10px;
-  font-size: 15px;
-}
-
-.landing-over > span {
-  display: none;
-}
-
-#catalog-subnav ul li a{
-  border-left: 1px solid #848484;
-}
-
-.dept-title-small {
-  font-size: 12px;
-}
-
-.section-content {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-/*#breadcrumbs {
-  display: none;
-}*/
-
-#breadcrumbs li{
-  font-size: 10px;
-  margin-right:10px;
-}
-
-#breadcrumbs .separator{
-    font-size:10px;
-}
-
-.dept-container{
-  padding: 0;
-}
-
-
-.footbox {
-  padding: 0 20px 0 20px;
-}
-
-
-.footerlinks > a {
-   font-size: 12px;
-}
-
-.space_char {
-	font-size : 150%;
-	margin: 0 3% 0 2%;
-	line-height: 210%;
-}
-
-.abc_title h2, .abc_title .pseudo-h2{
-	font-size: 24px;
-}
-
-}
-
-
-
-/*== END XS =======================*/
-
-/*SMALL MEDIA SIZE =================================================================================================================*/
-
-@media (min-width: 768px) { 
-
-
-#full-banner {
-  padding: 0px 0 0 0px;
-  margin:0px;
-}
-
-#full-banner-inner {
-  padding: 0px 0 0 0px;
-  margin:0px;
-  height: 158px;
-}
-
-
-/* 1 - Overall*/
-
-  #headerbar{
-    display: block;
-    height: 100px;
-  }
-
-
-  #fixbar{
-    position: relative;
-    background-color: #ffffff;
-    height: 130px;
-    -webkit-box-shadow: 0px 6px 5px 0px rgba(50, 50, 50, 0.14);
-    -moz-box-shadow:    0px 6px 5px 0px rgba(50, 50, 50, 0.14);
-    box-shadow:         0px 6px 5px 0px rgba(50, 50, 50, 0.14);
-  }
-
-  .iconblock{
-    display: none;
-  }
-
-
-
-/* 2 - nav */
-
-  #mininav{
-    display: none;
-  }
-
-  #csunnav {
-    display: block;
-    height: 30px;
-    width: 100%;
-    background-color: #990000;
-    /*border: solid 1px #710100;*/
-    padding: 0;
-  }
-
-
-  #csunnav > .container{
-    height: 100%;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    background-color: #990000;
-  }
-
-  .menu-catalog-menu-container {
-    display: block;
-    height: 100%;
-  }
-
-  #menu-catalog-menu {
-    display: block;
-    min-width: 10px;
-    padding-left: 0;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
-  }
-
-  #menu-catalog-menu li { 
-    float: left;
-    display: inline-block;
-    height: 100%;
-    
-    border-right: solid 1px #ffffff;
-  }
-
-  #menu-catalog-menu li:hover {
-    background-color: #000;
-    color: #ffffff;
-  }
-
-  #menu-catalog-menu li a {
-    background-color:#900;
-    display: block;
-    height: 100%;
-    vertical-align: middle;
-    padding: 5px 25px 0 25px;
-  }
-
-  #menu-catalog-menu li a:hover {
-    background-color: #000;
-    color: #ffffff;
-  }
-
-  #menu-catalog-menu li:last-child{
-    border: 0;
-  }
-
-
-/* 3 - Quicklinks Rules  */
-
-  #quicklinks-lg{
-    display: inline-block;
-    margin-top: 15px;
-    width: 100%;
-  }
-
-  #quicklinks-lg>ul>li {
-    display: inline-block;
-    text-decoration: none;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-right: 1px solid #181818;
-    font-size: 12px;
-
-  }
-
-  #quicklinks-lg>ul>li:last-child{
-    padding-right: 0px;
-    border: 0;
-  }
-
-  #quicklinks-lg>ul>li>a {
-
-  color: #990000;
-
-  }
-
-  #quicklinks-lg>ul>li>a:hover {
-  background-color: transparent;
-  }
-
-/* 4 - Search Bar Rules  */
-  #csunsearch {
-    padding: 2px;
-    width: 100%;
-    float: right;
-  }
- 
-
-/*5 - Banner Rules*/
-
-  .mainbanner {
-    padding: 0px 15px 0px 15px;
-  }
-
-/*6 - Footer Rules*/
-
-  .footbox {
-    text-align: center;
-  }
-
-  .redbtn {
-    color: #ffffff;
-    margin: 0;
-    margin: auto;
-  }
-
-/*  .footbox > a {
-    text-align: left;
-  }
-
-  .footbox > span {
-    text-align: left;
-  }*/
-
-/* 7 - Inner Page Rules */
-
-#share-icons li a span, ##share-icons li span span {
-  font-size: 21px;
-}
-
-.landing-over > img {
-  max-width: 65%;
-}
-
-.landing-over h2, .landing-over .pseudo-h2 {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.landing-over > span {
-  display: none;
-}
-
-#catalog-subnav{
-  margin-top: 13px;
-  z-index: 100;
-}
-
-} /*== END SM =======================*/
-
-/*medium media size ===================================================================================================================*/
-
-@media (min-width: 992px) {
-
-/* 1 - Overall Rules */ 
-
-  #headerbar{
-    display: block;
-    height: 100px;
-  }
-
-.landing-item {
-  height: 220px;
-
-}
-
-
-
-  #fixbar{
-    position: relative;
-    background-color: #ffffff;
-    height: 130px;
-  }
-
-
-  .iconblock{
-    display: none;
-  }
-
-  .mainbanner {
-  }
-
-/* 2 - Nav Rules*/
-
-  #mininav{
-    display: none;
-  }
-
-  #csunnav {
-    display: block;
-    height: 30px;
-  }
-
-  #menu-catalog-menu li { 
-    
-  }
-
-  #menu-catalog-menu li a {
-    font-size: 14px;
-    padding: 5px 40px 0 40px;
-  }
-
-
-   #logo{
-  margin-top: 20px;
-  }
-/* 3 - Quicklinks Rules  */
-
-#quicklinks-lg>ul>li {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-  
-/* 3 - Rules*/
-
-/* 4 - Search Bar Rules*/
-  #csunsearch {
-    padding: 2px;
-    width: 80%;
-    float: right;
-  }
-
-/* 5 - Banner Rules*/
-
-  .mainbanner {
-  }
-
-/* 6 - Footer Rules*/
-
-  .btnbox{
-    width: 100%;
-    margin: auto;
-  }
-
-/* 7 - Inner Page Rules*/
-
-.landing-over > img {
-  max-width: 45%;
-}
-
-.landing-over h2, .landing-over .pseudo-h2 {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.landing-over > span {
-  display: block;
-  font-size: 14px;
-}
-
-#catalog-subnav{
-  margin-top: 13px;
-  z-index: 100;
-}
-
-} /*== END MD =======================*/
-
-/* Large Media Size ==================================================================================================================*/
-
-@media (min-width: 1200px){
-
-/* 1 - Overall Rules */
-
-  #headerbar{
-    display: block;
-    height: 100px;
-  }
-
-  #fixbar{
-    position: relative;
-    background-color: #ffffff;
-    height: 140px;
-  }
-
-  .iconblock{
-    display: none;
-  }
-
-
-  #logo{
-  margin-top: 20px;
-  }
-
-/* 2 - Nav Rules */
-
-  #mininav{
-    display: none;
-  }
-
-  #csunnav {
-    height: 40px;
-  }
-
-   #menu-catalog-menu li { 
-    
-  }
-
-  #menu-catalog-menu li:hover {
-
-  }
-
-  #menu-catalog-menu li a {
-    font-size: 14px;
-    padding: 10px 60px 0 60px;
-  }
-
-
-/* 3 - Quicklinks Rules*/
-
-  #quicklinks-lg>ul>li {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-
-/* 4 - Search Bar Rules*/
-  #csunsearch {
-    padding: 2px;
-    width: 80%;
-    float: right;
-  }
-
-/* 5 - Banner Rules*/
-
-  .mainbanner {
-  }
-
-/* 6 - Footer Rules*/
-
-/* 7 - Inner Page Rules*/
-
-.landing-over {
-  padding: 20px 25px 20px 25px;
-}
-
-.landing-over > img {
-  max-width: 45%;
-}
-
-.landing-over h2, .landing-over .pseudo-h2 {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.landing-over > span {
-  display: block;
-  font-size: 16px;
-}
-
-#catalog-subnav{
-  margin-top: 13px;
-  z-index: 100;
-}
-
-} /*== END LG =======================*/
-
-
-
-
-/* General Eduction ========================================*/
+/* * * * * * * * Side Navigation * * * * * * * */
 
 .side-nav-col {
-  padding-left: 0;
-  padding-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .side-nav {
-  padding-left: 0;
+	padding-left: 0;
 }
 
 .side-nav li {
-  display: block;
-  border-bottom: solid 1px #949494;
-  background-color: #fafafa;
-
+	display: block;
+	border-bottom: solid 1px #949494;
+	background-color: #fafafa;
 }
 
-
 .side-nav li a {
-  display: block;
-  color: #1e1e1e;
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  
+	display: block;
+	color: #1e1e1e;
+	width: 100%;
+	padding: 10px;
+	font-size: 14px;
 }
 
 .side-nav li.side-nav-active,
 .side-nav li.current-menu-item{
-  display: block;
-  border: solid 1px #990000;
-  background-color: #990000;
-
+	display: block;
+	border: solid 1px #990000;
+	background-color: #990000;
 }
 
 .side-nav li.side-nav-active a,
 .side-nav li.current-menu-item a {
-  color: #ffffff;
+	color: #ffffff;
 }
 
 .side-nav li.current-menu-item li a {
-  color: #000;
+	color: #000;
 }
 
 .side-nav li:hover .sub-menu li a{
@@ -1773,28 +643,459 @@ ul.side-nav ul {
 }
 
 .side-nav li:hover {
-  background-color: #000;
-  border-bottom: solid 1px #000;
+	background-color: #000;
+	border-bottom: solid 1px #000;
 }
 
 .side-nav li:hover a {
-  color: #ffffff;
+	color: #ffffff;
 }
 
-@media (max-width: 767px) {
-  .side-nav {
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
+/* * * * * * * * Tables * * * * * * * */
 
+.csun-table {
+	margin-bottom: 10px;
+}
+
+.csun-table > thead > tr > th,
+.csun-table > tbody > tr > th,
+.csun-table > tfoot > tr > th,
+.csun-table > thead > tr > td,
+.csun-table > tbody > tr > td,
+.csun-table > tfoot > tr > td {
+	padding: 8px;
+	line-height: 1.428571429;
+	vertical-align: top;
+	border: 0;
+}
+
+.csun-table > thead > tr > th {
+	vertical-align: bottom;
+}
+
+.csun-table{
+	border: 0;
+}
+
+.csun-table > tbody > tr:first-child > th {
+	background-color: #f9f9f9;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+}
+
+.csun-table .header-footer th,
+.csun-table .header-footer td{
+	background-color: #f9f9f9;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+}
+
+.csun-table > tbody > tr:hover > td,
+.csun-table > tbody > tr:hover > th {
+	background-color: #f5f5f5;
+}
+
+/* * * * * * * * Misc * * * * * * * */
+
+.bold{
+	font-weight: bold;
+}
+
+.noborder {
+	border: 0;
+}
+
+.dark {
+	color: #1e1e1e;
+}
+
+.red{
+	color: #990000;
+}
+
+.small-marg-top {
+	margin-top: 20px;
+}
+
+.small-marg-bottom {
+	margin-bottom: 20px;
+}
+
+.img-responsive {
+	width: 100% !important;
+	max-width:100%;
+}
+
+/* ------------------------ 5 - Search Page Rules -------------------------- */
+
+ul.search_results li a:hover {
+	color: #fff;
+}
+
+ul.search_results li{
+	border : 1px solid #949494;
+}
+
+ul.checkbox-list{
+	list-style-type: none;
+	padding: 0;
+}
+
+#advanced-search label {
+	width: 35%;
+	padding-left: 5%;
+}
+#advanced-search label.little-label {
+	width: initial;
+	padding-left: initial;
+}
+#advanced-search input[type=text],
+#advanced-search input[type=number] {
+	width: 54%;
+}
+#advanced-search input[type=radio],
+#advanced-search input[type=checkbox]{
+	width: initial;
+}
+#advanced-search select {
+	width: 54%;
+}
+
+.pagination-content{
+	text-align: center;
+}
+
+span.option-title {
+	display: block;
+	color: #000;
+	font-size: 88%;
+}
+
+/* ------------------------ 6 - Academic Page Rules ------------------------ */
+
+/* * * * * * * * Titles * * * * * * * */
+
+.with-option {
+	margin-bottom: 3px;
+}
+
+.option-title {
+	margin-top: 2px;
+}
+
+/* * * * * * * * Subnavigation * * * * * * * */
+
+.arrow-wrap {
+	width: 30px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: -60px;
+}
+
+.subnav-arrow {
+	display: block;
+	position: relative;
+	width: 0; 
+	height: 0; 
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 15px solid #990000;
+	margin:auto;
+}
+
+#catalog-subnav{
+	margin-bottom: 0px;
+	z-index: 50;
+}
+
+#catalog-subnav ul{
+	padding-left: 0;
+	display: block;
+	width: 100%;
+	margin: auto;
+}
+
+#catalog-subnav ul li {
+	display: block;
+	float: left;
+	width: 25%;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#catalog-subnav ul li.active:hover .subnav-arrow{
+	border-top: 15px solid #710100;
+}
+
+#catalog-subnav ul li.active a {
+	color: #ffffff;
+	background-color: #990000;
+	border: solid 1px #990000;
+}
+
+#catalog-subnav ul li.active:hover a {
+	background-color: #710100;
+	border: solid 1px #710100;
+}
+
+#catalog-subnav ul li:hover a {
+	background-color: #000;
+	color: #ffffff;
+}
+
+#catalog-subnav ul li a {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 16px; 
+	color: #000;
+	padding: 10px 0px 10px 0px;
+	background-color: #c7c7c7;
+	border: solid 1px #949494;
+}
+
+#catalog-subnav ul li ul {
+	position: absolute;
+	z-index: 150;
+	top: 149px;
+	display: none;
+	background-color: #000;
+	width: 25%;
+	max-width: 50%;
+	padding-bottom: 5px;
+}
+
+#catalog-subnav ul li.active ul {
+	background-color: #710100;
+	border: solid 1px #710100;
 
 }
 
-/*4 Year Plans and Star Act Plans ===============================================================================================*/
+#catalog-subnav ul li.active ul li:hover{
+	background-color: #000;
+}
+
+#catalog-subnav ul li.active ul li a{
+	border: 0;
+}
+
+#catalog-subnav ul li.active ul li a:hover{
+	background-color: #000;
+}
+
+#catalog-subnav ul li ul li {
+	display: block;
+	width: 100%;
+	margin: 0;
+}
+
+#catalog-subnav ul li ul li a {
+	color: #ffffff;
+	display: block;
+	font-size: 12px;
+	border: 0;
+	border-bottom: solid 1px #000; 
+}
+
+#catalog-subnav ul li ul li:last-child a{
+	border-bottom: 0; 
+}
+
+#catalog-subnav ul li ul li:hover a{
+	background-color: #990000;
+}
+
+#catalog-subnav ul li:hover ul {
+	display: block; 
+}
+
+/* * * * * * * * Sharing Icons * * * * * * * */
+
+#share-icons {
+	min-height: 32px;
+	position: relative;
+	list-style:none;
+	margin: 8px 0 0 0;
+	overflow:hidden;
+	padding-left: 0;
+	padding: 5px 5px 5px 20px;
+}
+
+#share-icons li{
+	width: 33%;
+	float:left;
+	color:#1e1e1e;
+}
+
+#share-icons li a span,
+#share-icons li span{
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+.share-icon {
+	display: block;
+	font-size: 24px;
+	color: #990000;
+}
+
+.share-icon:hover {
+	color: #1e1e1e;
+}
+
+.screen-reader-text { /* hides text */
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+/* * * * * * * * Bread Crumbs * * * * * * * */
+
+#breadcrumbs{
+	position: relative;
+	list-style:none;
+	margin: 8px 0 8px 0;
+	overflow:hidden;
+	padding-left: 0;
+	background-color: #efefef;
+	padding: 5px 5px 5px 20px;
+	border: 1px solid #d0d0d0;
+}
+
+#breadcrumbs li{
+	font-size: 14px;
+	float:left;
+	margin-right:15px;
+	color:#1e1e1e;
+}
+
+#breadcrumbs li a{
+	color: #1e1e1e;
+}
+
+#breadcrumbs li a:hover{
+	text-decoration: underline;
+}
+ 
+#breadcrumbs .separator{
+	font-weight:700;
+	font-size:14px;
+	color:#1e1e1e;
+}
+
+/* * * * * * * * Tseng * * * * * * * */
+
+.well-tseng {
+	color: #fff;
+	background-color: #688a7e;
+	border-color: #42564f;
+	text-align: center;
+}
+
+.well-tseng a{
+	color: #fff;
+}
+
+/* ------------------------- 7 - Index Page Rules -------------------------- */
+
+#landing-section {
+	background-image: url('img/noisy_grid.png');
+	padding-bottom: 10px;
+}
+
+.landing-item {
+	padding: 0px 4px 0px 4px;
+	margin-top: 8px;
+	height: 160px;
+	text-align: center;
+}
+
+.land-bg {
+	width: auto !important;
+	background-position: auto auto;
+	background-repeat: no-repeat;
+	background-color: #fff;
+	height:100%;
+	position: relative;
+	background-image: url('img/landing-bg.jpg');
+	background-size: 100% 100%;
+	
+}
+
+.land-icon{
+	max-width: 170px;
+	margin:0px auto !important;
+}
+
+.land-head{
+	color: #1e1e1e;
+	font-family: museo, helvetica, arial, sans-serif;
+}
+
+.landing-over {
+	top: 0;
+	left: 0;
+}
+
+.landing-over > img {
+	display: block;
+}
+
+.landing-over h2,
+.landing-over .pseudo-h2 {
+	text-align: center;
+}
+
+.landing-over > span {
+	color: #727272;
+	display: block;
+	text-align: center;
+}
+
+.landing-link:focus	.land-bg,
+.landing-link:active .land-bg{
+	border: 1px solid #428bca;
+}
+
+/* ------------------------- 8 - Policy Page Rules ------------------------- */
+
+#policy-tags a {
+	text-decoration: none;
+}
+
+#policy-cats a {
+	text-decoration: none;
+}
+
+.policy-page-title {
+	margin-top: 0px;
+}
+
+.tax-name {
+	color: #000;
+}
+
+#policy-tags .btn{
+	margin-bottom: 5px;
+}
+
+#policy-cats .btn{
+	margin-bottom: 5px;
+}
+
+/* ------------------------ 9 - Planning Page Rules ------------------------ */
+
+a.planning-degree-title{
+	text-decoration:underline; 
+	color:#990000;
+}
+
+/* * * * * * * * Tables * * * * * * * */
 
 .plans table {
-  width: 100%;
-  margin-bottom: 20px;
+	width: 100%;
+	margin-bottom: 20px;
 }
 
 .plans table > thead > tr > th,
@@ -1803,35 +1104,37 @@ ul.side-nav ul {
 .plans table > thead > tr > td,
 .plans table > tbody > tr > td,
 .plans table > tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.428571429;
-  vertical-align: top;
-  border: 0;
+	padding: 8px;
+	line-height: 1.428571429;
+	vertical-align: top;
+	border: 0;
 }
 
 .plans table > thead > tr > th {
-  vertical-align: bottom;
+	vertical-align: bottom;
 }
 
 .plans table{
-  border: 0;
+	border: 0;
 }
 
 .plans table > tbody > tr:last-child > td,
 .plans table > tbody > tr:first-child > th {
-  background-color: #f9f9f9;
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
+	background-color: #f9f9f9;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
 }
 
 .plans table > tbody > tr:hover > td,
 .plans table > tbody > tr:hover > th {
-  background-color: #f5f5f5;
+	background-color: #f5f5f5;
 }
 
 .plans tr th+th{
-  width: 20%;
- }
+	width: 20%;
+}
+
+/* * * * * * * * Link Grid * * * * * * * */
 
 .plan-grid ul {
 	list-style: none;
@@ -1891,12 +1194,75 @@ ul.side-nav ul {
 	background-color: #000;
 }
 
-/*Tables ===================================================================================================================*/
+/* --------------------- 10 - General Education Rules ---------------------- */
 
+/* * * * * * * * Pop Up List * * * * * * * */
+
+.popup {
+	background: #ffffff;
+}
+
+.popup .content{
+	background: #eee;
+	margin: 0;
+	padding: 5px 10px;
+}
+
+.popup h2 a, .popup .pseudo-h2 a{
+	font-size: medium;
+	margin: 0;
+}
+	
+.popup h2, .popup .pseudo-h2	{
+	margin: 0;
+}
+
+/* * * * * * * * GE Accordions * * * * * * * */
+
+.panel-default a.collapsed .glyphicon-minus-sign{
+	display: none;
+}
+
+.panel-default a.collapsed .glyphicon-plus-sign{
+	display: inline-block;
+}
+
+.panel-default	.glyphicon-plus-sign{
+	display: none;
+}
+
+.collapsed .panel-heading{
+	background: #fafafa;
+}
+
+.panel-heading{
+	background: #990000;
+}
+
+.collapsed h4.panel-title, .collapsed .pseudo-h4.panel-title{
+	color: #990000;
+}
+
+h4.panel-title, .pseudo-h4.panel-title{
+	color: #ffffff;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 16px;
+}
+
+#accordion .panel a{
+	text-decoration: none;
+}
+
+.panel p {
+	line-height: 18px;
+}
+
+/* * * * * * * * Tables * * * * * * * */
 
 #ge-table {
-  width: 100%;
-  margin-bottom: 20px;
+	width: 100%;
+	margin-bottom: 20px;
 }
 
 #ge-table > thead > tr > th,
@@ -1905,196 +1271,592 @@ ul.side-nav ul {
 #ge-table > thead > tr > td,
 #ge-table > tbody > tr > td,
 #ge-table > tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.428571429;
-  vertical-align: top;
-  border: 0;
+	padding: 8px;
+	line-height: 1.428571429;
+	vertical-align: top;
+	border: 0;
 }
 
 #ge-table > thead > tr > th {
-  vertical-align: bottom;
+	vertical-align: bottom;
 }
 
 #ge-table{
-  border: 0;
+	border: 0;
 }
 
 #ge-table > tbody > tr:last-child > td,
 #ge-table > tbody > tr:first-child > th {
-  background-color: #f9f9f9;
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
+	background-color: #f9f9f9;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
 }
 
 #ge-table > tbody > tr:hover > td,
 #ge-table > tbody > tr:hover > th {
-  background-color: #f5f5f5;
+	background-color: #f5f5f5;
 }
 
-.csun-table {
-  margin-bottom: 10px;
+/* -------------------------- 11 - Faculty Rules --------------------------- */
+
+.space_char{
+	margin-right: 1%;
+	margin-left: 1%;
+	font-size: 120%;
 }
 
-.csun-table > thead > tr > th,
-.csun-table > tbody > tr > th,
-.csun-table > tfoot > tr > th,
-.csun-table > thead > tr > td,
-.csun-table > tbody > tr > td,
-.csun-table > tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.428571429;
-  vertical-align: top;
-  border: 0;
+/* ------------------------ 12 - Collumnizer Rules ------------------------- */
+
+.dept-container{
+	margin-bottom: 40px;
 }
 
-.csun-table > thead > tr > th {
-  vertical-align: bottom;
+.dept-item {
+	border: solid 1px #cacaca;
+	color: #000;
+	height: 70px;
+	display: inline-block;
+	width: 100%;
+	padding:10px 10px;
 }
 
-.csun-table{
-  border: 0;
+.dept-item:hover {
+	background-color: #000;
+	color: #ffffff;
 }
 
-.csun-table > tbody > tr:first-child > th {
-  background-color: #f9f9f9;
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
+.dept-item:hover{
+	color: #ffffff;
 }
 
-.csun-table .header-footer th,
-.csun-table .header-footer td{
-  background-color: #f9f9f9;
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
+.dept-item.credential {
+	overflow: hidden;
+	margin-top: -6px;
 }
 
-.csun-table > tbody > tr:hover > td,
-.csun-table > tbody > tr:hover > th {
-  background-color: #f5f5f5;
+.center {
+	text-align: center;
 }
 
-/*Miscellaneous Stuff ===================================================================================================================*/
-
-.sm-buffer{
-  display: block;
-  width:100%;
-  height: 40px;
+/* ---------------------------- 12 - A-Z Rules ----------------------------- */
+.a-z-container .first.column {
+	padding-right: 15px;
+	padding-left: 0;
 }
 
-.right{
-  float: right;
+.a-z-container .column {
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
-.left{
-  float: left;
-}
-
-.red{
-  color: #990000;
-}
-
-.bold{
-  font-weight: bold;
-}
-
-.redbtn{
-  color: #ffffff;
-}
-
-/*Triangles*/
-
-.arrow-up {
-  width: 0; 
-  height: 0; 
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  
-  border-bottom: 5px solid black;
-}
-
-.arrow-down {
-  display: inline-block;
-  width: 0; 
-  height: 0; 
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;  
-  border-top: 8px solid #aaaaaa;
-  margin-left: 8px;
-  margin-right: 4px;
-}
-
-.arrow-down:hover {
-  border-top: 8px solid #990000;
-  cursor: pointer;
-}
-
-.arrow-right {
-  width: 0; 
-  height: 0; 
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  
-  border-left: 60px solid green;
-}
-
-.arrow-left {
-  width: 0; 
-  height: 0; 
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;  
-  border-right:10px solid blue; 
-}
-
-.lightgray {
-  background-color: #f5f5f5;
-  border-radius: 5px;
-}
-
-.rborder {
-  border-left: solid 1px #e8e8e8;
-}
-
-.noborder {
-  border: 0;
-}
-
-.dark {
-  color: #1e1e1e;
-}
-
-.red {
-  color: #990000;
-}
-
-.small-marg-top {
-  margin-top: 20px;
-}
-
-.small-marg-bottom {
-  margin-bottom: 20px;
-}
-
-.img-responsive {
-  width: 100% !important;
-  max-width:100%;
+.a-z-container .last.column {
+	padding-right: 0;
+	padding-left: 15px;
 }
 
 
-/* 
-  Boostrap 3 Media Query Ribbon by GMena
-  Media Query Breakpoints defined here http://http://getbootstrap.com/css/.
+/* * * * * * * * * * * * * * * * * * * * * * * End General * * * * * * * * * * * * * * * * * * * * * * * */
 
-*/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *										Extra Small Media Size
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-@media (min-width: 0px) 
-  { var:after {content: 'x-small'; color:hotpink;}}
-@media (min-width: 768px) 
-  { var:after {content: 'small';color:green;}}
-@media (min-width: 992px) 
-  { var:after {content: 'medium';color:red;}}
-@media (min-width: 1200px) 
-  { var:after {content: 'large';color:blue;}}
+@media (max-width: 767px) {
+	
+	/* --------------------------- 1 - Overall Rules --------------------------- */
+	/* --------------------------- 2 - Header Rules ---------------------------- */
+	
+	#csunnav {
+		position: absolute;
+		top: 68px;
+	}
 
-#issuefield ul li{
-	list-style-type:none !important;
+	.menu-item {
+		display: block;
+	}
+	
+	#menu-catalog-menu {
+		padding-left: 0;
+	}
+
+	#menu-catalog-menu li {
+		padding: 5px;
+		margin: 4px 0 4px 0;
+	}
+	
+	#menu-catalog-menu li:hover{
+		background-color: #000;
+	}
+
+	.mainbanner {
+		margin-top: 68px;
+	}
+	
+	.nav > li > a:hover {
+		background-color: #000;
+	}
+	
+	#csunsearch {
+		position: absolute;
+		top: 68px;
+		width: 100%;
+		height: 50px;
+		padding: 10px 15px;
+		background-color: #181818;
+		z-index: 20;
+	}
+
+	#search-div{
+		position: absolute;
+		top: 0px;
+		width: 100%;
+	}
+	
+	#quicklinks-lg, #quicklinks,
+	#headerbar .headerbar-logo{
+		display: none;
+	}
+
+	#headerbar .row{
+		position: absolute;
+		top: 0px;
+		width: 100%;
+	}
+	.hideme,
+	#headerbar #search-div .hideme {
+		display: none;
+	}
+
+	.showme,
+	#headerbar #search-div .showme,
+	.showme .navbar-form > label{
+		display: block;
+	}
+
+	#headerbar .col-xs-12{
+		padding: 0;
+	}
+	
+	/* --------------------------- 3 - Footer Rules ---------------------------- */
+	
+	.footbox {
+		padding: 0 20px 0 20px;
+	}
+
+	.footerlinks > a {
+		font-size: 12px;
+	}
+	
+	/* ----------------------------- 4 - Page Rules ---------------------------- */
+	
+	#wrap{
+		border: 0;
+	}
+	
+	.pad-box {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+	.inner-title-wrap{
+		padding: 0 30px 0 30px;
+	}
+	
+	.section-content {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.inner-title {
+		font-size: 21px;
+	}
+	
+	.prog-title{
+		font-size: 18px;
+	}
+	
+	.dept-title-small {
+		font-size: 12px;
+	}
+	
+	.side-nav {
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+	
+	/* ------------------------ 5 - Search Page Rules -------------------------- */
+	/* ------------------------ 6 - Academic Page Rules ------------------------ */
+	
+	#breadcrumbs-wrap {
+		display: none;
+	}
+	
+	#share-icons {
+		border-top: 1px solid #d0d0d0;
+		border-bottom: 1px solid #d0d0d0;
+		padding: 10px 0 10px 0;
+		margin-top: 8px;
+		margin-bottom: 8px;
+	}
+
+	#share-icons li a span, ##share-icons li span span {
+		font-size: 18px;
+	}
+	
+	#catalog-subnav ul li {
+		padding: 0;
+	}
+
+	#catalog-subnav ul li a {
+		font-size: 12px;
+		border-left: 1px solid #848484;
+	}
+	
+	/* ------------------------- 7 - Index Page Rules -------------------------- */
+	
+	.landing-item {
+		width: 100%;
+		border-bottom: solid 1px #cacaca;
+		margin-top: 10;
+	}
+
+	.landing-item:last-child {
+		border: 0;
+	}
+
+	.landing-over {
+		position: relative;
+		padding: 5px 15px 5px 15px;
+		text-align: center;
+		height: 180px;
+	}
+
+	.landing-over .land-bg {
+		width: 68px;
+		min-width: 15%;
+		margin: 0;
+		display: block;
+		float: left;
+	}
+	
+	.landing-over h2,
+	.landing-over .pseudo-h2	{
+		display: block;
+		text-align: center;
+		padding-top: 10px;
+		font-size: 15px;
+	}
+
+	.landing-over > span {
+		display: none;
+	}
+	
+	/* ------------------------- 8 - Policy Page Rules ------------------------- */
+	/* ------------------------ 9 - Planning Page Rules ------------------------ */
+	/* --------------------- 10 - General Education Rules ---------------------- */
+	/* -------------------------- 11 - Faculty Rules --------------------------- */
+	
+	.space_char {
+		font-size : 150%;
+		margin: 0 3% 0 2%;
+		line-height: 210%;
+	}
+
+	.abc_title h2, .abc_title .pseudo-h2{
+		font-size: 24px;
+	}
+	
+	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
+	
+	.dept-container{
+		padding: 0;
+	}
+
 }
+
+/* * * * * * * * * * * * * * * * * * * * * End Extra Small * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *										Small Media Size
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@media (min-width: 768px) {
+
+	/* --------------------------- 1 - Overall Rules --------------------------- */
+	/* --------------------------- 2 - Header Rules ---------------------------- */
+	
+	#headerbar{
+		height: 100px;
+	}
+
+	#fixbar{
+		position: relative;
+		background-color: #ffffff;
+		height: 130px;
+		-webkit-box-shadow: 0px 6px 5px 0px rgba(50, 50, 50, 0.14);
+		-moz-box-shadow:		0px 6px 5px 0px rgba(50, 50, 50, 0.14);
+		box-shadow:				 0px 6px 5px 0px rgba(50, 50, 50, 0.14);
+	}
+
+	.iconblock{
+		display: none;
+	}
+	
+	#mininav{
+		display: none;
+	}
+	
+	#quicklinks-lg{
+		display: inline-block;
+	}
+
+	#quicklinks-lg>ul>li {
+		display: inline-block;
+	}
+
+	#csunnav {
+		display: block;
+		height: 30px;
+		background-color: #990000;
+		padding: 0;
+	}
+
+	#csunnav > .container{
+		height: 100%;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+		background-color: #990000;
+	}
+	
+	.menu-catalog-menu-container {
+		display: block;
+		height: 100%;
+	}
+
+	#menu-catalog-menu {
+		display: block;
+		min-width: 10px;
+		padding-left: 0;
+		margin-left: auto;
+		margin-right: auto;
+		height: 100%;
+	}
+
+	#menu-catalog-menu li { 
+		float: left;
+		display: inline-block;
+		height: 100%;
+		border-right: solid 1px #ffffff;
+	}
+
+	#menu-catalog-menu li:hover {
+		background-color: #000;
+		color: #ffffff;
+	}
+
+	#menu-catalog-menu li a {
+		background-color:#900;
+		display: block;
+		height: 100%;
+		vertical-align: middle;
+		padding: 5px 25px 0 25px;
+	}
+
+	#menu-catalog-menu li a:hover {
+		background-color: #000;
+		color: #ffffff;
+	}
+
+	#menu-catalog-menu li:last-child{
+		border: 0;
+	}
+	
+	#csunsearch {
+		width: 100%;
+	}
+
+	#full-banner {
+		padding: 0;
+		margin: 0;
+	}
+
+	#full-banner-inner {
+		padding: 0;
+		margin:0;
+		height: 158px;
+	}
+	
+	.mainbanner {
+		padding: 0px 15px 0px 15px;
+	}
+	
+	/* --------------------------- 3 - Footer Rules ---------------------------- */
+	
+	.footbox {
+		text-align: center;
+	}
+	
+	/* ----------------------------- 4 - Page Rules ---------------------------- */
+	/* ------------------------ 5 - Search Page Rules -------------------------- */
+	/* ------------------------ 6 - Academic Page Rules ------------------------ */
+	
+	#share-icons li a span, #share-icons li span span {
+		font-size: 21px;
+	}
+	
+	#catalog-subnav{
+		margin-top: 13px;
+		z-index: 100;
+	}
+	
+	/* ------------------------- 7 - Index Page Rules -------------------------- */
+	
+	.landing-over > img {
+		max-width: 65%;
+	}
+
+	.landing-over h2, .landing-over .pseudo-h2 {
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	.landing-over > span {
+		display: none;
+	}
+	
+	/* ------------------------- 8 - Policy Page Rules ------------------------- */
+	/* ------------------------ 9 - Planning Page Rules ------------------------ */
+	/* --------------------- 10 - General Education Rules ---------------------- */
+	/* -------------------------- 11 - Faculty Rules --------------------------- */
+	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * End Small * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *											Medium Media Size
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@media (min-width: 992px) {
+
+	/* --------------------------- 1 - Overall Rules --------------------------- */
+	/* --------------------------- 2 - Header Rules ---------------------------- */
+
+	#logo{
+		margin-top: 20px;
+	}
+
+	#quicklinks-lg>ul>li {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+
+	#csunsearch {
+		width: 80%;
+	}
+	
+	#menu-catalog-menu li a {
+		font-size: 14px;
+		padding: 5px 40px 0 40px;
+	}
+	
+	/* --------------------------- 3 - Footer Rules ---------------------------- */
+	
+	.btnbox{
+		width: 100%;
+		margin: auto;
+	}
+	
+	/* ----------------------------- 4 - Page Rules ---------------------------- */
+	/* ------------------------ 5 - Search Page Rules -------------------------- */
+	/* ------------------------ 6 - Academic Page Rules ------------------------ */
+	/* ------------------------- 7 - Index Page Rules -------------------------- */
+	
+	.landing-item {
+		height: 220px;
+	}
+	
+	.landing-over > img {
+		max-width: 45%;
+	}
+
+	.landing-over > span {
+		display: block;
+		font-size: 14px;
+	}
+	
+	/* ------------------------- 8 - Policy Page Rules ------------------------- */
+	/* ------------------------ 9 - Planning Page Rules ------------------------ */
+	/* --------------------- 10 - General Education Rules ---------------------- */
+	/* -------------------------- 11 - Faculty Rules --------------------------- */
+	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * End Medium * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *											Large Media Size
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@media (min-width: 1200px){
+	
+	/* --------------------------- 1 - Overall Rules --------------------------- */
+	/* --------------------------- 2 - Header Rules ---------------------------- */
+	
+	#fixbar{
+		height: 140px;
+	}
+
+	#csunnav {
+		height: 40px;
+	}
+
+	#menu-catalog-menu li a {
+		font-size: 14px;
+		padding: 10px 60px 0 60px;
+	}
+
+	#quicklinks-lg>ul>li {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	/* --------------------------- 3 - Footer Rules ---------------------------- */
+	/* ----------------------------- 4 - Page Rules ---------------------------- */
+	/* ------------------------ 5 - Search Page Rules -------------------------- */
+	/* ------------------------ 6 - Academic Page Rules ------------------------ */
+	/* ------------------------- 7 - Index Page Rules -------------------------- */
+	
+	.landing-over {
+		padding: 20px 25px 20px 25px;
+	}
+
+	.landing-over h2, .landing-over .pseudo-h2 {
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.landing-over > span {
+		display: block;
+		font-size: 16px;
+	}
+	
+	/* ------------------------- 8 - Policy Page Rules ------------------------- */
+	/* ------------------------ 9 - Planning Page Rules ------------------------ */
+	/* --------------------- 10 - General Education Rules ---------------------- */
+	/* -------------------------- 11 - Faculty Rules --------------------------- */
+	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
+
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * End Large * * * * * * * * * * * * * * * * * * * * * * * */

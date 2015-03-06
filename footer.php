@@ -5,7 +5,7 @@
 		</a>
 		<div id="footer">
 			<div id="outside-footer" class="row">
-				<div class="container" id="footer">
+				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 footpad clearfix">
 							<div class="footbox">
@@ -19,7 +19,10 @@
 							<div class="footbox">
 								<p>Was this site helpful to you? Let us know here:</p>
 								<div class="btnbox">
-									<span class="redbtn"><a href="<?php echo site_url('/feedback'); ?>">Feedback</a></span>
+									<form action="<?php echo site_url('/feedback'); ?>" method="get">
+									<input type="hidden" name="referer-url" value="<?php echo $_SERVER['REQUEST_URI']; ?>" />
+									<input class="redbtn" type="submit" value="Feedback" />
+									</form>
 								</div>
 							</div>
 						</div>

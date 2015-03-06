@@ -2,7 +2,64 @@
 
 /**
  * Template Name: Sitemap Template
+ * 
+ * Faculty/Emeriti links, policy categories, departments, pages (- JSON), majors, minors, groups
+ * 
  */ 
+ 
+ //departments, pages, groups
+$posts = get_posts( array(
+		'posts_per_page' => -1,
+		'post_type' => array('departments', 'pages', 'groups'),
+		'exclude' => array(32859),								//exclude the json page
+	)
+);
+
+//policy categories
+$pol_cats = get_terms('policy_categories');
+
+$links = array(
+	'faculty' => array (
+		'name' => 'Faculty and Administration',
+		'link' => site_url('/faculty/a'),
+		),
+	'emeriti' => array (
+		'name' => 'Emeriti',
+		'link' => site_url('/emeriti/a'),
+		),
+	'majors' => array (
+		'name' => 'Majors',
+		'link' => site_url('/programs/major/'),
+		),
+	'minors' => array (
+		'name' => 'Minors',
+		'link' => site_url('/programs/minor/'),
+		),
+	'policies' => array (
+		'name' => 'Policies',
+		'link' => site_url('/policies/'),
+		)
+	);
+	
+foreach($posts as $post)
+{
+	$title = sanitize_title($post->post_title);
+	$links[$title] = array(
+		'name' => $post->post_title,
+		'link' => get_permalink($post->ID)
+	);
+}
+
+foreach($pol_cats as $cat)
+{
+	$links[$cat->slug] = array(
+		'name' => $cat->name,
+		'link' => get_term_link($cat, 'policy_categories'),
+	);
+}
+
+ksort($links);
+$curr_letter = '';
 
 get_header(); ?>
 
@@ -11,97 +68,28 @@ get_header(); ?>
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="section-content">
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<ul class="side-nav">
-						<li><a href="#csun">CSUN</a></li>
-						<li><a href="#undergrad">Undergraduate Programs</a></li>
-						<li><a href="#student">Student Services</a></li>
-						<li><a href="#special">Special Programs</a></li>
-						<li><a href="#ge">General Education (GE)</a></li>
-						<li><a href="#grs">Graduate Studies (RGS)</a></li>
-						<li><a href="#courses">Courses of Study</a></li>
-						<li><a href="#policies">University Policies</a></li>
-						<li><a href="#faculty">Faculty</a></li>
-						<li><a href="#planning">Planning Guides</a></li>
-					</ul>
-					<br />
+				<!--
+				<div id="abc_nav" data-spy="affix" data-offset-top="440" data-offset-bottom="10" class = "hidden-xs col-sm-3 col-md-3 col-lg-3">
+					<?php foreach (range('A', 'Z') as $char) : ?>
+						<a href="#<?php echo 'index-'.$char; ?>">
+							<span class="btn btn-primary btn-sm"><?php echo $char; ?></span>
+						</a>
+					<?php endforeach; ?>
 				</div>
-				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
-						<?php the_content(); ?>
-					<?php endwhile; endif; ?>
+				<div class = "col-sm-3 col-md-3 col-lg-3"></div> !-->
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 a-z-container">
 				
-					<span id="ge" class="section-title"><span><h2>General Education</h2></span></span>
-					<p>
-					<?php		
-						$gened = get_page_by_title('General Education');
-						?>
-						<a href="<?php echo get_permalink($gened->ID);?>"/><?php echo $gened->post_title; ?></a><br />
-						<?php
-						
-						$gened_pages = get_pages(array('child_of' => ($gened->ID)));
-						
-						foreach($gened_pages as $page): ?>
-							<a href="<?php echo get_permalink($page->ID);?>"/><?php echo $page->post_title; ?></a><br />
-						<?php endforeach;?>  
-						<a href="<?php echo site_url('/general-education/information-competence/');?>"/>Information Competence</a><br />
-						<a href="<?php echo site_url('/general-education/upper-division/');?>"/>Upper Division</a><br />
-						<a href="<?php echo site_url('/general-education/courses/');?>"/>Courses</a><br />
-						</p>
-				
-					<span id="grs" class="section-title"><span><h2>Graduate Studies</h2></span></span>
-					<p>
-					<?php		
-						$rgs = get_page_by_title('Research and Graduate Studies');
-						?>
-						<a href="<?php echo get_permalink($rgs->ID);?>"/><?php echo $rgs->post_title; ?></a><br />
-						<?php
-						
-						$rgs_pages = get_pages(array('child_of' => ($rgs->ID)));
-						
-						foreach($rgs_pages as $page): ?>
-							<a href="<?php echo get_permalink($page->ID);?>"/><?php echo $page->post_title; ?></a><br />
-						<?php endforeach;?>
-						</p>
-				
-					<span id="courses" class="section-title"><span><h2>Courses of Study</h2></span></span>
-					<p>
-					<?php				
-					$query_departments = new WP_Query(array('post_type' => 'departments', 'orderby' => 'title', 'order' => 'ASC','posts_per_page' => 1000,));
+				<?php foreach($links as $entry) : ?>
+					<?php 
+						$this_letter = strtoupper(substr($entry['name'],0,1));
 							
-					if($query_departments->have_posts()) : while($query_departments->have_posts()) : $query_departments->the_post(); 
-					
-						$post_id = get_the_ID();
-						$terms = wp_get_post_terms( $post_id, 'department_shortname');
-						$url = get_csun_archive('departments', $terms[0]->slug);
+						if($this_letter != $curr_letter) {
+							echo '<span class="section-title abc_title"><span><h2 id="index-'.$this_letter.'">'.$this_letter.'</h2></span></span>';
+							$curr_letter = $this_letter;
+						}
 					?>
-						<a href="<?php echo $url;?>"/><?php the_title(); ?></a> <br />
-					<?php endwhile; endif; 
-						
-						wp_reset_query(); ?>
-					</p>
-				
-					<span id="policies" class="section-title"><span><h2>Policies</h2></span></span>
-					<p>
-					<?php				
-					$terms = get_terms('policy_categories');
-
-					foreach($terms as $term) : ?>
-						<a href="<?php echo get_term_link($term, 'policy_categories');?>"/><?php echo $term->name; ?></a><br />
-					<?php endforeach; ?> 
-					</p>
-				
-					<span id="faculty" class="section-title"><span><h2>Faculty</h2></span></span>
-					<p>
-					<a href="<?php echo site_url('/faculty/a');?>"/>Faculty and Administration</a><br />
-					<a href="<?php echo site_url('/emeriti/a');?>"/>Emeriti</a><br />
-					</p>
-				
-					<span id="planning" class="section-title"><span><h2>Planning Guides</h2></span></span>
-					<p>
-					<a href="<?php echo site_url('/plan/');?>"/>Degree Planning Guides</a><br />
-					<a href="<?php echo site_url('/plan/star-act/');?>"/>STAR Act</a><br />
-					</p>
+					<p><a href="<?php echo $entry['link']; ?>"><?php echo $entry['name']; ?></a></p>
+				<?php endforeach; ?>
 				</div>
 			</div>
 		</div>

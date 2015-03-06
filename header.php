@@ -54,7 +54,7 @@
 					</div> <!-- end neglogo -->
 					
 					<div class="iconblock">
-						<a ><span id="searchicon" class="glyphicon glyphicon-search right"></span></a>
+						<a ><span id="searchicon" class="glyphicon glyphicon-search pull-right"></span></a>
 					</div><!-- end search iconblock -->
 					
 				</div> <!-- end mininav -->
@@ -71,7 +71,7 @@
 						<div class="col-xs-12 col-sm-8 col-lg-8">
 						
 							<div class="row" id="quicklinks-lg">
-								<ul class="right">
+								<ul class="pull-right">
 									<li ><a href="#skipstuff">Skip Nav</a></li>
 									<li ><a href="http://www.csun.edu/universaldesigncenter">Accessibility</a></li>
 									<li ><a href="http://www.csun.edu/calendar/">Calendar</a></li>

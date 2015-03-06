@@ -17,6 +17,7 @@ $( document ).ready(function() {
 
 
 	$(".dept-container").columnize({ width: 300 });
+	$(".a-z-container").columnize({ width: 400 });
 
 	$('[data-toggle="popover"]').popover();
 	
@@ -78,6 +79,15 @@ $( document ).ready(function() {
 		var height = $("#footer").outerHeight(true);
 		height += 20;
 		return height;
+	});
+	
+	$('.optional.field').css({"display":"none"});
+	
+	$('#post_type').click( function() {
+		var post_type = $('#post_type').find(":selected").val();
+		console.log(post_type);
+		$('.optional.field').css({"display":"none"});
+		$('.field.'+post_type).css({"display":"block"});
 	});
 	
 });

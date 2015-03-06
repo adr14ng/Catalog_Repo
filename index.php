@@ -10,13 +10,13 @@
 			<div class="land-bg">
 				<div class="landing-over clearfix">
 					<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icon-xmarks.png">
-					<h2 class="land-head">Table of Contents</h2>
-					<span class="land-copy">A site map to help you find your way.</span>
+					<h2 class="land-head">A to Z</h2>
+					<span class="land-copy">An index to help you find your way.</span>
 				</div>
 			</div>
 		</div>
 		</a>
-		<a class="landing-link" href="<?php echo site_url('/about/'); ?>">
+		<a class="landing-link" href="<?php echo site_url('/about/introduction/'); ?>">
 		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
 			<div class="land-bg">
 			<div class="landing-over clearfix">
@@ -34,7 +34,7 @@
 			<div class="landing-over clearfix">
 				<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icon-sundial.png">
 				<h2 class="land-head">Catalog Resources</h2>
-				<span class="land-copy">Archives, Degree Planning Guides and more.</span>
+				<span class="land-copy">Catalog Archives, Degree Planning Guides and more.</span>
 			</div>
 			</div>
 		</div>

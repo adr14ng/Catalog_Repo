@@ -101,7 +101,7 @@ function get_csun_permalink($id = 0, $leavename = false){
 	$post_type = $post->post_type;
 	
 	//if it isn't one of the links we want to modify
-	if($post_type == 'programs' && $post_type == 'programs' && $post_type == 'programs' ){
+	if($post_type !== 'programs' || $post_type !== 'courses' || $post_type !== 'faculty' ){
 		return get_permalink($id, $leavename);
 	}
 	
@@ -237,6 +237,14 @@ function csun_search_title($title, $id=false) {
 			if($post_categories[0] !== "College") :
 				$title = '<span class="type-title">'.$post_categories[0].': '.'</span>'.$title;
 			endif;
+		elseif($post->post_type === 'staract') :
+			$year = get_the_terms( $id, 'aca_year');
+			
+			$title = $title.'<span class="option-title">'.$year[0]->name.' STAR Act Planning Guide</span>';
+		elseif($post->post_type === 'plans') :
+			$year = get_the_terms( $id, 'aca_year');
+			
+			$title = $title.'<span class="option-title">'.$year[0]->name.' Degree Planning Guide</span>';
 		endif;
 	endif;
 	
@@ -561,31 +569,26 @@ function add_ge_links( $content )
 					{
 						$url .= 'a1';
 						$name = 'a1';
-						$popup = true;
 					}
 					elseif(stripos($matches[2], 'critical') !== false)
 					{
 						$url .= 'a2';
 						$name = 'a2';
-						$popup = true;
 					}
 					elseif(stripos($matches[2], 'math') !== false)
 					{
 						$url .= 'a3';
 						$name = 'a3';
-						$popup = true;
 					}
 					elseif(stripos($matches[2], 'oral') !== false)
 					{
 						$url .= 'a4';
 						$name = 'a4';
-						$popup = true;
 					}
 					elseif(stripos($matches[2], 'natural') !== false)
 					{
 						$url .= 's1';
 						$name = 's1';
-						$popup = true;
 					}
 					elseif(stripos($matches[2], 'art') !== false)
 					{
@@ -618,17 +621,10 @@ function add_ge_links( $content )
 					$name .= '-ud';
 				}
 				
-				$link = '<a href="'.$url.'" name="'.$name.'" target="_blank" title="A new window containing GE courses meeting this requirement." class="pop-up">';
-				$link_nopopup =  '<a href="'.$url.'" name="'.$name.'" target="_blank" title="A new window containing GE courses meeting this requirement.">';
-				
-				
-				if(!empty($name) && $popup)
+				if(!empty($name))
 				{
+					$link = '<a href="'.$url.'" name="'.$name.'" target="_blank" title="A new window containing GE courses meeting this requirement." class="pop-up">';
 					return $link.$matches[0].'</a>';
-				}
-				elseif(!empty($name))
-				{
-					return $link_nopopup.$matches[0].'</a>';
 				}
 				else
 				{
@@ -673,9 +669,31 @@ function class_search($params)
 }
 add_filter('relevanssi_search_filters', 'class_search');
 
+
+/**
+ *	Adds pages back into search queries
+ *	Hooks onto relevanssi_search_filters filter
+ */
+function modify_search_params( $query ) {
+	if(isset($_REQUEST['post_type']))
+	{
+		if(is_array($_REQUEST['post_type']) && in_array('page', $_REQUEST['post_type']))
+		{
+			if(is_array($query['post_type']))
+			{
+				if(!in_array('page', $query['post_type']))
+				{
+					$query['post_type'][] = 'page';
+				}
+			}
+		}
+	}
+	return $query;
+}
+add_action( 'relevanssi_search_filters', 'modify_search_params');
+
 /**
  *	FOR TEST SITE USE ONLY
- *  May want to use this in the opposite direction when doing live site (just in case)
  *  Filters links to change from main catalog to test catalog
  *  Hooks onto the_content filter.
  *
@@ -684,6 +702,7 @@ add_filter('relevanssi_search_filters', 'class_search');
 function links_test_site($content)
 {
 	$content = str_ireplace('http://www.csun.edu/catalog', 'http://wwwtest.csun.edu/catalog', $content);
+	$content = str_ireplace('/academics/acct/', '/academics/acctis/', $content);
 	return $content;
 }
 add_filter('the_content', 'links_test_site');
@@ -694,6 +713,30 @@ add_filter('acf/load_value/name=program_list',  'links_test_site');
 add_filter('acf/load_value/name=related_topics',  'links_test_site');
 add_filter('acf/load_value/name=program_requirements',  'links_test_site');
 add_filter('acf/load_value/name=custom_contact',  'links_test_site');
+
+/**
+ *	FOR PRODUCTION SITE USE ONLY
+ *  Filters links to change from text catalog to main catalog
+ *  Hooks onto the_content filter.
+ *
+ *  @return	$string		Corrected links
+ */
+ /*
+function links_test_site($content)
+{
+	$content = str_ireplace('http://wwwtest.csun.edu/catalog', 'http://www.csun.edu/catalog', $content);
+	$content = str_ireplace('/academics/acct/', '/academics/acctis/', $content);
+	return $content;
+}
+add_filter('the_content', 'links_test_site');
+add_filter('acf/load_value/name=college_courses',  'links_test_site');
+add_filter('acf/load_value/name=mission_statement',  'links_test_site');
+add_filter('acf/load_value/name=academic_advisement',  'links_test_site');
+add_filter('acf/load_value/name=program_list',  'links_test_site');
+add_filter('acf/load_value/name=related_topics',  'links_test_site');
+add_filter('acf/load_value/name=program_requirements',  'links_test_site');
+add_filter('acf/load_value/name=custom_contact',  'links_test_site');
+*/
 
 /**
  * Add custom style formats
@@ -841,3 +884,80 @@ function custom_fields_to_excerpts($content, $post, $query) {
     return $content;
 }
 add_filter('relevanssi_excerpt_content', 'custom_fields_to_excerpts', 10, 3);
+
+
+function search_result_types( $hits ) {
+    global $hns_search_result_type_counts;
+    $types = array();
+	
+    if ( ! empty( $hits ) ) {
+        foreach ( $hits[0] as $hit ) {
+            $types[$hit->post_type]++;
+        }
+    }
+    $hns_search_result_type_counts = $types;
+	
+    return $hits;
+}
+add_filter('relevanssi_hits_filter', 'search_result_types');
+
+/**
+ * Only use words that appear more than once for spelling suggestions.
+ * This helps prevent processing overload on our rather large data set.
+ * Hooks onto relevanssi_get_words_query
+ */
+function fix_query($query) {
+    $query = $query . " HAVING c > 1";
+    return $query;
+}
+add_filter('relevanssi_get_words_query', 'fix_query');
+
+/**
+ * Weight plans based on aca_year
+ *
+ */
+function aca_year_weights($match)
+{
+	//will be ordered lowest to highest
+	$years = get_terms('aca_year', array('fields'=>'names'));
+	$increment = 8 / count($years);
+	
+	$post_type = relevanssi_get_post_type($match->doc);
+	
+	if($post_type === 'staract' || $post_type === 'plans')
+	{
+		$year = get_the_terms( $match->doc, 'aca_year');
+		$mult = array_search($year[0]->name, $years);
+		$match->weight = $match->weight * (.25 + $mult * $increment);
+	}
+	
+	return $match;
+}
+add_filter('relevanssi_match', 'aca_year_weights');
+
+function search_trigger($search_ok)
+{
+	global $wp_query;
+	if( (!empty($wp_query->query_vars['post_type']) && $wp_query->query_vars['post_type'] !== 'any')
+		&& (!empty($wp_query->query_vars['tax_query']) || !empty($wp_query->query_vars['meta_query'])))
+	{
+		$search_ok = true;
+	}
+	
+	return $search_ok;
+}
+add_filter('relevanssi_search_ok', 'search_trigger');
+
+function empty_search( $hits ) {
+    global $wp_query;
+	
+    if ( empty( $hits[0] ) ) {
+		$args = $wp_query->query;
+		unset($args['s']);
+		$args['posts_per_page'] = 200;
+        $hits[0] = get_posts($args);
+    }
+	
+    return $hits;
+}
+add_filter('relevanssi_hits_filter', 'empty_search');

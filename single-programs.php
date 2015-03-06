@@ -204,10 +204,11 @@ get_header(); ?>
 							
 							if ( $plans ) : ?>
 								<div class="section-content col-sm-6 col-md-12 col-lg-12">
-									<span class="section-title"><span><h2>4-Year Plans</h2></span></span> 
+									<span class="section-title"><span><h2>Degree Planning Guides</h2></span></span> 
 									<?php foreach($plans as $plan): ?>
-									<p><a title="Degree Planning Guide for <?php echo $plan->post_title; ?>" href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title; ?></a></p>
+										<p><a title="Degree Planning Guide for <?php echo $plan->post_title.' - '.$planning_year; ?>" href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title.' - '.$planning_year; ?></a></p>
 									<?php endforeach; ?>
+									<p><a title="Previous Years' Degree Planning Guides" href="<?php echo site_url('/planning/plans/'.$dept); ?>">Previous Years</a></p>
 								</div>	
 							<?php endif; ?>
 							
@@ -225,8 +226,9 @@ get_header(); ?>
 										</div>
 									</span> 
 									<?php foreach($plans as $plan): ?>
-									<p><a title="STAR Act for <?php echo $plan->post_title; ?>" href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title; ?></a></p>
+									<p><a title="STAR Act for <?php echo $plan->post_title.' - '.$planning_year; ?>" href="<?php echo get_permalink($plan->ID); ?>"><?php echo $plan->post_title.' - '.$planning_year; ?></a></p>
 									<?php endforeach; ?>
+									<p><a title="Previous Years' STAR Act Planning Guides" href="<?php echo site_url('/planning/staract/'.$dept); ?>">Previous Years</a></p>
 								</div>	
 							<?php endif; ?>
 
