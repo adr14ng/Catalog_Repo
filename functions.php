@@ -51,7 +51,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 
 
-/** * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Use this function to get the link to the department page,
  * and the lists of programs, courses, and faculty
  *
@@ -59,7 +59,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
  * @param string $dept_name	Slug of department name
  *
  * @return string
- * * * * * * * * * * * * * * * * * * */
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 function get_csun_archive($post_type, $dept_name){
     $base = get_bloginfo('url');
 
@@ -162,95 +162,8 @@ function the_csun_permalink(){
 	}
 	
 	return $contact;
- }
-
-/**
- *	Sets post archive limits.
- *	Hooks onto pre_get_posts filter.
- */
-function limit_posts_per_search_page() {
-	if(!is_admin()){
-		if ( is_search())
-			$limit = 10;
-		else
-			$limit = 3000;
-
-		set_query_var('posts_per_archive_page', $limit);
-	}
 }
-add_filter('pre_get_posts', 'limit_posts_per_search_page');
 
-/**
- *	Applies an appropriate title for the search page.
- *	Hooks onto the_title filter.
- *
- *	@param	string $title	The post title
- *	@param	int $id			ID of the post in question.
- */
-function csun_search_titles($title, $id=false) {
-	if((!is_admin()) && is_search()) :
-		$title = csun_search_title($title, $id);
-	endif;
-	
-	return $title;
-}
-add_filter('the_title', 'csun_search_titles', 10, 2);
-
-/**
- *	Creates the appropriate title for a search result.
- *	Hooks onto dwls_post_title filter and the_title filter.
- *
- *	@param	string $title	The post title
- *	@param	int $id			ID of the post in question.
- */
-function csun_search_title($title, $id=false) {
-	if($id) :
-		$post = get_post($id);
-		if($post->post_type === 'programs') :
-			$title = program_name($id, $title);
-			
-			$option=get_field('option_title', $id);
-			if(isset($option) && $option!=='') : 
-				$title = $title.'<span class="option-title">'.$option.' Option</span>';
-			endif;
-		elseif($post->post_type === 'faculty') :
-			$position = "Faculty: ";
-			$terms = get_the_term_list(  $id, 'department_shortname', '', ', ');
-				if( strpos( $terms, 'Emeriti') !== FALSE) :
-				$position = "Emeritus ".$position;
-			endif;
-				
-			if( strpos( $terms, 'Administration') !== FALSE) :
-				$admin = true;
-				$position = "Administrator: ";
-			endif;
-				
-			if( strpos( $terms, 'Faculty') !== FALSE && $admin) :
-				$position = "Administrator and Faculty: ";
-			endif;
-				
-			$title = '<span class="type-title">'.$position.'</span>'.$title;
-			
-		elseif($post->post_type === 'departments') :
-			$post_categories = wp_get_post_categories($id, array('fields' => 'names'));
-			
-			if($post_categories[0] !== "College") :
-				$title = '<span class="type-title">'.$post_categories[0].': '.'</span>'.$title;
-			endif;
-		elseif($post->post_type === 'staract') :
-			$year = get_the_terms( $id, 'aca_year');
-			
-			$title = $title.'<span class="option-title">'.$year[0]->name.' STAR Act Planning Guide</span>';
-		elseif($post->post_type === 'plans') :
-			$year = get_the_terms( $id, 'aca_year');
-			
-			$title = $title.'<span class="option-title">'.$year[0]->name.' Degree Planning Guide</span>';
-		endif;
-	endif;
-	
-	return $title;
-}
-add_filter('dwls_post_title', 'csun_search_title', 10, 2);
 
 /**
  *	Get the program name with correct degree signifier.
@@ -453,21 +366,6 @@ function sort_terms_by_description($terms){
 	return $sort_terms;
 }
 
-
-/**
- *	If no order is specified, alphabetize by title.
- *	Hooks onto pre_get_posts
- *
- *	@param	WP_Query $query		The original query object
- */
-function alphabetize_everything($query) {
-	if($query->is_main_query() && !is_search() && !isset($query->query[orderby])) {
-		$query->set('orderby', 'title');
-		$query->set('order', 'ASC');
-	}
-}
-add_action( 'pre_get_posts', 'alphabetize_everything',  3);
-
 /**
  *	Forces template to be the one we choose when multiple are possible.
  *	Hooks onto template_include filter.
@@ -523,12 +421,13 @@ function csun_select_template( $template ){
 add_filter('template_include', 'csun_select_template');
 
 /**
- *	Filters out faculty with Emeriti from faculty directory queries
+ *	Modify the query
  *	Hooks onto pre_get_posts action.
  *
  *	@param	WP_Query $query		The original query object
  */
-function minus_emeriti( $query ) {
+function modify_query( $query ) {
+	//Filters out faculty with Emeriti from faculty directory queries
 	//check that this is directory and not emeriti (only department shortname possible)
 	if(isset($query->query_vars['directory']) && !isset($query->query_vars['department_shortname'])) :
 		//create the query for no emeriti
@@ -543,9 +442,25 @@ function minus_emeriti( $query ) {
 		$query->set('tax_query', $tax_query);
 	endif;
 	
+	//If no order is specified, alphabetize by title.
+	if($query->is_main_query() && !is_search() && !isset($query->query[orderby])) :
+		$query->set('orderby', 'title');
+		$query->set('order', 'ASC');
+	endif;
+	
+	//Sets post archive limits
+	if(!is_admin()){
+		if ( is_search())
+			$limit = 10;
+		else
+			$limit = 3000;
+
+		set_query_var('posts_per_archive_page', $limit);
+	}
+	
 	return $query;
 }
-add_action( 'pre_get_posts', 'minus_emeriti');
+add_action( 'pre_get_posts', 'modify_query');
 
 /**
  *	Searches through content and adds links to GE pages on Star Act
@@ -648,59 +563,6 @@ function add_ge_links( $content )
 add_filter( 'the_content', 'add_ge_links');
 
 /**
- *	Adds quotes when searching for classes because for some reason search
- *		won't find it without it.
- *	Hooks onto relevanssi_search_filters filter
- */
-function class_search($params)
-{
-	$search_term = $params['q'];
-	
-	//if searching for a class add quotes
-	$search_term = preg_replace_callback( 
-		'/([A-Z]{2,4} )(\d{2,3})/i', 
-		function($matches) {
-			//allows searching for XXX 40 to find all 40X level classes
-			if($matches[2] > 80 && $matches[2] < 100)
-			{
-				$matches[0] = $matches[1].'0'.$matches[2];
-			}
-			
-			return '"'.$matches[0].'"';
-		}, 
-		$search_term
-	);
-	
-	$params['q'] = $search_term;
-	
-	return $params;
-}
-add_filter('relevanssi_search_filters', 'class_search');
-
-
-/**
- *	Adds pages back into search queries
- *	Hooks onto relevanssi_search_filters filter
- */
-function modify_search_params( $query ) {
-	if(isset($_REQUEST['post_type']))
-	{
-		if(is_array($_REQUEST['post_type']) && in_array('page', $_REQUEST['post_type']))
-		{
-			if(is_array($query['post_type']))
-			{
-				if(!in_array('page', $query['post_type']))
-				{
-					$query['post_type'][] = 'page';
-				}
-			}
-		}
-	}
-	return $query;
-}
-add_action( 'relevanssi_search_filters', 'modify_search_params');
-
-/**
  *	FOR TEST SITE USE ONLY
  *  Filters links to change from main catalog to test catalog
  *  Hooks onto the_content filter.
@@ -730,20 +592,20 @@ add_filter('acf/load_value/name=custom_contact',  'links_test_site');
  *  @return	$string		Corrected links
  */
  /*
-function links_test_site($content)
+function links_prod_site($content)
 {
 	$content = str_ireplace('http://wwwtest.csun.edu/catalog', 'http://www.csun.edu/catalog', $content);
 	$content = str_ireplace('/academics/acct/', '/academics/acctis/', $content);
 	return $content;
 }
-add_filter('the_content', 'links_test_site');
-add_filter('acf/load_value/name=college_courses',  'links_test_site');
-add_filter('acf/load_value/name=mission_statement',  'links_test_site');
-add_filter('acf/load_value/name=academic_advisement',  'links_test_site');
-add_filter('acf/load_value/name=program_list',  'links_test_site');
-add_filter('acf/load_value/name=related_topics',  'links_test_site');
-add_filter('acf/load_value/name=program_requirements',  'links_test_site');
-add_filter('acf/load_value/name=custom_contact',  'links_test_site');
+add_filter('the_content', 'links_prod_site');
+add_filter('acf/load_value/name=college_courses',  'links_prod_site');
+add_filter('acf/load_value/name=mission_statement',  'links_prod_site');
+add_filter('acf/load_value/name=academic_advisement',  'links_prod_site');
+add_filter('acf/load_value/name=program_list',  'links_prod_site');
+add_filter('acf/load_value/name=related_topics',  'links_prod_site');
+add_filter('acf/load_value/name=program_requirements',  'links_prod_site');
+add_filter('acf/load_value/name=custom_contact',  'links_prod_site');
 */
 
 /**
@@ -836,6 +698,87 @@ function csunFormatTinyMCE( $init_array ) {
 add_filter('tiny_mce_before_init', 'csunFormatTinyMCE' );
 
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+                                            Search
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+  
+/*------------------- Modify Result Look ------------------------------*/
+
+/**
+ *	Applies an appropriate title for the search page.
+ *	Hooks onto the_title filter.
+ *
+ *	@param	string $title	The post title
+ *	@param	int $id			ID of the post in question.
+ */
+function csun_search_titles($title, $id=false) {
+	if((!is_admin()) && is_search()) :
+		$title = csun_search_title($title, $id);
+	endif;
+	
+	return $title;
+}
+add_filter('the_title', 'csun_search_titles', 10, 2);
+
+/**
+ *	Creates the appropriate title for a search result.
+ *	Hooks onto dwls_post_title filter and the_title filter.
+ *
+ *	@param	string $title	The post title
+ *	@param	int $id			ID of the post in question.
+ */
+function csun_search_title($title, $id=false) {
+	if($id) :
+		$post = get_post($id);
+		if($post->post_type === 'programs') :
+			$title = program_name($id, $title);
+			
+			$option=get_field('option_title', $id);
+			if(isset($option) && $option!=='') : 
+				$title = $title.'<span class="option-title">'.$option.' Option</span>';
+			endif;
+		elseif($post->post_type === 'faculty') :
+			$position = "Faculty: ";
+			$terms = get_the_term_list(  $id, 'department_shortname', '', ', ');
+				if( strpos( $terms, 'Emeriti') !== FALSE) :
+				$position = "Emeritus ".$position;
+			endif;
+				
+			if( strpos( $terms, 'Administration') !== FALSE) :
+				$admin = true;
+				$position = "Administrator: ";
+			endif;
+				
+			if( strpos( $terms, 'Faculty') !== FALSE && $admin) :
+				$position = "Administrator and Faculty: ";
+			endif;
+				
+			$title = '<span class="type-title">'.$position.'</span>'.$title;
+			
+		elseif($post->post_type === 'departments') :
+			$post_categories = wp_get_post_categories($id, array('fields' => 'names'));
+			
+			if($post_categories[0] !== "College") :
+				$title = '<span class="type-title">'.$post_categories[0].': '.'</span>'.$title;
+			endif;
+		elseif($post->post_type === 'staract') :
+			$year = get_the_terms( $id, 'aca_year');
+			
+			$title = $title.'<span class="option-title">'.$year[0]->name.' STAR Act Planning Guide</span>';
+		elseif($post->post_type === 'plans') :
+			$year = get_the_terms( $id, 'aca_year');
+			
+			$title = $title.'<span class="option-title">'.$year[0]->name.' Degree Planning Guide</span>';
+		endif;
+	endif;
+	
+	return $title;
+}
+add_filter('dwls_post_title', 'csun_search_title', 10, 2);
+
 function custom_field_excerpt($excerpt) {
 	global $post;
 
@@ -885,6 +828,60 @@ function custom_field_excerpt($excerpt) {
 }
 add_filter('get_the_excerpt', 'custom_field_excerpt', 0);
 
+/*------------------- Relevanssi ------------------------------*/
+
+/**
+ *	Adds quotes when searching for classes because for some reason search
+ *		won't find it without it.
+ *	Hooks onto relevanssi_search_filters filter
+ */
+function class_search($params)
+{
+	$search_term = $params['q'];
+	
+	//if searching for a class add quotes
+	$search_term = preg_replace_callback( 
+		'/([A-Z]{2,4} )(\d{2,3})/i', 
+		function($matches) {
+			//allows searching for XXX 40 to find all 40X level classes
+			if($matches[2] > 80 && $matches[2] < 100)
+			{
+				$matches[0] = $matches[1].'0'.$matches[2];
+			}
+			
+			return '"'.$matches[0].'"';
+		}, 
+		$search_term
+	);
+	
+	$params['q'] = $search_term;
+	
+	return $params;
+}
+add_filter('relevanssi_search_filters', 'class_search');
+
+
+/**
+ *	Adds pages back into search queries
+ *	Hooks onto relevanssi_search_filters filter
+ */
+function modify_search_params( $query ) {
+	if(isset($_REQUEST['post_type']))
+	{
+		if(is_array($_REQUEST['post_type']) && in_array('page', $_REQUEST['post_type']))
+		{
+			if(is_array($query['post_type']))
+			{
+				if(!in_array('page', $query['post_type']))
+				{
+					$query['post_type'][] = 'page';
+				}
+			}
+		}
+	}
+	return $query;
+}
+add_action( 'relevanssi_search_filters', 'modify_search_params');
 
 function custom_fields_to_excerpts($content, $post, $query) {
     $custom_field = get_field('mission_statement', $post->ID);
@@ -943,6 +940,7 @@ function aca_year_weights($match)
 }
 add_filter('relevanssi_match', 'aca_year_weights');
 
+/* Empty Search */
 function search_trigger($search_ok)
 {
 	global $wp_query;
@@ -972,7 +970,7 @@ function empty_search( $hits ) {
 }
 add_filter('relevanssi_hits_filter', 'empty_search');
 
-
+/*------------------- Advanced ------------------------------*/
 function parse_advanced_search($params)
 {
 	$tax_query = array();
