@@ -83,11 +83,21 @@ $( document ).ready(function() {
 	
 	$('.optional.field').css({"display":"none"});
 	
-	$('#post_type').click( function() {
+	$('#post_type').change( function() {
 		var post_type = $('#post_type').find(":selected").val();
 		console.log(post_type);
 		$('.optional.field').css({"display":"none"});
 		$('.field.'+post_type).css({"display":"block"});
+	});
+	
+	$('#hire_year').change(function() {
+		if(this.checked) {
+			$('.optional.hire-year').css({"display":"block"});
+		}
+		else
+		{
+			$('.optional.hire-year').css({"display":"none"});
+		}
 	});
 	
 });

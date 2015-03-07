@@ -477,9 +477,7 @@ add_action( 'pre_get_posts', 'alphabetize_everything',  3);
  */
 function csun_select_template( $template ){
 	global $wp_query;
-	
-	//print_r($wp_query->query);
-	
+
 	//Faculty directory
 	if(isset($wp_query->query_vars['directory'])) {
 		$directory_template = locate_template('taxonomy-directory.php');
@@ -504,6 +502,16 @@ function csun_select_template( $template ){
 	if(isset($wp_query->query_vars['aca_year']) && !isset($wp_query->query_vars['name']))
 	{
 		$new_template = locate_template('taxonomy-aca_year.php');
+		if(!empty($new_template))
+		{
+			$template = $new_template;
+		}
+	}
+	
+	//API calls
+	if(isset($wp_query->query_vars['api']))
+	{
+		$new_template = locate_template('page-json.php');
 		if(!empty($new_template))
 		{
 			$template = $new_template;
@@ -952,12 +960,241 @@ function empty_search( $hits ) {
     global $wp_query;
 	
     if ( empty( $hits[0] ) ) {
-		$args = $wp_query->query;
+		$args = parse_advanced_search($_REQUEST);
 		unset($args['s']);
 		$args['posts_per_page'] = 200;
         $hits[0] = get_posts($args);
+		
+		//print_r($args);
     }
 	
     return $hits;
 }
 add_filter('relevanssi_hits_filter', 'empty_search');
+
+
+function parse_advanced_search($params)
+{
+	$tax_query = array();
+	$meta_query = array();
+	
+	//college
+	if(!empty($params['college']))
+	{
+		$tax_query['dpt'] = array(
+			'taxonomy' 	=> 'department_shortname',
+			'field'		=> 'slug',
+			'terms'		=> $params['college'],
+		);
+	}
+	//department
+	if(!empty($params['department']))
+	{
+		if(isset($tax_query['dpt']))
+		{
+			if(is_array($tax_query['dpt']['terms']))
+			{
+				$tax_query['dpt']['terms'][] = $params['department'];
+			}
+			else
+			{
+				$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], $params['department']);
+			}
+		}
+		else
+		{
+			$tax_query['dpt'] = array(
+				'taxonomy' 	=> 'department_shortname',
+				'field'		=> 'slug',
+				'terms'		=> $params['department'],
+			);
+		}
+	}
+	//department_code
+	if(!empty($params['department_code']))
+	{
+		if(isset($tax_query['dpt']))
+		{
+			if(is_array($tax_query['dpt']['terms']))
+			{
+				$tax_query['dpt']['terms'][] = $params['department_code'];
+			}
+			else
+			{
+				$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], $params['department_code']);
+			}
+		}
+		else
+		{
+			$tax_query['dpt'] = array(
+				'taxonomy' 	=> 'department_shortname',
+				'field'		=> 'slug',
+				'terms'		=> $params['department_code'],
+			);
+		}
+	}
+	//degree_level
+	if(!empty($params['degree_level']))
+	{
+		$tax_query[] = array(
+			'taxonomy' 	=> 'degree_level',
+			'field'		=> 'slug',
+			'terms'		=> $params['degree_level'],
+		);
+	}
+	//fund_source
+	if(!empty($params['fund_source']))
+	{
+		$meta_query[] = array(
+			'meta_key'		=> 'fund_source',
+			'meta_value'	=> $params['fund_source'],
+			'compare' 		=> '=',
+		);
+	}
+	//aca_year
+	if(!empty($params['aca_year']))
+	{
+		$tax_query[] = array(
+			'taxonomy' 	=> 'aca_year',
+			'field'		=> 'slug',
+			'terms'		=> $params['aca_year'],
+		);
+	}
+	//hire_year
+	if(!empty($params['hire_year']))
+	{
+		if($params['hire_year'] < 40)
+		{
+			$params['hire_year'] += 2000;
+		}
+		elseif($params['hire_year'] < 100)
+		{
+			$params['hire_year'] += 1900;
+		}
+		
+		$meta_query[] = array(
+			'key'		=> 'hire_year',
+			'value'		=> array($params['hire_year_start'], $params['hire_year_end']),
+			'type'		=> 'numeric',
+			'compare' 	=> 'BETWEEN',
+		);
+		
+	}
+	//current
+	if(!empty($params['current']))
+	{
+		if(empty($params['administrator']) && empty($params['emeritus']))
+		{
+			$tax_query[] = array(
+				'taxonomy' => 'department_shortname',
+				'terms' => array ( 'emeriti',  'admin') ,
+				'include_children' => 1 ,
+				'field' => 'slug' ,
+				'operator' => 'NOT IN',
+			);
+		}
+	}
+	//administrator
+	if(!empty($params['administrator']))
+	{
+		if(empty($params['current']))
+		{
+			if(isset($tax_query['dpt']))
+			{
+				if(is_array($tax_query['dpt']['terms']))
+				{
+					$tax_query['dpt']['terms'][] = 'admin';
+				}
+				else
+				{
+					$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], 'admin');
+				}
+			}
+			else
+			{
+				$tax_query['dpt'] = array(
+					'taxonomy' 	=> 'department_shortname',
+					'field'		=> 'slug',
+					'terms'		=> 'admin',
+				);
+			}
+		}
+	}
+	//emeritus
+	if(!empty($params['emeritus']))
+	{
+		if(empty($params['current']))
+		{
+			if(isset($tax_query['dpt']))
+			{
+				if(is_array($tax_query['dpt']['terms']))
+				{
+					$tax_query['dpt']['terms'][] = 'emeriti';
+				}
+				else
+				{
+					$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], 'emeriti');
+				}
+			}
+			else
+			{
+				$tax_query['dpt'] = array(
+					'taxonomy' 	=> 'department_shortname',
+					'field'		=> 'slug',
+					'terms'		=> 'emeriti',
+				);
+			}
+		}
+	}
+	//general_education_department
+	if(!empty($params['general_education_department']))
+	{
+		if(isset($tax_query['dpt']))
+		{
+			if(is_array($tax_query['dpt']['terms']))
+			{
+				$tax_query['dpt']['terms'][] = 'ge';
+			}
+			else
+			{
+				$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], 'ge');
+			}
+		}
+		else
+		{
+			$tax_query['dpt'] = array(
+				'taxonomy' 	=> 'department_shortname',
+				'field'		=> 'slug',
+				'terms'		=> 'ge',
+			);
+		}
+	}
+	//general_education
+	if(!empty($params['general_education']))
+	{
+		$tax_query[] = array(
+			'taxonomy' 	=> 'general_education',
+			'field'		=> 'slug',
+			'terms'		=> $params['general_education'],
+		);
+	}
+	
+	if(count($tax_query) > 1)
+	{
+		$tax_query['relation'] = 'AND';
+	}
+	
+	if(count($meta_query) > 1)
+	{
+		$meta_query['relation'] = 'AND';
+	}
+	
+	$args = array(
+		'post_type' 	=> $params['post_type'],
+		'meta_query'	=> $meta_query,
+		'tax_query'		=> $tax_query,
+		'posts_per_page' => 200,
+	);
+	
+	return $args;
+}

@@ -4,6 +4,7 @@
 get_header(); 
 
 $terms = get_the_terms($post->ID, 'group_type');
+$term = reset($terms);
 
 ?>
 
@@ -47,7 +48,7 @@ $terms = get_the_terms($post->ID, 'group_type');
 							'orderby' => 'title', 
 							'order' => 'ASC',
 							'posts_per_page' => 1000,
-							'group_type' => $terms[0]->slug,
+							'group_type' => $term->slug,
 						)
 					);
 

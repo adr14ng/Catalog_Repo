@@ -133,13 +133,23 @@ get_header(); ?>
 							</div>
 							
 							<div id="fund_source_container" class="optional field programs">
-								<label> Funding Source: </label>
-								<input type="radio" name="fund_source" id="fund_source_both" value="">
-								<label for="fund_source_both" class="little-label"> Any </label>
-								<input type="radio" name="fund_source" id="fund_source_state" value="state,both">
-								<label for="fund_source_state" class="little-label"> State Support </label>
-								<input type="radio" name="fund_source" id="fund_source_self" value="self,both">
-								<label for="fund_source_self" class="little-label"> Self Support </label>
+								<fieldset>
+								<legend> Funding Source: </legend>
+								<div id="fund_source_option_container">
+									<span>
+										<input type="radio" name="fund_source" id="fund_source_both" value="">
+										<label for="fund_source_both" class="little-label"> Any </label>
+									</span>
+									<span>
+										<input type="radio" name="fund_source" id="fund_source_state" value="state,both">
+										<label for="fund_source_state" class="little-label"> State Support </label>
+									</span>
+									<span>
+										<input type="radio" name="fund_source" id="fund_source_self" value="self,both">
+										<label for="fund_source_self" class="little-label"> Self Support </label>
+									</span>
+								</div>
+								</fieldset>
 							</div>
 							
 							<div id="aca_year_container" class="optional field staract plans">
@@ -155,9 +165,12 @@ get_header(); ?>
 							<div id="hire_year_container" class="optional field faculty">
 								<label for="hire_year"> Year Hired: </label>
 								<input type="checkbox" name="hire_year" id="hire_year" value="true">
-								<input type="number" min="1940" max="2039" step="1" value=1940 name="hire_year_start" id="hire_year">
-								To
-								<input type="number" min="1940" max="2039" step="1" value=2015 name="hire_year_end" id="hire_year">
+								<div id="hire_year_select_container" class="optional field hire-year">
+									<label for="hire_year_start"> From: </label>
+									<input type="number" min="1940" max="2039" step="1" value=1940 name="hire_year_start" id="hire_year_start">
+									<label for="hire_year_end"> To: </label>
+									<input type="number" min="1940" max="2039" step="1" value=2015 name="hire_year_end" id="hire_year_end">
+								</div>
 							</div>
 							
 							<div id="current_container" class="optional field faculty">

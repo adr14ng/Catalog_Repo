@@ -741,26 +741,6 @@ ul.checkbox-list{
 	padding: 0;
 }
 
-#advanced-search label {
-	width: 35%;
-	padding-left: 5%;
-}
-#advanced-search label.little-label {
-	width: initial;
-	padding-left: initial;
-}
-#advanced-search input[type=text],
-#advanced-search input[type=number] {
-	width: 54%;
-}
-#advanced-search input[type=radio],
-#advanced-search input[type=checkbox]{
-	width: initial;
-}
-#advanced-search select {
-	width: 54%;
-}
-
 .pagination-content{
 	text-align: center;
 }
@@ -769,6 +749,16 @@ span.option-title {
 	display: block;
 	color: #000;
 	font-size: 88%;
+}
+
+#fund_source_container legend{
+	display: inline-block;
+	margin: 5px 0;
+	padding-top: 5px;
+	font-size: 14px;
+	border-bottom: none;
+	font-weight: bold;
+	line-height: 1.428571429;
 }
 
 /* ------------------------ 6 - Academic Page Rules ------------------------ */
@@ -1487,6 +1477,52 @@ h4.panel-title, .pseudo-h4.panel-title{
 	}
 	
 	/* ------------------------ 5 - Search Page Rules -------------------------- */
+	
+	#advanced-search label {
+		display: block;
+		margin: 5px 0;
+	}
+	
+	#advanced-search input {
+		margin: 0 5px;
+	}
+	
+	#advanced-search input[type="submit"]
+	{
+		margin: 15px 5px 5px 5px;
+	}
+	
+	#fund_source_container legend{
+		display: block;
+	}
+	
+	#fund_source_option_container label
+	{
+		display: inline-block;
+	}
+	#fund_source_option_container span
+	{
+		display:block;
+	}
+	
+	#hire_year_select_container,
+	#fund_source_option_container
+	{
+		padding-left:5%;
+	}
+	
+	#advanced-search input[type=text],
+	#advanced-search input[type=number],
+	#advanced-search select{
+		width: 95%;
+		height: 35px;
+	}
+	#advanced-search input[type=radio],
+	#advanced-search input[type=checkbox]{
+		width: 20px;
+		height: 20px;
+	}
+	
 	/* ------------------------ 6 - Academic Page Rules ------------------------ */
 	
 	#breadcrumbs-wrap {
@@ -1704,6 +1740,47 @@ h4.panel-title, .pseudo-h4.panel-title{
 	
 	/* ----------------------------- 4 - Page Rules ---------------------------- */
 	/* ------------------------ 5 - Search Page Rules -------------------------- */
+	
+	#advanced-search label,
+	#fund_source_container legend	{
+		width: 35%;
+		padding-left: 5%;
+	}
+	#advanced-search label.little-label {
+		width: initial;
+		padding-left: initial;
+	}
+	#advanced-search input[type=text],
+	#advanced-search input[type=number],
+	#advanced-search select {
+		width: 54%;
+	}
+	#advanced-search input[type=radio],
+	#advanced-search input[type=checkbox]{
+		width: initial;
+	}
+
+	#hire_year_select_container
+	{
+		padding-left: 35%;
+	}
+
+	#hire_year_select_container label
+	{
+		width: 8%;
+		padding-left: 2%;
+	}
+
+	#hire_year_select_container input[type=number] {
+		width: 29%;
+		margin: 0 3% 0 2%;
+	}
+	
+	#fund_source_container span{
+		display: block;
+		margin-left:36%;
+	}
+	
 	/* ------------------------ 6 - Academic Page Rules ------------------------ */
 	
 	#share-icons li a span, #share-icons li span span {

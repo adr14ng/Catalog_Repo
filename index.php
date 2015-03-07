@@ -5,7 +5,7 @@
 <div id="landing-section">
 	<div class="container">
 	<div class="row">
-		<a class="landing-link" href="<?php echo site_url('/toc/'); ?>">
+		<a class="landing-link" href="<?php echo site_url('/a-z/'); ?>">
 		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
 			<div class="land-bg">
 				<div class="landing-over clearfix">
