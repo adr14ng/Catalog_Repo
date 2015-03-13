@@ -16,7 +16,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<span class="dept-title-small">Courses</span>
-					<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+					<a class="prog-title" href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -42,10 +42,18 @@ get_header(); ?>
 				<span class="section-title"><span><h2>Courses</h2></span></span>
 				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 				
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
+					<?php //get which course pre fixes exist 
+						$match = preg_match("/([A-Z]{2,4}) ([0-9]){3}(.{0,8})\./", get_the_title() , $matches);
+						if($match === 1)
+						{
+							$prefix = $matches[1];
+						}
+					?>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix <?php echo $prefix; ?>">
 						<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 						<?php the_excerpt(); ?>
 					</div>
+					<?php $types[$prefix] = $prefix; ?>
 					
 				<?php endwhile; else: ?>
 				
@@ -55,9 +63,22 @@ get_header(); ?>
 				</div>
 				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 left-sidebar ">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
-					<span class="section-title"><span><h2>Contact</h2></span></span>
+						<span class="section-title"><span><h2>Contact</h2></span></span>
 						<?php echo get_csun_contact($dept); ?>
 					</div>
+					<?php if(count($types) > 1) : ?>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix noborder">
+						<span class="section-title"><span><h2>Filter</h2></span></span>
+						<ul class="checkbox-list">
+						<?php foreach($types as $type) : ?>
+						<li>
+							<input type="checkbox" class="filter" name="<?php echo $type; ?>" id="<?php echo $type; ?>"/>
+							<label for="<?php echo $type; ?>"><?php echo strtoupper($type); ?></label>
+						</li>
+						<?php endforeach; ?>
+						</ul>
+					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

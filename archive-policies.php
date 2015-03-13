@@ -27,7 +27,7 @@ get_header(); ?>
 					
 				<?php } ?>
 				
-					<a href="<?php echo site_url('/policies/alphabetical/'); ?>"><h1 class="prog-title">Policies</h1></a>
+					<a class="prog-title" href="<?php echo site_url('/policies/alphabetical/'); ?>"><h1 class="prog-title">Policies</h1></a>
 				</div>
 			</div>
 		</div>

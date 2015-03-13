@@ -18,19 +18,11 @@ else {
 	$url = site_url('/faculty/');
 }
 
-global $wp_query;
-//print_r($wp_query);
+$letter = strtoupper(get_query_var( 'directory', 'a' ));
 
-$letter = strtoupper(get_query_var( 'directory', 'none' ));
-
-if($letter === "NONE")
+if(!$emer)
 {
-	$letter = "A";
-	$args = array(
-		'post_type' => 'faculty',
-		'directory' => 'a'
-	);
-	
+	$args = array( 'directory' => get_query_var( 'directory', 'a' ) );
 	query_posts($args);
 }
 

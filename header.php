@@ -81,7 +81,7 @@
 								</ul>
 							</div>
 							
-							<div id ="search-div" class="hideme">
+							<div id ="search-div" class="hideme clearfix">
 								<form class="navbar-form search-form clearfix" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
 									<label for="s">Search Catalog:</label>
 									<div id="csunsearch" class="input-group ">
@@ -91,6 +91,7 @@
 										</div>
 									</div>
 								</form>
+								<p><a href="<?php echo site_url('/advanced-search/'); ?>">Advanced Search</a></p>
 							</div>
 							
 						</div>  <!-- end collumn -->

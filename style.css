@@ -103,13 +103,14 @@ p {
 
 a {
 	color: #0057a9;
+	text-decoration: underline;
 }
 
 a:hover {
 	text-decoration: none;
 }
 
-.main a.no-line {
+a.no-line {
 	text-decoration: none;
 }
 
@@ -281,6 +282,13 @@ a:hover {
 	background-color: ;
 }
 
+#search-div p{
+	margin-top: -4px;
+	margin-right: 20px;
+	padding: 0;
+	float:right;
+}
+
 /* * * * * * * * * Main Navigation * * * * * * * * */
 
 #csunnav {
@@ -291,6 +299,7 @@ a:hover {
 
 #menu-catalog-menu > li > a {
 	color: #ffffff;
+	text-decoration: none;
 }
 
 /* * * * * * * * * Banner * * * * * * * * */
@@ -386,6 +395,7 @@ a:hover {
 	display: inline-block;
 	width: 100%;
 	text-align: center;
+	text-decoration: none;
 }
 
 /* * * * * * * * * Lower Content * * * * * * * * */
@@ -498,6 +508,10 @@ a:hover {
 	color: #1e1e1e;
 }
 
+a.prog-title{
+	color: #990000;
+}
+
 .prog-title{
 	color: #990000;
 	padding: 0px 0 5px 0;
@@ -602,6 +616,7 @@ a.top-link {
 	width: 100%;
 	padding: 10px;
 	font-size: 14px;
+	text-decoration: none;
 }
 
 .side-nav li.side-nav-active,
@@ -842,6 +857,7 @@ span.option-title {
 	padding: 10px 0px 10px 0px;
 	background-color: #c7c7c7;
 	border: solid 1px #949494;
+	text-decoration: none;
 }
 
 #catalog-subnav ul li ul {
@@ -1328,7 +1344,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	text-align: center;
 }
 
-/* ---------------------------- 12 - A-Z Rules ----------------------------- */
+/* ---------------------------- 13 - A-Z Rules ----------------------------- */
 .a-z-container .first.column {
 	padding-right: 15px;
 	padding-left: 0;
@@ -1342,6 +1358,15 @@ h4.panel-title, .pseudo-h4.panel-title{
 .a-z-container .last.column {
 	padding-right: 0;
 	padding-left: 15px;
+}
+
+#abc_nav .btn{
+	margin-bottom: 5px;
+	width: 35px;
+}
+
+#abc_nav a{
+	text-decoration: none;
 }
 
 
@@ -1392,7 +1417,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 		position: absolute;
 		top: 68px;
 		width: 100%;
-		height: 50px;
+		height: 80px;
 		padding: 10px 15px;
 		background-color: #181818;
 		z-index: 20;
@@ -1402,6 +1427,20 @@ h4.panel-title, .pseudo-h4.panel-title{
 		position: absolute;
 		top: 0px;
 		width: 100%;
+	}
+	
+	
+	#search-div a{
+		color: #fff;
+		position: absolute;
+		right: 25px;
+		top: 117px;
+		z-index: 22;
+	}
+	
+	#search-div .input-group-btn
+	{
+		vertical-align: baseline;
 	}
 	
 	#quicklinks-lg, #quicklinks,
@@ -1609,6 +1648,8 @@ h4.panel-title, .pseudo-h4.panel-title{
 	.dept-container{
 		padding: 0;
 	}
+	
+	/* ---------------------------- 13 - A-Z Rules ----------------------------- */
 
 }
 
@@ -1626,13 +1667,13 @@ h4.panel-title, .pseudo-h4.panel-title{
 	/* --------------------------- 2 - Header Rules ---------------------------- */
 	
 	#headerbar{
-		height: 100px;
+		height: 131px;
 	}
 
 	#fixbar{
 		position: relative;
 		background-color: #ffffff;
-		height: 130px;
+		height: 160px;
 		-webkit-box-shadow: 0px 6px 5px 0px rgba(50, 50, 50, 0.14);
 		-moz-box-shadow:		0px 6px 5px 0px rgba(50, 50, 50, 0.14);
 		box-shadow:				 0px 6px 5px 0px rgba(50, 50, 50, 0.14);
@@ -1812,6 +1853,12 @@ h4.panel-title, .pseudo-h4.panel-title{
 	/* --------------------- 10 - General Education Rules ---------------------- */
 	/* -------------------------- 11 - Faculty Rules --------------------------- */
 	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
+	/* ---------------------------- 13 - A-Z Rules ----------------------------- */
+	
+	#abc_nav.affix {
+		width: 185px;
+		top: 60px;
+	}
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * End Small * * * * * * * * * * * * * * * * * * * * * * * */
@@ -1875,6 +1922,12 @@ h4.panel-title, .pseudo-h4.panel-title{
 	/* --------------------- 10 - General Education Rules ---------------------- */
 	/* -------------------------- 11 - Faculty Rules --------------------------- */
 	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
+	/* ---------------------------- 13 - A-Z Rules ----------------------------- */
+	
+	#abc_nav.affix {
+		width: 240px;
+		top: 60px;
+	}
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * End Medium * * * * * * * * * * * * * * * * * * * * * * * */
@@ -1891,7 +1944,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	/* --------------------------- 2 - Header Rules ---------------------------- */
 	
 	#fixbar{
-		height: 140px;
+		height: 170px;
 	}
 
 	#csunnav {
@@ -1933,6 +1986,12 @@ h4.panel-title, .pseudo-h4.panel-title{
 	/* --------------------- 10 - General Education Rules ---------------------- */
 	/* -------------------------- 11 - Faculty Rules --------------------------- */
 	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
+	/* ---------------------------- 13 - A-Z Rules ----------------------------- */
+	
+	#abc_nav.affix {
+		width: 290px;
+		top: 60px;
+	}
 
 }
 

@@ -10,36 +10,26 @@ add_editor_style();
 
 /* Breadcrumbs */
 function the_breadcrumb() {
-
     $post_type = get_post_type();
     global $dept, $deptdesc;
 
-
-        echo '<ul id="breadcrumbs">';
     if (!is_home()) {
-        echo '<li><a href="'.get_option('home').'/">';
-        echo 'Home';
-        echo '</a></li><li class="separator"> / </li>';
-        echo '<li>';
+		echo '<ul id="breadcrumbs">';
+		
+        echo '<li><a href="'.get_option('home').'/">Home</a></li>';
+        echo '<li class="separator"> / </li>';
 
         //Get department
-        echo '<a href="'.get_csun_archive('departments', $dept).'">';
-        echo $deptdesc.'</a>';
-
-        echo ' </li><li class="separator"> / </li><li> ';
+        echo '<li><a href="'.get_csun_archive('departments', $dept).'">'.$deptdesc.'</a></li>';
+        echo '<li class="separator"> / </li>';
 
         //get post type
-        echo '<a href="'.get_csun_archive($post_type, $dept).'">';
-        echo ucwords ($post_type).'</a>';
+        echo '<li><a href="'.get_csun_archive($post_type, $dept).'">'.ucwords ($post_type).'</a></li>';
+        echo '<li class="separator"> / </li>';
 
-        echo ' </li><li class="separator"> / </li><li> ';
-
-        echo '<strong>'. the_title() .'</strong>';
-
-        echo '</li>';
-
+        echo '<li><strong>'. the_title() .'</strong></li>';
+		echo '</ul>';
     }
-    echo '</ul>';
 }
 
 
@@ -133,7 +123,6 @@ function get_csun_permalink($id = 0, $leavename = false){
  */
 function the_csun_permalink(){
 	echo esc_url( get_csun_permalink() );
-	
 }
 
 /** * * * * * * * * * * * * * * * * * *
@@ -155,10 +144,8 @@ function the_csun_permalink(){
 	$departments = get_posts( $args );
 	
 	if(isset($departments[0])){
-		$department = $departments[0];
-	
 		//acf get field
-		$contact = get_field('contact', $department->ID);
+		$contact = get_field('contact', $departments[0]->ID);
 	}
 	
 	return $contact;
@@ -251,30 +238,11 @@ function csun_title_text() {
 	elseif(is_post_type_archive( 'plans')) :
 		echo 'Degree Planning Guides';
 		
-	elseif(is_singular('programs')) :
-		$degree = get_field('degree_type'); 
-		$title = get_the_title(); 
-				
-		if ($degree === 'credential' || $degree === 'Credential'){
-			if (strpos($title, 'Credential') === FALSE)
-				$title .= ' Credential';
-		}
-		elseif ($degree === 'certificate' || $degree === 'Certificate') {
-			if (strpos($title, 'Certificate') === FALSE)
-				$title .= ' Certificate';
-		}
-		elseif ($degree === 'minor' || $degree === 'Minor'){
-			$title = $degree.' in '.$title;
-		}
-		else{
-			$title = $degree.', '.$title;
-		}
-				
-		echo $title;
+	elseif(is_singular('programs')) : 	
+		echo program_name();
 
 		$post_option=get_field('option_title');
-
-		if( isset($post_option) && $post_option !== '') {
+		if( !empty($post_option)) {
 			echo ' - ' . $post_option;
 		}
 		else			//otherwise tries to match with next elseif
@@ -860,6 +828,11 @@ function class_search($params)
 }
 add_filter('relevanssi_search_filters', 'class_search');
 
+function is_class_search($search_term)
+{
+	return preg_match('/([A-Z]{2,4} )(\d{2,3})/i', $search_term);
+}
+
 
 /**
  *	Adds pages back into search queries
@@ -907,12 +880,12 @@ function search_result_types( $hits ) {
 add_filter('relevanssi_hits_filter', 'search_result_types');
 
 /**
- * Only use words that appear more than once for spelling suggestions.
- * This helps prevent processing overload on our rather large data set.
+ * Only use words that appear more than five times for spelling suggestions.
+ * This helps prevent odd spelling suggestions
  * Hooks onto relevanssi_get_words_query
  */
 function fix_query($query) {
-    $query = $query . " HAVING c > 1";
+    $query = $query . " HAVING c > 5";
     return $query;
 }
 add_filter('relevanssi_get_words_query', 'fix_query');

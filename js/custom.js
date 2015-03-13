@@ -17,7 +17,7 @@ $( document ).ready(function() {
 
 
 	$(".dept-container").columnize({ width: 300 });
-	$(".a-z-container").columnize({ width: 400 });
+	/*$(".a-z-container").columnize({ width: 400 });*/
 
 	$('[data-toggle="popover"]').popover();
 	
@@ -97,6 +97,29 @@ $( document ).ready(function() {
 		else
 		{
 			$('.optional.hire-year').css({"display":"none"});
+		}
+	});
+	
+	$('.filter').change(function() {
+		var items = document.getElementsByClassName('filter');
+		var filtering = false;
+		for(var i = 0; i<items.length; i++)
+		{
+			var prefix = items[i].name;
+			if(items[i].checked)
+			{
+				$('.'+prefix).css({"display":"block"});
+				filtering = true;
+			}
+			else
+			{
+				$('.'+prefix).css({"display":"none"});
+			}
+		}
+		
+		if(!filtering) //if none are checked - show all
+		{
+			$('.inner-item').css({"display":"block"});
 		}
 	});
 	

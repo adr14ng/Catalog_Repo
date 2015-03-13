@@ -37,10 +37,10 @@ get_header(); ?>
 				<div class="section-content page-title-section">
 				<?php if($noDpt) : ?>
 					<a class="dept-title-small" href="<?php echo site_url('/faculty/');?>">Faculty and Administrators</a>
-					<a href="<?php echo get_csun_archive('faculty', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+					<a class="prog-title" href="<?php echo get_csun_archive('faculty', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 				<?php else: ?>
 					<a class="dept-title-small" href="<?php echo get_csun_archive('faculty', $dept); ?>">Faculty and Administrators</a>
-					<a href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
+					<a class="prog-title" href="<?php echo get_csun_archive('departments', $dept); ?>"><h1 class="prog-title"><?php echo $deptdesc; ?></h1></a>
 				<?php endif; ?>
 				</div>
 			</div>

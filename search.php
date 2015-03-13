@@ -60,7 +60,7 @@ get_header(); ?>
 				</div>
 				<?php endif; ?>
 				<div class="col-xs-12 col-md-9">
-				<?php if (function_exists('relevanssi_didyoumean')) { 
+				<?php if (function_exists('relevanssi_didyoumean') && !is_class_search($search_query)) { 
 					relevanssi_didyoumean(get_search_query(), "<p>Did you mean: ", "</p>", 5);
 				}?>
 				<?php if($simple_search) : ?>
