@@ -481,7 +481,7 @@ function add_ge_links( $content )
 						$url .= 's1';
 						$name = 's1';
 					}
-					elseif(stripos($matches[2], 'art') !== false)
+					elseif(stripos($matches[2], 'arts') !== false)
 					{
 						$url .= 's2';
 						$name = 's2';
@@ -592,13 +592,13 @@ function csunFormatTinyMCE( $init_array ) {
 			'block' => 'h2',  
 			'classes' => 'section-header',
 		),
-			array(  
+		array(  
 			'title' => 'Link Grid',  
 			'block' => 'div',  
 			'classes' => 'plan-grid',
 			//'wrapper' => true,
 		),
-			array(  
+		array(  
 			'title' => 'Basic Table',  
 			'selector' => 'table',  
 			'classes' => 'csun-table',

@@ -6,35 +6,41 @@
 	<div class="container">
 	<div class="row">
 		<a class="landing-link" href="<?php echo site_url('/a-z/'); ?>">
-		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
+		<div class="landing-item col-xs-4 clearfix">
 			<div class="land-bg">
 				<div class="landing-over clearfix">
 					<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icon-xmarks.png">
-					<h2 class="land-head">A to Z</h2>
-					<span class="land-copy">An index to help you find your way.</span>
+					<div class="land-text">
+						<h2 class="land-head">A to Z</h2>
+						<span class="land-copy">An index to help you find your way.</span>
+					</div>
 				</div>
 			</div>
 		</div>
 		</a>
-		<a class="landing-link" href="<?php echo site_url('/about/introduction/'); ?>">
-		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
+		<a class="landing-link" href="<?php echo site_url('/about/'); ?>">
+		<div class="landing-item col-xs-4 clearfix">
 			<div class="land-bg">
 			<div class="landing-over clearfix">
 				<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icon-book.png">
-				<h2 class="land-head">Introduction</h2>
-				<span class="land-copy">Learn about our campus.</span>
+				<div class="land-text">
+					<h2 class="land-head">Introduction</h2>
+					<span class="land-copy">Learn about California State University, Northridge.</span>
+				</div>
 			</div>
 			<div class="land-arrow_bg"></div>
 			</div>
 		</div>
 		</a>
 		<a class="landing-link" href="<?php echo site_url('/resources/'); ?>">
-		<div class="landing-item col-xs-12 col-sm-4 col-md-4 col-lg-4 clearfix">
+		<div class="landing-item col-xs-4 clearfix">
 			<div class="land-bg">
 			<div class="landing-over clearfix">
 				<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icon-sundial.png">
-				<h2 class="land-head">Catalog Resources</h2>
-				<span class="land-copy">Catalog Archives, Degree Planning Guides and more.</span>
+				<div class="land-text">
+					<h2 class="land-head">Resources</h2>
+					<span class="land-copy">Catalog Archives, Degree Planning Guides and more.</span>
+				</div>
 			</div>
 			</div>
 		</div>

@@ -1013,12 +1013,12 @@ span.option-title {
 .landing-item {
 	padding: 0px 4px 0px 4px;
 	margin-top: 8px;
-	height: 160px;
+	height: 90px;
 	text-align: center;
+	border-bottom: solid 1px #cacaca;
 }
 
 .land-bg {
-	width: auto !important;
 	background-position: auto auto;
 	background-repeat: no-repeat;
 	background-color: #fff;
@@ -1029,33 +1029,26 @@ span.option-title {
 	
 }
 
-.land-icon{
-	max-width: 170px;
-	margin:0px auto !important;
+.landing-over {
+	top: 0;
+	left: 0;
+	height: 85px;
+}
+
+.land-text {
+	display:inline-block;
 }
 
 .land-head{
 	color: #1e1e1e;
 	font-family: museo, helvetica, arial, sans-serif;
-}
-
-.landing-over {
-	top: 0;
-	left: 0;
-}
-
-.landing-over > img {
-	display: block;
-}
-
-.landing-over h2,
-.landing-over .pseudo-h2 {
 	text-align: center;
+	padding-top: 10px;
 }
 
-.landing-over > span {
+.land-copy {
 	color: #727272;
-	display: block;
+	display: none;
 	text-align: center;
 }
 
@@ -1138,6 +1131,10 @@ a.planning-degree-title{
 
 .plans tr th+th{
 	width: 20%;
+}
+
+.plans td, .plans th {
+	text-align: left;
 }
 
 /* * * * * * * * Link Grid * * * * * * * */
@@ -1590,42 +1587,27 @@ h4.panel-title, .pseudo-h4.panel-title{
 	}
 	
 	/* ------------------------- 7 - Index Page Rules -------------------------- */
-	
-	.landing-item {
-		width: 100%;
-		border-bottom: solid 1px #cacaca;
-		margin-top: 10;
-	}
-
-	.landing-item:last-child {
-		border: 0;
-	}
 
 	.landing-over {
 		position: relative;
-		padding: 5px 15px 5px 15px;
+		padding: 2px;
 		text-align: center;
-		height: 180px;
-	}
-
-	.landing-over .land-bg {
-		width: 68px;
-		min-width: 15%;
-		margin: 0;
-		display: block;
-		float: left;
 	}
 	
-	.landing-over h2,
-	.landing-over .pseudo-h2	{
-		display: block;
-		text-align: center;
-		padding-top: 10px;
+	.land-head	{
+		padding-top: 2px;
+		margin: 2px;
 		font-size: 15px;
 	}
-
-	.landing-over > span {
-		display: none;
+	
+	.land-icon {
+		display: block;
+		margin: 0px auto !important;
+		max-height: 62px;
+	}
+	
+	.land-text {
+		display:block;
 	}
 	
 	/* ------------------------- 8 - Policy Page Rules ------------------------- */
@@ -1834,18 +1816,14 @@ h4.panel-title, .pseudo-h4.panel-title{
 	}
 	
 	/* ------------------------- 7 - Index Page Rules -------------------------- */
-	
-	.landing-over > img {
-		max-width: 65%;
-	}
 
-	.landing-over h2, .landing-over .pseudo-h2 {
+	.land-head {
 		font-size: 18px;
 		font-weight: bold;
 	}
 
-	.landing-over > span {
-		display: none;
+	.land-icon {
+		max-height: 70px;
 	}
 	
 	/* ------------------------- 8 - Policy Page Rules ------------------------- */
@@ -1905,14 +1883,29 @@ h4.panel-title, .pseudo-h4.panel-title{
 	/* ------------------------- 7 - Index Page Rules -------------------------- */
 	
 	.landing-item {
-		height: 220px;
+		height: 110px;
 	}
 	
-	.landing-over > img {
-		max-width: 45%;
+	.landing-over {
+		height: 110px;
 	}
-
-	.landing-over > span {
+	
+	.land-icon {
+		max-height: 90px;
+		vertical-align: text-bottom;
+	}
+	
+	.land-text {
+		display:inline-block;
+		max-width: 50%;
+	}
+	
+	.land-head {
+		padding: 0px;
+		margin: 10px;
+	}
+	
+	.land-copy {
 		display: block;
 		font-size: 14px;
 	}
@@ -1968,7 +1961,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	/* ------------------------- 7 - Index Page Rules -------------------------- */
 	
 	.landing-over {
-		padding: 20px 25px 20px 25px;
+		padding: 5px;
 	}
 
 	.landing-over h2, .landing-over .pseudo-h2 {

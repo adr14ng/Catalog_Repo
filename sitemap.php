@@ -19,10 +19,6 @@ $posts = get_posts( array(
 $pol_cats = get_terms('policy_categories');
 
 $links = array(
-	'faculty' => array (
-		'name' => 'Faculty and Administration',
-		'link' => site_url('/faculty/a'),
-		),
 	'emeriti' => array (
 		'name' => 'Emeriti',
 		'link' => site_url('/emeriti/a'),

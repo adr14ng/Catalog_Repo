@@ -17,6 +17,8 @@ $page = get_posts( array(
 	)
 );
 
+
+
 $link = get_permalink($page[0]->ID);
  
 get_header(); ?>
@@ -28,7 +30,11 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
+					<?php if(!empty($page[0]->ID)) : ?>
 					<a class="dept-title-small" href="<?php echo $link; ?>"><?php echo $title; ?></a>
+					<?php else : ?>
+					<span class="dept-title-small"><?php echo $title; ?></span>
+					<?php endif; ?>
 					<h1 class="prog-title"><?php the_title(); ?></h1>
 				</div>
 			</div>
