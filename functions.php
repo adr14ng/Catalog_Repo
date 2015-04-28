@@ -628,9 +628,14 @@ function csunFormatTinyMCE( $init_array ) {
 			//'wrapper' => true,
 		),
 		array(  
-			'title' => 'TOC Collumn',  
-			'block' => 'div',  
-			'classes' => 'col-xs-12 col-sm-6 col-md-6 col-lg-6',
+			'title' => 'Units',  
+			'selector' => 'p',  
+			'classes' => 'pseudo-h4',
+		),
+		array(  
+			'title' => 'Space-y',  
+			'block' => 'div',
+			'classes' => 'spacey',
 			'wrapper' => true,
 		),
 		array(  

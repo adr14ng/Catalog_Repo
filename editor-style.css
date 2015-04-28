@@ -50,3 +50,14 @@ h6, .pseudo-h6, .sm-h3 {
 {
 	text-decoration: underline;
 }
+
+.spacey p
+{
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+.spacey
+{
+	margin-top: .5em;
+	margin-bottom: .5em;
+}

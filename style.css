@@ -101,6 +101,15 @@ p {
 	line-height: 28px;
 }
 
+.spacey p
+{
+	margin: 0 0 5px;
+}
+.spacey
+{
+	margin: 0 0 5px;
+}
+
 a {
 	color: #0057a9;
 	text-decoration: underline;
