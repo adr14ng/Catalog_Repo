@@ -1,6 +1,6 @@
 		<a href="#skipstuff" class="top-link hidden-xs" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
 			<div id="to_top">
-				<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>Top
+				<span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Top
 			</div>
 		</a>
 		<div id="footer">

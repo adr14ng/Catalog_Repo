@@ -55,12 +55,12 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .pseudo-h1{
 	font-size: 30px;
-	color: #990000;
+	color: #CF0A2C;
 }
 
 h2, .pseudo-h2 {
 	font-size: 24px;
-	color: #990000;
+	color: #CF0A2C;
 }
 
 h3, .pseudo-h3 {
@@ -70,7 +70,7 @@ h3, .pseudo-h3 {
 
 h4, .pseudo-h4 {
 	font-size: 18px;
-	color: #990000;
+	color: #CF0A2C;
 }
 
 h5, .pseudo-h5, .sm-h4 {
@@ -80,7 +80,7 @@ h5, .pseudo-h5, .sm-h4 {
 
 h6, .pseudo-h6, .sm-h3 {
 	font-size: 14px;
-	color: #990000;
+	color: #CF0A2C;
 }
 
 .pseudo-h7 {
@@ -120,7 +120,7 @@ a.no-line {
 	position: fixed;
 	width: 100%;
 	height: 68px;
-	background-color: #990000;
+	background-color: #CF0A2C;
 	display: block;
 	z-index: 200;
 	top:0;
@@ -161,7 +161,7 @@ a.no-line {
 }
 
 #quicklinks-lg>ul>li>a {
-	color: #990000;
+	color: #CF0A2C;
 }
 
 #quicklinks-lg>ul>li>a:hover {
@@ -187,7 +187,7 @@ a.no-line {
 }
 
 #quicklinks>ul>li>a {
-	color: #990000;
+	color: #CF0A2C;
 }
 
 #quicklinks>ul>li>a:hover {
@@ -267,7 +267,7 @@ a.no-line {
 
 #csunsearch .input-group-btn .btn {
 	border-radius: 0px !important;
-	background-color: #990000;
+	background-color: #CF0A2C;
 	color: #ffffff;
 	border-color: #444444;
 }
@@ -326,7 +326,7 @@ a.no-line {
 }
 
 #outside-footer {
-	border-top: solid 2px #990000;
+	border-top: solid 2px #CF0A2C;
 	background-color: #ffffff;
 }
 
@@ -377,7 +377,7 @@ a.no-line {
 	width: 135px;
 	height: 40px;
 	display: block;
-	background-color: #990000;
+	background-color: #CF0A2C;
 	margin: auto;
 	border: 1px solid #3b3b3b;
 	padding: 4px;
@@ -413,9 +413,9 @@ a.no-line {
 }
 
 .footerlinks > a {
-	 color: #990000; 
+	 color: #CF0A2C; 
 	 padding: 0 10px 0 10px;
-	 border-left: 1px solid #990000;
+	 border-left: 1px solid #CF0A2C;
 }
 
 .footerlinks > a:hover {
@@ -509,11 +509,11 @@ a.no-line {
 }
 
 a.prog-title{
-	color: #990000;
+	color: #CF0A2C;
 }
 
 .prog-title{
-	color: #990000;
+	color: #CF0A2C;
 	padding: 0px 0 5px 0;
 	margin-top: 5px;
 }
@@ -543,7 +543,7 @@ a.prog-title{
 .section-title .pseudo-h2, .section-title .pseudo-h3 {
 	font-size: 18px;
 	display: inline;
-	color: #990000;
+	color: #CF0A2C;
 }
 
 .section-title span {
@@ -552,7 +552,7 @@ a.prog-title{
 	min-width: 10%;
 	max-width: 90%;
 	height: 100%;
-	border-bottom: solid 2px #990000
+	border-bottom: solid 2px #CF0A2C
 }
 
 .section-title div span {
@@ -563,7 +563,7 @@ a.prog-title{
 .csun-subhead{
 	font-size: 18px;
 	font-weight: 700;
-	color: #990000;
+	color: #CF0A2C;
 }
 
 a.csun-subhead{
@@ -622,8 +622,8 @@ a.top-link {
 .side-nav li.side-nav-active,
 .side-nav li.current-menu-item{
 	display: block;
-	border: solid 1px #990000;
-	background-color: #990000;
+	border: solid 1px #CF0A2C;
+	background-color: #CF0A2C;
 }
 
 .side-nav li.side-nav-active a,
@@ -725,7 +725,7 @@ ul.side-nav ul {
 }
 
 .red{
-	color: #990000;
+	color: #CF0A2C;
 }
 
 .small-marg-top {
@@ -804,7 +804,7 @@ span.option-title {
 	height: 0; 
 	border-left: 15px solid transparent;
 	border-right: 15px solid transparent;
-	border-top: 15px solid #990000;
+	border-top: 15px solid #CF0A2C;
 	margin:auto;
 }
 
@@ -834,8 +834,8 @@ span.option-title {
 
 #catalog-subnav ul li.active a {
 	color: #ffffff;
-	background-color: #990000;
-	border: solid 1px #990000;
+	background-color: #CF0A2C;
+	border: solid 1px #CF0A2C;
 }
 
 #catalog-subnav ul li.active:hover a {
@@ -908,7 +908,7 @@ span.option-title {
 }
 
 #catalog-subnav ul li ul li:hover a{
-	background-color: #990000;
+	background-color: #CF0A2C;
 }
 
 #catalog-subnav ul li:hover ul {
@@ -943,7 +943,7 @@ span.option-title {
 .share-icon {
 	display: block;
 	font-size: 24px;
-	color: #990000;
+	color: #CF0A2C;
 }
 
 .share-icon:hover {
@@ -1087,7 +1087,7 @@ span.option-title {
 
 a.planning-degree-title{
 	text-decoration:underline; 
-	color:#990000;
+	color:#CF0A2C;
 }
 
 /* * * * * * * * Tables * * * * * * * */
@@ -1149,7 +1149,7 @@ a.planning-degree-title{
 	color: #FFF;
 	font-size: 24px;
 	text-decoration: none;
-	background-color: #990000;
+	background-color: #CF0A2C;
 	display: block;
 	margin-bottom: 8px;
 	text-align: center;
@@ -1179,7 +1179,7 @@ a.planning-degree-title{
 }
 
 .extra-plan-grid ul li a {
-	background-color: #990000;
+	background-color: #CF0A2C;
 	width: 100%;
 	height: 100%;
 	color: #FFF;
@@ -1239,11 +1239,11 @@ a.planning-degree-title{
 }
 
 .panel-heading{
-	background: #990000;
+	background: #CF0A2C;
 }
 
 .collapsed h4.panel-title, .collapsed .pseudo-h4.panel-title{
-	color: #990000;
+	color: #CF0A2C;
 }
 
 h4.panel-title, .pseudo-h4.panel-title{
@@ -1680,7 +1680,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	#csunnav {
 		display: block;
 		height: 30px;
-		background-color: #990000;
+		background-color: #CF0A2C;
 		padding: 0;
 	}
 
@@ -1690,7 +1690,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 		margin-bottom: 0px;
 		padding-left: 0px;
 		padding-right: 0px;
-		background-color: #990000;
+		background-color: #CF0A2C;
 	}
 	
 	.menu-catalog-menu-container {
@@ -1720,7 +1720,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	}
 
 	#menu-catalog-menu li a {
-		background-color:#900;
+		background-color:#CF0A2C;
 		display: block;
 		height: 100%;
 		vertical-align: middle;

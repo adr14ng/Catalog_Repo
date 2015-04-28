@@ -100,6 +100,16 @@ $( document ).ready(function() {
 		}
 	});
 	
+	$('#general_education_department').change(function() {
+		if(this.checked) {
+			$('#general_education_container').css({"display":"block"});
+		}
+		else
+		{
+			$('#general_education_container').css({"display":"none"});
+		}
+	});
+	
 	$('.filter').change(function() {
 		var items = document.getElementsByClassName('filter');
 		var filtering = false;

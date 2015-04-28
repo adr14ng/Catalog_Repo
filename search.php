@@ -194,6 +194,8 @@ function process_advanced_edit($params)
 	$advanced_query = new WP_Query( $args );
 	relevanssi_do_query($advanced_query);
 	
+	$search_query .= " ".advanced_search_description($params);
+	$search_query = trim($search_query);
 	
 	return array($search_query, $advanced_query);
 }

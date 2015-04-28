@@ -8,6 +8,23 @@ register_nav_menu( 'rgs-menu', 'RGS Menu' );
 register_nav_menu( 'ge-menu', 'GE Menu' );
 add_editor_style();
 
+
+add_action( 'post_submitbox_misc_actions', 'fix_autosave' );
+function fix_autosave() { ?>
+<a style="float: right; margin: 10px;" id="unlock">unlock</a>
+<script>
+	jQuery( document ).ready(function()
+	{
+		console.log( "Custom JS is active");
+		jQuery('#unlock').click(function(){
+			console.log( "Clciked");
+			jQuery('#publish').removeClass("disabled");
+		});
+	});
+</script>
+<?php
+}
+
 /* Breadcrumbs */
 function the_breadcrumb() {
     $post_type = get_post_type();
@@ -740,6 +757,9 @@ function csun_search_title($title, $id=false) {
 			$year = get_the_terms( $id, 'aca_year');
 			
 			$title = $title.'<span class="option-title">'.$year[0]->name.' Degree Planning Guide</span>';
+		elseif($post->post_type === 'policy_categories' || $post->post_type === 'policy_keywords'
+				|| $post->post_type === 'policy_tags') :
+			$title = '<span class="type-title">Policies: </span>'.ucwords($title);
 		endif;
 	endif;
 	
@@ -885,7 +905,7 @@ add_filter('relevanssi_hits_filter', 'search_result_types');
  * Hooks onto relevanssi_get_words_query
  */
 function fix_query($query) {
-    $query = $query . " HAVING c > 5";
+    $query = $query . " HAVING c > 1";
     return $query;
 }
 add_filter('relevanssi_get_words_query', 'fix_query');
@@ -952,7 +972,7 @@ function parse_advanced_search($params)
 	//college
 	if(!empty($params['college']))
 	{
-		$tax_query['dpt'] = array(
+		$tax_query[] = array(
 			'taxonomy' 	=> 'department_shortname',
 			'field'		=> 'slug',
 			'terms'		=> $params['college'],
@@ -961,48 +981,20 @@ function parse_advanced_search($params)
 	//department
 	if(!empty($params['department']))
 	{
-		if(isset($tax_query['dpt']))
-		{
-			if(is_array($tax_query['dpt']['terms']))
-			{
-				$tax_query['dpt']['terms'][] = $params['department'];
-			}
-			else
-			{
-				$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], $params['department']);
-			}
-		}
-		else
-		{
-			$tax_query['dpt'] = array(
-				'taxonomy' 	=> 'department_shortname',
-				'field'		=> 'slug',
-				'terms'		=> $params['department'],
-			);
-		}
+		$tax_query[] = array(
+			'taxonomy' 	=> 'department_shortname',
+			'field'		=> 'slug',
+			'terms'		=> $params['department'],
+		);
 	}
 	//department_code
 	if(!empty($params['department_code']))
 	{
-		if(isset($tax_query['dpt']))
-		{
-			if(is_array($tax_query['dpt']['terms']))
-			{
-				$tax_query['dpt']['terms'][] = $params['department_code'];
-			}
-			else
-			{
-				$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], $params['department_code']);
-			}
-		}
-		else
-		{
-			$tax_query['dpt'] = array(
-				'taxonomy' 	=> 'department_shortname',
-				'field'		=> 'slug',
-				'terms'		=> $params['department_code'],
-			);
-		}
+		$tax_query[] = array(
+			'taxonomy' 	=> 'department_shortname',
+			'field'		=> 'slug',
+			'terms'		=> $params['department_code'],
+		);
 	}
 	//degree_level
 	if(!empty($params['degree_level']))
@@ -1070,25 +1062,11 @@ function parse_advanced_search($params)
 	{
 		if(empty($params['current']))
 		{
-			if(isset($tax_query['dpt']))
-			{
-				if(is_array($tax_query['dpt']['terms']))
-				{
-					$tax_query['dpt']['terms'][] = 'admin';
-				}
-				else
-				{
-					$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], 'admin');
-				}
-			}
-			else
-			{
-				$tax_query['dpt'] = array(
-					'taxonomy' 	=> 'department_shortname',
-					'field'		=> 'slug',
-					'terms'		=> 'admin',
-				);
-			}
+			$tax_query[] = array(
+				'taxonomy' 	=> 'department_shortname',
+				'field'		=> 'slug',
+				'terms'		=> 'admin',
+			);
 		}
 	}
 	//emeritus
@@ -1096,49 +1074,21 @@ function parse_advanced_search($params)
 	{
 		if(empty($params['current']))
 		{
-			if(isset($tax_query['dpt']))
-			{
-				if(is_array($tax_query['dpt']['terms']))
-				{
-					$tax_query['dpt']['terms'][] = 'emeriti';
-				}
-				else
-				{
-					$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], 'emeriti');
-				}
-			}
-			else
-			{
-				$tax_query['dpt'] = array(
-					'taxonomy' 	=> 'department_shortname',
-					'field'		=> 'slug',
-					'terms'		=> 'emeriti',
-				);
-			}
+			$tax_query[] = array(
+				'taxonomy' 	=> 'department_shortname',
+				'field'		=> 'slug',
+				'terms'		=> 'emeriti',
+			);
 		}
 	}
 	//general_education_department
 	if(!empty($params['general_education_department']))
 	{
-		if(isset($tax_query['dpt']))
-		{
-			if(is_array($tax_query['dpt']['terms']))
-			{
-				$tax_query['dpt']['terms'][] = 'ge';
-			}
-			else
-			{
-				$tax_query['dpt']['terms'] = array($tax_query['dpt']['terms'], 'ge');
-			}
-		}
-		else
-		{
-			$tax_query['dpt'] = array(
-				'taxonomy' 	=> 'department_shortname',
-				'field'		=> 'slug',
-				'terms'		=> 'ge',
-			);
-		}
+		$tax_query[] = array(
+			'taxonomy' 	=> 'department_shortname',
+			'field'		=> 'slug',
+			'terms'		=> 'ge',
+		);
 	}
 	//general_education
 	if(!empty($params['general_education']))
@@ -1168,4 +1118,187 @@ function parse_advanced_search($params)
 	);
 	
 	return $args;
+}
+
+function advanced_search_description($params)
+{
+	$des = "";
+	switch($params['post_type'])
+	{
+		case "courses" :
+			if(!empty($params['department']) && !empty($params['college']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des = $col->description.": ".$dept->description." ";
+			}
+			else if(!empty($params['department']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$des = $dept->description." ";
+			}
+			else if(!empty($params['college']))
+			{
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des = $col->description." ";
+			}
+			$des .= "Courses";
+			if(!empty($params['general_education_department']))
+			{
+				if(!empty($params['general_education']))
+				{
+					$ge = get_term_by('slug', $params['general_education'], 'general_education');
+					$des .= " that satisfy ".$ge->description;
+				}
+				else
+				{
+					$des = "GE ".$des;
+				}
+			}
+			break;
+		case "programs" :
+			if(!empty($params['department']) && !empty($params['college']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des = $col->description.": ".$dept->description." ";
+			}
+			else if(!empty($params['department']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$des = $dept->description." ";
+			}
+			else if(!empty($params['college']))
+			{
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des = $col->description." ";
+			}
+			
+			if(!empty($params['degree_level']))
+			{
+				if(!empty($des))
+				{
+					$des = " in ".$des;
+				}
+				
+				if($params['degree_level'] === 'other')
+				{
+					$des = 'Other Programs'.$des;
+				}
+				else
+				{
+					$des = ucwords($params['degree_level']).'s'.$des;
+				}
+			}
+			else
+			{
+				$des .= "Programs";
+			}
+			
+			if(!empty($params['fund_source']))
+			{
+				if($params['fund_source'] == "state,both")
+					$des = "State-Funded ".$des;
+				elseif($params['fund_source'] == "self,both")
+					$des = "Self-Funded ".$des;
+			}
+			break;
+		case "faculty" :
+			if(!empty($params['emeritus']))
+				$des = "Emeritus ";
+			if(!empty($params['current']))
+				$des .= "Current ";
+			
+			if(!empty($params['department']) && !empty($params['college']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des .= $col->description.": ".$dept->description." ";
+			}
+			else if(!empty($params['department']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$des .= $dept->description." ";
+			}
+			else if(!empty($params['college']))
+			{
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des .= $col->description." ";
+			}
+			
+			if(!empty($params['administrator']))
+				$des .= "Administrators";
+			else
+				$des .= "Faculty";
+
+			if(!empty($params['hire_year']))
+			{
+				$des .= " hired between ".$params['hire_year_start']
+						." and ".$params['hire_year_end'];
+			}
+			break;
+		case "departments" :
+			
+			if(!empty($params['college']))
+			{
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des = $col->description." ";
+			}
+			$des .= "Departments";
+			break;
+		case "groups" :
+			$des = "Groups";
+			break;
+		case "policies" :
+			$des = "Policies";
+			break;
+		case "staract" :
+			if(!empty($params['department']) && !empty($params['college']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des = $col->description.": ".$dept->description." ";
+			}
+			else if(!empty($params['department']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$des = $dept->description." ";
+			}
+			else if(!empty($params['college']))
+			{
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des = $col->description." ";
+			}
+			$des .= "STAR Act Plans";
+			if(!empty($params['aca_year']))
+			{
+				$des .= " for ".$params['aca_year'];
+			}
+			break;
+		case "plans" :
+			if(!empty($params['department']) && !empty($params['college']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des = $col->description.": ".$dept->description." ";
+			}
+			else if(!empty($params['department']))
+			{
+				$dept = get_term_by('slug', $params['department'], 'department_shortname');
+				$des = $dept->description." ";
+			}
+			else if(!empty($params['college']))
+			{
+				$col = get_term_by('slug', $params['college'], 'department_shortname');
+				$des = $col->description." ";
+			}
+			$des .= "Degree Planning Guides";
+			if(!empty($params['aca_year']))
+			{
+				$des .= " for ".$params['aca_year'];
+			}
+			break;
+	}
+
+	return $des;
 }

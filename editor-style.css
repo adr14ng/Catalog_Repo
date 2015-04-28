@@ -8,12 +8,12 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .pseudo-h1{
   font-size: 30px;
-  color: #990000;
+  color: #CF0A2C;
 }
 
 h2, .pseudo-h2 {
   font-size: 24px;
-  color: #990000;
+  color: #CF0A2C;
 }
 
 h3, .pseudo-h3 {
@@ -23,7 +23,7 @@ h3, .pseudo-h3 {
 
 h4, .pseudo-h4 {
 	font-size: 18px;
-	color: #990000;
+	color: #CF0A2C;
 }
 
 h5, .pseudo-h5, .sm-h4 {
@@ -33,7 +33,7 @@ h5, .pseudo-h5, .sm-h4 {
 
 h6, .pseudo-h6, .sm-h3 {
 	font-size: 14px;
-	color: #990000;
+	color: #CF0A2C;
 }
 
 .pseudo-h7 {
