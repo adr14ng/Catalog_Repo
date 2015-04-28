@@ -103,11 +103,11 @@ p {
 
 .spacey p
 {
-	margin: 0 0 5px;
+	margin: 0 0 7px;
 }
 .spacey
 {
-	margin: 0 0 5px;
+	margin: 0 0 3px;
 }
 
 a {
@@ -282,7 +282,7 @@ a.no-line {
 }
 
 #csunsearch .input-group-btn .btn:hover {
-	background-color: #000;
+	background-color: #242426;
 }
 
 #csunsearch .input-group-btn .btn > .arrow-left {
@@ -394,13 +394,12 @@ a.no-line {
 }
 
 .redbtn:hover {
-	background-color: #000;
+	background-color: #242426;
 }
 
 .redbtn > a {
 	color: #ffffff;
-	font-size: 12px;
-	font-weight: bold;
+	font-size: 14px;
 	display: inline-block;
 	width: 100%;
 	text-align: center;
@@ -593,6 +592,11 @@ a.csun-subhead{
 	visibility: hidden;
 }
 
+a.top-link .glyphicon{
+	color: #CF0A2C;
+	font-size: large;
+}
+
 a.top-link {
 	color: rgb( 30, 30, 30);
 	font-size: large;
@@ -653,7 +657,7 @@ ul.side-nav ul {
 }
 
 .side-nav li:hover .sub-menu li:hover{
-	background-color: #600;
+	background-color: #900;
 }
 
 .side-nav li:hover .sub-menu li:hover a{
@@ -667,8 +671,8 @@ ul.side-nav ul {
 }
 
 .side-nav li:hover {
-	background-color: #000;
-	border-bottom: solid 1px #000;
+	background-color: #242426;
+	border-bottom: solid 1px #242426;
 }
 
 .side-nav li:hover a {
@@ -838,7 +842,7 @@ span.option-title {
 }
 
 #catalog-subnav ul li.active:hover .subnav-arrow{
-	border-top: 15px solid #710100;
+	border-top: 15px solid #900;
 }
 
 #catalog-subnav ul li.active a {
@@ -848,12 +852,12 @@ span.option-title {
 }
 
 #catalog-subnav ul li.active:hover a {
-	background-color: #710100;
-	border: solid 1px #710100;
+	background-color: #900;
+	border: solid 1px #900;
 }
 
 #catalog-subnav ul li:hover a {
-	background-color: #000;
+	background-color: #242426;
 	color: #ffffff;
 }
 
@@ -887,7 +891,7 @@ span.option-title {
 }
 
 #catalog-subnav ul li.active ul li:hover{
-	background-color: #000;
+	background-color: #242426;
 }
 
 #catalog-subnav ul li.active ul li a{
@@ -895,7 +899,7 @@ span.option-title {
 }
 
 #catalog-subnav ul li.active ul li a:hover{
-	background-color: #000;
+	background-color: #242426;
 }
 
 #catalog-subnav ul li ul li {
@@ -1028,14 +1032,13 @@ span.option-title {
 }
 
 .land-bg {
-	background-position: auto auto;
-	background-repeat: no-repeat;
-	background-color: #fff;
 	height:100%;
 	position: relative;
-	background-image: url('img/landing-bg.jpg');
-	background-size: 100% 100%;
-	
+	background: #fff url('img/landing-bg.jpg') no-repeat center top;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 }
 
 .landing-over {
@@ -1091,6 +1094,34 @@ span.option-title {
 #policy-cats .btn{
 	margin-bottom: 5px;
 }
+
+
+.btn-primary{
+	color:#fff;
+	background-color:#0078ad;
+	border-color:#00638e;
+}
+.btn-primary:hover,.btn-primary:focus,
+.btn-primary:active,.btn-primary.active,
+.open .dropdown-toggle.btn-primary{
+	color:#000;
+	background-color:#bce6f6;
+	border-color:#57c1e8;
+}
+
+.btn-success{
+	color:#fff;
+	background-color:#5b4c93;
+	border-color:#403566;
+}
+.btn-success:hover,.btn-success:focus,
+.btn-success:active,.btn-success.active,
+.open .dropdown-toggle.btn-success{
+	color:#000;
+	background-color:#c8acd0;
+	border-color:#752f8a;
+}
+
 
 /* ------------------------ 9 - Planning Page Rules ------------------------ */
 
@@ -1169,7 +1200,7 @@ a.planning-degree-title{
 }
 
 .plan-grid ul li a:hover {
-	background-color: #000;
+	background-color: #242426;
 }
 
 .extra-plan-grid ul {
@@ -1203,7 +1234,7 @@ a.planning-degree-title{
 }
 
 .extra-plan-grid ul li a:hover {
-	background-color: #000;
+	background-color: #242426;
 }
 
 /* --------------------- 10 - General Education Rules ---------------------- */
@@ -1333,11 +1364,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 }
 
 .dept-item:hover {
-	background-color: #000;
-	color: #ffffff;
-}
-
-.dept-item:hover{
+	background-color: #242426;
 	color: #ffffff;
 }
 
@@ -1408,7 +1435,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	}
 	
 	#menu-catalog-menu li:hover{
-		background-color: #000;
+		background-color: #242426;
 	}
 
 	.mainbanner {
@@ -1416,7 +1443,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	}
 	
 	.nav > li > a:hover {
-		background-color: #000;
+		background-color: #242426;
 	}
 	
 	#csunsearch {
@@ -1720,11 +1747,11 @@ h4.panel-title, .pseudo-h4.panel-title{
 		float: left;
 		display: inline-block;
 		height: 100%;
-		border-right: solid 1px #ffffff;
+		border-right: solid 1px #a9a8a9;
 	}
 
 	#menu-catalog-menu li:hover {
-		background-color: #000;
+		background-color: #242426;
 		color: #ffffff;
 	}
 
@@ -1737,7 +1764,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	}
 
 	#menu-catalog-menu li a:hover {
-		background-color: #000;
+		background-color: #242426;
 		color: #ffffff;
 	}
 
