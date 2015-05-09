@@ -16,7 +16,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="prog-title" href="<?php echo site_url('/policies/alphabetical/'); ?>"><h1 class="prog-title">Policies</h1></a>
+					<a class="prog-title" href="<?php echo site_url('/policies/alphabetical/'); ?>"><h1 class="prog-title">Policies and Procedures</h1></a>
 				</div>
 			</div>
 		</div>

@@ -9,6 +9,9 @@ $years = get_the_terms( $id, 'aca_year');
 
 foreach($years as $year)
 	$aca_year = $year->name;
+	
+$options = get_option( 'main_dp_settings' );	//get our options
+$planning_year = $options['planning_year'];
  
 get_header(); ?>
 
@@ -37,24 +40,25 @@ get_header(); ?>
 						<div class="col-xs-12">
 							<div class="section-content">
 								<?php
-								$programs = get_field('degree_planning_guides');
-								if($programs) :
-								
-									$programs = $programs[0];
-									//get plans
+								if($planning_year == $aca_year) : 
+									$programs = get_field('degree_planning_guides');
+									if($programs) :
 									
-									$name = program_name($programs->ID);
-								?>
-								<a class="planning-degree-title" href="<?php echo get_permalink($programs->ID); ?>">
-									<h2><?php echo $name; ?>
-									
-										<?php $post_option=get_field('option_title', $programs->ID);
-										if(isset($post_option)&&$post_option!=='') : ?>
-											<span class="option-title"><?php echo $post_option; ?> Option</span>
-										<?php endif; ?>
-									</h2>
-								</a>
-								<?php endif; ?>
+										$programs = $programs[0];
+										//get plans
+										
+										$name = program_name($programs->ID);
+									?>
+									<a class="planning-degree-title" href="<?php echo get_permalink($programs->ID); ?>">
+										<h2><?php echo $name; ?>
+										
+											<?php $post_option=get_field('option_title', $programs->ID);
+											if(isset($post_option)&&$post_option!=='') : ?>
+												<span class="option-title"><?php echo $post_option; ?> Option</span>
+											<?php endif; ?>
+										</h2>
+									</a>
+								<?php endif; endif; ?>
 							
 								<?php the_content(); ?>
 							</div>	

@@ -401,6 +401,16 @@ function csun_select_template( $template ){
 		}
 	}
 	
+	//courses popup
+	if(isset($wp_query->query_vars['popup']))
+	{
+		$new_template = locate_template('single-courses-popup.php');
+		if(!empty($new_template))
+		{
+			$template = $new_template;
+		}
+	}
+	
 	return $template;
 }
 add_filter('template_include', 'csun_select_template');
@@ -524,7 +534,7 @@ function add_ge_links( $content )
 					$name = 't5';
 				}
 				
-				if(!empty($matches[1])) {		//upper division
+				if(!empty($matches[1]) && !empty($name)) {		//upper division
 					$url .= '+ud';
 					$name .= '-ud';
 				}
@@ -612,7 +622,7 @@ function csunFormatTinyMCE( $init_array ) {
 		array(  
 			'title' => 'Link Grid',  
 			'block' => 'div',  
-			'classes' => 'plan-grid',
+			'classes' => 'plan-grid clearfix',
 			//'wrapper' => true,
 		),
 		array(  

@@ -55,12 +55,12 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .pseudo-h1{
 	font-size: 30px;
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 h2, .pseudo-h2 {
 	font-size: 24px;
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 h3, .pseudo-h3 {
@@ -70,7 +70,7 @@ h3, .pseudo-h3 {
 
 h4, .pseudo-h4 {
 	font-size: 18px;
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 h5, .pseudo-h5, .sm-h4 {
@@ -80,7 +80,7 @@ h5, .pseudo-h5, .sm-h4 {
 
 h6, .pseudo-h6, .sm-h3 {
 	font-size: 14px;
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 .pseudo-h7 {
@@ -129,7 +129,7 @@ a.no-line {
 	position: fixed;
 	width: 100%;
 	height: 68px;
-	background-color: #CF0A2C;
+	background-color: #D00D2D;
 	display: block;
 	z-index: 200;
 	top:0;
@@ -146,8 +146,12 @@ a.no-line {
 }
 
 #logo{
+	display: none;
+}
+
+#stacked-logo {
+	width: 150px;
 	margin-top: 10px;
-	width: 175px;
 }
 
 #quicklinks-lg{
@@ -170,7 +174,7 @@ a.no-line {
 }
 
 #quicklinks-lg>ul>li>a {
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 #quicklinks-lg>ul>li>a:hover {
@@ -196,7 +200,7 @@ a.no-line {
 }
 
 #quicklinks>ul>li>a {
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 #quicklinks>ul>li>a:hover {
@@ -215,16 +219,17 @@ a.no-line {
 
 #neglogo {
 	width: 50%;
-	height: 38px;
-	margin-top: 14px;
+	height: 60px;
+	margin-top: 5px;
 	display: inline-block;
 	float: left;
 }
 
 #neglogo a > img{
 	position: relative;
-	max-height: 38px;
+	max-height: 60px;
 	min-width: 115px;
+	max-width: 100%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -276,7 +281,7 @@ a.no-line {
 
 #csunsearch .input-group-btn .btn {
 	border-radius: 0px !important;
-	background-color: #CF0A2C;
+	background-color: #D00D2D;
 	color: #ffffff;
 	border-color: #444444;
 }
@@ -335,7 +340,7 @@ a.no-line {
 }
 
 #outside-footer {
-	border-top: solid 2px #CF0A2C;
+	border-top: solid 2px #D00D2D;
 	background-color: #ffffff;
 }
 
@@ -386,7 +391,7 @@ a.no-line {
 	width: 135px;
 	height: 40px;
 	display: block;
-	background-color: #CF0A2C;
+	background-color: #D00D2D;
 	margin: auto;
 	border: 1px solid #3b3b3b;
 	padding: 4px;
@@ -421,9 +426,9 @@ a.no-line {
 }
 
 .footerlinks > a {
-	 color: #CF0A2C; 
+	 color: #D00D2D; 
 	 padding: 0 10px 0 10px;
-	 border-left: 1px solid #CF0A2C;
+	 border-left: 1px solid #D00D2D;
 }
 
 .footerlinks > a:hover {
@@ -517,11 +522,11 @@ a.no-line {
 }
 
 a.prog-title{
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 .prog-title{
-	color: #CF0A2C;
+	color: #D00D2D;
 	padding: 0px 0 5px 0;
 	margin-top: 5px;
 }
@@ -551,7 +556,7 @@ a.prog-title{
 .section-title .pseudo-h2, .section-title .pseudo-h3 {
 	font-size: 18px;
 	display: inline;
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 .section-title span {
@@ -560,7 +565,7 @@ a.prog-title{
 	min-width: 10%;
 	max-width: 90%;
 	height: 100%;
-	border-bottom: solid 2px #CF0A2C
+	border-bottom: solid 2px #D00D2D
 }
 
 .section-title div span {
@@ -571,7 +576,7 @@ a.prog-title{
 .csun-subhead{
 	font-size: 18px;
 	font-weight: 700;
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 a.csun-subhead{
@@ -593,7 +598,7 @@ a.csun-subhead{
 }
 
 a.top-link .glyphicon{
-	color: #CF0A2C;
+	color: #D00D2D;
 	font-size: large;
 }
 
@@ -635,8 +640,8 @@ a.top-link {
 .side-nav li.side-nav-active,
 .side-nav li.current-menu-item{
 	display: block;
-	border: solid 1px #CF0A2C;
-	background-color: #CF0A2C;
+	border: solid 1px #D00D2D;
+	background-color: #D00D2D;
 }
 
 .side-nav li.side-nav-active a,
@@ -738,7 +743,7 @@ ul.side-nav ul {
 }
 
 .red{
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 .small-marg-top {
@@ -817,7 +822,7 @@ span.option-title {
 	height: 0; 
 	border-left: 15px solid transparent;
 	border-right: 15px solid transparent;
-	border-top: 15px solid #CF0A2C;
+	border-top: 15px solid #D00D2D;
 	margin:auto;
 }
 
@@ -847,8 +852,8 @@ span.option-title {
 
 #catalog-subnav ul li.active a {
 	color: #ffffff;
-	background-color: #CF0A2C;
-	border: solid 1px #CF0A2C;
+	background-color: #D00D2D;
+	border: solid 1px #D00D2D;
 }
 
 #catalog-subnav ul li.active:hover a {
@@ -921,7 +926,7 @@ span.option-title {
 }
 
 #catalog-subnav ul li ul li:hover a{
-	background-color: #CF0A2C;
+	background-color: #D00D2D;
 }
 
 #catalog-subnav ul li:hover ul {
@@ -956,7 +961,7 @@ span.option-title {
 .share-icon {
 	display: block;
 	font-size: 24px;
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 .share-icon:hover {
@@ -1127,7 +1132,7 @@ span.option-title {
 
 a.planning-degree-title{
 	text-decoration:underline; 
-	color:#CF0A2C;
+	color:#D00D2D;
 }
 
 /* * * * * * * * Tables * * * * * * * */
@@ -1179,6 +1184,10 @@ a.planning-degree-title{
 
 /* * * * * * * * Link Grid * * * * * * * */
 
+.plan-grid {
+	margin-bottom: 10px;
+}
+
 .plan-grid ul {
 	list-style: none;
 }
@@ -1189,7 +1198,7 @@ a.planning-degree-title{
 	color: #FFF;
 	font-size: 24px;
 	text-decoration: none;
-	background-color: #CF0A2C;
+	background-color: #D00D2D;
 	display: block;
 	margin-bottom: 8px;
 	text-align: center;
@@ -1219,7 +1228,7 @@ a.planning-degree-title{
 }
 
 .extra-plan-grid ul li a {
-	background-color: #CF0A2C;
+	background-color: #D00D2D;
 	width: 100%;
 	height: 100%;
 	color: #FFF;
@@ -1237,11 +1246,25 @@ a.planning-degree-title{
 	background-color: #242426;
 }
 
+h1.popup-title{
+	font-size: 24px;
+	color: #D00D2D;
+	margin: 5px;
+}
+
 /* --------------------- 10 - General Education Rules ---------------------- */
 
 /* * * * * * * * Pop Up List * * * * * * * */
 
-.popup {
+html.popup {
+	height: auto;
+}
+
+.popup body{
+	height: auto;
+}
+
+div.popup {
 	background: #ffffff;
 }
 
@@ -1279,11 +1302,11 @@ a.planning-degree-title{
 }
 
 .panel-heading{
-	background: #CF0A2C;
+	background: #D00D2D;
 }
 
 .collapsed h4.panel-title, .collapsed .pseudo-h4.panel-title{
-	color: #CF0A2C;
+	color: #D00D2D;
 }
 
 h4.panel-title, .pseudo-h4.panel-title{
@@ -1716,7 +1739,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	#csunnav {
 		display: block;
 		height: 30px;
-		background-color: #CF0A2C;
+		background-color: #D00D2D;
 		padding: 0;
 	}
 
@@ -1726,7 +1749,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 		margin-bottom: 0px;
 		padding-left: 0px;
 		padding-right: 0px;
-		background-color: #CF0A2C;
+		background-color: #D00D2D;
 	}
 	
 	.menu-catalog-menu-container {
@@ -1756,11 +1779,11 @@ h4.panel-title, .pseudo-h4.panel-title{
 	}
 
 	#menu-catalog-menu li a {
-		background-color:#CF0A2C;
+		background-color:#D00D2D;
 		display: block;
 		height: 100%;
 		vertical-align: middle;
-		padding: 5px 25px 0 25px;
+		padding: 5px 20px 0 20px;
 	}
 
 	#menu-catalog-menu li a:hover {
@@ -1784,7 +1807,6 @@ h4.panel-title, .pseudo-h4.panel-title{
 	#full-banner-inner {
 		padding: 0;
 		margin:0;
-		height: 158px;
 	}
 	
 	.mainbanner {
@@ -1890,8 +1912,14 @@ h4.panel-title, .pseudo-h4.panel-title{
 
 	#logo{
 		margin-top: 20px;
+		width: 350px;
+		display: inline;
 	}
 
+	#stacked-logo{
+		display: none;
+	}
+	
 	#quicklinks-lg>ul>li {
 		padding-left: 8px;
 		padding-right: 8px;
@@ -1903,7 +1931,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	
 	#menu-catalog-menu li a {
 		font-size: 14px;
-		padding: 5px 40px 0 40px;
+		padding: 5px 35px 0 35px;
 	}
 	
 	/* --------------------------- 3 - Footer Rules ---------------------------- */
@@ -1982,7 +2010,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 
 	#menu-catalog-menu li a {
 		font-size: 14px;
-		padding: 10px 60px 0 60px;
+		padding: 10px 55px 0 55px;
 	}
 
 	#quicklinks-lg>ul>li {

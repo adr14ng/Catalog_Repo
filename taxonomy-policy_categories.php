@@ -19,7 +19,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo site_url('/policies/alphabetical/'); ?>">Policies</a>
+					<a class="dept-title-small" href="<?php echo site_url('/policies/alphabetical/'); ?>">Policies and Procedures</a>
 					<h1 class="prog-title"><?php echo $keyword_title; ?></h1>
 				</div>
 			</div>
@@ -69,7 +69,7 @@ get_header(); ?>
 				</div>
 				<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
 				
-					<h2 class="policy-page-title"> Policies by Category: <span class="tax-name"><?php echo $keyword_title; ?></span></h2>
+					<h2 class="policy-page-title"> Policies and Procedures by Category: <span class="tax-name"><?php echo $keyword_title; ?></span></h2>
 				
 					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 					

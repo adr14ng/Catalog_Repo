@@ -9,7 +9,7 @@
 		<div class="landing-item col-xs-4 clearfix">
 			<div class="land-bg">
 				<div class="landing-over clearfix">
-					<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icon-xmarks.png">
+					<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icons-a-z.png">
 					<div class="land-text">
 						<h2 class="land-head">A to Z</h2>
 						<span class="land-copy">An index to help you find your way.</span>
@@ -22,7 +22,7 @@
 		<div class="landing-item col-xs-4 clearfix">
 			<div class="land-bg">
 			<div class="landing-over clearfix">
-				<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icon-book.png">
+				<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icons-library.png">
 				<div class="land-text">
 					<h2 class="land-head">Introduction</h2>
 					<span class="land-copy">Learn about California State University, Northridge.</span>
@@ -36,7 +36,7 @@
 		<div class="landing-item col-xs-4 clearfix">
 			<div class="land-bg">
 			<div class="landing-over clearfix">
-				<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icon-sundial.png">
+				<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icons-folders.png">
 				<div class="land-text">
 					<h2 class="land-head">Resources</h2>
 					<span class="land-copy">Catalog Archives, Degree Planning Guides and more.</span>

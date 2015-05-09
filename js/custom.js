@@ -29,12 +29,24 @@ $( document ).ready(function() {
 	
 	$('a.pop-up').click(function(e) {
 		e.preventDefault();
+		
+		var height;
+		var name;
 		var width = $("#wrap").width() / 2;
 		if(width < 350)
 			width = 350;
-		var height = $(window).height() * 2 / 3;
+		
+		if($(this).hasClass("course")){
+			name = $(this).attr("title");
+			height = 450;
+		}
+		else{
+			name = $(this).attr('name');
+			height = $(window).height() * 2 / 3;
+		}
+		console.log(name);
 		var theWindow = window.open($(this).attr('href'), 
-			$(this).attr('name'), 
+			name, 
 			'location=1, toolbar=1, scrollbars=1, resizable=1, width='+width+', height='+height);
 		theWindow.focus();
 	});

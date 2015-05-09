@@ -24,10 +24,10 @@ $post_option=get_field('option_title');
 if(isset($post_option)&&$post_option!=='')
 	$option = true;
 	
-$option = get_option( 'main_dp_settings' );	//get our options
-$planning_year = $option['planning_year'];
-$tseng_only = $option['tseng_description'];
-$tseng_both = $option['tseng_both'];
+$options = get_option( 'main_dp_settings' );	//get our options
+$planning_year = $options['planning_year'];
+$tseng_only = $options['tseng_description'];
+$tseng_both = $options['tseng_both'];
  
 get_header(); ?>
 

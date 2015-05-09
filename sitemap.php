@@ -32,7 +32,7 @@ $links = array(
 		'link' => site_url('/programs/minor/'),
 		),
 	'policies' => array (
-		'name' => 'Policies',
+		'name' => 'Policies and Procedures',
 		'link' => site_url('/policies/'),
 		)
 	);
