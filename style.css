@@ -1,6 +1,6 @@
 /**
 	Theme Name: Catalog Theme
-	Version: 1
+	Version: 2
 	Description: A theme created for CSUN Catalog
 	
 	General
@@ -233,6 +233,7 @@ a.no-line {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	z-index: 1000;
 }
 
 .iconblock{
@@ -1522,6 +1523,14 @@ h4.panel-title, .pseudo-h4.panel-title{
 
 	#headerbar .col-xs-12{
 		padding: 0;
+	}
+	
+	#neglogo a {
+		display: block;
+	}
+	
+	body.customize-support #fixbar {
+		top: 46px;
 	}
 	
 	/* --------------------------- 3 - Footer Rules ---------------------------- */

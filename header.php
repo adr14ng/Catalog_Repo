@@ -129,22 +129,22 @@
 
 			<?php if ( is_front_page() ) : ?>
 
-				<div class="row" id="full-banner">
+				<div id="full-banner">
 					<div class="container hidden-xs">
-						<img src="<?php echo bloginfo('template_directory');?>/img/CSUN-CatalogBanner-2015-2016-bigger.jpg" class="img-responsive " alt="UNIVERSITY CATALOG: 2014-2015">
+						<img src="<?php echo bloginfo('template_directory');?>/img/main-banner.png" class="img-responsive " alt="UNIVERSITY CATALOG: 2015-2016">
 						
 					</div>
-					<img src="<?php echo bloginfo('template_directory');?>/img/CSUN-CatalogBanner-2015-2016-mobile-01.jpg" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2014-2015">
+					<img src="<?php echo bloginfo('template_directory');?>/img/mobile-banner.png" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2015-2016">
 				</div>
 
 			<?php else : ?>
 
-				<div class="row" id="full-banner-inner">
+				<div id="full-banner-inner">
 					<div class="container hidden-xs">
-						<img src="<?php echo bloginfo('template_directory');?>/img/CSUN-CatalogBanner-2015-2016-smaller.jpg" class="img-responsive" alt="UNIVERSITY CATALOG: 2014-2015">				
+						<img src="<?php echo bloginfo('template_directory');?>/img/inner-banner.png" class="img-responsive" alt="UNIVERSITY CATALOG: 2015-2016">				
 					</div>
 
-					<img src="<?php echo bloginfo('template_directory');?>/img/CSUN-CatalogBanner-2015-2016-mobile-01.jpg" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2014-2015">
+					<img src="<?php echo bloginfo('template_directory');?>/img/mobile-banner.png" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2015-2016">
 
 				</div>
 

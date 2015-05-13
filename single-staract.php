@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * Template Name: Plans Single View
+ * Template Name: Staract Single View
  */
 
 $id = get_the_ID();
@@ -59,7 +59,7 @@ get_header(); ?>
 										</h2>
 									</a>
 								<?php endif; endif; ?>
-								<p><?php the_content(); ?></p>
+								<?php the_content(); ?>
 							</div>	
 						</div>
 					</div>
