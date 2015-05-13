@@ -19,7 +19,7 @@ get_header(); ?>
 					<ol>
 						<li>Return to the <a href="<?php echo site_url(); ?>"><strong>Home Page</strong></a>.</li>
 						<li>Use your <strong><a href="javascript:history.go(-1)">Back</a></strong> button on the browser and return to the previous page. Another link in the same section may get you to the information.</li>
-						<li><a href="<?php echo site_url('/feedback/'); ?>"><strong>Contact Us</strong></a></li>
+						<li><a href="<?php echo site_url('/feedback/?referer-url=').urlencode($_SERVER['REQUEST_URI']); ?>"><strong>Contact Us</strong></a></li>
 					</ol>
 				</div><!-- end inset-content -->
 			</div> 
