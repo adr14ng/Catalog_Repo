@@ -12,6 +12,7 @@ foreach($years as $year)
  
 $options = get_option( 'main_dp_settings' );	//get our options
 $planning_year = $options['planning_year'];
+$old_planning_year = $options['old_planning_year'];
 
 get_header(); ?>
 
@@ -59,6 +60,9 @@ get_header(); ?>
 										</h2>
 									</a>
 								<?php endif; endif; ?>
+								<?php if($aca_year <= $old_planning_year) : ?>
+									<p><?php echo $options['old_plan_message']; ?></p>
+								<?php endif; ?>
 								<?php the_content(); ?>
 							</div>	
 						</div>
