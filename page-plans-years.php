@@ -4,6 +4,9 @@
 
  */ 
 
+$options = get_option( 'main_dp_settings' );	//get our options
+$planning_year = $options['planning_year'];
+
 get_header(); ?>
 
 
@@ -39,7 +42,7 @@ get_header(); ?>
 							
 						<div class="plan-grid clearfix"><ul>
 							
-						<?php foreach($years as $year) : 
+						<?php foreach($years as $year) : if ($year->slug <= $planning_year) :
 							$query_plans = new WP_Query(array(
 							'post_type' => 'plans', 
 							'aca_year' => $year->slug, 
@@ -49,8 +52,8 @@ get_header(); ?>
 							
 								<li><a href="<?php echo $url.$year->slug; ?>"><?php echo $year->slug; ?></a></li>
 								
-							<?php endif;?>
-						<?php endforeach; ?>
+							<?php endif;?> 
+						<?php endif; endforeach; ?>
 						</ul></div>
 						<div>
 							<h3 class="pseudo-h5">Or select your Department, Program or College: </h3>

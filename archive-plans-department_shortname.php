@@ -2,6 +2,8 @@
 /**
  * Template Name: Planning by Department Template
  */ 
+ $options = get_option( 'main_dp_settings' );	//get our options
+$planning_year = $options['planning_year'];
 
 $type = get_query_var( 'post_type' );
 $dept = get_query_var( 'department_shortname' );
@@ -59,7 +61,7 @@ get_header(); ?>
 
 				<?php 
 				$terms = get_terms('aca_year', array('orderby' => 'name', 'order' => 'DESC',));
-				foreach($terms as $term) : 
+				foreach($terms as $term) : if ($term->slug <= $planning_year) :
 					
 					$query_plans = new WP_Query(array(
 						'post_type' => $type, 
@@ -77,7 +79,7 @@ get_header(); ?>
 								
 						<p><a title="<?php echo $title.' for '.get_the_title().' - '.$term->slug; ?>" href="<?php the_permalink();?>"><?php the_title(); ?></a></p>
 
-					<?php endwhile; ?>
+					<?php endwhile; endif; ?>
 				<?php endif; endforeach;?>
 				<?php wp_reset_query(); ?>
 			</div>

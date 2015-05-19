@@ -167,7 +167,8 @@ function get_plan_data($type, $year, $id)
 	$plans = get_posts($args);
 	foreach($plans as $plan)
 	{
-		$plan_links[] = get_permalink($plan->ID);
+		$aca_year = wp_get_post_terms( $plan->ID, 'aca_year');
+		$plan_links[$aca_year[0]->name] = get_permalink($plan->ID);
 	}
 	
 	return $plan_links;

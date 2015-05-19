@@ -104,6 +104,7 @@ p {
 .spacey p
 {
 	margin: 0 0 7px;
+	line-height: 20px;
 }
 .spacey
 {
