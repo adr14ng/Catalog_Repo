@@ -87,7 +87,7 @@ get_header(); ?>
 						
 					<?php endwhile; else: ?>
 
-						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+						<p><?php _e('Sorry, no information found with those search terms.'); ?></p>
 						
 
 					<?php endif; ?>

@@ -40,7 +40,7 @@ get_header(); ?>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix small-marg-bottom">
 				<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 				
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
 						<?php the_content()?>
 					</div>
 
@@ -49,6 +49,29 @@ get_header(); ?>
 					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 
 				<?php endif; ?>
+				<div class="section-content">
+					<span class="section-title"><span><h2>Graduate Studies Policies</h2></span></span>
+					<?php 
+						$args = array(
+							'post_type' => 'policies',
+							'orderby' => 'title',
+							'order' => 'ASC',
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'policy_categories',
+									'field' => 'slug',
+									'terms' => 'graduate-policies',
+								)
+							)
+						);
+						
+						$grad_policies = new WP_Query($args);
+						if($grad_policies->have_posts()) : while($grad_policies->have_posts()) : $grad_policies->the_post(); ?>
+						
+						<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+						
+						<?php endwhile; endif;?>
+				</div>
 				</div>
 			</div>
 		</div>

@@ -30,7 +30,7 @@ if(!empty($api))
 
 function process($subject, $type){	
 	if($type == "courses")	{
-		$query_courses = new WP_Query(array('post_type' => 'courses', 'order' => 'ASC', 'orderby' => 'title', 'posts_per_page' => 1000, 'department'=> $subject ));
+		$query_courses = new WP_Query(array('post_type' => 'courses', 'order' => 'ASC', 'orderby' => 'title', 'posts_per_page' => 1000, 'department_shortname'=> $subject ));
 		
 		$items = array();
 		if($query_courses ->have_posts()) : while($query_courses->have_posts()) : $query_courses->the_post(); 
@@ -94,20 +94,61 @@ function process_dept_field($dept, $field){
 	}
 	else
 	{
-		$fields = array('misc', 'mission_statement', 'academic_advisement', 'careers', 'contact', 'accreditation', 'honors');
+		//add any department field names here
+		$fields = array('name', 'url', 'contact', 'accreditation', 'programs');
 	}
 	
 	foreach($fields as $field)
 	{
 		//send back field
-		if($field === 'misc')
+		if($field === 'name')
+		{
+			$data[$field] = $posts[0]->post_title;
+		}
+		elseif($field === 'url')
+		{
+			$data[$field] = get_csun_archive('departments', $dept);
+		}
+		elseif($field === 'misc')
 		{
 			$data[$field] = strip_tags($posts[0]->post_content);
+		}
+		elseif($field === 'programs')
+		{
+			$data[$field] = get_department_programs($dept);
 		}
 		else
 		{
 			$data[$field] = strip_tags(get_field($field, $posts[0]->ID));
 		}
+	}
+	
+	return $data;
+}
+
+function get_department_programs($dept)
+{
+	$posts = get_posts(array('department_shortname' => $dept, 'post_type' => 'programs'));
+	$data = array();
+	
+	foreach($posts as $post)
+	{
+		//post name, degree level, url
+		$program_name = program_name($post->ID, $post->post_title);
+			
+		$option = get_field( 'option_title', $post->ID);
+		if(!empty($option))
+		{
+			$program_name .= ' - '.$option.' Option';
+		}
+		
+		$program_link = get_permalink($post->ID);
+		
+		$program_levels = get_the_terms($post->ID, 'degree_level');
+		
+		$data[] = array('name' => $program_name,
+		                'url' => $program_link,
+						'level' => $program_levels[0]->slug);
 	}
 	
 	return $data;
@@ -126,12 +167,29 @@ function process_prog_field($prog, $field, $year){
 	}
 	else
 	{
-		$fields = array('overview', 'program_requirements', 'slos', 'plans', 'staract');
+		//add any program field names here
+		$fields = array('name', 'url', 'slos', 'plans', 'staract');
 	}
-	
+
 	foreach($fields as $field)
 	{
-		if($field === 'overview')
+		if($field === 'name')
+		{
+			$program_name = program_name($posts[0]->ID, $posts[0]->post_title);
+			
+			$option = get_field( 'option_title', $posts[0]->ID);
+			if(!empty($option))
+			{
+				$program_name .= ' - '.$option.' Option';
+			}
+
+			$data[$field] = $program_name;
+		}
+		elseif($field === 'url')
+		{
+			$data[$field] = get_permalink($posts[0]->ID);
+		}
+		elseif($field === 'overview')
 		{
 			$data[$field] = strip_tags($posts[0]->post_content);
 		}
@@ -144,7 +202,7 @@ function process_prog_field($prog, $field, $year){
 			$data[$field] = strip_tags(get_field($field, $posts[0]->ID));
 		}
 	}
-	
+
 	return $data;
 }
 
@@ -168,10 +226,18 @@ function get_plan_data($type, $year, $id)
 	foreach($plans as $plan)
 	{
 		$aca_year = wp_get_post_terms( $plan->ID, 'aca_year');
-		$plan_links[$aca_year[0]->name] = get_permalink($plan->ID);
+		$plan_links[] = array('url' => get_permalink($plan->ID), 
+		                      'year' => $aca_year[0]->name );
 	}
 	
+	usort($plan_links, "year_sort");
+	
 	return $plan_links;
+}
+
+function year_sort($a, $b)
+{
+	return strcmp($a["year"], $b["year"]);
 }
  
 ?>

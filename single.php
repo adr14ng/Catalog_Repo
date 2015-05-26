@@ -9,7 +9,7 @@ get_header(); ?>
 	<div class="container" id="wrap">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-title-wrap">
-				<h2 class="inner-title dark"><?php the_title(); ?></h2>
+				<h1 class="inner-title dark"><?php the_title(); ?></h1>
 			</div>
 
 			<div class="pad-box">
