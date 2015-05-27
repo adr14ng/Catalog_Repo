@@ -48,7 +48,7 @@ get_header(); ?>
 						<?php foreach($filter_types as $id=>$text) : ?>
 							<li>
 								<input type="checkbox" name="post_type[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" <?php if($checked[$id]) echo 'checked'; ?>/>
-								<label for="<?php echo $id; ?>"><?php echo $text; ?></label>
+								<label for="<?php echo $id; ?>"><?php echo ($text==="Pages" ? "Other Pages" : $text); ?></label>
 							</li>
 						<?php endforeach; ?>
 						</ul>
