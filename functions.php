@@ -156,13 +156,37 @@ function the_csun_permalink(){
 	//Contact is in the department info
 	$args=array(
 		'post_type' => 'departments',
-		'department_shortname' => $dept_name
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'department_shortname',
+				'field' => 'slug',
+				'terms' => $dept_name,
+				'include_children' => false,
+			),
+		),
 	);
 	$departments = get_posts( $args );
 	
 	if(isset($departments[0])){
 		//acf get field
 		$contact = get_field('contact', $departments[0]->ID);
+	}
+	else  //college
+	{
+		$args = array('post_type' => 'page',
+			'meta_query' => array(
+				array(
+					'key' => 'department_code',
+					'value' => $dept_name,
+				),
+			),
+		);
+		
+		$college = get_posts($args);
+		
+		if(isset($college[0])) {
+			$contact = get_field('contact', $college[0]->ID);
+		}
 	}
 	
 	return $contact;

@@ -50,7 +50,7 @@ get_header(); ?>
 
 				<?php endif; ?>
 				<div class="section-content">
-					<span class="section-title"><span><h2>Graduate Studies Policies</h2></span></span>
+					<span class="section-title"><span><h2>Graduate Studies Policies and Procedures</h2></span></span>
 					<?php 
 						$args = array(
 							'post_type' => 'policies',
@@ -61,8 +61,9 @@ get_header(); ?>
 									'taxonomy' => 'policy_categories',
 									'field' => 'slug',
 									'terms' => 'graduate-policies',
-								)
-							)
+								),
+							),
+							'posts_per_page' => -1,
 						);
 						
 						$grad_policies = new WP_Query($args);
