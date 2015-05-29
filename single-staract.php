@@ -14,6 +14,25 @@ $options = get_option( 'main_dp_settings' );	//get our options
 $planning_year = $options['planning_year'];
 $old_planning_year = $options['old_planning_year'];
 
+$programs = get_field('degree_planning_guides');
+if($programs) {
+
+	$programs = $programs[0];
+	//get department
+	$depts = get_the_terms($programs->ID, 'department_shortname');
+	if($depts)
+	{
+		$depts = $depts[0];
+		$department = '<a href="'.get_csun_archive('departments', $depts->slug).'">'.$depts->description.'</a>';
+		
+		$col = get_term_by('id', $depts->parent, 'department_shortname');
+		if($col)
+		{
+			$college = '<a href="'.site_url().'/about/colleges/'.$col->slug.'">'.$col->description.'</a>';
+		}
+	}
+}
+
 get_header(); ?>
 
 
@@ -32,6 +51,24 @@ get_header(); ?>
 </div>
 <div id="main-section" class = "main plans">
 	<div class="container" id="wrap">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="row">
+				<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<ul id="breadcrumbs">
+						<li><a href="<?php site_url(); ?>">Home</a></li>
+						<li class="separator"> / </li>
+						
+						<li><?php echo $college; ?></li>
+						<li class="separator"> / </li>
+						
+						<li><?php echo $department; ?></li>
+						<li class="separator"> / </li>
+						
+						<li><a href="<?php echo site_url('/planning/staract/').$depts->slug; ?>">STAR Act Planning Guides</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="pad-box">
 				<div id="inset-content">
@@ -42,12 +79,7 @@ get_header(); ?>
 							<div class="section-content">
 								<?php
 								if($planning_year == $aca_year) :
-									$programs = get_field('degree_planning_guides');
 									if($programs) :
-									
-										$programs = $programs[0];
-										//get plans
-										
 										$name = program_name($programs->ID);
 									?>
 									<a class="planning-degree-title" href="<?php echo get_permalink($programs->ID); ?>">

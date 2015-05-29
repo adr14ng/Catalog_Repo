@@ -28,12 +28,18 @@ function fix_autosave() { ?>
 /* Breadcrumbs */
 function the_breadcrumb() {
     $post_type = get_post_type();
-    global $dept, $deptdesc;
+    global $dept, $deptdesc, $deptterm;
+	
+	$col = get_term_by('id', $deptterm->parent, 'department_shortname');
 
     if (!is_home()) {
 		echo '<ul id="breadcrumbs">';
 		
         echo '<li><a href="'.get_option('home').'/">Home</a></li>';
+        echo '<li class="separator"> / </li>';
+		
+		//Get college
+		echo '<li><a href="'.site_url().'/about/colleges/'.$col->slug.'">'.$col->description.'</a></li>';
         echo '<li class="separator"> / </li>';
 
         //Get department
@@ -44,7 +50,19 @@ function the_breadcrumb() {
         echo '<li><a href="'.get_csun_archive($post_type, $dept).'">'.ucwords ($post_type).'</a></li>';
         echo '<li class="separator"> / </li>';
 
-        echo '<li><strong>'. the_title() .'</strong></li>';
+		if($post_type === "courses")
+		{
+			$name = explode('.', get_the_title());
+			echo '<li><strong>'. $name[0] .'</strong></li>';
+		}
+		elseif($post_type === "programs")
+		{
+			echo '<li><strong>'. program_name() .'</strong></li>';
+		}
+		else
+		{
+			echo '<li><strong>'. the_title() .'</strong></li>';
+		}
 		echo '</ul>';
     }
 }
@@ -495,7 +513,7 @@ function add_ge_links( $content )
 	'(?:GE '.									//Typical GE course start
 		'((?:Upper Division)|(?:UD))?'.			//Upper division variations
 		'(?:Basic (?:Skills|Subjects):)?'.		//Basic skills variations
-		'([A-Za-z ]*)'.							//The GE category
+		'([A-Za-z ]*)'.						//The GE category
 	')|'.										//or
 	'(Title (?: Five|5|V)(?: requirement)?)'.	//Title 5 type
 	'/i';										//Don't worry about case
@@ -558,9 +576,17 @@ function add_ge_links( $content )
 					$name = 't5';
 				}
 				
-				if(!empty($matches[1]) && !empty($name)) {		//upper division
-					$url .= '+ud';
-					$name .= '-ud';
+				if(!empty($matches[1])) {		//upper division
+					if(empty($name))
+					{
+						$url .= 'ud';
+						$name = 'ud';
+					}
+					else
+					{
+						$url .= '+ud';
+						$name .= '-ud';
+					}
 				}
 				
 				if(!empty($name))
@@ -947,7 +973,7 @@ function fix_query($query) {
     $query = $query . " HAVING c > 1";
     return $query;
 }
-add_filter('relevanssi_get_words_query', 'fix_query');
+//add_filter('relevanssi_get_words_query', 'fix_query');
 
 /**
  * Weight plans based on aca_year
