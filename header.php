@@ -7,12 +7,12 @@
 	  <title>
 		<?php csun_title_text(); ?>
 	  </title>
-	  <link type="text/plain" rel="author" href="<?php echo site_url(); ?>/humans.txt" />
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.min.css">
 	  <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-1.11.1.min.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.columnizer.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
+	  <link type="text/plain" rel="author" href="<?php echo site_url(); ?>/humans.txt" />
 	  <?php if(is_singular('plans') || is_singular('staract')) : ?>
 		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/plans-print.css">
 	  <?php else: ?>
@@ -38,7 +38,7 @@
 	</head>
 
 
-	<body>
+	<body <?php body_class(); ?>>
 		<div id="overflow-wrap">
 			<div id="fixbar">
 				<div id="mininav">

@@ -23,12 +23,12 @@ if($programs) {
 	if($depts)
 	{
 		$depts = $depts[0];
-		$department = '<a href="'.get_csun_archive('departments', $depts->slug).'">'.$depts->description.'</a>';
+		$department = '<a href="'.site_url().'/planning/staract/'.$depts->slug.'">'.$depts->description.'</a>';
 		
 		$col = get_term_by('id', $depts->parent, 'department_shortname');
 		if($col)
 		{
-			$college = '<a href="'.site_url().'/about/colleges/'.$col->slug.'">'.$col->description.'</a>';
+			$college = '<a href="'.site_url().'/planning/staract/'.$col->slug.'">'.$col->description.'</a>';
 		}
 	}
 }
@@ -55,16 +55,14 @@ get_header(); ?>
 			<div class="row">
 				<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<ul id="breadcrumbs">
-						<li><a href="<?php site_url(); ?>">Home</a></li>
+						<li><a href="<?php echo site_url('/plan/star-act/'); ?>">STAR-Act Planning Guides</a></li>
 						<li class="separator"> / </li>
 						
 						<li><?php echo $college; ?></li>
 						<li class="separator"> / </li>
 						
 						<li><?php echo $department; ?></li>
-						<li class="separator"> / </li>
-						
-						<li><a href="<?php echo site_url('/planning/staract/').$depts->slug; ?>">STAR Act Planning Guides</a></li>
+
 					</ul>
 				</div>
 			</div>

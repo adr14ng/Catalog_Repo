@@ -453,6 +453,8 @@ function csun_select_template( $template ){
 		}
 	}
 	
+	echo "<!--". basename($template)."-->";
+	
 	return $template;
 }
 add_filter('template_include', 'csun_select_template');

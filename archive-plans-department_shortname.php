@@ -61,7 +61,8 @@ get_header(); ?>
 
 				<?php 
 				$terms = get_terms('aca_year', array('orderby' => 'name', 'order' => 'DESC',));
-				foreach($terms as $term) : if ($term->slug <= $planning_year) :
+				foreach($terms as $term) : 
+				if ($term->slug <= $planning_year) :
 					
 					$query_plans = new WP_Query(array(
 						'post_type' => $type, 
@@ -79,8 +80,8 @@ get_header(); ?>
 								
 						<p><a title="<?php echo $title.' for '.get_the_title().' - '.$term->slug; ?>" href="<?php the_permalink();?>"><?php the_title(); ?></a></p>
 
-					<?php endwhile; endif; ?>
-				<?php endif; endforeach;?>
+					<?php endwhile; ?>
+				<?php endif; endif; endforeach;?>
 				<?php wp_reset_query(); ?>
 			</div>
 		</div>

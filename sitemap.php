@@ -25,15 +25,15 @@ $links = array(
 		),
 	'majors' => array (
 		'name' => 'Majors',
-		'link' => site_url('/programs/major'),
+		'link' => site_url('/programs/major/'),
 		),
 	'minors' => array (
 		'name' => 'Minors',
-		'link' => site_url('/programs/minor'),
+		'link' => site_url('/programs/minor/'),
 		),
 	'policies' => array (
 		'name' => 'Policies and Procedures',
-		'link' => site_url('/policies'),
+		'link' => site_url('/policies/'),
 		)
 	);
 	
