@@ -17,7 +17,7 @@
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 footpad clearfix">
 							<div class="footbox">
-								<p>Was this site helpful to you? Let us know here:</p>
+								<p>Was this site helpful to you? <br>Let us know:</p>
 								<div class="btnbox">
 									<form action="<?php echo site_url('/feedback'); ?>" method="get">
 									<input type="hidden" name="referer-url" value="<?php echo $_SERVER['REQUEST_URI']; ?>" />
