@@ -22,7 +22,7 @@ $letter = strtoupper(get_query_var( 'directory', 'a' ));
 
 if(!$emer)
 {
-	$args = array( 'directory' => get_query_var( 'directory', 'a' ) );
+	$args = array( 'directory' => get_query_var( 'directory', 'a' ), 'order' => 'ASC', 'orderby' => 'title' );
 	query_posts($args);
 }
 

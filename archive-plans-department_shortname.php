@@ -48,7 +48,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php echo site_url('/plan/'.$url); ?>"><?php echo ucwords($title); ?></a>
-					<h1 class="prog-title"><?php echo $description; ?></h1>
+					<h1 class="prog-title"><a class="prog-title" href="<?php echo site_url()."/academics/".$dept."/overview"; ?>"><?php echo $description; ?></a></h1>
 				</div>
 			</div>
 		</div>
