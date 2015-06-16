@@ -289,8 +289,12 @@ function csun_title_text() {
 			echo 'All Programs';
 			
 	elseif(is_post_type_archive( 'faculty')) :
+		$letter = get_query_var( 'directory' );
 		if($dept !== '')
-			echo 'Faculty - '.$deptdesc;
+			if(!empty($letter))
+				echo "Emeriti - ".ucwords($letter);
+			else
+				echo 'Faculty - '.$deptdesc;
 		else
 			echo 'Faculty and Administration';
 			
@@ -360,6 +364,10 @@ function csun_title_text() {
 		}
 		
 		echo $year.' - '.$type;
+	
+	elseif(is_tax('directory')) :
+		$letter = get_query_var( 'directory' );
+		echo "Faculty and Administration - ".ucwords($letter);
 		
 	else:
 		wp_title('');
