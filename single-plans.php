@@ -43,7 +43,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php echo site_url('/plan/'); ?>">Degree Plans</a>
-					<h1 class="prog-title"><?php $aca_year.' '; the_title(); ?></h1>
+					<h1 class="prog-title"><?php echo $aca_year.' '; the_title(); ?></h1>
 				</div>
 			</div>
 		</div>

@@ -135,6 +135,8 @@ function process_simple_edit($params)
 {
 	global $hns_search_result_type_counts;
 
+	print_r($hns_search_result_type_counts);
+	
 	$filter_types = array();
 	$checked = array();
 	$search_query = get_search_query();

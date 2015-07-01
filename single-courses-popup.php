@@ -50,6 +50,11 @@ $semester2_pretty = ucwords($semester2);
 	  <?php wp_head();?>
 	</head>
 	<body>
+		<div id="inset-logo">
+			<a href="http://www.csun.edu/">
+				<img id="popup-logo" alt="California State University, Northridge" src="http://www.csun.edu/~catalog/catalog1516/catalog/wp-content/themes/catalogtheme/img/logo.png">
+			</a>
+		</div>
 		<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 			<h1 class="popup-title"><?php the_title(); ?></h1>
 			<div class="pad-box">

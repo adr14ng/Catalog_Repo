@@ -2,6 +2,12 @@
 /**
  * Template Name: Department Single View
  */ 
+ $id = get_the_ID();
+$years = get_the_terms( $id, 'aca_year');
+
+foreach($years as $year)
+	$aca_year = $year->name;
+	
  $dept = get_query_var( 'department_shortname' );
 
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
@@ -21,7 +27,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<span class="dept-title-small"><?php echo $title; ?></span>
-					<h1 class="prog-title"><a href="<?php echo site_url('/academics/'.$depts->slug.'/overview'); ?>"><?php echo $deptdesc; ?></a></h1>
+					<h1 class="prog-title"><a href="<?php echo $aca_year.' ';site_url('/academics/'.$depts->slug.'/overview'); ?>"><?php echo $deptdesc; ?></a></h1>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
