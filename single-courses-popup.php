@@ -178,7 +178,7 @@ $semester2_pretty = ucwords($semester_no_dash2);
 
 
 				$.ajax({
-					url: "http://curriculum.ptg.csun.edu/terms/"+semester+"/classes/"+course,
+					url: "https://api.metalab.csun.edu/curriculum/terms/"+semester+"/classes/"+course,
 					type: 'get',
 					cache: 'false',
 					dataType: 'json',
