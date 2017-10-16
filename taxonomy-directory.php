@@ -1,11 +1,11 @@
-<?php 
+<?php
 /**
  * Template Name: Faculty Directory Archive Template
  *
  * There are three different pages within this template
- * The Department style page, the all emeriti page, 
+ * The Department style page, the all emeriti page,
  * and the all current page
- */ 
+ */
 
 $dept = get_query_var( 'department_shortname' );
 if($dept === 'emeriti') {
@@ -63,7 +63,7 @@ get_header(); ?>
 							<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 							<?php the_excerpt(); ?>
 						</div>
-<?php 
+<?php
 					endwhile; else:
 						if($emer) :
 							echo '<p>Sorry, no emeritus faculty found in this section.</p>';

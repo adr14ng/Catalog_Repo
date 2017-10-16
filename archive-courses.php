@@ -57,7 +57,7 @@ get_header(); ?>
 					
 				<?php endwhile; else: ?>
 				
-					<p><?php _e('There are currently no courses associated with '.$deptdesc.'.'); ?></p>
+					<p><?php _e('Refer to the Programs tab for courses associated with '.$deptdesc.'.'); ?></p>
 					
 				<?php endif; ?>
 				</div>

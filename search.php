@@ -24,6 +24,11 @@ else
  
 get_header(); ?>
 
+<?php
+global $wp_query;
+//print_r($wp_query);
+?>
+
 <div class="row" id="subnav-wrap">
 	<div class="container">
 		<div class="row">
@@ -73,7 +78,7 @@ get_header(); ?>
 						
 					<?php endwhile; else: ?>
 
-						<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+						<p><?php _e('Sorry, no results found.'); ?></p>
 						
 
 					<?php endif; ?>
@@ -87,7 +92,7 @@ get_header(); ?>
 						
 					<?php endwhile; else: ?>
 
-						<p><?php _e('Sorry, no information found with those search terms.'); ?></p>
+						<p><?php _e('Sorry, no results found.'); ?></p>
 						
 
 					<?php endif; ?>
@@ -135,8 +140,6 @@ function process_simple_edit($params)
 {
 	global $hns_search_result_type_counts;
 
-	print_r($hns_search_result_type_counts);
-	
 	$filter_types = array();
 	$checked = array();
 	$search_query = get_search_query();
@@ -172,26 +175,8 @@ function process_simple_edit($params)
 
 function process_advanced_edit($params)
 {
-	$andwords = explode(' ', $params['and-words']);
-	$notwords = explode(' ', $params['not-words']);
-	$search_query = $params['or-words'];
-	if(!empty($params['exact-words']))
-	{
-		$search_query .=' "'.$params['exact-words'].'"';
-	}
-	foreach($andwords as $word)
-	{
-		if($word !== '')
-			$search_query.= " +".$word;
-	}
-	foreach($notwords as $word)
-	{
-		if($word !== '')
-			$search_query.= " -".$word;
-	}
-	
 	$args = parse_advanced_search($params);
-	$args['s'] = $search_query;
+	$search_query = $args['s'];
 	
 	$advanced_query = new WP_Query( $args );
 	relevanssi_do_query($advanced_query);

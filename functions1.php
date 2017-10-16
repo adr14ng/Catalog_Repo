@@ -762,16 +762,16 @@ add_filter( 'the_content', 'add_ge_links');
  */
 function links_test_site($content)
 {
-	$content = str_ireplace('https://catalog1718.wpengine.com/', 'http://catalog.csun.edu/', $content);
-	$content = str_ireplace('http://catalogtest.wpengine.com/', 'http://catalog.csun.edu/', $content);
-	$content = str_ireplace('http://catalogcsun.wpengine.com/', 'http://catalog.csun.edu/', $content);
-	$content = str_ireplace('http://catalog1718.wpengine.com//', 'http://catalog.csun.edu/', $content);
-	$content = str_ireplace('http://catalog1718.wpengine.com/', 'http://catalog.csun.edu/', $content);
-	$content = str_ireplace('http://www.csun.edu/liberalstudies/workshops.html', 'http://www.csun.edu/humanities/liberal-studies/workshops.html', $content);
-	$content = str_ireplace('http://catalog.csun.edu/academics/kin/courses/kin-494ac/', 'http://catalog.csun.edu/academics/kin/courses/kin-494ab/', $content);
-	$content = str_ireplace('https://etd.csun.edu/', 'https://www.csun.edu/research-graduate-studies/electronic-thesisdissertation', $content);
-	$content = str_ireplace('http://catalog.csun.edu/academics/kin/courses/kin-377l/', 'http://catalog.csun.edu/academics/kin/courses/kin-377/', $content);
-	$content = str_ireplace('https://csunarchive16.wpengine.com/', 'http://catalog.csun.edu/archive/2016/', $content);
+	$content = str_ireplace('http://www.csun.edu/~catalog/catalog1516/catalog/', 'http://catalog1718.wpengine.com/', $content);
+	$content = str_ireplace('http://wwwtest.csun.edu/catalog', 'http://catalog1718.wpengine.com/', $content);
+	$content = str_ireplace('http://www.csun.edu/catalogtest', 'http://catalog1718.wpengine.com/', $content);
+	$content = str_ireplace('http://catalogtest.csun.edu', 'http://catalog1718.wpengine.com/', $content);
+	$content = str_ireplace('http://www.csun.edu/catalog', 'http://catalog1718.wpengine.com/', $content);
+	$content = str_ireplace('http://catalogtest.wpengine.com', 'http://catalog1718.wpengine.com/', $content);
+	$content = str_ireplace('http://catalogcsun.wpengine.com/', 'http://catalog1718.wpengine.com/', $content);
+	$content = str_ireplace('http://catalog.csun.edu/', 'http://catalog1718.wpengine.com/', $content);
+	$content = str_ireplace('http://catalog1718.wpengine.com//', 'http://catalog1718.wpengine.com/', $content);
+	$content = str_ireplace('http://catalogtest.wpengine.com/resources/star-act/', 'http://catalog1718.wpengine.com/', $content);
 	$content = str_ireplace('/academics/acct/', '/academics/acctis/', $content);
 	return $content;
 }

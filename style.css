@@ -2,13 +2,13 @@
 	Theme Name: Catalog Theme
 	Version: 2
 	Description: A theme created for CSUN Catalog
-	
+
 	General
 	Extra Small
 	Small
 	Medium
 	Large
-	
+
 	1 - Overall Rules
 	2 - Header Rules
 	3 - Footer Rules
@@ -20,8 +20,8 @@
 	9 - Planning Page Rules
 	10 - General Education Rules
 	11 - Faculty Rules
-	12 - Collumnizer Rules 
-	
+	12 - Collumnizer Rules
+
 */
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -46,7 +46,7 @@ body {
 /* * * * * * * * Headers * * * * * * * */
 
 h1, h2, h3, h4, h5, h6,
-.pseudo-h1, .pseudo-h2, .pseudo-h3, 
+.pseudo-h1, .pseudo-h2, .pseudo-h3,
 .pseudo-h4, .pseudo-h5, .pseudo-h6,
 .pseudo-h7, .pseudo-h8{
 	font-family: museo-sans, helvetica, arial, sans-serif;
@@ -330,6 +330,7 @@ a.no-line {
 	border-bottom: 5px solid #444;
 	background-color: #fff;
 	margin-top: 68px;
+
 }
 
 /* --------------------------- 3 - Footer Rules ---------------------------- */
@@ -430,7 +431,7 @@ a.no-line {
 }
 
 .footerlinks > a {
-	 color: #D00D2D; 
+	 color: #D00D2D;
 	 padding: 0 10px 0 10px;
 	 border-left: 1px solid #D00D2D;
 }
@@ -492,20 +493,6 @@ a.no-line {
 	margin-bottom: 10px;
 }
 
-#inset-logo{
-	border: 1px solid #d0d0d0;
-	/*border-radius: 5px;*/
-	-webkit-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.16);
-	-moz-box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.16);
-	box-shadow: 0px 3px 19px 0px rgba(50, 50, 50, 0.16);
-	padding: 0px 15px 5px 0px;
-	margin-bottom: 10px;
-	display: block;
-	background-color: #ffffff;
-	overflow: auto;
-	position:relative;
-}
-
 .section-content {
 	margin-bottom: 20px;
 	padding: 10px 20px;
@@ -563,18 +550,69 @@ a.prog-title{
 	padding-bottom: 6px;
 	border-bottom: solid 2px #cecfd1;
 	margin-bottom: 25px;
-	margin-top:25px; 
+	margin-top:25px;
 }
 
 .section-content .section-title{
-	margin-top:0px; 
+	margin-top:0px;
 }
 
-.section-title h2, .section-title h3, 
+.section-title h2, .section-title h3,
 .section-title .pseudo-h2, .section-title .pseudo-h3 {
 	font-size: 18px;
 	display: inline;
 	color: #D00D2D;
+}
+
+#define-star-act-div{
+  width:305px;
+  position: static;
+   top: 0;
+   left: 0;
+   z-index: 1010;
+   max-width: 376px;
+   padding: 1px;
+   margin-top:35px;
+   margin-bottom: 35px;
+   text-align: left;
+   white-space: normal;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   border: 1px solid rgba(0,0,0,0.2);
+   border-radius: 6px;
+   -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+   background-clip: padding-box;
+}
+#define-star-act-title{
+  color: #D00D2D;
+  font-family: museo-sans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  display:inline;
+}
+#define-star-act-title-div{
+  padding: 8px 14px;
+  margin: 0;
+  font: 14px;
+  font-weight: normal;
+  line-height: 18px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 5px 5px 0 0;
+}
+#define-star-act-define-p{
+    font-family: museo-sans, helvetica, arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333;
+		margin-bottom: 25px;
+}
+#define-star-act-div-p{
+  display:block;
+  text-align: left;
+  white-space: normal;
+  padding: 0px 14px;
+  font-family: museo-sans, helvetica, arial, sans-serif;
 }
 
 .section-title span {
@@ -777,6 +815,42 @@ ul.side-nav ul {
 	max-width:100%;
 }
 
+img.alignright {
+	float: right;
+	margin: 0 0 1em 1em;
+	margin-top: 7px;
+}
+
+img.alignleft {
+	float: left;
+	margin: 0 1em 1em 0;
+	margin-top: 7px;
+}
+
+img.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 7px;
+}
+
+.alignright {
+	float: right;
+	margin-top: 7px;
+}
+
+.alignleft {
+	float: left;
+	margin-top: 7px;
+}
+
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 7px;
+}
+
 /* ------------------------ 5 - Search Page Rules -------------------------- */
 
 ul.search_results li a:hover {
@@ -836,8 +910,8 @@ span.option-title {
 .subnav-arrow {
 	display: block;
 	position: relative;
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 15px solid transparent;
 	border-right: 15px solid transparent;
 	border-top: 15px solid #D00D2D;
@@ -888,7 +962,7 @@ span.option-title {
 	display: block;
 	width: 100%;
 	text-align: center;
-	font-size: 16px; 
+	font-size: 16px;
 	color: #000;
 	padding: 10px 0px 10px 0px;
 	background-color: #c7c7c7;
@@ -936,11 +1010,11 @@ span.option-title {
 	display: block;
 	font-size: 12px;
 	border: 0;
-	border-bottom: solid 1px #000; 
+	border-bottom: solid 1px #000;
 }
 
 #catalog-subnav ul li ul li:last-child a{
-	border-bottom: 0; 
+	border-bottom: 0;
 }
 
 #catalog-subnav ul li ul li:hover a{
@@ -948,7 +1022,7 @@ span.option-title {
 }
 
 #catalog-subnav ul li:hover ul {
-	display: block; 
+	display: block;
 }
 
 /* * * * * * * * Sharing Icons * * * * * * * */
@@ -1019,7 +1093,7 @@ span.option-title {
 #breadcrumbs li a:hover{
 	text-decoration: underline;
 }
- 
+
 #breadcrumbs .separator{
 	font-weight:700;
 	font-size:14px;
@@ -1032,7 +1106,7 @@ span.option-title {
 	color: #fff;
 	background-color: #688a7e;
 	border-color: #42564f;
-	text-align: center;
+	text-align: left;
 	margin-top: auto;
 	margin-bottom: 20px;
 	margin-left: auto;
@@ -1155,7 +1229,7 @@ span.option-title {
 /* ------------------------ 9 - Planning Page Rules ------------------------ */
 
 a.planning-degree-title{
-	text-decoration:underline; 
+	text-decoration:underline;
 	color:#D00D2D;
 }
 
@@ -1302,7 +1376,7 @@ div.popup {
 	font-size: medium;
 	margin: 0;
 }
-	
+
 .popup h2, .popup .pseudo-h2	{
 	margin: 0;
 }
@@ -1459,10 +1533,10 @@ h4.panel-title, .pseudo-h4.panel-title{
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 @media (max-width: 767px) {
-	
+
 	/* --------------------------- 1 - Overall Rules --------------------------- */
 	/* --------------------------- 2 - Header Rules ---------------------------- */
-	
+
 	#csunnav {
 		position: absolute;
 		top: 68px;
@@ -1471,7 +1545,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	.menu-item {
 		display: block;
 	}
-	
+
 	#menu-catalog-menu {
 		padding-left: 0;
 	}
@@ -1480,19 +1554,22 @@ h4.panel-title, .pseudo-h4.panel-title{
 		padding: 5px;
 		margin: 4px 0 4px 0;
 	}
-	
+
 	#menu-catalog-menu li:hover{
 		background-color: #242426;
 	}
 
 	.mainbanner {
 		margin-top: 68px;
+		width:100%;
+		height:auto;
+		max-width:100%;
 	}
-	
+
 	.nav > li > a:hover {
 		background-color: #242426;
 	}
-	
+
 	#csunsearch {
 		position: absolute;
 		top: 68px;
@@ -1508,8 +1585,8 @@ h4.panel-title, .pseudo-h4.panel-title{
 		top: 0px;
 		width: 100%;
 	}
-	
-	
+
+
 	#search-div a{
 		color: #fff;
 		position: absolute;
@@ -1517,12 +1594,12 @@ h4.panel-title, .pseudo-h4.panel-title{
 		top: 117px;
 		z-index: 22;
 	}
-	
+
 	#search-div .input-group-btn
 	{
 		vertical-align: baseline;
 	}
-	
+
 	#quicklinks-lg, #quicklinks,
 	#headerbar .headerbar-logo{
 		display: none;
@@ -1546,23 +1623,24 @@ h4.panel-title, .pseudo-h4.panel-title{
 
 	#headerbar .col-xs-12{
 		padding: 0;
+
 	}
-	
+	.fit-mobile{
+		width:100%;
+		height:auto;
+		max-width:100%;
+	}
+
 	#neglogo a {
 		display: block;
 	}
-	
+
 	body.customize-support #fixbar {
 		top: 46px;
 	}
-	
-	#popup-logo{
-		display: block;
-		background-color: #ffffff;
-	}
-	
+
 	/* --------------------------- 3 - Footer Rules ---------------------------- */
-	
+
 	.footbox {
 		padding: 0 20px 0 20px;
 	}
@@ -1570,64 +1648,64 @@ h4.panel-title, .pseudo-h4.panel-title{
 	.footerlinks > a {
 		font-size: 12px;
 	}
-	
+
 	/* ----------------------------- 4 - Page Rules ---------------------------- */
-	
+
 	#wrap{
 		border: 0;
 	}
-	
+
 	.pad-box {
 		padding-left: 0px;
 		padding-right: 0px;
 	}
-	
+
 	.inner-title-wrap{
 		padding: 0 30px 0 30px;
 	}
-	
+
 	.section-content {
 		padding-left: 10px;
 		padding-right: 10px;
 	}
-	
+
 	.inner-title {
 		font-size: 21px;
 	}
-	
+
 	.prog-title{
 		font-size: 18px;
 	}
-	
+
 	.dept-title-small {
 		font-size: 12px;
 	}
-	
+
 	.side-nav {
 		margin-top: 20px;
 		margin-bottom: 30px;
 	}
-	
+
 	/* ------------------------ 5 - Search Page Rules -------------------------- */
-	
+
 	#advanced-search label {
 		display: block;
 		margin: 5px 0;
 	}
-	
+
 	#advanced-search input {
 		margin: 0 5px;
 	}
-	
+
 	#advanced-search input[type="submit"]
 	{
 		margin: 15px 5px 5px 5px;
 	}
-	
+
 	#fund_source_container legend{
 		display: block;
 	}
-	
+
 	#fund_source_option_container label
 	{
 		display: inline-block;
@@ -1636,13 +1714,13 @@ h4.panel-title, .pseudo-h4.panel-title{
 	{
 		display:block;
 	}
-	
+
 	#hire_year_select_container,
 	#fund_source_option_container
 	{
 		padding-left:5%;
 	}
-	
+
 	#advanced-search input[type=text],
 	#advanced-search input[type=number],
 	#advanced-search select{
@@ -1654,13 +1732,13 @@ h4.panel-title, .pseudo-h4.panel-title{
 		width: 20px;
 		height: 20px;
 	}
-	
+
 	/* ------------------------ 6 - Academic Page Rules ------------------------ */
-	
+
 	#breadcrumbs-wrap {
 		display: none;
 	}
-	
+
 	#share-icons {
 		border-top: 1px solid #d0d0d0;
 		border-bottom: 1px solid #d0d0d0;
@@ -1672,7 +1750,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	#share-icons li a span, ##share-icons li span span {
 		font-size: 18px;
 	}
-	
+
 	#catalog-subnav ul li {
 		padding: 0;
 	}
@@ -1681,7 +1759,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 		font-size: 12px;
 		border-left: 1px solid #848484;
 	}
-	
+
 	/* ------------------------- 7 - Index Page Rules -------------------------- */
 
 	.landing-over {
@@ -1689,28 +1767,28 @@ h4.panel-title, .pseudo-h4.panel-title{
 		padding: 2px;
 		text-align: center;
 	}
-	
+
 	.land-head	{
 		padding-top: 2px;
 		margin: 2px;
 		font-size: 15px;
 	}
-	
+
 	.land-icon {
 		display: block;
 		margin: 0px auto !important;
 		max-height: 62px;
 	}
-	
+
 	.land-text {
 		display:block;
 	}
-	
+
 	/* ------------------------- 8 - Policy Page Rules ------------------------- */
 	/* ------------------------ 9 - Planning Page Rules ------------------------ */
 	/* --------------------- 10 - General Education Rules ---------------------- */
 	/* -------------------------- 11 - Faculty Rules --------------------------- */
-	
+
 	.space_char {
 		font-size : 150%;
 		margin: 0 3% 0 2%;
@@ -1720,13 +1798,13 @@ h4.panel-title, .pseudo-h4.panel-title{
 	.abc_title h2, .abc_title .pseudo-h2{
 		font-size: 24px;
 	}
-	
+
 	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
-	
+
 	.dept-container{
 		padding: 0;
 	}
-	
+
 	/* ---------------------------- 13 - A-Z Rules ----------------------------- */
 
 }
@@ -1743,7 +1821,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 
 	/* --------------------------- 1 - Overall Rules --------------------------- */
 	/* --------------------------- 2 - Header Rules ---------------------------- */
-	
+
 	#headerbar{
 		height: 131px;
 	}
@@ -1760,11 +1838,11 @@ h4.panel-title, .pseudo-h4.panel-title{
 	.iconblock{
 		display: none;
 	}
-	
+
 	#mininav{
 		display: none;
 	}
-	
+
 	#quicklinks-lg{
 		display: inline-block;
 	}
@@ -1779,6 +1857,12 @@ h4.panel-title, .pseudo-h4.panel-title{
 		background-color: #D00D2D;
 		padding: 0;
 	}
+	.fit-mobile{
+		width:100%;
+		height:auto;
+		max-width:100%;
+		display:none;
+	}
 
 	#csunnav > .container{
 		height: 100%;
@@ -1788,7 +1872,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 		padding-right: 0px;
 		background-color: #D00D2D;
 	}
-	
+
 	.menu-catalog-menu-container {
 		display: block;
 		height: 100%;
@@ -1803,7 +1887,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 		height: 100%;
 	}
 
-	#menu-catalog-menu li { 
+	#menu-catalog-menu li {
 		float: left;
 		display: inline-block;
 		height: 100%;
@@ -1831,7 +1915,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	#menu-catalog-menu li:last-child{
 		border: 0;
 	}
-	
+
 	#csunsearch {
 		width: 100%;
 	}
@@ -1845,31 +1929,24 @@ h4.panel-title, .pseudo-h4.panel-title{
 		padding: 0;
 		margin:0;
 	}
-	
+
 	.mainbanner {
 		padding: 0px 15px 0px 15px;
 	}
-	
-	#inset-logo{
-		margin-left: 30px;
-		margin-right: 30px;
+	#row-index-margin-fix.row{
+		margin-right: -5px;
+		margin-left: -5px;
 	}
-	
-	h1.popup-title{
-	font-size: 24px;
-	color: #D00D2D;
-	margin: 5px 0px 0px 30px;
-	}
-	
+
 	/* --------------------------- 3 - Footer Rules ---------------------------- */
-	
+
 	.footbox {
 		text-align: center;
 	}
-	
+
 	/* ----------------------------- 4 - Page Rules ---------------------------- */
 	/* ------------------------ 5 - Search Page Rules -------------------------- */
-	
+
 	#advanced-search label,
 	#fund_source_container legend	{
 		width: 35%;
@@ -1904,23 +1981,23 @@ h4.panel-title, .pseudo-h4.panel-title{
 		width: 29%;
 		margin: 0 3% 0 2%;
 	}
-	
+
 	#fund_source_container span{
 		display: block;
 		margin-left:36%;
 	}
-	
+
 	/* ------------------------ 6 - Academic Page Rules ------------------------ */
-	
+
 	#share-icons li a span, #share-icons li span span {
 		font-size: 21px;
 	}
-	
+
 	#catalog-subnav{
 		margin-top: 13px;
 		z-index: 100;
 	}
-	
+
 	/* ------------------------- 7 - Index Page Rules -------------------------- */
 
 	.land-head {
@@ -1931,14 +2008,14 @@ h4.panel-title, .pseudo-h4.panel-title{
 	.land-icon {
 		max-height: 70px;
 	}
-	
+
 	/* ------------------------- 8 - Policy Page Rules ------------------------- */
 	/* ------------------------ 9 - Planning Page Rules ------------------------ */
 	/* --------------------- 10 - General Education Rules ---------------------- */
 	/* -------------------------- 11 - Faculty Rules --------------------------- */
 	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
 	/* ---------------------------- 13 - A-Z Rules ----------------------------- */
-	
+
 	#abc_nav.affix {
 		width: 185px;
 		top: 60px;
@@ -1967,7 +2044,7 @@ h4.panel-title, .pseudo-h4.panel-title{
 	#stacked-logo{
 		display: none;
 	}
-	
+
 	#quicklinks-lg>ul>li {
 		padding-left: 8px;
 		padding-right: 8px;
@@ -1976,63 +2053,70 @@ h4.panel-title, .pseudo-h4.panel-title{
 	#csunsearch {
 		width: 80%;
 	}
-	
+
 	#menu-catalog-menu li a {
 		font-size: 14px;
 		padding: 5px 35px 0 35px;
 	}
-	#inset-logo{
-		margin-left: 30px;
-		margin-right: 30px;
+
+	#row-index-margin-fix.row{
+		margin-right: -5px;
+		margin-left: -5px;
 	}
-	
+
 	/* --------------------------- 3 - Footer Rules ---------------------------- */
-	
+
 	.btnbox{
 		width: 100%;
 		margin: auto;
 	}
-	
+
 	/* ----------------------------- 4 - Page Rules ---------------------------- */
 	/* ------------------------ 5 - Search Page Rules -------------------------- */
 	/* ------------------------ 6 - Academic Page Rules ------------------------ */
 	/* ------------------------- 7 - Index Page Rules -------------------------- */
-	
+
 	.landing-item {
 		height: 110px;
 	}
-	
+
 	.landing-over {
 		height: 110px;
 	}
-	
+
 	.land-icon {
 		max-height: 90px;
 		vertical-align: text-bottom;
 	}
-	
+
 	.land-text {
 		display:inline-block;
 		max-width: 50%;
 	}
-	
+
 	.land-head {
 		padding: 0px;
 		margin: 10px;
 	}
-	
+
 	.land-copy {
 		display: block;
 		font-size: 14px;
 	}
-	
+	.fit-mobile{
+		width:100%;
+		height:auto;
+		max-width:100%;
+		display:none;
+	}
+
 	/* ------------------------- 8 - Policy Page Rules ------------------------- */
 	/* ------------------------ 9 - Planning Page Rules ------------------------ */
 	/* --------------------- 10 - General Education Rules ---------------------- */
 	/* -------------------------- 11 - Faculty Rules --------------------------- */
 	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
 	/* ---------------------------- 13 - A-Z Rules ----------------------------- */
-	
+
 	#abc_nav.affix {
 		width: 240px;
 		top: 60px;
@@ -2048,10 +2132,10 @@ h4.panel-title, .pseudo-h4.panel-title{
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 @media (min-width: 1200px){
-	
+
 	/* --------------------------- 1 - Overall Rules --------------------------- */
 	/* --------------------------- 2 - Header Rules ---------------------------- */
-	
+
 	#fixbar{
 		height: 170px;
 	}
@@ -2069,13 +2153,24 @@ h4.panel-title, .pseudo-h4.panel-title{
 		padding-left: 10px;
 		padding-right: 10px;
 	}
-	
+	.fit-mobile{
+		width:100%;
+		height:auto;
+		max-width:100%;
+		display:none;
+	}
+
+	#row-index-margin-fix.row{
+		margin-right: -5px;
+		margin-left: -5px;
+	}
+
 	/* --------------------------- 3 - Footer Rules ---------------------------- */
 	/* ----------------------------- 4 - Page Rules ---------------------------- */
 	/* ------------------------ 5 - Search Page Rules -------------------------- */
 	/* ------------------------ 6 - Academic Page Rules ------------------------ */
 	/* ------------------------- 7 - Index Page Rules -------------------------- */
-	
+
 	.landing-over {
 		padding: 5px;
 	}
@@ -2089,14 +2184,14 @@ h4.panel-title, .pseudo-h4.panel-title{
 		display: block;
 		font-size: 16px;
 	}
-	
+
 	/* ------------------------- 8 - Policy Page Rules ------------------------- */
 	/* ------------------------ 9 - Planning Page Rules ------------------------ */
 	/* --------------------- 10 - General Education Rules ---------------------- */
 	/* -------------------------- 11 - Faculty Rules --------------------------- */
 	/* ------------------------ 12 - Collumnizer Rules ------------------------- */
 	/* ---------------------------- 13 - A-Z Rules ----------------------------- */
-	
+
 	#abc_nav.affix {
 		width: 290px;
 		top: 60px;

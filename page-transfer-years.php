@@ -1,6 +1,6 @@
 <?php /**
 
- * Template Name: Plans Year List
+ * Template Name: Transfer Years List
 
  */ 
 $options = get_option( 'main_dp_settings' );	//get our options
@@ -15,7 +15,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php echo site_url('/resources'); ?>">Resources</a>
-					<h1 class="prog-title">Degree Road Maps</h1>
+					<h1 class="prog-title">Transfer Degree Road Maps</h1>
 				</div>
 			</div>
 		</div>
@@ -36,35 +36,36 @@ get_header(); ?>
 					
 						<?php 
 						$years = get_terms( 'aca_year', array('orderby' => 'name', 'order' => 'DESC',) );
-						$url = site_url('/resource/road-map/');?>
+						$url = site_url('/resource/transfer-road-map/');?>
 							
 						<div class="plan-grid clearfix"><ul>
 							
 						<?php foreach($years as $year) : 
-							if ($year->slug <= $planning_year):
+							if($year->slug <= $planning_year) :
 							$query_plans = new WP_Query(array(
-							'post_type' => 'plans', 
+							'post_type' => 'transfer_plans', 
 							'aca_year' => $year->slug, 
 							'posts_per_page' => 1000,));
+							
 							
 							if($query_plans->have_posts()) :?>
 							
 								<li><a href="<?php echo $url.$year->slug; ?>"><?php echo $year->slug; ?></a></li>
 								
-							<?php endif; endif;?> 
+							<?php endif;endif;?>
 						<?php endforeach; ?>
 						</ul></div>
 						<div>
-							<h3 class="pseudo-h5">Or select your Department, Program or College: </h3>
+							<h4 class="pseudo-h5">Or by Department, Program or College: </h4>
 							<?php 
 							$depts = sort_terms_by_description(get_terms( 'department_shortname'));
-							$url = site_url('/resource/road-map/');?>
+							$url = site_url('/resource/transfer-road-map/');?>
 								
 							<div class="dept-container content">
 								
 							<?php foreach($depts as $dept) : 
 								$query_plans = new WP_Query(array(
-								'post_type' => 'plans', 
+								'post_type' => 'transfer_plans', 
 								'department_shortname' => $dept->slug, 
 								'posts_per_page' => 1000,));
 								
@@ -72,7 +73,8 @@ get_header(); ?>
 								
 									<a class="dept-item " href="<?php echo $url.$dept->slug; ?>"><?php echo $dept->description; ?></a>
 									
-							<?php endif; endforeach; ?>
+								<?php endif;?>
+							<?php endforeach; ?>
 							</div>
 						</div>
 					</div>

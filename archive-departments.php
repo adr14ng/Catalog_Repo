@@ -1,6 +1,7 @@
 <?php 
 /**
  * Template Name: Department Archive View
+ * This is the Department Page, this page is displayed when you click on any Department. For Example: Computer Science.
  */ 
 $dept = get_query_var( 'department_shortname' );
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
@@ -60,6 +61,13 @@ get_header(); ?>
 					<?php the_field('mission_statement'); ?>
 				</div>
 			<?php endif; ?>
+			<?php $values = get_field('about_dep');
+			if ( $values != false) : ?>
+				<div class="section-content">
+					<span class="section-title"><span><h2>About the <?php echo $post_categories[0]?></h2></span></span> 
+					<?php the_field('about_dep'); ?>
+				</div>
+			<?php endif; ?>			
 			<?php $values = get_field('academic_advisement');
 			if ( $values != false) : ?>
 				<div class="row">

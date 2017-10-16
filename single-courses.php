@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 /**
  * Template Name: Courses Single View
- */ 
+ * This can be found by Clicking on any individual course Example : Comp 282 Advanced Data Structures
+ */
 
 
 
@@ -22,14 +23,19 @@ if($match === 1 && (strpos($course_info[3], '-') === false)) {		//We found a mat
 	}
 	elseif(strpos($course_info[3], '/') !== false){		//Class with activity
 		$double=$single= true;
-		
+
 		//In case of classes like PHYS220A and PHYS220AL
 		$suffix = explode('/', $course_info[3]);
-		
+
 		$course_title = strtolower($course_info[1]).'-'.$course_info[2].$suffix[0];
 		$course_title_pretty = $course_info[1].' '.$course_info[2].$suffix[0];
-		$activ_title = $course_title.$suffix[1];
-		$activ_title_pretty = $course_title_pretty.$suffix[1];
+		if (strlen($suffix[0].$suffix[1]) <= 2){
+			$activ_title = $course_title.$suffix[1];
+			$activ_title_pretty = $course_title_pretty.$suffix[1];
+		} else {
+			$activ_title = strtolower($course_info[1]).'-'.$course_info[2].$suffix[1];
+			$activ_title_pretty = $course_info[1].' '.$course_info[2].$suffix[1];
+		}
 	}
 	else{	//All other classes that AREN'T A-F types
 		$single = true;
@@ -37,14 +43,14 @@ if($match === 1 && (strpos($course_info[3], '-') === false)) {		//We found a mat
 		$course_title_pretty = $course_info[1].' '.$course_info[2].$course_info[3];
 	}
 }
-	
+
 $option = get_option( 'main_dp_settings' );	//get our options
 $semester = $option['course_semester'];
 $semester2 = $option['course_semester2'];
 
 $semester_pretty = ucwords($semester);
 $semester2_pretty = ucwords($semester2);
-	
+
 get_header(); ?>
 
 <div class="row" id="subnav-wrap">
@@ -78,7 +84,7 @@ get_header(); ?>
 						<h2 class="inner-title dark"><span class="red">Course:</span> <?php the_title(); ?></h2>
 					</div>
 					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-						<?php 
+						<?php
 							$subject_line = "CSUN Catalog - ".get_the_title();
 							$subject_line = str_replace(' ', '%20', $subject_line);
 							$body = 'Permalink : '.get_csun_permalink();
@@ -87,7 +93,7 @@ get_header(); ?>
 						<ul id="share-icons">
 							<!-- <li><?php pdf_all_button(); ?></li> -->
 							<li>
-								<a class="no-line" title="Email this page" 
+								<a class="no-line" title="Email this page"
 									href='mailto:?subject=<?php echo $subject_line ?>&amp;body=<?php echo $body; ?>' >
 									<span class="stLarge glyphicon glyphicon glyphicon-envelope share-icon"></span>
 									<span class="screen-reader-text">email</span>
@@ -120,30 +126,32 @@ get_header(); ?>
 						<?php if($single): ?>
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 							<div class="section-content">
-								<h3 class="pseudo-h6" id="course-header"><?php echo $course_title_pretty." -- ".$semester_pretty; ?></h3>
+								<h3 class="pseudo-h6" id="course-header"><?php echo $semester_pretty." - "."<a target="."_blank"." href="."https://www.csun.edu/class-search".">Schedule of Classes</a>"; ?></h3>
+								<h3 class="pseudo-h6" id="course-header-2"><?php echo $course_title_pretty; ?></h3>
 								<table class="csun-table" id="course-info" summary="Class sections"><tbody>
 									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
 								</tbody></table>
 							</div>
 							<script>
-								(function($) { 
+								(function($) {
 								   $(document).ready(function(){
 										get_course_info('course');
 								   });
 								})(jQuery);
-							</script>	
+							</script>
 						</div>
 						<?php endif; ?>
 						<?php if($double): ?>
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 							<div class="section-content">
-								<h3 class="pseudo-h6" id="activ-header"><?php echo $activ_title_pretty." -- ".$semester_pretty; ?></h3>
+								<h3 class="pseudo-h6" id="activ-header"><?php echo $semester_pretty." - "."<a target="."_blank"." href="."https://www.csun.edu/class-search".">Schedule of Classes</a>"; ?></h3>
+								<h3 class="pseudo-h6" id="activ-header-2"><?php echo $activ_title_pretty; ?></h3>
 								<table class="csun-table" id="activ-info" summary="Class Activity sections"><tbody>
 									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
 								</tbody></table>
 							</div>
 							<script>
-								(function($) { 
+								(function($) {
 								   $(document).ready(function(){
 										get_course_info('activ');
 								   });
@@ -157,30 +165,32 @@ get_header(); ?>
 						<?php if($single): ?>
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 							<div class="section-content">
-								<h3 class="pseudo-h6" id="course2-header"><?php echo $course_title_pretty." -- ".$semester2_pretty; ?></h3>
+								<h3 class="pseudo-h6" id="course2-header"><?php echo $semester2_pretty." - "."<a target="."_blank"." href="."https://www.csun.edu/class-search".">Schedule of Classes</a>"; ?></h3>
+								<h3 class="pseudo-h6" id="course2-header-2"><?php echo $course_title_pretty; ?></h3>
 								<table class="csun-table" id="course2-info" summary="Class sections"><tbody>
 									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
 								</tbody></table>
 							</div>
 							<script>
-								(function($) { 
+								(function($) {
 								   $(document).ready(function(){
 										get_course_info('course2');
 								   });
 								})(jQuery);
-							</script>	
+							</script>
 						</div>
 						<?php endif; ?>
 						<?php if($double): ?>
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 							<div class="section-content">
-								<h3 class="pseudo-h6" id="activ2-header"><?php echo $activ_title_pretty." -- ".$semester2_pretty; ?></h3>
+								<h3 class="pseudo-h6" id="activ2-header"><?php echo $semester2_pretty." - "."<a target="."_blank"." href="."https://www.csun.edu/class-search".">Schedule of Classes</a>"; ?></h3>
+								<h3 class="pseudo-h6" id="activ2-header-2"><?php echo $activ_title_pretty; ?></h3>
 								<table class="csun-table" id="activ2-info" summary="Class Activity sections"><tbody>
 									<tr><th>Class Number</th><th>Location</th><th>Day</th><th>Time</th><tr>
 								</tbody></table>
 							</div>
 							<script>
-								(function($) { 
+								(function($) {
 								   $(document).ready(function(){
 										get_course_info('activ2');
 								   });
@@ -200,7 +210,7 @@ get_header(); ?>
 	function get_course_info(name){
 		var semester;
 		var course;
-		
+
 		if(name == 'course')
 		{
 			course = "<?php echo $course_title; ?>";
@@ -214,15 +224,20 @@ get_header(); ?>
 		else if(name == 'course2')
 		{
 			course = "<?php echo $course_title; ?>";
-			semester = "<?php echo $semester2; ?>";		
+			semester = "<?php echo $semester2; ?>";
 		}
 		else if(name == 'activ2')
 		{
 			course = "<?php echo $activ_title; ?>";
 			semester = "<?php echo $semester2; ?>";
 		}
-	
-	
+
+
+			var title2;
+			var schedule_of_Classes = "Schedule of Classes";
+			var schedule_link = schedule_of_Classes.link("https://www.csun.edu/class-search");
+
+
 		$.ajax({
 			url: "http://curriculum.ptg.csun.edu/terms/"+semester+"/classes/"+course,
 			type: 'get',
@@ -234,13 +249,15 @@ get_header(); ?>
 				var data = data_back.classes;
 				var meeting;
 				var instructors;
-			
-				if(data.length<1){
+
+
+				if(data.length < 1){
 					html = '<tr><td colspan="4">No sections offered this semester</td></tr>'
 				}
 				else{
-					title = data[0].subject+' '+data[0].catalog_number+' - '+data[0].title+' -- '+data[0].term;
-			
+					title = data[0].term+' - '+schedule_link;
+					title2 = data[0].subject+' '+data[0].catalog_number+' - '+data[0].title;
+
 					// run through the data and add it to the final markup
 					$(data).each(function(){
 						if( this.section_number != null) {
@@ -250,12 +267,12 @@ get_header(); ?>
 								var end_hour;
 								var start_let = 'am';
 								var end_let = 'am';
-						
+
 								var day = meeting[0].days;
 								var start = meeting[0].start_time;
 								var end = meeting[0].end_time;
 								var location = meeting[0].location;
-								
+
 								day = day.replace("A", "-");
 								day = day.replace("M", "Mo");
 								day = day.replace("T", "Tu");
@@ -263,40 +280,41 @@ get_header(); ?>
 								day = day.replace("R", "Th");
 								day = day.replace("F", "Fr");
 								day = day.replace("S", "Sa");
-								
+
 								start_hour = parseInt(start.slice(0,2));
 								end_hour = parseInt(end.slice(0,2));
-							
+
 								if(start_hour > 11)
 									start_let = 'pm';
-							
+
 								if(end_hour > 11)
 									end_let = 'pm'
-							
+
 								if(start_hour > 12)
 									start_hour = start_hour - 12;
-							
+
 								if(end_hour > 12)
 									end_hour = end_hour - 12;
-							
+
 								if(start_hour !== 0) {
 									start = start_hour+':'+start.slice(2,4)+start_let;
 									end = end_hour+':'+end.slice(2,4)+end_let;
 								}
 								else
 									start = end = '';
-				
-				
+
+
 								// this is not processing
 								html += '<tr><td>'+this.class_number+'</td><td>'+location+'</td><td>'+day+'</td><td>'+start+'-'+end+'</td><tr>';
 							}
 						}
 					});
 				}
-	
+
 				$("#"+name+"-info").append(html);
 				$("#"+name+"-header").html(title);
-			}		
+				$("#"+name+"-header-2").html(title2);
+			}
 		});
 	}
 </script>

@@ -1,14 +1,12 @@
 <?php 
 /**
  * Template Name: Department Single View
+ * This page can be found by clicking on Home > Comp Sci > Compsci
  */ 
  $id = get_the_ID();
 $years = get_the_terms( $id, 'aca_year');
-
-foreach($years as $year)
-	$aca_year = $year->name;
 	
- $dept = get_query_var( 'department_shortname' );
+$dept = get_query_var( 'department_shortname' );
 
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
 
@@ -16,6 +14,8 @@ $deptdesc = $deptterm->description;
 	
 $post_categories = wp_get_post_categories(get_the_ID(), array('fields' => 'names'));
 $title = $post_categories[0].' Overview';
+
+
 
 get_header(); ?>
 
@@ -77,6 +77,13 @@ get_header(); ?>
 				<div class="section-content">
 					<span class="section-title"><span><h2>Mission Statement</h2></span></span> 
 					<?php the_field('mission_statement'); ?>
+				</div>
+			<?php endif; ?>
+			<?php $values = get_field('about_dep');
+			if ( $values != false) : ?>
+				<div class="section-content">
+					<span class="section-title"><span><h2>About the <?php echo $post_categories[0]?></h2></span></span> 
+					<?php the_field('about_dep'); ?>
 				</div>
 			<?php endif; ?>
 			<?php $values = get_field('academic_advisement');

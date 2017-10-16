@@ -94,7 +94,7 @@ get_header(); ?>
 									</a>
 								<?php endforeach; endif; ?>
 								<?php $terms = get_the_terms( $id, 'policy_tags' );
-								$base = site_url('/policies/tags/');								
+								$base = site_url('/policies/keywords/');								
 								if($terms) : foreach($terms as $term):?>
 									<a href="<?php echo $base.$term->slug; ?>" title="View all policies filed under <?php echo $term->name; ?>">
 										<span class="btn btn-success btn-xs">

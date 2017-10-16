@@ -12,6 +12,8 @@
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-1.11.1.min.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.columnizer.js"></script>
 	  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="//use.typekit.net/gfb2mjm.js"></script>
+	  <script  type="text/javascript"> try{Typekit.load();}catch(e){}</script>
 	  <link type="text/plain" rel="author" href="<?php echo site_url(); ?>/humans.txt" />
 	  <?php if(is_singular('plans') || is_singular('staract')) : ?>
 		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/plans-print.css">
@@ -21,7 +23,9 @@
 	  <?php if(is_singular('departments')): ?>
 		<link rel="canonical" href="<?php the_canonical_url(); ?>">
 	  <?php endif; ?>
-	  <!-- Don't track this one yet<script>
+	  <!-- Don't Track this yet! -->
+		<!-- Tracking Now in Production 6/9/17 -->
+		<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -31,10 +35,10 @@
 		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
 
-	  </script> -->
-	  
+	  </script>
+
 		<?php wp_head();?>
-		
+
 	</head>
 
 
@@ -42,47 +46,47 @@
 		<div id="overflow-wrap">
 			<div id="fixbar">
 				<div id="mininav">
-				
+
 					<div class="iconblock">
 						<a><span id="menuicon" class="glyphicon glyphicon-align-justify"></span>
 						</a>
 					</div> <!-- end menu iconblock -->
-					
+
 					<div id="neglogo">
 						<a href="http://www.csun.edu/">
 							<img alt="California State University, Northridge" src="<?php bloginfo('template_directory'); ?>/img/negative-logo.png">
-						</a> 
+						</a>
 					</div> <!-- end neglogo -->
-					
+
 					<div class="iconblock">
 						<a ><span id="searchicon" class="glyphicon glyphicon-search pull-right"></span></a>
 					</div><!-- end search iconblock -->
-					
+
 				</div> <!-- end mininav -->
-				
+
 				<div class="container" id="headerbar">
 					<div class="row">
-					
+
 						<div class="col-sm-4 col-lg-4 headerbar-logo">
-							<a href="http://www.csun.edu/"> 
+							<a href="http://www.csun.edu/">
 								<img alt="California State University, Northridge" src="<?php bloginfo('template_directory'); ?>/img/logo.png" id="logo">
 								<img alt="California State University, Northridge" src="<?php bloginfo('template_directory'); ?>/img/logo-stacked.png" id="stacked-logo">
-							</a> 
+							</a>
 						</div>
-						
+
 						<div class="col-xs-12 col-sm-8 col-lg-8">
-						
+
 							<div class="row" id="quicklinks-lg">
 								<ul class="pull-right">
 									<li ><a href="#skipstuff">Skip Nav</a></li>
 									<li ><a href="http://www.csun.edu/universaldesigncenter">Accessibility</a></li>
 									<li ><a href="http://www.csun.edu/calendar/">Calendar</a></li>
-									<li ><a href="https://www.csun.edu/peoplefinder/">Directory</a></li>
+									<li ><a href="http://www.csun.edu/peoplefinder/">Directory</a></li>
 									<li ><a href="http://www.csun.edu/atoz/">A to Z</a></li>
-									<li ><a href="https://www.csun.edu/webmail/">Webmail</a></li>
+									<li ><a href="http://www.csun.edu/webmail/">Webmail</a></li>
 								</ul>
 							</div>
-							
+
 							<div id ="search-div" class="hideme clearfix">
 								<form class="navbar-form search-form clearfix" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
 									<label for="s">Search Catalog:</label>
@@ -95,7 +99,7 @@
 								</form>
 								<p><a href="<?php echo site_url('/advanced-search/'); ?>">Advanced Search</a></p>
 							</div>
-							
+
 						</div>  <!-- end collumn -->
 					</div>   <!-- end row -->
 				</div> <!-- end container -->
@@ -132,23 +136,23 @@
 
 				<div id="full-banner">
 					<div class="container hidden-xs">
-						<img src="<?php echo bloginfo('template_directory');?>/img/main-banner.png" class="img-responsive " alt="UNIVERSITY CATALOG: 2015-2016">
-						
+						<img src="<?php echo bloginfo('template_directory');?>/img/main-banner[1].png" class="img-responsive " alt="UNIVERSITY CATALOG: 2017-2018">
+
 					</div>
-					<img src="<?php echo bloginfo('template_directory');?>/img/mobile-banner.png" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2015-2016">
+					<img class="fit-mobile" src="<?php echo bloginfo('template_directory');?>/img/mobile-banner[1].png" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2017-2018">
 				</div>
 
 			<?php else : ?>
 
 				<div id="full-banner-inner">
 					<div class="container hidden-xs">
-						<img src="<?php echo bloginfo('template_directory');?>/img/inner-banner.png" class="img-responsive" alt="UNIVERSITY CATALOG: 2015-2016">				
+						<img src="<?php echo bloginfo('template_directory');?>/img/inner-banner[1].png" class="img-responsive" alt="UNIVERSITY CATALOG: 2017-2018">
 					</div>
 
-					<img src="<?php echo bloginfo('template_directory');?>/img/mobile-banner.png" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2015-2016">
+					<img class="fit-mobile" src="<?php echo bloginfo('template_directory');?>/img/mobile-banner[1].png" class="hidden-md hidden-lg hidden-sm" alt="UNIVERSITY CATALOG: 2017-2018">
 
 				</div>
 
 			<?php endif; ?>
-			
+
 			<div id="skipstuff"></div>

@@ -1,6 +1,7 @@
 <?php /**
 
  * Template Name: Resources Page Template
+ *This page can be found from Home > Resources
 
  */ 
 
@@ -13,7 +14,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo site_url('/resources'); ?>">Resources</a>
+					<a class="dept-title-small" href="<?php echo site_url('index.php/resources'); ?>">Resources</a>
 					<h1 class="prog-title"><?php the_title(); ?></h1>
 				</div>
 			</div>

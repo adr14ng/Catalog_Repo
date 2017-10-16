@@ -5,8 +5,16 @@
 
 $dept = get_query_var( 'department_shortname' );
 
-
 $deptterm = get_term_by( 'slug', $dept, 'department_shortname' );
+
+$faculty_name = get_the_title();
+$first_token  = strtok( $faculty_name , ',');
+$second_token = strtok(',');
+
+$new_faculty_name = ($second_token.' '.$first_token);
+
+$email = get_field( 'individuals_email' );
+$ind_email = strtok($email, '@');
 
 if($dept === "faculty" || $dept === "admin")
 	$noDpt = true;
@@ -89,12 +97,16 @@ get_header(); ?>
 				
 				<?php endwhile; else: ?>
 					
-					<p><?php _e('Sorry, no faculty matched your criteria.'); ?></p>
+					<p><?php _e('Sorry, no faculty matched your criteria.') ?></p>
 					
 				<?php endif; ?>
 				
 					<div class="section-content">
-						<p> Faculty contact information can be found using the campus <a href="https://www.csun.edu/peoplefinder/">directory</a>. </p>
+ 							<?php if(!empty($email)): ?>
+									<p>Contact information for <?php echo $new_faculty_name ?> can be found using the <a href="<?php echo ('http://www.csun.edu/faculty/profiles/'.$ind_email); ?>" target="_blank">Faculty Application</a>.</p>
+								<?php else: ?>
+									<p> Contact information can be found using the campus <a href="https://www.csun.edu/peoplefinder/"target="_blank">directory</a>. </p>
+							<?php endif; ?>
 					</div>
 				
 				</div> <!-- end inset-content -->

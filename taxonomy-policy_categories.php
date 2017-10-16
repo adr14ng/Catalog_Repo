@@ -53,7 +53,7 @@ get_header(); ?>
 						<span class="section-title"><span><h2>Keywords</h2></span></span>
 						<?php
 						$terms = get_terms('policy_tags');
-						$base = site_url('/policies/tags/');
+						$base = site_url('/policies/keywords/');
 						if ( !empty( $terms ) && !is_wp_error( $terms ) ) : ?>
 							<div id="policy-tags">
 							<?php foreach ($terms as $term) : ?>

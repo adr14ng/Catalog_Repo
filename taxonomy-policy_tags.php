@@ -1,12 +1,12 @@
 <?php
 
-/** Template Name: Policy Tag View
- * The template to display policy tags
+/** Template Name: Policy Keyword View
+ * The template to display policy keywords
  */
 
-$tag = get_query_var( 'policy_tags' );
-$tag_term = get_term_by( 'slug', $tag, 'policy_tags' );
-$tag_title = ucwords($tag_term->name);
+$keyword = get_query_var( 'policy_tags' );
+$keyword_term = get_term_by( 'slug', $keyword, 'policy_tags' );
+$keyword_title = ucwords($keyword_term->name);
 
 //Make ascending by title
 global $query_string;
@@ -20,7 +20,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
 					<a class="dept-title-small" href="<?php echo site_url('/policies/alphabetical/'); ?>">Policies and Procedures</a>
-					<h1 class="prog-title"><?php echo $tag_title; ?></h1>
+					<h1 class="prog-title"><?php echo $keyword_title; ?></h1>
 				</div>
 			</div>
 		</div>
@@ -53,7 +53,7 @@ get_header(); ?>
 						<span class="section-title"><span><h2>Keywords</h2></span></span>
 						<?php
 						$terms = get_terms('policy_tags');
-						$base = site_url('/policies/tags/');
+						$base = site_url('/policies/keywords/');
 						if ( !empty( $terms ) && !is_wp_error( $terms ) ) : ?>
 							<div id="policy-tags">
 							<?php foreach ($terms as $term) : ?>
@@ -69,12 +69,12 @@ get_header(); ?>
 				</div>
 				<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
 				
-					<h2 class="policy-page-title"> Policies and Procedures by Keyword: <span class="tax-name"><?php echo $tag_title; ?></span></h2>
-					
+					<h2 class="policy-page-title"> Policies and Procedures by Keyword: <span class="tax-name"><?php echo $keyword_title; ?></span></h2>
+				
 					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 					
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inner-item clearfix">
-							<a  class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
+							<a class="csun-subhead" href="<?php the_permalink(); ?>"><h3 class="csun-subhead"><?php the_title(); ?></h3></a>
 							<?php the_excerpt(); ?>
 						</div>
 

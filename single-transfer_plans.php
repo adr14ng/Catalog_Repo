@@ -1,30 +1,40 @@
-<?php 
+<?php
 
 /**
- * Template Name: Plans Single View
+ * Template Name: Transfer Single View
  */
 
 $id = get_the_ID();
 $years = get_the_terms( $id, 'aca_year');
 
+
 foreach($years as $year)
 	$aca_year = $year->name;
-	
+
 $intstartyear = intval($aca_year);
 
 $intendyear = $intstartyear + 1;
 $aca_end_year = strval($intendyear);
 
 $archive_checkbox = get_field('archive_url_check_box');
-	
+
 $plan_names = get_field('plan_name');	//get plan name from wordpress
 $plan_option_names = get_field('plan_option_name');	//get plan option from wordpress
 $archive_urls = get_field('archive_url');	//get plan url from wordpress
+$trans_plan_notif = get_field('transfer_plan_message');
 
-	
+
+
+if($trans_plan_notif === 'displaytrans')
+	$displayTran_Msg  = true;
+elseif($trans_plan_notif === 'notdisplaytrans')
+	$notDisplayTrans_Msg = true;
+
+
 $options = get_option( 'main_dp_settings' );	//get our options
 $planning_year = $options['planning_year'];
 $old_planning_year = $options['old_planning_year'];
+$display_tp_msg = $options['transfer_plan_msg'];
 
 $programs = get_field('degree_planning_guides');
 if($programs) {
@@ -39,18 +49,16 @@ else {
 if($depts)
 {
 	$depts = $depts[0];
-	$department = '<a href="'.site_url().'/resource/road-map/'.$depts->slug.'">'.$depts->description.'</a>';
-	
+	$department = '<a href="'.site_url().'/resource/transfer-road-map/'.$depts->slug.'">'.$depts->description.'</a>';
+
 	$col = get_term_by('id', $depts->parent, 'department_shortname');
 	if($col)
 	{
-		$college = '<a href="'.site_url().'/resource/road-map/'.$col->slug.'">'.$col->description.'</a>';
+		$college = '<a href="'.site_url().'/resource/transfer-road-map/'.$col->slug.'">'.$col->description.'</a>';
 	}
 }
 
-//Get Post Type
-$post_type = get_post_type( get_the_ID() );
- 
+
 get_header(); ?>
 
 
@@ -60,7 +68,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo site_url('/resources/road-map/'); ?>">Degree Road Maps</a>
+					<a class="dept-title-small" href="<?php echo site_url('/transfer-road-map/'); ?>">Transfer Degree Road Maps</a>
 					<h1 class="prog-title"><?php echo $aca_year.' '; the_title(); ?></h1>
 				</div>
 			</div>
@@ -73,12 +81,12 @@ get_header(); ?>
 			<div class="row">
 				<div id="breadcrumbs-wrap" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<ul id="breadcrumbs">
-						<li><a href="<?php echo site_url('/resources/road-map/'); ?>">Degree Road Maps</a></li>
+						<li><a href="<?php echo site_url('/transfer-road-map/'); ?>">Transfer Degree Road Maps</a></li>
 						<li class="separator"> / </li>
-						
+
 						<li><?php echo $college; ?></li>
 						<li class="separator"> / </li>
-						
+
 						<li><?php echo $department; ?></li>
 
 
@@ -94,7 +102,7 @@ get_header(); ?>
 						<div class="col-xs-12">
 							<div class="section-content">
 								<?php if($archive_checkbox): ?>
-								<a class="planning-degree-title" title="<?php echo $aca_year+$post_type; ?>-<?php echo $intendyear; ?> Catalog Archive Page" href="<?php echo $archive_urls; ?>" 
+								<a class="planning-degree-title" title="<?php echo $aca_year; ?>-<?php echo $intendyear; ?> Catalog Archive Page" href="<?php echo $archive_urls; ?>"
 									target="_blank">
 									<h2><?php echo $plan_names; ?><br>
 									<span class="option-title"><?php echo $plan_option_names; ?></span>
@@ -102,33 +110,39 @@ get_header(); ?>
 								</a>
 								<?php endif; ?>
 								<?php
-								if($planning_year == $aca_year) : 
+								if($planning_year == $aca_year) :
 									if($programs) :
 										$name = program_name($programs->ID);
 									?>
 									<a class="planning-degree-title" href="<?php echo get_permalink($programs->ID); ?>">
 										<h2><?php echo $name; ?>
-										
+
 											<?php $post_option=get_field('option_title', $programs->ID);
 											if(isset($post_option)&&$post_option!=='') : ?>
 												<span class="option-title"><?php echo $post_option; ?> Option</span>
 											<?php endif; ?>
 										</h2>
 									</a>
+									<?php if($displayTran_Msg): ?>
+										<div style="text-align:left;">
+											<?php echo $display_tp_msg; ?>
+										</div>
+									<?php endif; ?>
+
 								<?php endif; endif; ?>
 								<?php if($aca_year <= $old_planning_year) : ?>
 									<p><?php echo $options['old_plan_message']; ?></p>
 								<?php endif; ?>
-							
+
 								<?php the_content(); ?>
-							</div>	
+							</div>
 						</div>
 					</div>
-					
+
 				<?php endwhile; else: ?>
-				
+
 					<p><?php _e('Sorry, no plans matched your criteria.'); ?></p>
-					
+
 				<?php endif; ?>
 				</div>
 			</div> <!-- end pad-box -->

@@ -40,7 +40,7 @@ else
 	<body>
 		<div id="inset-logo">
 			<a href="http://www.csun.edu/">
-				<img id="popup-logo" alt="California State University, Northridge" src="http://www.csun.edu/~catalog/catalog1516/catalog/wp-content/themes/catalogtheme/img/logo.png">
+				<img id="popup-logo" alt="California State University, Northridge" src="http://www.csun.edu/~catalog/catalog1516/catalog/wp-content/themes/catalogtheme/img/logo-320.png">
 			</a>
 		</div>
 		<h1 class="popup-title"><?php echo $title; ?></h1>

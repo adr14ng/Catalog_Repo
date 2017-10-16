@@ -1,7 +1,7 @@
-<?php 
+<?php
 /**
  * Template Name: Planning by Department Template
- */ 
+ */
  $options = get_option( 'main_dp_settings' );	//get our options
 $planning_year = $options['planning_year'];
 
@@ -19,10 +19,13 @@ else
 
 if(!isset($type) || $type == ''){
 	$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-	
-	if ( false !== strpos($url, 'staract') ) {
+
+	if ( false !== strpos($url, 'star-act') ) {
 		$type = 'staract';
-	} 
+	}
+	else if( false !== strpos($url, 'transfer-road-map') ){
+		$type = 'transfer_plans';
+	}
 	else {
 		$type = 'plans';
 	}
@@ -31,12 +34,17 @@ if(!isset($type) || $type == ''){
 
 if ( $type === 'staract' ) {
 	$url = 'star-act/';
-	$title = 'STAR Act';
-} 
+	$title = 'ADT/STAR Act Degree Road Maps';
+}
+else if ( $type === 'transfer_plans' ) {
+	$url = 'transfer-road-map/';
+	$title = 'Transfer Degree Road Maps';
+}
 else {
 	$url = '';
-	$title = 'Degree Planning Guides';
+	$title = 'Degree Road Maps';
 }
+
 
 get_header(); ?>
 
@@ -47,7 +55,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="section-content page-title-section">
-					<a class="dept-title-small" href="<?php echo site_url('/plan/'.$url); ?>"><?php echo ucwords($title); ?></a>
+					<a class="dept-title-small" href="<?php echo site_url('/road-map/'.$url); ?>"><?php echo ucwords($title); ?></a>
 					<h1 class="prog-title"><a class="prog-title" href="<?php echo site_url()."/academics/".$dept."/overview"; ?>"><?php echo $description; ?></a></h1>
 				</div>
 			</div>
@@ -59,25 +67,25 @@ get_header(); ?>
 		<div class="row small-marg-top small-marg-bottom">
 			<div class="col-xs-12">
 
-				<?php 
+				<?php
 				$terms = get_terms('aca_year', array('orderby' => 'name', 'order' => 'DESC',));
-				foreach($terms as $term) : 
+				foreach($terms as $term) :
 				if ($term->slug <= $planning_year) :
-					
+
 					$query_plans = new WP_Query(array(
-						'post_type' => $type, 
-						'orderby' => 'title', 
-						'order' => 'ASC',  
-						'department_shortname' => $dept, 
-						'aca_year' => $term->slug, 
+						'post_type' => $type,
+						'orderby' => 'title',
+						'order' => 'ASC',
+						'department_shortname' => $dept,
+						'aca_year' => $term->slug,
 						'posts_per_page' => 1000,));
-						
+
 					if($query_plans->have_posts()) :
-						
+
 						echo '<span class="section-title"><span><h2>'.$term->slug.'</h2></span></span>';
-						
+
 						while($query_plans->have_posts()) : $query_plans->the_post(); ?>
-								
+
 						<p><a title="<?php echo $title.' for '.get_the_title().' - '.$term->slug; ?>" href="<?php the_permalink();?>"><?php the_title(); ?></a></p>
 
 					<?php endwhile; ?>

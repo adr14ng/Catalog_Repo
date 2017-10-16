@@ -13,11 +13,11 @@ Primary use:    WEB CATALOG
 
 2. HYPERLINKS / ELIMINATES URL
 
-3. HTML BOILERPLATE 
+3. HTML BOILERPLATE
 
 4. DISPLAY NONE / HIDES ALL UNNECESSARY CONTENT
 
-5. SECTIONS STYLIZED / FORMATS FONT SIZE, ADJUSTS SPACING, ELIMINATES BORDERS 
+5. SECTIONS STYLIZED / FORMATS FONT SIZE, ADJUSTS SPACING, ELIMINATES BORDERS
 
 ===============================================================*/
 
@@ -48,7 +48,7 @@ Primary use:    WEB CATALOG
     }
 
     @page {
-    margin: 30cm; 
+    margin: 30cm;
     }
 
     html {
@@ -73,7 +73,7 @@ Primary use:    WEB CATALOG
       }
 
 /* ===========================================================================
-    3. HTML BOILERPLATE 
+    3. HTML BOILERPLATE
    =========================================================================== */
 
     abbr[title]:after {
@@ -110,7 +110,7 @@ Primary use:    WEB CATALOG
     h3 {
         page-break-after: avoid;
     }
-	
+
 	ul, ol {
 		padding: 2px 1px 1px 10px;
 		list-style-position: inside;
@@ -124,14 +124,14 @@ Primary use:    WEB CATALOG
    =========================================================================== */
 
 
-	#fixbar, #full-banner-inner, #catalog-subnav, #share-icons, #landing-section, 
-	#breadcrumbs, #outside-footer, .linksrow, #lastrow, /*div a,*/ .well-tseng, 
+	#fixbar, #full-banner-inner, #catalog-subnav, #share-icons, #landing-section,
+	#breadcrumbs, #outside-footer, .linksrow, #lastrow, /*div a, .well-tseng,*/
 	.dept-title-small, #policy-tags{
 	display: none;
 	}
 
 /* ===============================================================================
-    5. SECTIONS STYLIZED / FORMATS FONT SIZE, ADJUSTS SPACING, ELIMINATES BORDERS 
+    5. SECTIONS STYLIZED / FORMATS FONT SIZE, ADJUSTS SPACING, ELIMINATES BORDERS
    =============================================================================== */
 
 	* {
@@ -159,12 +159,22 @@ Primary use:    WEB CATALOG
 	margin: 5px 0px 5px 0px;
 	}
 
-	p, #full-banner-inner, .prog-title, .section-content, .section-title, .pad-box, .inner-item{
+	p, #full-banner-inner, .prog-title, .section-content, .section-title, .pad-box, .inner-item, {
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	border-bottom: none !important;
 	}
-	
+
+  .well-tseng {
+  color: #000000;
+	font-size: 10px;
+	line-height: 14px;
+  border: none !important;
+  box-shadow: none !important;
+	margin: 0px 0px 0px 0px;
+	word-wrap:break-word;
+  }
+
 	span h2 {
 	border-bottom: none !important;
 	}
@@ -193,15 +203,15 @@ Primary use:    WEB CATALOG
 	}
 
 	#inset-content {
-	padding-top:5px; 
+	padding-top:5px;
 	border: none;
 	}
-	
+
 	.row {
 		margin-right: -5px;
 		margin-left: -5px;
 	}
-	
+
 	#main-section {
 	padding-top: 0px;
 	}

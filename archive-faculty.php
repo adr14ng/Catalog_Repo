@@ -69,12 +69,12 @@ get_header(); ?>
 
 					<?php endwhile; else: ?>
 					
-						<p><?php _e('There are currently no faculty associated with '.$deptdesc.'.'); ?></p>
+						<p><?php _e('Refer to the Overview tab for faculty associated with '.$deptdesc.'.'); ?></p>
 						
 					<?php endif; ?>
 
 						<br /><br /><br />
-						<span class="section-title"><span><h2>Emeriti</h2></span></span>
+						<span class="section-title" id="emeriti" ><span><h2>Emeriti</h2></span></span>
 
 					<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -89,9 +89,16 @@ get_header(); ?>
 
 					<?php endwhile; endif; ?>
 					<?php if($count === 0) : ?>
-					
-						<p><?php _e('There are currently no emeritus faculty associated with '.$deptdesc.'.'); ?></p>
-						
+
+						<?php
+							echo '
+								<style type="text/css">
+									#emeriti{
+										display:none;
+									}
+								</style>
+							';
+						?>
 					<?php endif;?>
 
 					</div>

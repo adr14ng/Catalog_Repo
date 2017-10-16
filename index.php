@@ -4,7 +4,7 @@
 	<div class="row">
 <div id="landing-section">
 	<div class="container">
-	<div class="row">
+	<div class="row" id="row-index-margin-fix">
 		<a class="landing-link" href="<?php echo site_url('/a-z/'); ?>">
 		<div class="landing-item col-xs-4 clearfix">
 			<div class="land-bg">
@@ -12,7 +12,7 @@
 					<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icons-a-z.png">
 					<div class="land-text">
 						<h2 class="land-head">A to Z</h2>
-						<span class="land-copy">An index to help you find your way.</span>
+						<span class="land-copy">A site map to help you find your way.</span>
 					</div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 				<img alt="" class="land-icon" src="<?php bloginfo('template_directory'); ?>/img/icons-folders.png">
 				<div class="land-text">
 					<h2 class="land-head">Resources</h2>
-					<span class="land-copy">Catalog Archives, Degree Planning Guides and more.</span>
+					<span class="land-copy">Catalog Archives, Degree Road Maps and more.</span>
 				</div>
 			</div>
 			</div>
